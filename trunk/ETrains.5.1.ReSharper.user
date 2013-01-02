@@ -1,0 +1,109 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="6359828D-0263-43E6-B829-A7AD8E4BEDB2/f:EnCryptDecrypt.cs" caret="0" fromTop="0" />
+      <File id="6359828D-0263-43E6-B829-A7AD8E4BEDB2/f:FDHelper.cs" caret="13" fromTop="0" />
+      <File id="6359828D-0263-43E6-B829-A7AD8E4BEDB2/f:GlobalInfo.cs" caret="0" fromTop="0" />
+      <File id="6359828D-0263-43E6-B829-A7AD8E4BEDB2/f:PermissionInfo.cs" caret="0" fromTop="0" />
+      <File id="6359828D-0263-43E6-B829-A7AD8E4BEDB2/f:PrinterChecking.cs" caret="0" fromTop="0" />
+      <File id="6359828D-0263-43E6-B829-A7AD8E4BEDB2/f:PrintTicketSetting.cs" caret="0" fromTop="0" />
+      <File id="6359828D-0263-43E6-B829-A7AD8E4BEDB2/f:StringUtil.cs" caret="0" fromTop="0" />
+      <File id="6359828D-0263-43E6-B829-A7AD8E4BEDB2/f:TechLinkExt.cs" caret="0" fromTop="0" />
+      <File id="6359828D-0263-43E6-B829-A7AD8E4BEDB2/f:UserType.cs" caret="0" fromTop="0" />
+      <File id="6359828D-0263-43E6-B829-A7AD8E4BEDB2/f:ObjectToXml.cs" caret="106" fromTop="6" />
+      <File id="3124FBF8-C7A3-4507-9870-27854B5140D0/f:CustomETrainsEntities.cs" caret="0" fromTop="0" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:SubFormBase.Designer.cs" caret="478" fromTop="13" />
+      <File id="261E6732-DAE9-416E-A2BE-3BE9B485F5B7/f:TrainFactory.cs" caret="218" fromTop="10" />
+      <File id="6359828D-0263-43E6-B829-A7AD8E4BEDB2/f:UserInfo.cs" caret="121" fromTop="6" />
+      <File id="261E6732-DAE9-416E-A2BE-3BE9B485F5B7/f:CommonFactory.cs" caret="75" fromTop="4" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:SubFormBase.cs" caret="223" fromTop="8" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmConfigSQL2DbEcus.cs" caret="447" fromTop="18" />
+      <File id="261E6732-DAE9-416E-A2BE-3BE9B485F5B7/f:UserFactory.cs" caret="4076" fromTop="109" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmChangePassword.cs" caret="1532" fromTop="8" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmLogin.cs" caret="2514" fromTop="0" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmConfigSQL2DbEcus.Designer.cs" caret="3585" fromTop="21" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmUser.cs" caret="4801" fromTop="14" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmMainForm.Designer.cs" caret="19270" fromTop="84" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmAddUser.cs" caret="2687" fromTop="23" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:App.config" caret="405" fromTop="8" />
+      <File id="6359828D-0263-43E6-B829-A7AD8E4BEDB2/f:Common.cs" caret="1202" fromTop="20" />
+      <File id="261E6732-DAE9-416E-A2BE-3BE9B485F5B7/f:Connection.cs" caret="360" fromTop="11" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:Program.cs" caret="2304" fromTop="18" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmConfigSQL.cs" caret="5062" fromTop="15" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmMainForm.cs" caret="2724" fromTop="21" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmAddUser.cs" caret="14159" fromTop="13" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmMainForm.cs" caret="2686" fromTop="2" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmMainForm.cs" caret="3429" fromTop="9" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmMainForm.cs" caret="3767" fromTop="15" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmMainForm.cs" caret="3975" fromTop="14" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmMainForm.cs" caret="4204" fromTop="8" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmMainForm.cs" caret="4664" fromTop="9" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmMainForm.cs" caret="4886" fromTop="14" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmMainForm.cs" caret="5073" fromTop="3" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmMainForm.cs" caret="7341" fromTop="34" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmMainForm.Designer.cs" caret="21486" fromTop="84" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmAddUser.cs" caret="8811" fromTop="11" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmAddUser.cs" caret="9433" fromTop="33" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmAddUser.cs" caret="11789" fromTop="13" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmAddUser.cs" caret="11922" fromTop="18" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmAddUser.cs" caret="12840" fromTop="19" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmAddUser.cs" caret="11411" fromTop="31" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmAddUser.cs" caret="4156" fromTop="32" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmAddUser.cs" caret="3555" fromTop="32" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmAddUser.cs" caret="2687" fromTop="23" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmMainForm.cs" caret="144" fromTop="6" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:App.config" caret="405" fromTop="8" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:Program.cs" caret="1375" fromTop="18" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:Program.cs" caret="1956" fromTop="19" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:Program.cs" caret="2132" fromTop="23" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmConfigSQL.cs" caret="3836" fromTop="18" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmConfigSQL.cs" caret="3284" fromTop="17" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:Program.cs" caret="2281" fromTop="14" />
+      <File id="261E6732-DAE9-416E-A2BE-3BE9B485F5B7/f:Connection.cs" caret="360" fromTop="11" />
+      <File id="11CBD286-55F2-4F6C-9656-2F753E429DE7/f:frmMainForm.cs" caret="3404" fromTop="27" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="_connection" priority="3" />
+      <Item value="ETrains" priority="0" />
+      <Item value="dbTrainEntities`0" priority="4" />
+      <Item value="connection" priority="0" />
+      <Item value="ConnectionController`0" priority="2" />
+      <Item value="Form`0" priority="1" />
+      <Item value="BOL" priority="1" />
+      <Item value="UserControl`0" priority="0" />
+      <Item value="UserFactory`0" priority="0" />
+      <Item value="MDIFormBase`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="IsNullOrEmpty`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ETrains.BOL.ConnectionController">
+      <Item value="GetConnection`0" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ETrains.Properties.Resources">
+      <Item value="ResourceManager" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

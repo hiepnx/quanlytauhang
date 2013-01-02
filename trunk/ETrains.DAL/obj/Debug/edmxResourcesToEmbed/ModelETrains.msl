@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbTrainModelStoreContainer" CdmEntityContainer="dbTrainEntities">
+    <EntitySetMapping Name="tblCompanies">
+      <EntityTypeMapping TypeName="dbTrainModel.tblCompany">
+        <MappingFragment StoreEntitySet="tblCompany">
+          <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCustoms">
+      <EntityTypeMapping TypeName="dbTrainModel.tblCustom">
+        <MappingFragment StoreEntitySet="tblCustoms">
+          <ScalarProperty Name="CustomsCode" ColumnName="CustomsCode" />
+          <ScalarProperty Name="CustomsName" ColumnName="CustomsName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblToaTaus">
+      <EntityTypeMapping TypeName="dbTrainModel.tblToaTau">
+        <MappingFragment StoreEntitySet="tblToaTau">
+          <ScalarProperty Name="ToaTauID" ColumnName="ToaTauID" />
+          <ScalarProperty Name="Ma_ToaTau" ColumnName="Ma_ToaTau" />
+          <ScalarProperty Name="So_VanTai_Don" ColumnName="So_VanTai_Don" />
+          <ScalarProperty Name="Ngay_VanTai_Don" ColumnName="Ngay_VanTai_Don" />
+          <ScalarProperty Name="Ten_DoiTac" ColumnName="Ten_DoiTac" />
+          <ScalarProperty Name="Ma_DoanhNghiep" ColumnName="Ma_DoanhNghiep" />
+          <ScalarProperty Name="Ten_Hang" ColumnName="Ten_Hang" />
+          <ScalarProperty Name="Trong_Luong" ColumnName="Trong_Luong" />
+          <ScalarProperty Name="Don_Vi_Tinh" ColumnName="Don_Vi_Tinh" />
+          <ScalarProperty Name="Seal_VanTai" ColumnName="Seal_VanTai" />
+          <ScalarProperty Name="Seal_HaiQuan" ColumnName="Seal_HaiQuan" />
+          <ScalarProperty Name="Ghi_Chu" ColumnName="Ghi_Chu" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblToKhaiTaus">
+      <EntityTypeMapping TypeName="dbTrainModel.tblToKhaiTau">
+        <MappingFragment StoreEntitySet="tblToKhaiTau">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="DateDeclaration" ColumnName="DateDeclaration" />
+          <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+          <ScalarProperty Name="CustomCode" ColumnName="CustomCode" />
+          <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTrains">
+      <EntityTypeMapping TypeName="dbTrainModel.tblTrain">
+        <MappingFragment StoreEntitySet="tblTrain">
+          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="IsImport" ColumnName="IsImport" />
+          <ScalarProperty Name="DateImport" ColumnName="DateImport" />
+          <ScalarProperty Name="IsExport" ColumnName="IsExport" />
+          <ScalarProperty Name="DateExport" ColumnName="DateExport" />
+          <ScalarProperty Name="NumberHandover" ColumnName="NumberHandover" />
+          <ScalarProperty Name="DateHandover" ColumnName="DateHandover" />
+          <ScalarProperty Name="CodeStation" ColumnName="CodeStation" />
+          <ScalarProperty Name="CodeStationFromTo" ColumnName="CodeStationFromTo" />
+          <ScalarProperty Name="StatusVehicle" ColumnName="StatusVehicle" />
+          <ScalarProperty Name="StatusGoods" ColumnName="StatusGoods" />
+          <ScalarProperty Name="NumberPartTrain" ColumnName="NumberPartTrain" />
+          <ScalarProperty Name="Jounery" ColumnName="Jounery" />
+          <ScalarProperty Name="PassengerVN" ColumnName="PassengerVN" />
+          <ScalarProperty Name="PassengerForegin" ColumnName="PassengerForegin" />
+          <ScalarProperty Name="Staff" ColumnName="Staff" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTypes">
+      <EntityTypeMapping TypeName="dbTrainModel.tblType">
+        <MappingFragment StoreEntitySet="tblType">
+          <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="dbTrainModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUser">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewGetCurrentDates">
+      <EntityTypeMapping TypeName="dbTrainModel.ViewGetCurrentDate">
+        <MappingFragment StoreEntitySet="ViewGetCurrentDate">
+          <ScalarProperty Name="CurrentDateTime" ColumnName="CurrentDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

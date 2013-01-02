@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{11CBD286-55F2-4F6C-9656-2F753E429DE7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ETrains</RootNamespace>
+    <AssemblyName>ETrains</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Gs1\_Reference\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.RCM">
+      <HintPath>..\..\Gs1\ECustoms\bin\Release\System.Windows.Forms.RCM.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.ResourcesManager">
+      <HintPath>..\..\Gs1\ECustoms\bin\Release\System.Windows.Forms.ResourcesManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TechLink.DatabaseViewer">
+      <HintPath>..\..\Gs1\ECustoms\bin\Release\TechLink.DatabaseViewer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUser.Designer.cs">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConfigSQL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfigSQL.Designer.cs">
+      <DependentUpon>frmConfigSQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConfigSQL2DbEcus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfigSQL2DbEcus.Designer.cs">
+      <DependentUpon>frmConfigSQL2DbEcus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainForm.Designer.cs">
+      <DependentUpon>frmMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMessageBox.Designer.cs">
+      <DependentUpon>frmMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUser.Designer.cs">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIFormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIFormBase.Designer.cs">
+      <DependentUpon>MDIFormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubFormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubFormBase.Designer.cs">
+      <DependentUpon>SubFormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Train\frmPartTrainExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\frmPartTrainExport.Designer.cs">
+      <DependentUpon>frmPartTrainExport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Train\frmSearchTrain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\frmSearchTrain.Designer.cs">
+      <DependentUpon>frmSearchTrain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Train\frmSearchTrainPassenger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\frmSearchTrainPassenger.Designer.cs">
+      <DependentUpon>frmSearchTrainPassenger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Train\frmThemToaTau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\frmThemToaTau.Designer.cs">
+      <DependentUpon>frmThemToaTau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Train\frmTrainImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\frmTrainImport.Designer.cs">
+      <DependentUpon>frmTrainImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Train\frmTrainPassengers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\frmTrainPassengers.Designer.cs">
+      <DependentUpon>frmTrainPassengers.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmAddUser.resx">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConfigSQL.resx">
+      <DependentUpon>frmConfigSQL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConfigSQL2DbEcus.resx">
+      <DependentUpon>frmConfigSQL2DbEcus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainForm.resx">
+      <DependentUpon>frmMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMessageBox.resx">
+      <DependentUpon>frmMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUser.resx">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIFormBase.resx">
+      <DependentUpon>MDIFormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SubFormBase.resx">
+      <DependentUpon>SubFormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\frmPartTrainExport.resx">
+      <DependentUpon>frmPartTrainExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\frmSearchTrain.resx">
+      <DependentUpon>frmSearchTrain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\frmSearchTrainPassenger.resx">
+      <DependentUpon>frmSearchTrainPassenger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\frmThemToaTau.resx">
+      <DependentUpon>frmThemToaTau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\frmTrainImport.resx">
+      <DependentUpon>frmTrainImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\frmTrainPassengers.resx">
+      <DependentUpon>frmTrainPassengers.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ETrains.BOL\ETrains.BOL.csproj">
+      <Project>{261E6732-DAE9-416E-A2BE-3BE9B485F5B7}</Project>
+      <Name>ETrains.BOL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETrains.DAL\ETrains.DAL.csproj">
+      <Project>{3124FBF8-C7A3-4507-9870-27854B5140D0}</Project>
+      <Name>ETrains.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ETrains.Utilities\ETrains.Utilities.csproj">
+      <Project>{6359828D-0263-43E6-B829-A7AD8E4BEDB2}</Project>
+      <Name>ETrains.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\02.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1336316540_document-export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_side_boxes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\change-password-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkIcon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard_next_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\column_preferences.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\column-chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\confirm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeclaBig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Declaration.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Declaration1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enter.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exce.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exportBig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exportSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\form_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\goup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HelpBig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-check2-16x16.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon-Error-16x16-GreyBckgrnd.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageGS1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\importBig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\importSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KeyLock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KeyLock1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KeyLock2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoBackgound.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recycle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report224x24 24-bit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_icon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scroll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search41.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SearchVehicle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SearchVehicle1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shape_move_backwards.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shape_move_forwards.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Signin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\signout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vehicle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\viewBig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

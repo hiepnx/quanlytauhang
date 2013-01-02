@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbTrainModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="dbTrainModelStoreContainer">
+    <EntitySet Name="tblCompany" EntityType="dbTrainModel.Store.tblCompany" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblCustoms" EntityType="dbTrainModel.Store.tblCustoms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblToaTau" EntityType="dbTrainModel.Store.tblToaTau" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblToKhaiTau" EntityType="dbTrainModel.Store.tblToKhaiTau" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblTrain" EntityType="dbTrainModel.Store.tblTrain" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblType" EntityType="dbTrainModel.Store.tblType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblUser" EntityType="dbTrainModel.Store.tblUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ViewGetCurrentDate" EntityType="dbTrainModel.Store.ViewGetCurrentDate" store:Type="Views" store:Schema="dbo" store:Name="ViewGetCurrentDate">
+      <DefiningQuery>SELECT 
+      [ViewGetCurrentDate].[CurrentDateTime] AS [CurrentDateTime]
+      FROM [dbo].[ViewGetCurrentDate] AS [ViewGetCurrentDate]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <EntityType Name="tblCompany">
+    <Key>
+      <PropertyRef Name="CompanyCode" />
+    </Key>
+    <Property Name="CompanyCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="tblCustoms">
+    <Key>
+      <PropertyRef Name="CustomsCode" />
+    </Key>
+    <Property Name="CustomsCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CustomsName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="tblToaTau">
+    <Key>
+      <PropertyRef Name="ToaTauID" />
+      <PropertyRef Name="TrainID" />
+    </Key>
+    <Property Name="ToaTauID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Ma_ToaTau" Type="nvarchar" MaxLength="50" />
+    <Property Name="So_VanTai_Don" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ngay_VanTai_Don" Type="datetime" />
+    <Property Name="Ten_DoiTac" Type="nvarchar" MaxLength="250" />
+    <Property Name="Ma_DoanhNghiep" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ten_Hang" Type="nvarchar" MaxLength="250" />
+    <Property Name="Trong_Luong" Type="nvarchar" MaxLength="50" />
+    <Property Name="Don_Vi_Tinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="Seal_VanTai" Type="nvarchar" MaxLength="50" />
+    <Property Name="Seal_HaiQuan" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ghi_Chu" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="TrainID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblToKhaiTau">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="TrainID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="int" />
+    <Property Name="DateDeclaration" Type="datetime" />
+    <Property Name="TypeCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="TrainID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblTrain">
+    <Key>
+      <PropertyRef Name="TrainID" />
+    </Key>
+    <Property Name="TrainID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="smallint" />
+    <Property Name="IsImport" Type="bit" />
+    <Property Name="DateImport" Type="datetime" />
+    <Property Name="IsExport" Type="bit" />
+    <Property Name="DateExport" Type="datetime" />
+    <Property Name="NumberHandover" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateHandover" Type="datetime" />
+    <Property Name="CodeStation" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodeStationFromTo" Type="nvarchar" MaxLength="50" />
+    <Property Name="StatusVehicle" Type="nvarchar" MaxLength="200" />
+    <Property Name="StatusGoods" Type="nvarchar" MaxLength="200" />
+    <Property Name="NumberPartTrain" Type="nchar" MaxLength="10" />
+    <Property Name="Jounery" Type="nvarchar" MaxLength="200" />
+    <Property Name="PassengerVN" Type="int" />
+    <Property Name="PassengerForegin" Type="int" />
+    <Property Name="Staff" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="tblType">
+    <Key>
+      <PropertyRef Name="TypeCode" />
+    </Key>
+    <Property Name="TypeCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="TypeName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Sex" Type="int" />
+    <Property Name="Birthday" Type="datetime" />
+    <Property Name="Address" Type="nvarchar" MaxLength="300" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="300" />
+    <Property Name="PermissionID" Type="int" />
+    <Property Name="IsActive" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'dbTrain.dbo.ViewGetCurrentDate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="ViewGetCurrentDate">
+    <Key>
+      <PropertyRef Name="CurrentDateTime" />
+    </Key>
+    <Property Name="CurrentDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+</Schema>

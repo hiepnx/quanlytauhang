@@ -1,0 +1,5 @@
+D:\Code\ETrains\ETrains.Utilities\bin\Release\ETrains.Utilities.dll
+D:\Code\ETrains\ETrains.Utilities\bin\Release\ETrains.Utilities.pdb
+D:\Code\ETrains\ETrains.Utilities\obj\Release\ResolveAssemblyReference.cache
+D:\Code\ETrains\ETrains.Utilities\obj\Release\ETrains.Utilities.dll
+D:\Code\ETrains\ETrains.Utilities\obj\Release\ETrains.Utilities.pdb
