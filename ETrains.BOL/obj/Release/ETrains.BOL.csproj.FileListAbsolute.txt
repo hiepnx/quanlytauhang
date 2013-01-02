@@ -1,0 +1,10 @@
+D:\Code\ETrains\ETrains.BOL\bin\Release\ETrains.BOL.dll
+D:\Code\ETrains\ETrains.BOL\bin\Release\ETrains.BOL.pdb
+D:\Code\ETrains\ETrains.BOL\bin\Release\ETrains.DAL.dll
+D:\Code\ETrains\ETrains.BOL\bin\Release\ETrains.Utilities.dll
+D:\Code\ETrains\ETrains.BOL\bin\Release\log4net.dll
+D:\Code\ETrains\ETrains.BOL\bin\Release\ETrains.DAL.pdb
+D:\Code\ETrains\ETrains.BOL\bin\Release\ETrains.Utilities.pdb
+D:\Code\ETrains\ETrains.BOL\obj\Release\ResolveAssemblyReference.cache
+D:\Code\ETrains\ETrains.BOL\obj\Release\ETrains.BOL.dll
+D:\Code\ETrains\ETrains.BOL\obj\Release\ETrains.BOL.pdb

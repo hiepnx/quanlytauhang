@@ -1,0 +1,6 @@
+D:\Code\ETrains\ETrains.DAL\bin\Debug\ETrains.DAL.dll.config
+D:\Code\ETrains\ETrains.DAL\bin\Debug\ETrains.DAL.dll
+D:\Code\ETrains\ETrains.DAL\bin\Debug\ETrains.DAL.pdb
+D:\Code\ETrains\ETrains.DAL\obj\Debug\ResolveAssemblyReference.cache
+D:\Code\ETrains\ETrains.DAL\obj\Debug\ETrains.DAL.dll
+D:\Code\ETrains\ETrains.DAL\obj\Debug\ETrains.DAL.pdb
