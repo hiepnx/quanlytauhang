@@ -104,5 +104,14 @@ namespace ETrains.BOL
             return db.SaveChanges();
 
         }
+
+        //New Flow
+        public static int InsertChuyenTau(tblChuyenTau train)
+        {
+            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            db.AddTotblChuyenTaus(train);
+
+            return db.SaveChanges();    
+        }
     }
 }
