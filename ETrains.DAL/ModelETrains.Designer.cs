@@ -16,6 +16,18 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
+#region EDM Relationship Metadata
+
+[assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblHandover_tblChuyenTau", "tblChuyenTau", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblChuyenTau), "tblHandover", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblHandover), true)]
+[assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblTauKhachDetail_tblChuyenTau", "tblChuyenTau", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblChuyenTau), "tblTauKhachDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblTauKhachDetail), true)]
+[assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblToaTau_tblChuyenTau", "tblChuyenTau", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblChuyenTau), "tblToaTau", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblToaTau), true)]
+[assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblToKhaiTau_tblChuyenTau", "tblChuyenTau", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblChuyenTau), "tblToKhaiTau", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblToKhaiTau), true)]
+[assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblHandoverResource_tblHandover", "tblHandover", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblHandover), "tblHandoverResource", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblHandoverResource), true)]
+[assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblHandoverResource_tblToaTau", "tblToaTau", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblToaTau), "tblHandoverResource", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblHandoverResource), true)]
+[assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblToKhaiTauResource_tblToaTau", "tblToaTau", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblToaTau), "tblToKhaiTauResource", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblToKhaiTauResource), true)]
+[assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblToKhaiTauResource_tblToKhaiTau", "tblToKhaiTau", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblToKhaiTau), "tblToKhaiTauResource", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblToKhaiTauResource), true)]
+
+#endregion
 
 namespace ETrains.DAL
 {
@@ -68,6 +80,22 @@ namespace ETrains.DAL
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<tblChuyenTau> tblChuyenTaus
+        {
+            get
+            {
+                if ((_tblChuyenTaus == null))
+                {
+                    _tblChuyenTaus = base.CreateObjectSet<tblChuyenTau>("tblChuyenTaus");
+                }
+                return _tblChuyenTaus;
+            }
+        }
+        private ObjectSet<tblChuyenTau> _tblChuyenTaus;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<tblCompany> tblCompanies
         {
             get
@@ -100,6 +128,54 @@ namespace ETrains.DAL
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<tblHandover> tblHandovers
+        {
+            get
+            {
+                if ((_tblHandovers == null))
+                {
+                    _tblHandovers = base.CreateObjectSet<tblHandover>("tblHandovers");
+                }
+                return _tblHandovers;
+            }
+        }
+        private ObjectSet<tblHandover> _tblHandovers;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<tblHandoverResource> tblHandoverResources
+        {
+            get
+            {
+                if ((_tblHandoverResources == null))
+                {
+                    _tblHandoverResources = base.CreateObjectSet<tblHandoverResource>("tblHandoverResources");
+                }
+                return _tblHandoverResources;
+            }
+        }
+        private ObjectSet<tblHandoverResource> _tblHandoverResources;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<tblTauKhachDetail> tblTauKhachDetails
+        {
+            get
+            {
+                if ((_tblTauKhachDetails == null))
+                {
+                    _tblTauKhachDetails = base.CreateObjectSet<tblTauKhachDetail>("tblTauKhachDetails");
+                }
+                return _tblTauKhachDetails;
+            }
+        }
+        private ObjectSet<tblTauKhachDetail> _tblTauKhachDetails;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<tblToaTau> tblToaTaus
         {
             get
@@ -128,6 +204,22 @@ namespace ETrains.DAL
             }
         }
         private ObjectSet<tblToKhaiTau> _tblToKhaiTaus;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<tblToKhaiTauResource> tblToKhaiTauResources
+        {
+            get
+            {
+                if ((_tblToKhaiTauResources == null))
+                {
+                    _tblToKhaiTauResources = base.CreateObjectSet<tblToKhaiTauResource>("tblToKhaiTauResources");
+                }
+                return _tblToKhaiTauResources;
+            }
+        }
+        private ObjectSet<tblToKhaiTauResource> _tblToKhaiTauResources;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -197,6 +289,14 @@ namespace ETrains.DAL
         #region AddTo Methods
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the tblChuyenTaus EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTotblChuyenTaus(tblChuyenTau tblChuyenTau)
+        {
+            base.AddObject("tblChuyenTaus", tblChuyenTau);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the tblCompanies EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddTotblCompanies(tblCompany tblCompany)
@@ -213,6 +313,30 @@ namespace ETrains.DAL
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the tblHandovers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTotblHandovers(tblHandover tblHandover)
+        {
+            base.AddObject("tblHandovers", tblHandover);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the tblHandoverResources EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTotblHandoverResources(tblHandoverResource tblHandoverResource)
+        {
+            base.AddObject("tblHandoverResources", tblHandoverResource);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the tblTauKhachDetails EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTotblTauKhachDetails(tblTauKhachDetail tblTauKhachDetail)
+        {
+            base.AddObject("tblTauKhachDetails", tblTauKhachDetail);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the tblToaTaus EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddTotblToaTaus(tblToaTau tblToaTau)
@@ -226,6 +350,14 @@ namespace ETrains.DAL
         public void AddTotblToKhaiTaus(tblToKhaiTau tblToKhaiTau)
         {
             base.AddObject("tblToKhaiTaus", tblToKhaiTau);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the tblToKhaiTauResources EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTotblToKhaiTauResources(tblToKhaiTauResource tblToKhaiTauResource)
+        {
+            base.AddObject("tblToKhaiTauResources", tblToKhaiTauResource);
         }
     
         /// <summary>
@@ -267,6 +399,344 @@ namespace ETrains.DAL
     #endregion
     
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="dbTrainModel", Name="tblChuyenTau")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tblChuyenTau : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new tblChuyenTau object.
+        /// </summary>
+        /// <param name="trainID">Initial value of the TrainID property.</param>
+        public static tblChuyenTau CreatetblChuyenTau(global::System.Int64 trainID)
+        {
+            tblChuyenTau tblChuyenTau = new tblChuyenTau();
+            tblChuyenTau.TrainID = trainID;
+            return tblChuyenTau;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 TrainID
+        {
+            get
+            {
+                return _TrainID;
+            }
+            set
+            {
+                if (_TrainID != value)
+                {
+                    OnTrainIDChanging(value);
+                    ReportPropertyChanging("TrainID");
+                    _TrainID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("TrainID");
+                    OnTrainIDChanged();
+                }
+            }
+        }
+        private global::System.Int64 _TrainID;
+        partial void OnTrainIDChanging(global::System.Int64 value);
+        partial void OnTrainIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Ma_Chuyen_Tau
+        {
+            get
+            {
+                return _Ma_Chuyen_Tau;
+            }
+            set
+            {
+                OnMa_Chuyen_TauChanging(value);
+                ReportPropertyChanging("Ma_Chuyen_Tau");
+                _Ma_Chuyen_Tau = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Ma_Chuyen_Tau");
+                OnMa_Chuyen_TauChanged();
+            }
+        }
+        private global::System.String _Ma_Chuyen_Tau;
+        partial void OnMa_Chuyen_TauChanging(global::System.String value);
+        partial void OnMa_Chuyen_TauChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> Type
+        {
+            get
+            {
+                return _Type;
+            }
+            set
+            {
+                OnTypeChanging(value);
+                ReportPropertyChanging("Type");
+                _Type = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Type");
+                OnTypeChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _Type;
+        partial void OnTypeChanging(Nullable<global::System.Int16> value);
+        partial void OnTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Ngay_XNC
+        {
+            get
+            {
+                return _Ngay_XNC;
+            }
+            set
+            {
+                OnNgay_XNCChanging(value);
+                ReportPropertyChanging("Ngay_XNC");
+                _Ngay_XNC = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Ngay_XNC");
+                OnNgay_XNCChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Ngay_XNC;
+        partial void OnNgay_XNCChanging(Nullable<global::System.DateTime> value);
+        partial void OnNgay_XNCChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsPassengerTrain
+        {
+            get
+            {
+                return _IsPassengerTrain;
+            }
+            set
+            {
+                OnIsPassengerTrainChanging(value);
+                ReportPropertyChanging("IsPassengerTrain");
+                _IsPassengerTrain = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsPassengerTrain");
+                OnIsPassengerTrainChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsPassengerTrain;
+        partial void OnIsPassengerTrainChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsPassengerTrainChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> CreatedDate
+        {
+            get
+            {
+                return _CreatedDate;
+            }
+            set
+            {
+                OnCreatedDateChanging(value);
+                ReportPropertyChanging("CreatedDate");
+                _CreatedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreatedDate");
+                OnCreatedDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _CreatedDate;
+        partial void OnCreatedDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnCreatedDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> CreatedBy
+        {
+            get
+            {
+                return _CreatedBy;
+            }
+            set
+            {
+                OnCreatedByChanging(value);
+                ReportPropertyChanging("CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreatedBy");
+                OnCreatedByChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _CreatedBy;
+        partial void OnCreatedByChanging(Nullable<global::System.Int32> value);
+        partial void OnCreatedByChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ModifiedDate
+        {
+            get
+            {
+                return _ModifiedDate;
+            }
+            set
+            {
+                OnModifiedDateChanging(value);
+                ReportPropertyChanging("ModifiedDate");
+                _ModifiedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ModifiedDate");
+                OnModifiedDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ModifiedDate;
+        partial void OnModifiedDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnModifiedDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ModifiedBy
+        {
+            get
+            {
+                return _ModifiedBy;
+            }
+            set
+            {
+                OnModifiedByChanging(value);
+                ReportPropertyChanging("ModifiedBy");
+                _ModifiedBy = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ModifiedBy");
+                OnModifiedByChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ModifiedBy;
+        partial void OnModifiedByChanging(Nullable<global::System.Int32> value);
+        partial void OnModifiedByChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblHandover_tblChuyenTau", "tblHandover")]
+        public EntityCollection<tblHandover> tblHandovers
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tblHandover>("dbTrainModel.FK_tblHandover_tblChuyenTau", "tblHandover");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblHandover>("dbTrainModel.FK_tblHandover_tblChuyenTau", "tblHandover", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblTauKhachDetail_tblChuyenTau", "tblTauKhachDetail")]
+        public EntityCollection<tblTauKhachDetail> tblTauKhachDetails
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tblTauKhachDetail>("dbTrainModel.FK_tblTauKhachDetail_tblChuyenTau", "tblTauKhachDetail");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblTauKhachDetail>("dbTrainModel.FK_tblTauKhachDetail_tblChuyenTau", "tblTauKhachDetail", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblToaTau_tblChuyenTau", "tblToaTau")]
+        public EntityCollection<tblToaTau> tblToaTaus
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tblToaTau>("dbTrainModel.FK_tblToaTau_tblChuyenTau", "tblToaTau");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblToaTau>("dbTrainModel.FK_tblToaTau_tblChuyenTau", "tblToaTau", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblToKhaiTau_tblChuyenTau", "tblToKhaiTau")]
+        public EntityCollection<tblToKhaiTau> tblToKhaiTaus
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tblToKhaiTau>("dbTrainModel.FK_tblToKhaiTau_tblChuyenTau", "tblToKhaiTau");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblToKhaiTau>("dbTrainModel.FK_tblToKhaiTau_tblChuyenTau", "tblToKhaiTau", value);
+                }
+            }
+        }
+
+        #endregion
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -664,6 +1134,794 @@ namespace ETrains.DAL
 
         #endregion
     
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="dbTrainModel", Name="tblHandover")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tblHandover : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new tblHandover object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="trainID">Initial value of the TrainID property.</param>
+        public static tblHandover CreatetblHandover(global::System.Int64 id, global::System.Int64 trainID)
+        {
+            tblHandover tblHandover = new tblHandover();
+            tblHandover.ID = id;
+            tblHandover.TrainID = trainID;
+            return tblHandover;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int64 _ID;
+        partial void OnIDChanging(global::System.Int64 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 TrainID
+        {
+            get
+            {
+                return _TrainID;
+            }
+            set
+            {
+                OnTrainIDChanging(value);
+                ReportPropertyChanging("TrainID");
+                _TrainID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TrainID");
+                OnTrainIDChanged();
+            }
+        }
+        private global::System.Int64 _TrainID;
+        partial void OnTrainIDChanging(global::System.Int64 value);
+        partial void OnTrainIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NumberHandover
+        {
+            get
+            {
+                return _NumberHandover;
+            }
+            set
+            {
+                OnNumberHandoverChanging(value);
+                ReportPropertyChanging("NumberHandover");
+                _NumberHandover = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("NumberHandover");
+                OnNumberHandoverChanged();
+            }
+        }
+        private global::System.String _NumberHandover;
+        partial void OnNumberHandoverChanging(global::System.String value);
+        partial void OnNumberHandoverChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DateHandover
+        {
+            get
+            {
+                return _DateHandover;
+            }
+            set
+            {
+                OnDateHandoverChanging(value);
+                ReportPropertyChanging("DateHandover");
+                _DateHandover = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DateHandover");
+                OnDateHandoverChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DateHandover;
+        partial void OnDateHandoverChanging(Nullable<global::System.DateTime> value);
+        partial void OnDateHandoverChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CodeStation
+        {
+            get
+            {
+                return _CodeStation;
+            }
+            set
+            {
+                OnCodeStationChanging(value);
+                ReportPropertyChanging("CodeStation");
+                _CodeStation = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CodeStation");
+                OnCodeStationChanged();
+            }
+        }
+        private global::System.String _CodeStation;
+        partial void OnCodeStationChanging(global::System.String value);
+        partial void OnCodeStationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CodeStationFromTo
+        {
+            get
+            {
+                return _CodeStationFromTo;
+            }
+            set
+            {
+                OnCodeStationFromToChanging(value);
+                ReportPropertyChanging("CodeStationFromTo");
+                _CodeStationFromTo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CodeStationFromTo");
+                OnCodeStationFromToChanged();
+            }
+        }
+        private global::System.String _CodeStationFromTo;
+        partial void OnCodeStationFromToChanging(global::System.String value);
+        partial void OnCodeStationFromToChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String StatusGoods
+        {
+            get
+            {
+                return _StatusGoods;
+            }
+            set
+            {
+                OnStatusGoodsChanging(value);
+                ReportPropertyChanging("StatusGoods");
+                _StatusGoods = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("StatusGoods");
+                OnStatusGoodsChanged();
+            }
+        }
+        private global::System.String _StatusGoods;
+        partial void OnStatusGoodsChanging(global::System.String value);
+        partial void OnStatusGoodsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String StatusVehicle
+        {
+            get
+            {
+                return _StatusVehicle;
+            }
+            set
+            {
+                OnStatusVehicleChanging(value);
+                ReportPropertyChanging("StatusVehicle");
+                _StatusVehicle = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("StatusVehicle");
+                OnStatusVehicleChanged();
+            }
+        }
+        private global::System.String _StatusVehicle;
+        partial void OnStatusVehicleChanging(global::System.String value);
+        partial void OnStatusVehicleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> CreatedDate
+        {
+            get
+            {
+                return _CreatedDate;
+            }
+            set
+            {
+                OnCreatedDateChanging(value);
+                ReportPropertyChanging("CreatedDate");
+                _CreatedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreatedDate");
+                OnCreatedDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _CreatedDate;
+        partial void OnCreatedDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnCreatedDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> CreatedBy
+        {
+            get
+            {
+                return _CreatedBy;
+            }
+            set
+            {
+                OnCreatedByChanging(value);
+                ReportPropertyChanging("CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreatedBy");
+                OnCreatedByChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _CreatedBy;
+        partial void OnCreatedByChanging(Nullable<global::System.Int32> value);
+        partial void OnCreatedByChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ModifiedDate
+        {
+            get
+            {
+                return _ModifiedDate;
+            }
+            set
+            {
+                OnModifiedDateChanging(value);
+                ReportPropertyChanging("ModifiedDate");
+                _ModifiedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ModifiedDate");
+                OnModifiedDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ModifiedDate;
+        partial void OnModifiedDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnModifiedDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ModifiedBy
+        {
+            get
+            {
+                return _ModifiedBy;
+            }
+            set
+            {
+                OnModifiedByChanging(value);
+                ReportPropertyChanging("ModifiedBy");
+                _ModifiedBy = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ModifiedBy");
+                OnModifiedByChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ModifiedBy;
+        partial void OnModifiedByChanging(Nullable<global::System.Int32> value);
+        partial void OnModifiedByChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblHandover_tblChuyenTau", "tblChuyenTau")]
+        public tblChuyenTau tblChuyenTau
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblChuyenTau>("dbTrainModel.FK_tblHandover_tblChuyenTau", "tblChuyenTau").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblChuyenTau>("dbTrainModel.FK_tblHandover_tblChuyenTau", "tblChuyenTau").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tblChuyenTau> tblChuyenTauReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblChuyenTau>("dbTrainModel.FK_tblHandover_tblChuyenTau", "tblChuyenTau");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tblChuyenTau>("dbTrainModel.FK_tblHandover_tblChuyenTau", "tblChuyenTau", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblHandoverResource_tblHandover", "tblHandoverResource")]
+        public EntityCollection<tblHandoverResource> tblHandoverResources
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tblHandoverResource>("dbTrainModel.FK_tblHandoverResource_tblHandover", "tblHandoverResource");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblHandoverResource>("dbTrainModel.FK_tblHandoverResource_tblHandover", "tblHandoverResource", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="dbTrainModel", Name="tblHandoverResource")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tblHandoverResource : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new tblHandoverResource object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="handoverID">Initial value of the HandoverID property.</param>
+        /// <param name="toaTauID">Initial value of the ToaTauID property.</param>
+        public static tblHandoverResource CreatetblHandoverResource(global::System.Int64 id, global::System.Int64 handoverID, global::System.Int64 toaTauID)
+        {
+            tblHandoverResource tblHandoverResource = new tblHandoverResource();
+            tblHandoverResource.ID = id;
+            tblHandoverResource.HandoverID = handoverID;
+            tblHandoverResource.ToaTauID = toaTauID;
+            return tblHandoverResource;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int64 _ID;
+        partial void OnIDChanging(global::System.Int64 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 HandoverID
+        {
+            get
+            {
+                return _HandoverID;
+            }
+            set
+            {
+                OnHandoverIDChanging(value);
+                ReportPropertyChanging("HandoverID");
+                _HandoverID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HandoverID");
+                OnHandoverIDChanged();
+            }
+        }
+        private global::System.Int64 _HandoverID;
+        partial void OnHandoverIDChanging(global::System.Int64 value);
+        partial void OnHandoverIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ToaTauID
+        {
+            get
+            {
+                return _ToaTauID;
+            }
+            set
+            {
+                OnToaTauIDChanging(value);
+                ReportPropertyChanging("ToaTauID");
+                _ToaTauID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ToaTauID");
+                OnToaTauIDChanged();
+            }
+        }
+        private global::System.Int64 _ToaTauID;
+        partial void OnToaTauIDChanging(global::System.Int64 value);
+        partial void OnToaTauIDChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblHandoverResource_tblHandover", "tblHandover")]
+        public tblHandover tblHandover
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblHandover>("dbTrainModel.FK_tblHandoverResource_tblHandover", "tblHandover").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblHandover>("dbTrainModel.FK_tblHandoverResource_tblHandover", "tblHandover").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tblHandover> tblHandoverReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblHandover>("dbTrainModel.FK_tblHandoverResource_tblHandover", "tblHandover");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tblHandover>("dbTrainModel.FK_tblHandoverResource_tblHandover", "tblHandover", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblHandoverResource_tblToaTau", "tblToaTau")]
+        public tblToaTau tblToaTau
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblToaTau>("dbTrainModel.FK_tblHandoverResource_tblToaTau", "tblToaTau").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblToaTau>("dbTrainModel.FK_tblHandoverResource_tblToaTau", "tblToaTau").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tblToaTau> tblToaTauReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblToaTau>("dbTrainModel.FK_tblHandoverResource_tblToaTau", "tblToaTau");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tblToaTau>("dbTrainModel.FK_tblHandoverResource_tblToaTau", "tblToaTau", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="dbTrainModel", Name="tblTauKhachDetail")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tblTauKhachDetail : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new tblTauKhachDetail object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="trainID">Initial value of the TrainID property.</param>
+        public static tblTauKhachDetail CreatetblTauKhachDetail(global::System.Int64 id, global::System.Int64 trainID)
+        {
+            tblTauKhachDetail tblTauKhachDetail = new tblTauKhachDetail();
+            tblTauKhachDetail.ID = id;
+            tblTauKhachDetail.TrainID = trainID;
+            return tblTauKhachDetail;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int64 _ID;
+        partial void OnIDChanging(global::System.Int64 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 TrainID
+        {
+            get
+            {
+                return _TrainID;
+            }
+            set
+            {
+                OnTrainIDChanging(value);
+                ReportPropertyChanging("TrainID");
+                _TrainID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TrainID");
+                OnTrainIDChanged();
+            }
+        }
+        private global::System.Int64 _TrainID;
+        partial void OnTrainIDChanging(global::System.Int64 value);
+        partial void OnTrainIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Jounery
+        {
+            get
+            {
+                return _Jounery;
+            }
+            set
+            {
+                OnJouneryChanging(value);
+                ReportPropertyChanging("Jounery");
+                _Jounery = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Jounery");
+                OnJouneryChanged();
+            }
+        }
+        private global::System.String _Jounery;
+        partial void OnJouneryChanging(global::System.String value);
+        partial void OnJouneryChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> PassengerVN
+        {
+            get
+            {
+                return _PassengerVN;
+            }
+            set
+            {
+                OnPassengerVNChanging(value);
+                ReportPropertyChanging("PassengerVN");
+                _PassengerVN = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PassengerVN");
+                OnPassengerVNChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _PassengerVN;
+        partial void OnPassengerVNChanging(Nullable<global::System.Int32> value);
+        partial void OnPassengerVNChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> PassengerForegin
+        {
+            get
+            {
+                return _PassengerForegin;
+            }
+            set
+            {
+                OnPassengerForeginChanging(value);
+                ReportPropertyChanging("PassengerForegin");
+                _PassengerForegin = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PassengerForegin");
+                OnPassengerForeginChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _PassengerForegin;
+        partial void OnPassengerForeginChanging(Nullable<global::System.Int32> value);
+        partial void OnPassengerForeginChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Staff
+        {
+            get
+            {
+                return _Staff;
+            }
+            set
+            {
+                OnStaffChanging(value);
+                ReportPropertyChanging("Staff");
+                _Staff = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Staff");
+                OnStaffChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Staff;
+        partial void OnStaffChanging(Nullable<global::System.Int32> value);
+        partial void OnStaffChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblTauKhachDetail_tblChuyenTau", "tblChuyenTau")]
+        public tblChuyenTau tblChuyenTau
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblChuyenTau>("dbTrainModel.FK_tblTauKhachDetail_tblChuyenTau", "tblChuyenTau").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblChuyenTau>("dbTrainModel.FK_tblTauKhachDetail_tblChuyenTau", "tblChuyenTau").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tblChuyenTau> tblChuyenTauReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblChuyenTau>("dbTrainModel.FK_tblTauKhachDetail_tblChuyenTau", "tblChuyenTau");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tblChuyenTau>("dbTrainModel.FK_tblTauKhachDetail_tblChuyenTau", "tblChuyenTau", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -1082,7 +2340,7 @@ namespace ETrains.DAL
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 TrainID
         {
@@ -1092,14 +2350,11 @@ namespace ETrains.DAL
             }
             set
             {
-                if (_TrainID != value)
-                {
-                    OnTrainIDChanging(value);
-                    ReportPropertyChanging("TrainID");
-                    _TrainID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("TrainID");
-                    OnTrainIDChanged();
-                }
+                OnTrainIDChanging(value);
+                ReportPropertyChanging("TrainID");
+                _TrainID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TrainID");
+                OnTrainIDChanged();
             }
         }
         private global::System.Int64 _TrainID;
@@ -1108,6 +2363,91 @@ namespace ETrains.DAL
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblToaTau_tblChuyenTau", "tblChuyenTau")]
+        public tblChuyenTau tblChuyenTau
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblChuyenTau>("dbTrainModel.FK_tblToaTau_tblChuyenTau", "tblChuyenTau").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblChuyenTau>("dbTrainModel.FK_tblToaTau_tblChuyenTau", "tblChuyenTau").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tblChuyenTau> tblChuyenTauReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblChuyenTau>("dbTrainModel.FK_tblToaTau_tblChuyenTau", "tblChuyenTau");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tblChuyenTau>("dbTrainModel.FK_tblToaTau_tblChuyenTau", "tblChuyenTau", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblHandoverResource_tblToaTau", "tblHandoverResource")]
+        public EntityCollection<tblHandoverResource> tblHandoverResources
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tblHandoverResource>("dbTrainModel.FK_tblHandoverResource_tblToaTau", "tblHandoverResource");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblHandoverResource>("dbTrainModel.FK_tblHandoverResource_tblToaTau", "tblHandoverResource", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblToKhaiTauResource_tblToaTau", "tblToKhaiTauResource")]
+        public EntityCollection<tblToKhaiTauResource> tblToKhaiTauResources
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tblToKhaiTauResource>("dbTrainModel.FK_tblToKhaiTauResource_tblToaTau", "tblToKhaiTauResource");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblToKhaiTauResource>("dbTrainModel.FK_tblToKhaiTauResource_tblToaTau", "tblToKhaiTauResource", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -1382,7 +2722,7 @@ namespace ETrains.DAL
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 TrainID
         {
@@ -1392,14 +2732,11 @@ namespace ETrains.DAL
             }
             set
             {
-                if (_TrainID != value)
-                {
-                    OnTrainIDChanging(value);
-                    ReportPropertyChanging("TrainID");
-                    _TrainID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("TrainID");
-                    OnTrainIDChanged();
-                }
+                OnTrainIDChanging(value);
+                ReportPropertyChanging("TrainID");
+                _TrainID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TrainID");
+                OnTrainIDChanged();
             }
         }
         private global::System.Int64 _TrainID;
@@ -1408,6 +2745,255 @@ namespace ETrains.DAL
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblToKhaiTau_tblChuyenTau", "tblChuyenTau")]
+        public tblChuyenTau tblChuyenTau
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblChuyenTau>("dbTrainModel.FK_tblToKhaiTau_tblChuyenTau", "tblChuyenTau").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblChuyenTau>("dbTrainModel.FK_tblToKhaiTau_tblChuyenTau", "tblChuyenTau").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tblChuyenTau> tblChuyenTauReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblChuyenTau>("dbTrainModel.FK_tblToKhaiTau_tblChuyenTau", "tblChuyenTau");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tblChuyenTau>("dbTrainModel.FK_tblToKhaiTau_tblChuyenTau", "tblChuyenTau", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblToKhaiTauResource_tblToKhaiTau", "tblToKhaiTauResource")]
+        public EntityCollection<tblToKhaiTauResource> tblToKhaiTauResources
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tblToKhaiTauResource>("dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau", "tblToKhaiTauResource");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblToKhaiTauResource>("dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau", "tblToKhaiTauResource", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="dbTrainModel", Name="tblToKhaiTauResource")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tblToKhaiTauResource : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new tblToKhaiTauResource object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="toKhaiTauID">Initial value of the ToKhaiTauID property.</param>
+        /// <param name="toaTauID">Initial value of the ToaTauID property.</param>
+        public static tblToKhaiTauResource CreatetblToKhaiTauResource(global::System.Int64 id, global::System.Int64 toKhaiTauID, global::System.Int64 toaTauID)
+        {
+            tblToKhaiTauResource tblToKhaiTauResource = new tblToKhaiTauResource();
+            tblToKhaiTauResource.ID = id;
+            tblToKhaiTauResource.ToKhaiTauID = toKhaiTauID;
+            tblToKhaiTauResource.ToaTauID = toaTauID;
+            return tblToKhaiTauResource;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int64 _ID;
+        partial void OnIDChanging(global::System.Int64 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ToKhaiTauID
+        {
+            get
+            {
+                return _ToKhaiTauID;
+            }
+            set
+            {
+                OnToKhaiTauIDChanging(value);
+                ReportPropertyChanging("ToKhaiTauID");
+                _ToKhaiTauID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ToKhaiTauID");
+                OnToKhaiTauIDChanged();
+            }
+        }
+        private global::System.Int64 _ToKhaiTauID;
+        partial void OnToKhaiTauIDChanging(global::System.Int64 value);
+        partial void OnToKhaiTauIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ToaTauID
+        {
+            get
+            {
+                return _ToaTauID;
+            }
+            set
+            {
+                OnToaTauIDChanging(value);
+                ReportPropertyChanging("ToaTauID");
+                _ToaTauID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ToaTauID");
+                OnToaTauIDChanged();
+            }
+        }
+        private global::System.Int64 _ToaTauID;
+        partial void OnToaTauIDChanging(global::System.Int64 value);
+        partial void OnToaTauIDChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblToKhaiTauResource_tblToaTau", "tblToaTau")]
+        public tblToaTau tblToaTau
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblToaTau>("dbTrainModel.FK_tblToKhaiTauResource_tblToaTau", "tblToaTau").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblToaTau>("dbTrainModel.FK_tblToKhaiTauResource_tblToaTau", "tblToaTau").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tblToaTau> tblToaTauReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblToaTau>("dbTrainModel.FK_tblToKhaiTauResource_tblToaTau", "tblToaTau");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tblToaTau>("dbTrainModel.FK_tblToKhaiTauResource_tblToaTau", "tblToaTau", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblToKhaiTauResource_tblToKhaiTau", "tblToKhaiTau")]
+        public tblToKhaiTau tblToKhaiTau
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblToKhaiTau>("dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau", "tblToKhaiTau").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblToKhaiTau>("dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau", "tblToKhaiTau").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tblToKhaiTau> tblToKhaiTauReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblToKhaiTau>("dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau", "tblToKhaiTau");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tblToKhaiTau>("dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau", "tblToKhaiTau", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
