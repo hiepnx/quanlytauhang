@@ -98,7 +98,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TrainID" Type="bigint" Nullable="false" />
           <Property Name="NumberHandover" Type="nvarchar" MaxLength="50" />
           <Property Name="DateHandover" Type="datetime" />
@@ -115,7 +115,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="HandoverID" Type="bigint" Nullable="false" />
           <Property Name="ToaTauID" Type="bigint" Nullable="false" />
         </EntityType>
@@ -344,8 +344,6 @@
           <EntitySet Name="tblChuyenTaus" EntityType="dbTrainModel.tblChuyenTau" />
           <EntitySet Name="tblCompanies" EntityType="dbTrainModel.tblCompany" />
           <EntitySet Name="tblCustoms" EntityType="dbTrainModel.tblCustom" />
-          <EntitySet Name="tblHandovers" EntityType="dbTrainModel.tblHandover" />
-          <EntitySet Name="tblHandoverResources" EntityType="dbTrainModel.tblHandoverResource" />
           <EntitySet Name="tblTauKhachDetails" EntityType="dbTrainModel.tblTauKhachDetail" />
           <EntitySet Name="tblToaTaus" EntityType="dbTrainModel.tblToaTau" />
           <EntitySet Name="tblToKhaiTaus" EntityType="dbTrainModel.tblToKhaiTau" />
@@ -354,10 +352,6 @@
           <EntitySet Name="tblTypes" EntityType="dbTrainModel.tblType" />
           <EntitySet Name="tblUsers" EntityType="dbTrainModel.tblUser" />
           <EntitySet Name="ViewGetCurrentDates" EntityType="dbTrainModel.ViewGetCurrentDate" />
-          <AssociationSet Name="FK_tblHandover_tblChuyenTau" Association="dbTrainModel.FK_tblHandover_tblChuyenTau">
-            <End Role="tblChuyenTau" EntitySet="tblChuyenTaus" />
-            <End Role="tblHandover" EntitySet="tblHandovers" />
-          </AssociationSet>
           <AssociationSet Name="FK_tblTauKhachDetail_tblChuyenTau" Association="dbTrainModel.FK_tblTauKhachDetail_tblChuyenTau">
             <End Role="tblChuyenTau" EntitySet="tblChuyenTaus" />
             <End Role="tblTauKhachDetail" EntitySet="tblTauKhachDetails" />
@@ -370,14 +364,6 @@
             <End Role="tblChuyenTau" EntitySet="tblChuyenTaus" />
             <End Role="tblToKhaiTau" EntitySet="tblToKhaiTaus" />
           </AssociationSet>
-          <AssociationSet Name="FK_tblHandoverResource_tblHandover" Association="dbTrainModel.FK_tblHandoverResource_tblHandover">
-            <End Role="tblHandover" EntitySet="tblHandovers" />
-            <End Role="tblHandoverResource" EntitySet="tblHandoverResources" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblHandoverResource_tblToaTau" Association="dbTrainModel.FK_tblHandoverResource_tblToaTau">
-            <End Role="tblToaTau" EntitySet="tblToaTaus" />
-            <End Role="tblHandoverResource" EntitySet="tblHandoverResources" />
-          </AssociationSet>
           <AssociationSet Name="FK_tblToKhaiTauResource_tblToaTau" Association="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau">
             <End Role="tblToaTau" EntitySet="tblToaTaus" />
             <End Role="tblToKhaiTauResource" EntitySet="tblToKhaiTauResources" />
@@ -385,6 +371,20 @@
           <AssociationSet Name="FK_tblToKhaiTauResource_tblToKhaiTau" Association="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau">
             <End Role="tblToKhaiTau" EntitySet="tblToKhaiTaus" />
             <End Role="tblToKhaiTauResource" EntitySet="tblToKhaiTauResources" />
+          </AssociationSet>
+          <EntitySet Name="tblHandovers" EntityType="dbTrainModel.tblHandover" />
+          <AssociationSet Name="FK_tblHandover_tblChuyenTau" Association="dbTrainModel.FK_tblHandover_tblChuyenTau">
+            <End Role="tblChuyenTau" EntitySet="tblChuyenTaus" />
+            <End Role="tblHandover" EntitySet="tblHandovers" />
+          </AssociationSet>
+          <EntitySet Name="tblHandoverResources" EntityType="dbTrainModel.tblHandoverResource" />
+          <AssociationSet Name="FK_tblHandoverResource_tblHandover" Association="dbTrainModel.FK_tblHandoverResource_tblHandover">
+            <End Role="tblHandover" EntitySet="tblHandovers" />
+            <End Role="tblHandoverResource" EntitySet="tblHandoverResources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblHandoverResource_tblToaTau" Association="dbTrainModel.FK_tblHandoverResource_tblToaTau">
+            <End Role="tblToaTau" EntitySet="tblToaTaus" />
+            <End Role="tblHandoverResource" EntitySet="tblHandoverResources" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="tblChuyenTau">
@@ -400,10 +400,10 @@
           <Property Type="Int32" Name="CreatedBy" />
           <Property Type="DateTime" Name="ModifiedDate" />
           <Property Type="Int32" Name="ModifiedBy" />
-          <NavigationProperty Name="tblHandovers" Relationship="dbTrainModel.FK_tblHandover_tblChuyenTau" FromRole="tblChuyenTau" ToRole="tblHandover" />
           <NavigationProperty Name="tblTauKhachDetails" Relationship="dbTrainModel.FK_tblTauKhachDetail_tblChuyenTau" FromRole="tblChuyenTau" ToRole="tblTauKhachDetail" />
           <NavigationProperty Name="tblToaTaus" Relationship="dbTrainModel.FK_tblToaTau_tblChuyenTau" FromRole="tblChuyenTau" ToRole="tblToaTau" />
           <NavigationProperty Name="tblToKhaiTaus" Relationship="dbTrainModel.FK_tblToKhaiTau_tblChuyenTau" FromRole="tblChuyenTau" ToRole="tblToKhaiTau" />
+          <NavigationProperty Name="tblHandovers" Relationship="dbTrainModel.FK_tblHandover_tblChuyenTau" FromRole="tblChuyenTau" ToRole="tblHandover" />
         </EntityType>
         <EntityType Name="tblCompany">
           <Key>
@@ -428,35 +428,6 @@
           <Property Type="Int32" Name="CreatedBy" />
           <Property Type="DateTime" Name="ModifiedDate" />
           <Property Type="Int32" Name="ModifiedBy" />
-        </EntityType>
-        <EntityType Name="tblHandover">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" />
-          <Property Type="Int64" Name="TrainID" Nullable="false" />
-          <Property Type="String" Name="NumberHandover" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="DateHandover" />
-          <Property Type="String" Name="CodeStation" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CodeStationFromTo" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="StatusGoods" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="StatusVehicle" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="CreatedDate" />
-          <Property Type="Int32" Name="CreatedBy" />
-          <Property Type="DateTime" Name="ModifiedDate" />
-          <Property Type="Int32" Name="ModifiedBy" />
-          <NavigationProperty Name="tblChuyenTau" Relationship="dbTrainModel.FK_tblHandover_tblChuyenTau" FromRole="tblHandover" ToRole="tblChuyenTau" />
-          <NavigationProperty Name="tblHandoverResources" Relationship="dbTrainModel.FK_tblHandoverResource_tblHandover" FromRole="tblHandover" ToRole="tblHandoverResource" />
-        </EntityType>
-        <EntityType Name="tblHandoverResource">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" />
-          <Property Type="Int64" Name="HandoverID" Nullable="false" />
-          <Property Type="Int64" Name="ToaTauID" Nullable="false" />
-          <NavigationProperty Name="tblHandover" Relationship="dbTrainModel.FK_tblHandoverResource_tblHandover" FromRole="tblHandoverResource" ToRole="tblHandover" />
-          <NavigationProperty Name="tblToaTau" Relationship="dbTrainModel.FK_tblHandoverResource_tblToaTau" FromRole="tblHandoverResource" ToRole="tblToaTau" />
         </EntityType>
         <EntityType Name="tblTauKhachDetail">
           <Key>
@@ -492,8 +463,8 @@
           <Property Type="Int32" Name="ModifiedBy" />
           <Property Type="Int64" Name="TrainID" Nullable="false" />
           <NavigationProperty Name="tblChuyenTau" Relationship="dbTrainModel.FK_tblToaTau_tblChuyenTau" FromRole="tblToaTau" ToRole="tblChuyenTau" />
-          <NavigationProperty Name="tblHandoverResources" Relationship="dbTrainModel.FK_tblHandoverResource_tblToaTau" FromRole="tblToaTau" ToRole="tblHandoverResource" />
           <NavigationProperty Name="tblToKhaiTauResources" Relationship="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau" FromRole="tblToaTau" ToRole="tblToKhaiTauResource" />
+          <NavigationProperty Name="tblHandoverResources" Relationship="dbTrainModel.FK_tblHandoverResource_tblToaTau" FromRole="tblToaTau" ToRole="tblHandoverResource" />
         </EntityType>
         <EntityType Name="tblToKhaiTau">
           <Key>
@@ -584,18 +555,6 @@
           </Key>
           <Property Type="DateTime" Name="CurrentDateTime" Nullable="false" />
         </EntityType>
-        <Association Name="FK_tblHandover_tblChuyenTau">
-          <End Type="dbTrainModel.tblChuyenTau" Role="tblChuyenTau" Multiplicity="1" />
-          <End Type="dbTrainModel.tblHandover" Role="tblHandover" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblChuyenTau">
-              <PropertyRef Name="TrainID" />
-            </Principal>
-            <Dependent Role="tblHandover">
-              <PropertyRef Name="TrainID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_tblTauKhachDetail_tblChuyenTau">
           <End Type="dbTrainModel.tblChuyenTau" Role="tblChuyenTau" Multiplicity="1" />
           <End Type="dbTrainModel.tblTauKhachDetail" Role="tblTauKhachDetail" Multiplicity="*" />
@@ -632,30 +591,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tblHandoverResource_tblHandover">
-          <End Type="dbTrainModel.tblHandover" Role="tblHandover" Multiplicity="1" />
-          <End Type="dbTrainModel.tblHandoverResource" Role="tblHandoverResource" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblHandover">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="tblHandoverResource">
-              <PropertyRef Name="HandoverID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblHandoverResource_tblToaTau">
-          <End Type="dbTrainModel.tblToaTau" Role="tblToaTau" Multiplicity="1" />
-          <End Type="dbTrainModel.tblHandoverResource" Role="tblHandoverResource" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblToaTau">
-              <PropertyRef Name="ToaTauID" />
-            </Principal>
-            <Dependent Role="tblHandoverResource">
-              <PropertyRef Name="ToaTauID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_tblToKhaiTauResource_tblToaTau">
           <End Type="dbTrainModel.tblToaTau" Role="tblToaTau" Multiplicity="1" />
           <End Type="dbTrainModel.tblToKhaiTauResource" Role="tblToKhaiTauResource" Multiplicity="*" />
@@ -677,6 +612,71 @@
             </Principal>
             <Dependent Role="tblToKhaiTauResource">
               <PropertyRef Name="ToKhaiTauID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblHandover">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="TrainID" Nullable="false" />
+          <Property Type="String" Name="NumberHandover" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateHandover" />
+          <Property Type="String" Name="CodeStation" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CodeStationFromTo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StatusGoods" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StatusVehicle" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <NavigationProperty Name="tblChuyenTau" Relationship="dbTrainModel.FK_tblHandover_tblChuyenTau" FromRole="tblHandover" ToRole="tblChuyenTau" />
+          <NavigationProperty Name="tblHandoverResources" Relationship="dbTrainModel.FK_tblHandoverResource_tblHandover" FromRole="tblHandover" ToRole="tblHandoverResource" />
+        </EntityType>
+        <Association Name="FK_tblHandover_tblChuyenTau">
+          <End Type="dbTrainModel.tblChuyenTau" Role="tblChuyenTau" Multiplicity="1" />
+          <End Type="dbTrainModel.tblHandover" Role="tblHandover" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblChuyenTau">
+              <PropertyRef Name="TrainID" />
+            </Principal>
+            <Dependent Role="tblHandover">
+              <PropertyRef Name="TrainID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblHandoverResource">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="HandoverID" Nullable="false" />
+          <Property Type="Int64" Name="ToaTauID" Nullable="false" />
+          <NavigationProperty Name="tblHandover" Relationship="dbTrainModel.FK_tblHandoverResource_tblHandover" FromRole="tblHandoverResource" ToRole="tblHandover" />
+          <NavigationProperty Name="tblToaTau" Relationship="dbTrainModel.FK_tblHandoverResource_tblToaTau" FromRole="tblHandoverResource" ToRole="tblToaTau" />
+        </EntityType>
+        <Association Name="FK_tblHandoverResource_tblHandover">
+          <End Type="dbTrainModel.tblHandover" Role="tblHandover" Multiplicity="1" />
+          <End Type="dbTrainModel.tblHandoverResource" Role="tblHandoverResource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblHandover">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblHandoverResource">
+              <PropertyRef Name="HandoverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblHandoverResource_tblToaTau">
+          <End Type="dbTrainModel.tblToaTau" Role="tblToaTau" Multiplicity="1" />
+          <End Type="dbTrainModel.tblHandoverResource" Role="tblHandoverResource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblToaTau">
+              <PropertyRef Name="ToaTauID" />
+            </Principal>
+            <Dependent Role="tblHandoverResource">
+              <PropertyRef Name="ToaTauID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -724,33 +724,6 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="CustomsName" ColumnName="CustomsName" />
                 <ScalarProperty Name="CustomsCode" ColumnName="CustomsCode" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblHandovers">
-            <EntityTypeMapping TypeName="dbTrainModel.tblHandover">
-              <MappingFragment StoreEntitySet="tblHandover">
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="StatusVehicle" ColumnName="StatusVehicle" />
-                <ScalarProperty Name="StatusGoods" ColumnName="StatusGoods" />
-                <ScalarProperty Name="CodeStationFromTo" ColumnName="CodeStationFromTo" />
-                <ScalarProperty Name="CodeStation" ColumnName="CodeStation" />
-                <ScalarProperty Name="DateHandover" ColumnName="DateHandover" />
-                <ScalarProperty Name="NumberHandover" ColumnName="NumberHandover" />
-                <ScalarProperty Name="TrainID" ColumnName="TrainID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblHandoverResources">
-            <EntityTypeMapping TypeName="dbTrainModel.tblHandoverResource">
-              <MappingFragment StoreEntitySet="tblHandoverResource">
-                <ScalarProperty Name="ToaTauID" ColumnName="ToaTauID" />
-                <ScalarProperty Name="HandoverID" ColumnName="HandoverID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -880,6 +853,33 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tblHandovers">
+            <EntityTypeMapping TypeName="dbTrainModel.tblHandover">
+              <MappingFragment StoreEntitySet="tblHandover">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="StatusVehicle" ColumnName="StatusVehicle" />
+                <ScalarProperty Name="StatusGoods" ColumnName="StatusGoods" />
+                <ScalarProperty Name="CodeStationFromTo" ColumnName="CodeStationFromTo" />
+                <ScalarProperty Name="CodeStation" ColumnName="CodeStation" />
+                <ScalarProperty Name="DateHandover" ColumnName="DateHandover" />
+                <ScalarProperty Name="NumberHandover" ColumnName="NumberHandover" />
+                <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblHandoverResources">
+            <EntityTypeMapping TypeName="dbTrainModel.tblHandoverResource">
+              <MappingFragment StoreEntitySet="tblHandoverResource">
+                <ScalarProperty Name="ToaTauID" ColumnName="ToaTauID" />
+                <ScalarProperty Name="HandoverID" ColumnName="HandoverID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -904,8 +904,6 @@
         <EntityTypeShape EntityType="dbTrainModel.tblChuyenTau" Width="1.5" PointX="0.75" PointY="8.25" Height="3.5186979166666674" />
         <EntityTypeShape EntityType="dbTrainModel.tblCompany" Width="1.5" PointX="5.75" PointY="0.75" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="dbTrainModel.tblCustom" Width="1.5" PointX="7.75" PointY="0.75" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="dbTrainModel.tblHandover" Width="1.5" PointX="3" PointY="1.625" Height="3.7109993489583317" />
-        <EntityTypeShape EntityType="dbTrainModel.tblHandoverResource" Width="1.5" PointX="5.25" PointY="6.875" Height="1.9802864583333388" />
         <EntityTypeShape EntityType="dbTrainModel.tblTauKhachDetail" Width="1.5" PointX="3" PointY="6.125" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="dbTrainModel.tblToaTau" Width="1.5" PointX="3" PointY="9.25" Height="4.8648079427083388" />
         <EntityTypeShape EntityType="dbTrainModel.tblToKhaiTau" Width="1.5" PointX="3" PointY="14.875" Height="3.5186979166666674" />
@@ -914,44 +912,48 @@
         <EntityTypeShape EntityType="dbTrainModel.tblType" Width="1.5" PointX="9.75" PointY="0.75" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="dbTrainModel.tblUser" Width="1.5" PointX="9.75" PointY="4.75" Height="3.1340950520833388" />
         <EntityTypeShape EntityType="dbTrainModel.ViewGetCurrentDate" Width="1.5" PointX="9.75" PointY="8.75" Height="1.2110807291666674" />
-        <AssociationConnector Association="dbTrainModel.FK_tblHandover_tblChuyenTau" >
-          <ConnectorPoint PointX="1.5" PointY="8.25" />
-          <ConnectorPoint PointX="1.5" PointY="3.4804996744791659" />
-          <ConnectorPoint PointX="3" PointY="3.4804996744791659" />
-        </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblTauKhachDetail_tblChuyenTau" >
-          <ConnectorPoint PointX="1.9062525" PointY="8.25" />
-          <ConnectorPoint PointX="1.9062525" PointY="7.1562474999999992" />
-          <ConnectorPoint PointX="3" PointY="7.1562474999999992" />
+          <ConnectorPoint PointX="1.5" PointY="8.25" />
+          <ConnectorPoint PointX="1.5" PointY="7.1874995" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="7.1874994999999995" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="7.1874995" />
+          <ConnectorPoint PointX="3" PointY="7.1874995" />
         </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblToaTau_tblChuyenTau" >
           <ConnectorPoint PointX="2.25" PointY="10.509348958333334" />
           <ConnectorPoint PointX="3" PointY="10.509348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTau_tblChuyenTau" >
-          <ConnectorPoint PointX="1.5" PointY="11.768697916666667" />
+          <ConnectorPoint PointX="1.5" PointY="11.768697916666666" />
           <ConnectorPoint PointX="1.5" PointY="16.634348958333334" />
           <ConnectorPoint PointX="3" PointY="16.634348958333334" />
         </AssociationConnector>
-        <AssociationConnector Association="dbTrainModel.FK_tblHandoverResource_tblHandover" >
-          <ConnectorPoint PointX="4.5" PointY="4.2566943359375" />
-          <ConnectorPoint PointX="5.46875" PointY="4.2566943359375" />
-          <ConnectorPoint PointX="5.46875" PointY="6.875" />
-        </AssociationConnector>
-        <AssociationConnector Association="dbTrainModel.FK_tblHandoverResource_tblToaTau" >
-          <ConnectorPoint PointX="4.5" PointY="9.2511528461538468" />
-          <ConnectorPoint PointX="4.875" PointY="8.8761528461538468" />
-          <ConnectorPoint PointX="4.875" PointY="9.2314393044871856" />
-          <ConnectorPoint PointX="5.2511528461538459" PointY="8.8552864583333388" />
-        </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau" >
-          <ConnectorPoint PointX="4.5" PointY="13.494903971354169" />
-          <ConnectorPoint PointX="5.25" PointY="13.494903971354169" />
+          <ConnectorPoint PointX="4.5" PointY="13.494903971354166" />
+          <ConnectorPoint PointX="5.25" PointY="13.494903971354166" />
         </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau" >
           <ConnectorPoint PointX="4.5" PointY="16.634348958333334" />
           <ConnectorPoint PointX="6" PointY="16.634348958333334" />
           <ConnectorPoint PointX="6" PointY="14.855286458333339" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="dbTrainModel.tblHandover" Width="1.5" PointX="3" PointY="1.125" Height="3.7109993489583388" />
+        <AssociationConnector Association="dbTrainModel.FK_tblHandover_tblChuyenTau" >
+          <ConnectorPoint PointX="1.9062525" PointY="8.25" />
+          <ConnectorPoint PointX="1.9062525" PointY="2.9804996744791659" />
+          <ConnectorPoint PointX="3" PointY="2.9804996744791659" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="dbTrainModel.tblHandoverResource" Width="1.5" PointX="5.25" PointY="6.625" Height="1.9802864583333388" />
+        <AssociationConnector Association="dbTrainModel.FK_tblHandoverResource_tblHandover" >
+          <ConnectorPoint PointX="4.5" PointY="4.0066943359375" />
+          <ConnectorPoint PointX="5.46875" PointY="4.0066943359375" />
+          <ConnectorPoint PointX="5.46875" PointY="6.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="dbTrainModel.FK_tblHandoverResource_tblToaTau" >
+          <ConnectorPoint PointX="4.5" PointY="9.2511528461538468" />
+          <ConnectorPoint PointX="4.875" PointY="8.8761528461538468" />
+          <ConnectorPoint PointX="4.875" PointY="8.9814393044871856" />
+          <ConnectorPoint PointX="5.2511528461538459" PointY="8.6052864583333388" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

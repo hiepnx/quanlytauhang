@@ -18,14 +18,14 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblHandover_tblChuyenTau", "tblChuyenTau", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblChuyenTau), "tblHandover", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblHandover), true)]
 [assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblTauKhachDetail_tblChuyenTau", "tblChuyenTau", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblChuyenTau), "tblTauKhachDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblTauKhachDetail), true)]
 [assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblToaTau_tblChuyenTau", "tblChuyenTau", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblChuyenTau), "tblToaTau", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblToaTau), true)]
 [assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblToKhaiTau_tblChuyenTau", "tblChuyenTau", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblChuyenTau), "tblToKhaiTau", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblToKhaiTau), true)]
-[assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblHandoverResource_tblHandover", "tblHandover", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblHandover), "tblHandoverResource", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblHandoverResource), true)]
-[assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblHandoverResource_tblToaTau", "tblToaTau", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblToaTau), "tblHandoverResource", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblHandoverResource), true)]
 [assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblToKhaiTauResource_tblToaTau", "tblToaTau", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblToaTau), "tblToKhaiTauResource", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblToKhaiTauResource), true)]
 [assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblToKhaiTauResource_tblToKhaiTau", "tblToKhaiTau", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblToKhaiTau), "tblToKhaiTauResource", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblToKhaiTauResource), true)]
+[assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblHandover_tblChuyenTau", "tblChuyenTau", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblChuyenTau), "tblHandover", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblHandover), true)]
+[assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblHandoverResource_tblHandover", "tblHandover", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblHandover), "tblHandoverResource", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblHandoverResource), true)]
+[assembly: EdmRelationshipAttribute("dbTrainModel", "FK_tblHandoverResource_tblToaTau", "tblToaTau", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblToaTau), "tblHandoverResource", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblHandoverResource), true)]
 
 #endregion
 
@@ -124,38 +124,6 @@ namespace ETrains.DAL
             }
         }
         private ObjectSet<tblCustom> _tblCustoms;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<tblHandover> tblHandovers
-        {
-            get
-            {
-                if ((_tblHandovers == null))
-                {
-                    _tblHandovers = base.CreateObjectSet<tblHandover>("tblHandovers");
-                }
-                return _tblHandovers;
-            }
-        }
-        private ObjectSet<tblHandover> _tblHandovers;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<tblHandoverResource> tblHandoverResources
-        {
-            get
-            {
-                if ((_tblHandoverResources == null))
-                {
-                    _tblHandoverResources = base.CreateObjectSet<tblHandoverResource>("tblHandoverResources");
-                }
-                return _tblHandoverResources;
-            }
-        }
-        private ObjectSet<tblHandoverResource> _tblHandoverResources;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -284,6 +252,38 @@ namespace ETrains.DAL
             }
         }
         private ObjectSet<ViewGetCurrentDate> _ViewGetCurrentDates;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<tblHandover> tblHandovers
+        {
+            get
+            {
+                if ((_tblHandovers == null))
+                {
+                    _tblHandovers = base.CreateObjectSet<tblHandover>("tblHandovers");
+                }
+                return _tblHandovers;
+            }
+        }
+        private ObjectSet<tblHandover> _tblHandovers;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<tblHandoverResource> tblHandoverResources
+        {
+            get
+            {
+                if ((_tblHandoverResources == null))
+                {
+                    _tblHandoverResources = base.CreateObjectSet<tblHandoverResource>("tblHandoverResources");
+                }
+                return _tblHandoverResources;
+            }
+        }
+        private ObjectSet<tblHandoverResource> _tblHandoverResources;
 
         #endregion
         #region AddTo Methods
@@ -310,22 +310,6 @@ namespace ETrains.DAL
         public void AddTotblCustoms(tblCustom tblCustom)
         {
             base.AddObject("tblCustoms", tblCustom);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the tblHandovers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTotblHandovers(tblHandover tblHandover)
-        {
-            base.AddObject("tblHandovers", tblHandover);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the tblHandoverResources EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTotblHandoverResources(tblHandoverResource tblHandoverResource)
-        {
-            base.AddObject("tblHandoverResources", tblHandoverResource);
         }
     
         /// <summary>
@@ -390,6 +374,22 @@ namespace ETrains.DAL
         public void AddToViewGetCurrentDates(ViewGetCurrentDate viewGetCurrentDate)
         {
             base.AddObject("ViewGetCurrentDates", viewGetCurrentDate);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the tblHandovers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTotblHandovers(tblHandover tblHandover)
+        {
+            base.AddObject("tblHandovers", tblHandover);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the tblHandoverResources EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTotblHandoverResources(tblHandoverResource tblHandoverResource)
+        {
+            base.AddObject("tblHandoverResources", tblHandoverResource);
         }
 
         #endregion
@@ -653,28 +653,6 @@ namespace ETrains.DAL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblHandover_tblChuyenTau", "tblHandover")]
-        public EntityCollection<tblHandover> tblHandovers
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tblHandover>("dbTrainModel.FK_tblHandover_tblChuyenTau", "tblHandover");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblHandover>("dbTrainModel.FK_tblHandover_tblChuyenTau", "tblHandover", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblTauKhachDetail_tblChuyenTau", "tblTauKhachDetail")]
         public EntityCollection<tblTauKhachDetail> tblTauKhachDetails
         {
@@ -731,6 +709,28 @@ namespace ETrains.DAL
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblToKhaiTau>("dbTrainModel.FK_tblToKhaiTau_tblChuyenTau", "tblToKhaiTau", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblHandover_tblChuyenTau", "tblHandover")]
+        public EntityCollection<tblHandover> tblHandovers
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tblHandover>("dbTrainModel.FK_tblHandover_tblChuyenTau", "tblHandover");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblHandover>("dbTrainModel.FK_tblHandover_tblChuyenTau", "tblHandover", value);
                 }
             }
         }
@@ -2409,28 +2409,6 @@ namespace ETrains.DAL
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblHandoverResource_tblToaTau", "tblHandoverResource")]
-        public EntityCollection<tblHandoverResource> tblHandoverResources
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tblHandoverResource>("dbTrainModel.FK_tblHandoverResource_tblToaTau", "tblHandoverResource");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblHandoverResource>("dbTrainModel.FK_tblHandoverResource_tblToaTau", "tblHandoverResource", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblToKhaiTauResource_tblToaTau", "tblToKhaiTauResource")]
         public EntityCollection<tblToKhaiTauResource> tblToKhaiTauResources
         {
@@ -2443,6 +2421,28 @@ namespace ETrains.DAL
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblToKhaiTauResource>("dbTrainModel.FK_tblToKhaiTauResource_tblToaTau", "tblToKhaiTauResource", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblHandoverResource_tblToaTau", "tblHandoverResource")]
+        public EntityCollection<tblHandoverResource> tblHandoverResources
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tblHandoverResource>("dbTrainModel.FK_tblHandoverResource_tblToaTau", "tblHandoverResource");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblHandoverResource>("dbTrainModel.FK_tblHandoverResource_tblToaTau", "tblHandoverResource", value);
                 }
             }
         }

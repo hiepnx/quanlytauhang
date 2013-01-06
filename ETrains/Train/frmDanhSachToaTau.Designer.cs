@@ -1,6 +1,6 @@
 ﻿namespace ETrains.Train
 {
-    partial class frmThemChuyenTau
+    partial class frmDanhSachToaTau
     {
         /// <summary>
         /// Required designer variable.
@@ -43,11 +43,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblHeader = new System.Windows.Forms.Label();
-            this.gbChuyenTau = new System.Windows.Forms.GroupBox();
-            this.dtpDateXNC = new System.Windows.Forms.DateTimePicker();
-            this.txtNumberTrain = new System.Windows.Forms.TextBox();
-            this.lblDateXNK = new System.Windows.Forms.Label();
-            this.lblNumber = new System.Windows.Forms.Label();
             this.grdToaTau = new System.Windows.Forms.DataGridView();
             this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ToaTauID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,15 +54,13 @@
             this.Ma_DoanhNghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ten_Hang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Trong_Luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Don_Vi_Tinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seal_VanTai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seal_HaiQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ghi_Chu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnAddNew = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.techlinkErrorProvider1 = new ETrains.Utilities.TechlinkErrorProvider();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,38 +76,15 @@
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbToaTau = new System.Windows.Forms.GroupBox();
-            this.btnDeleteToaTau = new System.Windows.Forms.Button();
-            this.btnAddToaTau = new System.Windows.Forms.Button();
-            this.btnUpdateToaTau = new System.Windows.Forms.Button();
-            this.txtNote = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtDVT = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtCompanyCode = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblCompanyName = new System.Windows.Forms.Label();
-            this.txtCompanyName = new System.Windows.Forms.TextBox();
-            this.txtPartner = new System.Windows.Forms.TextBox();
-            this.lblPartner = new System.Windows.Forms.Label();
-            this.dtpVanDon = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtSoVanDon = new System.Windows.Forms.TextBox();
-            this.txtSealHQ = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtSealVT = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtTrongLuong = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtTenHang = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtNumberToaTau = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.gbChuyenTau.SuspendLayout();
+            this.gbChuyenTau = new System.Windows.Forms.GroupBox();
+            this.dtpDateXNC = new System.Windows.Forms.DateTimePicker();
+            this.txtNumberTrain = new System.Windows.Forms.TextBox();
+            this.lblDateXNK = new System.Windows.Forms.Label();
+            this.lblNumber = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdToaTau)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.techlinkErrorProvider1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.gbToaTau.SuspendLayout();
+            this.gbChuyenTau.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblHeader
@@ -126,60 +96,8 @@
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(851, 24);
             this.lblHeader.TabIndex = 1;
-            this.lblHeader.Text = "Khai báo tàu hàng nhập cảnh";
+            this.lblHeader.Text = "Tìm kiếm toa tàu theo số hiệu đoàn tàu";
             this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // gbChuyenTau
-            // 
-            this.gbChuyenTau.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbChuyenTau.Controls.Add(this.dtpDateXNC);
-            this.gbChuyenTau.Controls.Add(this.txtNumberTrain);
-            this.gbChuyenTau.Controls.Add(this.lblDateXNK);
-            this.gbChuyenTau.Controls.Add(this.lblNumber);
-            this.gbChuyenTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.gbChuyenTau.Location = new System.Drawing.Point(12, 36);
-            this.gbChuyenTau.Name = "gbChuyenTau";
-            this.gbChuyenTau.Size = new System.Drawing.Size(851, 60);
-            this.gbChuyenTau.TabIndex = 0;
-            this.gbChuyenTau.TabStop = false;
-            this.gbChuyenTau.Text = "Thông tin tàu hàng nhập cảnh";
-            // 
-            // dtpDateXNC
-            // 
-            this.dtpDateXNC.CustomFormat = "dd/MM/yyyy      hh:mm";
-            this.dtpDateXNC.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateXNC.Location = new System.Drawing.Point(457, 26);
-            this.dtpDateXNC.Name = "dtpDateXNC";
-            this.dtpDateXNC.Size = new System.Drawing.Size(145, 20);
-            this.dtpDateXNC.TabIndex = 1;
-            // 
-            // txtNumberTrain
-            // 
-            this.txtNumberTrain.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNumberTrain.Location = new System.Drawing.Point(154, 26);
-            this.txtNumberTrain.Name = "txtNumberTrain";
-            this.txtNumberTrain.Size = new System.Drawing.Size(142, 20);
-            this.txtNumberTrain.TabIndex = 0;
-            this.txtNumberTrain.Tag = "required";
-            // 
-            // lblDateXNK
-            // 
-            this.lblDateXNK.AutoSize = true;
-            this.lblDateXNK.Location = new System.Drawing.Point(348, 29);
-            this.lblDateXNK.Name = "lblDateXNK";
-            this.lblDateXNK.Size = new System.Drawing.Size(103, 13);
-            this.lblDateXNK.TabIndex = 10;
-            this.lblDateXNK.Text = "Ngày giờ nhập cảnh";
-            // 
-            // lblNumber
-            // 
-            this.lblNumber.AutoSize = true;
-            this.lblNumber.Location = new System.Drawing.Point(6, 29);
-            this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(89, 13);
-            this.lblNumber.TabIndex = 0;
-            this.lblNumber.Text = "Số hiệu đoàn tàu";
             // 
             // grdToaTau
             // 
@@ -190,7 +108,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -208,17 +126,19 @@
             this.Ma_DoanhNghiep,
             this.Ten_Hang,
             this.Trong_Luong,
+            this.Don_Vi_Tinh,
             this.Seal_VanTai,
             this.Seal_HaiQuan,
             this.Ghi_Chu});
             this.grdToaTau.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.grdToaTau.Location = new System.Drawing.Point(0, 19);
+            this.grdToaTau.Location = new System.Drawing.Point(6, 19);
             this.grdToaTau.Name = "grdToaTau";
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.grdToaTau.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.grdToaTau.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdToaTau.Size = new System.Drawing.Size(845, 151);
-            this.grdToaTau.TabIndex = 0;
+            this.grdToaTau.Size = new System.Drawing.Size(845, 369);
+            this.grdToaTau.TabIndex = 2;
+            this.grdToaTau.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grdToaTau_CellFormatting);
             // 
             // Count
             // 
@@ -291,6 +211,12 @@
             this.Trong_Luong.HeaderText = "Trọng lượng";
             this.Trong_Luong.Name = "Trong_Luong";
             // 
+            // Don_Vi_Tinh
+            // 
+            this.Don_Vi_Tinh.DataPropertyName = "Don_Vi_Tinh";
+            this.Don_Vi_Tinh.HeaderText = "Đơn vị tính";
+            this.Don_Vi_Tinh.Name = "Don_Vi_Tinh";
+            // 
             // Seal_VanTai
             // 
             this.Seal_VanTai.DataPropertyName = "Seal_VanTai";
@@ -323,10 +249,10 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnClose.Image = global::ETrains.Properties.Resources.Exit;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(282, 508);
+            this.btnClose.Location = new System.Drawing.Point(127, 508);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(63, 28);
-            this.btnClose.TabIndex = 6;
+            this.btnClose.TabIndex = 5;
             this.btnClose.Text = "Th&oát";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClose.UseVisualStyleBackColor = true;
@@ -340,60 +266,18 @@
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnUpdate.Image = global::ETrains.Properties.Resources.save;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(123, 508);
+            this.btnUpdate.Location = new System.Drawing.Point(18, 508);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(57, 28);
-            this.btnUpdate.TabIndex = 4;
-            this.btnUpdate.Text = "&Lưu";
+            this.btnUpdate.Size = new System.Drawing.Size(81, 28);
+            this.btnUpdate.TabIndex = 3;
+            this.btnUpdate.Text = "&Cập nhật";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnAddNew
-            // 
-            this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAddNew.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnAddNew.Image = global::ETrains.Properties.Resources.add;
-            this.btnAddNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddNew.Location = new System.Drawing.Point(16, 508);
-            this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(83, 28);
-            this.btnAddNew.TabIndex = 3;
-            this.btnAddNew.Text = "&Thêm mới";
-            this.btnAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddNew.UseVisualStyleBackColor = true;
-            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnDelete.Image = global::ETrains.Properties.Resources.delete;
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(204, 508);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(53, 28);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.Text = "&Xóa";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // techlinkErrorProvider1
             // 
             this.techlinkErrorProvider1.ContainerControl = this;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.grdToaTau);
-            this.groupBox1.Location = new System.Drawing.Point(12, 326);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(851, 176);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Danh sách toa tàu";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -512,324 +396,88 @@
             // 
             this.gbToaTau.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbToaTau.Controls.Add(this.btnDeleteToaTau);
-            this.gbToaTau.Controls.Add(this.btnAddToaTau);
-            this.gbToaTau.Controls.Add(this.btnUpdateToaTau);
-            this.gbToaTau.Controls.Add(this.txtNote);
-            this.gbToaTau.Controls.Add(this.label10);
-            this.gbToaTau.Controls.Add(this.txtDVT);
-            this.gbToaTau.Controls.Add(this.label2);
-            this.gbToaTau.Controls.Add(this.txtCompanyCode);
-            this.gbToaTau.Controls.Add(this.label9);
-            this.gbToaTau.Controls.Add(this.lblCompanyName);
-            this.gbToaTau.Controls.Add(this.txtCompanyName);
-            this.gbToaTau.Controls.Add(this.txtPartner);
-            this.gbToaTau.Controls.Add(this.lblPartner);
-            this.gbToaTau.Controls.Add(this.dtpVanDon);
-            this.gbToaTau.Controls.Add(this.label7);
-            this.gbToaTau.Controls.Add(this.label6);
-            this.gbToaTau.Controls.Add(this.txtSoVanDon);
-            this.gbToaTau.Controls.Add(this.txtSealHQ);
-            this.gbToaTau.Controls.Add(this.label5);
-            this.gbToaTau.Controls.Add(this.txtSealVT);
-            this.gbToaTau.Controls.Add(this.label4);
-            this.gbToaTau.Controls.Add(this.txtTrongLuong);
-            this.gbToaTau.Controls.Add(this.label3);
-            this.gbToaTau.Controls.Add(this.txtTenHang);
-            this.gbToaTau.Controls.Add(this.label11);
-            this.gbToaTau.Controls.Add(this.txtNumberToaTau);
-            this.gbToaTau.Controls.Add(this.label12);
+            this.gbToaTau.Controls.Add(this.grdToaTau);
             this.gbToaTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.gbToaTau.Location = new System.Drawing.Point(12, 102);
             this.gbToaTau.Name = "gbToaTau";
-            this.gbToaTau.Size = new System.Drawing.Size(851, 218);
+            this.gbToaTau.Size = new System.Drawing.Size(851, 394);
             this.gbToaTau.TabIndex = 1;
             this.gbToaTau.TabStop = false;
-            this.gbToaTau.Text = "Thông tin toa tàu";
+            this.gbToaTau.Text = "Thông tin đoàn tàu và toa tàu";
             // 
-            // btnDeleteToaTau
+            // gbChuyenTau
             // 
-            this.btnDeleteToaTau.Enabled = false;
-            this.btnDeleteToaTau.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnDeleteToaTau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteToaTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnDeleteToaTau.Image = global::ETrains.Properties.Resources.delete;
-            this.btnDeleteToaTau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteToaTau.Location = new System.Drawing.Point(445, 182);
-            this.btnDeleteToaTau.Name = "btnDeleteToaTau";
-            this.btnDeleteToaTau.Size = new System.Drawing.Size(101, 28);
-            this.btnDeleteToaTau.TabIndex = 14;
-            this.btnDeleteToaTau.Text = "Xóa toa tàu";
-            this.btnDeleteToaTau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDeleteToaTau.UseVisualStyleBackColor = true;
+            this.gbChuyenTau.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbChuyenTau.Controls.Add(this.dtpDateXNC);
+            this.gbChuyenTau.Controls.Add(this.txtNumberTrain);
+            this.gbChuyenTau.Controls.Add(this.lblDateXNK);
+            this.gbChuyenTau.Controls.Add(this.lblNumber);
+            this.gbChuyenTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.gbChuyenTau.Location = new System.Drawing.Point(12, 36);
+            this.gbChuyenTau.Name = "gbChuyenTau";
+            this.gbChuyenTau.Size = new System.Drawing.Size(851, 60);
+            this.gbChuyenTau.TabIndex = 7;
+            this.gbChuyenTau.TabStop = false;
+            this.gbChuyenTau.Text = "Thông tin đoàn tàu";
             // 
-            // btnAddToaTau
+            // dtpDateXNC
             // 
-            this.btnAddToaTau.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnAddToaTau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddToaTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnAddToaTau.Image = global::ETrains.Properties.Resources.add;
-            this.btnAddToaTau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddToaTau.Location = new System.Drawing.Point(154, 182);
-            this.btnAddToaTau.Name = "btnAddToaTau";
-            this.btnAddToaTau.Size = new System.Drawing.Size(119, 28);
-            this.btnAddToaTau.TabIndex = 12;
-            this.btnAddToaTau.Text = "Thêm mới toa tàu";
-            this.btnAddToaTau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddToaTau.UseVisualStyleBackColor = true;
-            this.btnAddToaTau.Click += new System.EventHandler(this.btnAddToaTau_Click);
+            this.dtpDateXNC.CustomFormat = "dd/MM/yyyy      hh:mm";
+            this.dtpDateXNC.Enabled = false;
+            this.dtpDateXNC.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDateXNC.Location = new System.Drawing.Point(457, 26);
+            this.dtpDateXNC.Name = "dtpDateXNC";
+            this.dtpDateXNC.Size = new System.Drawing.Size(145, 20);
+            this.dtpDateXNC.TabIndex = 1;
             // 
-            // btnUpdateToaTau
+            // txtNumberTrain
             // 
-            this.btnUpdateToaTau.Enabled = false;
-            this.btnUpdateToaTau.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnUpdateToaTau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateToaTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnUpdateToaTau.Image = global::ETrains.Properties.Resources.save;
-            this.btnUpdateToaTau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateToaTau.Location = new System.Drawing.Point(299, 182);
-            this.btnUpdateToaTau.Name = "btnUpdateToaTau";
-            this.btnUpdateToaTau.Size = new System.Drawing.Size(121, 28);
-            this.btnUpdateToaTau.TabIndex = 13;
-            this.btnUpdateToaTau.Text = " Cập nhật toa tàu";
-            this.btnUpdateToaTau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdateToaTau.UseVisualStyleBackColor = true;
+            this.txtNumberTrain.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNumberTrain.Location = new System.Drawing.Point(154, 26);
+            this.txtNumberTrain.Name = "txtNumberTrain";
+            this.txtNumberTrain.ReadOnly = true;
+            this.txtNumberTrain.Size = new System.Drawing.Size(142, 20);
+            this.txtNumberTrain.TabIndex = 0;
+            this.txtNumberTrain.Tag = "required";
             // 
-            // txtNote
+            // lblDateXNK
             // 
-            this.txtNote.Location = new System.Drawing.Point(154, 156);
-            this.txtNote.MaxLength = 4000;
-            this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(678, 20);
-            this.txtNote.TabIndex = 11;
+            this.lblDateXNK.AutoSize = true;
+            this.lblDateXNK.Location = new System.Drawing.Point(348, 29);
+            this.lblDateXNK.Name = "lblDateXNK";
+            this.lblDateXNK.Size = new System.Drawing.Size(103, 13);
+            this.lblDateXNK.TabIndex = 10;
+            this.lblDateXNK.Text = "Ngày giờ nhập cảnh";
             // 
-            // label10
+            // lblNumber
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 159);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
-            this.label10.TabIndex = 63;
-            this.label10.Text = "Ghi chú";
+            this.lblNumber.AutoSize = true;
+            this.lblNumber.Location = new System.Drawing.Point(6, 29);
+            this.lblNumber.Name = "lblNumber";
+            this.lblNumber.Size = new System.Drawing.Size(89, 13);
+            this.lblNumber.TabIndex = 0;
+            this.lblNumber.Text = "Số hiệu đoàn tàu";
             // 
-            // txtDVT
-            // 
-            this.txtDVT.Location = new System.Drawing.Point(762, 104);
-            this.txtDVT.Name = "txtDVT";
-            this.txtDVT.Size = new System.Drawing.Size(70, 20);
-            this.txtDVT.TabIndex = 8;
-            this.txtDVT.Tag = "required";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(696, 107);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
-            this.label2.TabIndex = 60;
-            this.label2.Text = "Đơn vị tính";
-            // 
-            // txtCompanyCode
-            // 
-            this.txtCompanyCode.Location = new System.Drawing.Point(154, 78);
-            this.txtCompanyCode.Multiline = true;
-            this.txtCompanyCode.Name = "txtCompanyCode";
-            this.txtCompanyCode.Size = new System.Drawing.Size(142, 20);
-            this.txtCompanyCode.TabIndex = 4;
-            this.txtCompanyCode.Tag = "required";
-            this.txtCompanyCode.Leave += new System.EventHandler(this.txtCompanyCode_Leave);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 81);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(110, 13);
-            this.label9.TabIndex = 59;
-            this.label9.Text = "Mã Doanh nghiệp VN";
-            // 
-            // lblCompanyName
-            // 
-            this.lblCompanyName.AutoSize = true;
-            this.lblCompanyName.Location = new System.Drawing.Point(348, 81);
-            this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(96, 13);
-            this.lblCompanyName.TabIndex = 56;
-            this.lblCompanyName.Text = "Tên Doanh nghiệp";
-            // 
-            // txtCompanyName
-            // 
-            this.txtCompanyName.AcceptsReturn = true;
-            this.txtCompanyName.Location = new System.Drawing.Point(457, 78);
-            this.txtCompanyName.Multiline = true;
-            this.txtCompanyName.Name = "txtCompanyName";
-            this.txtCompanyName.ReadOnly = true;
-            this.txtCompanyName.Size = new System.Drawing.Size(375, 20);
-            this.txtCompanyName.TabIndex = 5;
-            this.txtCompanyName.TabStop = false;
-            // 
-            // txtPartner
-            // 
-            this.txtPartner.Location = new System.Drawing.Point(154, 52);
-            this.txtPartner.Name = "txtPartner";
-            this.txtPartner.Size = new System.Drawing.Size(678, 20);
-            this.txtPartner.TabIndex = 3;
-            this.txtPartner.Tag = "required";
-            // 
-            // lblPartner
-            // 
-            this.lblPartner.AutoSize = true;
-            this.lblPartner.Location = new System.Drawing.Point(6, 55);
-            this.lblPartner.Name = "lblPartner";
-            this.lblPartner.Size = new System.Drawing.Size(142, 13);
-            this.lblPartner.TabIndex = 54;
-            this.lblPartner.Text = "Tên người nhận (đối tác TQ)";
-            // 
-            // dtpVanDon
-            // 
-            this.dtpVanDon.CustomFormat = "dd/MM/yyyy";
-            this.dtpVanDon.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpVanDon.Location = new System.Drawing.Point(749, 26);
-            this.dtpVanDon.Name = "dtpVanDon";
-            this.dtpVanDon.Size = new System.Drawing.Size(83, 20);
-            this.dtpVanDon.TabIndex = 2;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(654, 29);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 13);
-            this.label7.TabIndex = 53;
-            this.label7.Text = "Ngày vận tải đơn";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 107);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 13);
-            this.label6.TabIndex = 51;
-            this.label6.Text = "Tên hàng";
-            // 
-            // txtSoVanDon
-            // 
-            this.txtSoVanDon.Location = new System.Drawing.Point(457, 26);
-            this.txtSoVanDon.Name = "txtSoVanDon";
-            this.txtSoVanDon.Size = new System.Drawing.Size(152, 20);
-            this.txtSoVanDon.TabIndex = 1;
-            this.txtSoVanDon.Tag = "required";
-            // 
-            // txtSealHQ
-            // 
-            this.txtSealHQ.Location = new System.Drawing.Point(457, 130);
-            this.txtSealHQ.Name = "txtSealHQ";
-            this.txtSealHQ.Size = new System.Drawing.Size(152, 20);
-            this.txtSealHQ.TabIndex = 10;
-            this.txtSealHQ.Tag = "required";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(348, 133);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 13);
-            this.label5.TabIndex = 48;
-            this.label5.Text = "Số Seal Hải quan";
-            // 
-            // txtSealVT
-            // 
-            this.txtSealVT.Location = new System.Drawing.Point(154, 130);
-            this.txtSealVT.Name = "txtSealVT";
-            this.txtSealVT.Size = new System.Drawing.Size(142, 20);
-            this.txtSealVT.TabIndex = 9;
-            this.txtSealVT.Tag = "required";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 133);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 13);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "Số Seal hãng vận tải";
-            // 
-            // txtTrongLuong
-            // 
-            this.txtTrongLuong.Location = new System.Drawing.Point(589, 104);
-            this.txtTrongLuong.Name = "txtTrongLuong";
-            this.txtTrongLuong.Size = new System.Drawing.Size(80, 20);
-            this.txtTrongLuong.TabIndex = 7;
-            this.txtTrongLuong.Tag = "required";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(519, 107);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "Trọng lượng";
-            // 
-            // txtTenHang
-            // 
-            this.txtTenHang.Location = new System.Drawing.Point(154, 104);
-            this.txtTenHang.Name = "txtTenHang";
-            this.txtTenHang.Size = new System.Drawing.Size(342, 20);
-            this.txtTenHang.TabIndex = 6;
-            this.txtTenHang.Tag = "required";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(348, 29);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(77, 13);
-            this.label11.TabIndex = 42;
-            this.label11.Text = "Số vận tải đơn";
-            // 
-            // txtNumberToaTau
-            // 
-            this.txtNumberToaTau.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNumberToaTau.Location = new System.Drawing.Point(154, 26);
-            this.txtNumberToaTau.Name = "txtNumberToaTau";
-            this.txtNumberToaTau.Size = new System.Drawing.Size(142, 20);
-            this.txtNumberToaTau.TabIndex = 0;
-            this.txtNumberToaTau.Tag = "required";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 29);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 13);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Số hiệu toa tàu";
-            // 
-            // frmThemChuyenTau
+            // frmDanhSachToaTau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 548);
+            this.Controls.Add(this.gbChuyenTau);
             this.Controls.Add(this.gbToaTau);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.gbChuyenTau);
             this.Controls.Add(this.lblHeader);
-            this.Name = "frmThemChuyenTau";
+            this.Name = "frmDanhSachToaTau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmThemChuyenTau";
-            this.Load += new System.EventHandler(this.frmThemChuyenTau_Load);
-            this.gbChuyenTau.ResumeLayout(false);
-            this.gbChuyenTau.PerformLayout();
+            this.Text = "frmDanhSachToaTau";
+            this.Load += new System.EventHandler(this.frmDanhSachToaTau_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdToaTau)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.techlinkErrorProvider1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             this.gbToaTau.ResumeLayout(false);
-            this.gbToaTau.PerformLayout();
+            this.gbChuyenTau.ResumeLayout(false);
+            this.gbChuyenTau.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -837,16 +485,8 @@
         #endregion
 
         private System.Windows.Forms.Label lblHeader;
-        private System.Windows.Forms.GroupBox gbChuyenTau;
-        private System.Windows.Forms.DateTimePicker dtpDateXNC;
-        private System.Windows.Forms.TextBox txtNumberTrain;
-        public System.Windows.Forms.Label lblDateXNK;
-        public System.Windows.Forms.Label lblNumber;
-        public System.Windows.Forms.DataGridView grdToaTau;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnAddNew;
-        private System.Windows.Forms.Button btnDelete;
         private Utilities.TechlinkErrorProvider techlinkErrorProvider1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
@@ -856,7 +496,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -864,33 +503,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.GroupBox gbToaTau;
-        private System.Windows.Forms.TextBox txtNote;
-        public System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtDVT;
-        public System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCompanyCode;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lblCompanyName;
-        private System.Windows.Forms.TextBox txtCompanyName;
-        private System.Windows.Forms.TextBox txtPartner;
-        public System.Windows.Forms.Label lblPartner;
-        private System.Windows.Forms.DateTimePicker dtpVanDon;
-        public System.Windows.Forms.Label label7;
-        public System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtSoVanDon;
-        private System.Windows.Forms.TextBox txtSealHQ;
-        public System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtSealVT;
-        public System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTrongLuong;
-        public System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTenHang;
-        public System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtNumberToaTau;
-        public System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button btnDeleteToaTau;
-        private System.Windows.Forms.Button btnAddToaTau;
-        private System.Windows.Forms.Button btnUpdateToaTau;
+        private System.Windows.Forms.GroupBox gbChuyenTau;
+        private System.Windows.Forms.DateTimePicker dtpDateXNC;
+        private System.Windows.Forms.TextBox txtNumberTrain;
+        public System.Windows.Forms.Label lblDateXNK;
+        public System.Windows.Forms.Label lblNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Count;
         private System.Windows.Forms.DataGridViewTextBoxColumn ToaTauID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ma_ToaTau;
@@ -901,8 +518,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Ma_DoanhNghiep;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten_Hang;
         private System.Windows.Forms.DataGridViewTextBoxColumn Trong_Luong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Don_Vi_Tinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn Seal_VanTai;
         private System.Windows.Forms.DataGridViewTextBoxColumn Seal_HaiQuan;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ghi_Chu;
+        private System.Windows.Forms.DataGridView grdToaTau;
     }
 }

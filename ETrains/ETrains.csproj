@@ -143,6 +143,18 @@
     <Compile Include="SubFormBase.Designer.cs">
       <DependentUpon>SubFormBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Train\frmDanhSachToaTau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\frmDanhSachToaTau.Designer.cs">
+      <DependentUpon>frmDanhSachToaTau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Train\frmBBBG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\frmBBBG.Designer.cs">
+      <DependentUpon>frmBBBG.cs</DependentUpon>
+    </Compile>
     <Compile Include="Train\frmThemChuyenTau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +236,12 @@
     </Compile>
     <EmbeddedResource Include="SubFormBase.resx">
       <DependentUpon>SubFormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\frmDanhSachToaTau.resx">
+      <DependentUpon>frmDanhSachToaTau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\frmBBBG.resx">
+      <DependentUpon>frmBBBG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Train\frmThemChuyenTau.resx">
       <DependentUpon>frmThemChuyenTau.cs</DependentUpon>
