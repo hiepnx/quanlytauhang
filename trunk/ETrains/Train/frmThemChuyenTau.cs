@@ -20,14 +20,15 @@ namespace ETrains.Train
         {
             InitializeComponent();
         }
-        public frmThemChuyenTau(UserInfo userInfo, short type)
-        {
+        public frmThemChuyenTau(UserInfo userInfo, short type, short mode = (short)0)
+        { 
             InitializeComponent();
             _userInfo = userInfo;
             _type = type;
+            _mode = mode;
         }
 
-        private void frmTrainImport_Load(object sender, EventArgs e)
+        private void frmThemChuyenTau_Load(object sender, EventArgs e)
         {
             this.Text = "Khai bao tau hang " + (_type == 0 ? "xuat canh" : "nhap canh") + ConstantInfo.MESSAGE_TITLE + GlobalInfo.CompanyName;
             Init();
@@ -61,6 +62,10 @@ namespace ETrains.Train
             if (_mode == 0)
             {
                 btnUpdate.Enabled = btnDelete.Enabled = false;
+            }
+            else
+            {
+                btnAddNew.Enabled = false;
             }
         }
 

@@ -113,5 +113,26 @@ namespace ETrains.BOL
 
             return db.SaveChanges();    
         }
+
+        public static tblChuyenTau GetByCode(string code)
+        {
+            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            var train = db.tblChuyenTaus.Where(x=>x.Ma_Chuyen_Tau == code).FirstOrDefault();
+            return train;
+        }
+
+        public static tblChuyenTau GetById(long id)
+        {
+            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            var train = db.tblChuyenTaus.Where(x => x.TrainID == id).FirstOrDefault();
+            return train;
+        }
+
+        public static int InsertBBBG(tblHandover handover)
+        {
+            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            db.AddTotblHandovers(handover);
+            return db.SaveChanges();
+        }
     }
 }
