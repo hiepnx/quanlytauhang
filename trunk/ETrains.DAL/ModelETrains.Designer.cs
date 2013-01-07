@@ -642,6 +642,30 @@ namespace ETrains.DAL
         private Nullable<global::System.Int32> _ModifiedBy;
         partial void OnModifiedByChanging(Nullable<global::System.Int32> value);
         partial void OnModifiedByChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsDeleted
+        {
+            get
+            {
+                return _IsDeleted;
+            }
+            set
+            {
+                OnIsDeletedChanging(value);
+                ReportPropertyChanging("IsDeleted");
+                _IsDeleted = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsDeleted");
+                OnIsDeletedChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsDeleted;
+        partial void OnIsDeletedChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsDeletedChanged();
 
         #endregion
     
@@ -1452,6 +1476,102 @@ namespace ETrains.DAL
         private Nullable<global::System.Int32> _ModifiedBy;
         partial void OnModifiedByChanging(Nullable<global::System.Int32> value);
         partial void OnModifiedByChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NumberReply
+        {
+            get
+            {
+                return _NumberReply;
+            }
+            set
+            {
+                OnNumberReplyChanging(value);
+                ReportPropertyChanging("NumberReply");
+                _NumberReply = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("NumberReply");
+                OnNumberReplyChanged();
+            }
+        }
+        private global::System.String _NumberReply;
+        partial void OnNumberReplyChanging(global::System.String value);
+        partial void OnNumberReplyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DateReply
+        {
+            get
+            {
+                return _DateReply;
+            }
+            set
+            {
+                OnDateReplyChanging(value);
+                ReportPropertyChanging("DateReply");
+                _DateReply = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DateReply");
+                OnDateReplyChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DateReply;
+        partial void OnDateReplyChanging(Nullable<global::System.DateTime> value);
+        partial void OnDateReplyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NoteReply
+        {
+            get
+            {
+                return _NoteReply;
+            }
+            set
+            {
+                OnNoteReplyChanging(value);
+                ReportPropertyChanging("NoteReply");
+                _NoteReply = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("NoteReply");
+                OnNoteReplyChanged();
+            }
+        }
+        private global::System.String _NoteReply;
+        partial void OnNoteReplyChanging(global::System.String value);
+        partial void OnNoteReplyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsDeleted
+        {
+            get
+            {
+                return _IsDeleted;
+            }
+            set
+            {
+                OnIsDeletedChanging(value);
+                ReportPropertyChanging("IsDeleted");
+                _IsDeleted = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsDeleted");
+                OnIsDeletedChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsDeleted;
+        partial void OnIsDeletedChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsDeletedChanged();
 
         #endregion
     
@@ -2360,6 +2480,54 @@ namespace ETrains.DAL
         private global::System.Int64 _TrainID;
         partial void OnTrainIDChanging(global::System.Int64 value);
         partial void OnTrainIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Seal_VanTai2
+        {
+            get
+            {
+                return _Seal_VanTai2;
+            }
+            set
+            {
+                OnSeal_VanTai2Changing(value);
+                ReportPropertyChanging("Seal_VanTai2");
+                _Seal_VanTai2 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Seal_VanTai2");
+                OnSeal_VanTai2Changed();
+            }
+        }
+        private global::System.String _Seal_VanTai2;
+        partial void OnSeal_VanTai2Changing(global::System.String value);
+        partial void OnSeal_VanTai2Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Seal_HaiQuan2
+        {
+            get
+            {
+                return _Seal_HaiQuan2;
+            }
+            set
+            {
+                OnSeal_HaiQuan2Changing(value);
+                ReportPropertyChanging("Seal_HaiQuan2");
+                _Seal_HaiQuan2 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Seal_HaiQuan2");
+                OnSeal_HaiQuan2Changed();
+            }
+        }
+        private global::System.String _Seal_HaiQuan2;
+        partial void OnSeal_HaiQuan2Changing(global::System.String value);
+        partial void OnSeal_HaiQuan2Changed();
 
         #endregion
     
@@ -2742,6 +2910,30 @@ namespace ETrains.DAL
         private global::System.Int64 _TrainID;
         partial void OnTrainIDChanging(global::System.Int64 value);
         partial void OnTrainIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsDeleted
+        {
+            get
+            {
+                return _IsDeleted;
+            }
+            set
+            {
+                OnIsDeletedChanging(value);
+                ReportPropertyChanging("IsDeleted");
+                _IsDeleted = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsDeleted");
+                OnIsDeletedChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsDeleted;
+        partial void OnIsDeletedChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsDeletedChanged();
 
         #endregion
     

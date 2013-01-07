@@ -69,6 +69,7 @@
           <Property Name="CreatedBy" Type="int" />
           <Property Name="ModifiedDate" Type="datetime" />
           <Property Name="ModifiedBy" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="tblCompany">
           <Key>
@@ -110,6 +111,10 @@
           <Property Name="CreatedBy" Type="int" />
           <Property Name="ModifiedDate" Type="datetime" />
           <Property Name="ModifiedBy" Type="int" />
+          <Property Name="NumberReply" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateReply" Type="datetime" />
+          <Property Name="NoteReply" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="tblHandoverResource">
           <Key>
@@ -144,7 +149,9 @@
           <Property Name="Trong_Luong" Type="nvarchar" MaxLength="50" />
           <Property Name="Don_Vi_Tinh" Type="nvarchar" MaxLength="50" />
           <Property Name="Seal_VanTai" Type="nvarchar" MaxLength="50" />
+          <Property Name="Seal_VanTai2" Type="nvarchar" MaxLength="50" />
           <Property Name="Seal_HaiQuan" Type="nvarchar" MaxLength="50" />
+          <Property Name="Seal_HaiQuan2" Type="nvarchar" MaxLength="50" />
           <Property Name="Ghi_Chu" Type="nvarchar" MaxLength="500" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="CreatedBy" Type="int" />
@@ -167,6 +174,7 @@
           <Property Name="ModifiedDate" Type="datetime" />
           <Property Name="ModifiedBy" Type="int" />
           <Property Name="TrainID" Type="bigint" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="tblToKhaiTauResource">
           <Key>
@@ -404,6 +412,7 @@
           <NavigationProperty Name="tblToaTaus" Relationship="dbTrainModel.FK_tblToaTau_tblChuyenTau" FromRole="tblChuyenTau" ToRole="tblToaTau" />
           <NavigationProperty Name="tblToKhaiTaus" Relationship="dbTrainModel.FK_tblToKhaiTau_tblChuyenTau" FromRole="tblChuyenTau" ToRole="tblToKhaiTau" />
           <NavigationProperty Name="tblHandovers" Relationship="dbTrainModel.FK_tblHandover_tblChuyenTau" FromRole="tblChuyenTau" ToRole="tblHandover" />
+          <Property Type="Boolean" Name="IsDeleted" />
         </EntityType>
         <EntityType Name="tblCompany">
           <Key>
@@ -465,6 +474,8 @@
           <NavigationProperty Name="tblChuyenTau" Relationship="dbTrainModel.FK_tblToaTau_tblChuyenTau" FromRole="tblToaTau" ToRole="tblChuyenTau" />
           <NavigationProperty Name="tblToKhaiTauResources" Relationship="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau" FromRole="tblToaTau" ToRole="tblToKhaiTauResource" />
           <NavigationProperty Name="tblHandoverResources" Relationship="dbTrainModel.FK_tblHandoverResource_tblToaTau" FromRole="tblToaTau" ToRole="tblHandoverResource" />
+          <Property Type="String" Name="Seal_VanTai2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Seal_HaiQuan2" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tblToKhaiTau">
           <Key>
@@ -483,6 +494,7 @@
           <Property Type="Int64" Name="TrainID" Nullable="false" />
           <NavigationProperty Name="tblChuyenTau" Relationship="dbTrainModel.FK_tblToKhaiTau_tblChuyenTau" FromRole="tblToKhaiTau" ToRole="tblChuyenTau" />
           <NavigationProperty Name="tblToKhaiTauResources" Relationship="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau" FromRole="tblToKhaiTau" ToRole="tblToKhaiTauResource" />
+          <Property Type="Boolean" Name="IsDeleted" />
         </EntityType>
         <EntityType Name="tblToKhaiTauResource">
           <Key>
@@ -633,6 +645,10 @@
           <Property Type="Int32" Name="ModifiedBy" />
           <NavigationProperty Name="tblChuyenTau" Relationship="dbTrainModel.FK_tblHandover_tblChuyenTau" FromRole="tblHandover" ToRole="tblChuyenTau" />
           <NavigationProperty Name="tblHandoverResources" Relationship="dbTrainModel.FK_tblHandoverResource_tblHandover" FromRole="tblHandover" ToRole="tblHandoverResource" />
+          <Property Type="String" Name="NumberReply" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateReply" />
+          <Property Type="String" Name="NoteReply" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDeleted" />
         </EntityType>
         <Association Name="FK_tblHandover_tblChuyenTau">
           <End Type="dbTrainModel.tblChuyenTau" Role="tblChuyenTau" Multiplicity="1" />
@@ -689,6 +705,7 @@
           <EntitySetMapping Name="tblChuyenTaus">
             <EntityTypeMapping TypeName="dbTrainModel.tblChuyenTau">
               <MappingFragment StoreEntitySet="tblChuyenTau">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
@@ -742,6 +759,8 @@
           <EntitySetMapping Name="tblToaTaus">
             <EntityTypeMapping TypeName="dbTrainModel.tblToaTau">
               <MappingFragment StoreEntitySet="tblToaTau">
+                <ScalarProperty Name="Seal_HaiQuan2" ColumnName="Seal_HaiQuan2" />
+                <ScalarProperty Name="Seal_VanTai2" ColumnName="Seal_VanTai2" />
                 <ScalarProperty Name="TrainID" ColumnName="TrainID" />
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
@@ -765,6 +784,7 @@
           <EntitySetMapping Name="tblToKhaiTaus">
             <EntityTypeMapping TypeName="dbTrainModel.tblToKhaiTau">
               <MappingFragment StoreEntitySet="tblToKhaiTau">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="TrainID" ColumnName="TrainID" />
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
@@ -856,6 +876,10 @@
           <EntitySetMapping Name="tblHandovers">
             <EntityTypeMapping TypeName="dbTrainModel.tblHandover">
               <MappingFragment StoreEntitySet="tblHandover">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="NoteReply" ColumnName="NoteReply" />
+                <ScalarProperty Name="DateReply" ColumnName="DateReply" />
+                <ScalarProperty Name="NumberReply" ColumnName="NumberReply" />
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
