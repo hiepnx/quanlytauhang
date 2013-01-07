@@ -112,16 +112,16 @@ namespace ETrains
 
         private void hướngDẫnSửDụngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var filePath = Application.StartupPath + @"\Docs\WebHelp\index.htm";
-                Help.ShowHelp(this, filePath);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("File not found");
-                if (GlobalInfo.IsDebug) throw ex;
-            }
+            //try
+            //{
+            //    var filePath = Application.StartupPath + @"\Docs\WebHelp\index.htm";
+            //    Help.ShowHelp(this, filePath);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("File not found");
+            //    if (GlobalInfo.IsDebug) throw ex;
+            //}
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
