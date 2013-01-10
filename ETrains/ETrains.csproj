@@ -185,6 +185,12 @@
     <Compile Include="Train\frmThemToaTau.Designer.cs">
       <DependentUpon>frmThemToaTau.cs</DependentUpon>
     </Compile>
+    <Compile Include="Train\frmToKhai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\frmToKhai.Designer.cs">
+      <DependentUpon>frmToKhai.cs</DependentUpon>
+    </Compile>
     <Compile Include="Train\frmTrainImport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Train\frmThemToaTau.resx">
       <DependentUpon>frmThemToaTau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\frmToKhai.resx">
+      <DependentUpon>frmToKhai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Train\frmTrainImport.resx">
       <DependentUpon>frmTrainImport.cs</DependentUpon>

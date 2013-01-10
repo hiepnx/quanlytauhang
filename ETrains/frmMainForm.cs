@@ -259,5 +259,19 @@ namespace ETrains
             frm.Show();
         }
 
+        private void đăngKýTờKhaiXuấtCảnhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new Train.frmToKhai(_userInfo, 0);
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void đăngKýTờKhaiNhậpCảnhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new Train.frmToKhai(_userInfo, 1);
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
     }
 }
