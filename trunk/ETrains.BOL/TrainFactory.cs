@@ -134,5 +134,12 @@ namespace ETrains.BOL
             db.AddTotblHandovers(handover);
             return db.SaveChanges();
         }
+
+        public static int InsertToKhaiTau(tblToKhaiTau toKhaiTau)
+        {
+            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            db.AddTotblToKhaiTaus(toKhaiTau);
+            return db.SaveChanges();
+        }
     }
 }
