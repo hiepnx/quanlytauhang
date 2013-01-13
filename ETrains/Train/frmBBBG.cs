@@ -137,7 +137,7 @@ namespace ETrains.Train
                 } 
                 var handOver = new tblHandover
                                    {
-                                       TrainID = train.TrainID,
+                                       tblChuyenTau = train,
                                        NumberHandover = txtNumberHandover.Text.Trim(),
                                        DateHandover = dtpHandover.Value,
                                        CodeStation = txtCodeCuaKhau.Text.Trim(),
@@ -151,7 +151,7 @@ namespace ETrains.Train
                 {
                     var handOverResource = new tblHandoverResource
                                                {
-                                                   ToaTauID = toaTau.ToaTauID
+                                                   tblToaTau = toaTau
                                                };
                     handOver.tblHandoverResources.Add(handOverResource);
                 }

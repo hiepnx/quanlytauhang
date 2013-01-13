@@ -212,7 +212,7 @@ namespace ETrains.Train
                                               TypeCode = txtTypeExport.Text.Trim(),
                                               CustomCode = txtCustomsCode.Text.Trim(),
                                               CreatedBy = _userInfo.UserID,
-                                              TrainID = train.TrainID
+                                              //TrainID = train.TrainID
                                           };
                         TrainFactory.InsertToKhai(declare);
 
@@ -225,7 +225,7 @@ namespace ETrains.Train
                         {
                             var toaTau = (tblToaTau) grdToaTau.Rows[i].DataBoundItem;
                             toaTau.CreatedBy = _userInfo.UserID;
-                            toaTau.TrainID = train.TrainID;
+                            //toaTau.TrainID = train.TrainID;
                             listToaTau.Add(toaTau);
                         }
                         TrainFactory.InsertToaTau(listToaTau);

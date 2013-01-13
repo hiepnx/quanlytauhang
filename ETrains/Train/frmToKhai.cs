@@ -133,7 +133,7 @@ namespace ETrains.Train
                 }
                 var declaration = new tblToKhaiTau
                                       {
-                                          TrainID = train.TrainID,
+                                          tblChuyenTau = train,
                                           Number = int.Parse(txtNumberToKhai.Text.Trim()),
                                           DateDeclaration = dtpDeclaration.Value,
                                           TypeCode = txtTypeCode.Text.Trim(),
@@ -145,8 +145,10 @@ namespace ETrains.Train
                 {
                     var declarationResource = new tblToKhaiTauResource
                                                {
-                                                   ToaTauID = toaTau.ToaTauID
+                                                   tblToaTau = toaTau
                                                };
+                    
+                    if (declaration.EntityState != System.Data.EntityState.Added &&!declaration.tblToKhaiTauResources.IsLoaded) declaration.tblToKhaiTauResources.Load();
                     declaration.tblToKhaiTauResources.Add(declarationResource);
                 }
 

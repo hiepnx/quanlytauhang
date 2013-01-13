@@ -61,6 +61,7 @@ namespace ETrains.Train
             grdToaTau.Columns.Insert(0, cusCheckbox);
             //grid Toa tau
             grdToaTau.AutoGenerateColumns = false;
+            _train.tblToaTaus.Load();
             grdToaTau.DataSource = _train.tblToaTaus;
             // Bind count column
             for (var i = 0; i < grdToaTau.Rows.Count; i++)
@@ -68,7 +69,7 @@ namespace ETrains.Train
                 // Add to count Column
                 grdToaTau.Rows[i].Cells["Count"].Value = (i + 1).ToString();
                 var toaTau = (tblToaTau) grdToaTau.Rows[i].DataBoundItem;
-                if (_listToaTau.Any(tau => tau.TrainID == toaTau.TrainID))
+                if (_listToaTau.Any(tau => tau.tblChuyenTau.TrainID == toaTau.tblChuyenTau.TrainID))
                 {
                     grdToaTau.Rows[i].Cells["CusCheck"].Value = true;
                 }
