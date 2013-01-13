@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ETrains</RootNamespace>
     <AssemblyName>ETrains</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -49,9 +50,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Gs1\_Reference\log4net.dll</HintPath>
@@ -70,7 +84,6 @@
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -128,6 +141,12 @@
     </Compile>
     <Compile Include="frmUser.Designer.cs">
       <DependentUpon>frmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HandoverQuaCanh.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HandoverQuaCanh.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="MDIFormBase.cs">
       <SubType>Form</SubType>
@@ -227,6 +246,10 @@
     <EmbeddedResource Include="frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HandoverQuaCanh.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>HandoverQuaCanh.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDIFormBase.resx">
       <DependentUpon>MDIFormBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -302,100 +325,41 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\02.gif" />
+    <None Include="Resources\save_icon.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\13.gif" />
+    <None Include="Resources\scroll.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\1336316540_document-export.png" />
+    <None Include="Resources\search.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\about.png" />
+    <None Include="Resources\search2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\accept.png" />
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\add.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\application_side_boxes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\background.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\car_delete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\change-password-icon1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\checkIcon1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\clipboard.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\clipboard_empty.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\clipboard_next.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\clipboard_next_down.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\close.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\column_preferences.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\column-chart.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\confirm.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\data_refresh.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\DeclaBig.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Declaration.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Declaration1.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\delete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\edit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\enter.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\exce.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Exit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\export.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\export.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\exportBig.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\exportSmall.png" />
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\form_red.png" />
@@ -407,10 +371,16 @@
     <None Include="Resources\goup.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\GS1_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\help.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\HelpBig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon.bmp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon-check2-16x16.gif" />
@@ -473,18 +443,6 @@
     <None Include="Resources\save.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\save_icon.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scroll.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\search2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\search41.gif" />
   </ItemGroup>
   <ItemGroup>
@@ -530,26 +488,106 @@
     <None Include="Resources\viewBig.png" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
+    <None Include="Resources\02.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1336316540_document-export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_side_boxes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\change-password-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\change-password-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkIcon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard_next_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\column_preferences.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\column-chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\confirm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeclaBig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Declaration.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Declaration1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enter.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exce.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exportBig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exportSmall.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
