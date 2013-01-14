@@ -6,6 +6,7 @@
     <edmx:StorageModels>
     <Schema Namespace="dbTrainModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
         <EntityContainer Name="dbTrainModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="dbTrainModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblChuyenTau" EntityType="dbTrainModel.Store.tblChuyenTau" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblCompany" EntityType="dbTrainModel.Store.tblCompany" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblCustoms" EntityType="dbTrainModel.Store.tblCustoms" store:Type="Tables" Schema="dbo" />
@@ -56,6 +57,16 @@
             <End Role="tblToKhaiTauResource" EntitySet="tblToKhaiTauResource" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="tblChuyenTau">
           <Key>
             <PropertyRef Name="TrainID" />
@@ -349,6 +360,7 @@
     <edmx:ConceptualModels>
       <Schema Namespace="dbTrainModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
         <EntityContainer Name="dbTrainEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="sysdiagrams" EntityType="dbTrainModel.sysdiagram" />
           <EntitySet Name="tblChuyenTaus" EntityType="dbTrainModel.tblChuyenTau" />
           <EntitySet Name="tblCompanies" EntityType="dbTrainModel.tblCompany" />
           <EntitySet Name="tblCustoms" EntityType="dbTrainModel.tblCustom" />
@@ -395,6 +407,16 @@
             <End Role="tblToKhaiTauResource" EntitySet="tblToKhaiTauResources" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="principal_id" Nullable="false" />
+          <Property Type="Int32" Name="diagram_id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="version" />
+          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="tblChuyenTau">
           <Key>
             <PropertyRef Name="TrainID" />
@@ -630,6 +652,17 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
         <EntityContainerMapping StorageEntityContainer="dbTrainModelStoreContainer" CdmEntityContainer="dbTrainEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="dbTrainModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tblChuyenTaus">
             <EntityTypeMapping TypeName="dbTrainModel.tblChuyenTau">
               <MappingFragment StoreEntitySet="tblChuyenTau">
@@ -909,15 +942,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="ModelETrains">
+        <EntityTypeShape EntityType="dbTrainModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" Height="1.9802864583333388" />
         <EntityTypeShape EntityType="dbTrainModel.tblChuyenTau" Width="1.5" PointX="0.75" PointY="8.5" Height="3.7109993489583388" />
-        <EntityTypeShape EntityType="dbTrainModel.tblCompany" Width="1.5" PointX="5.75" PointY="0.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="dbTrainModel.tblCompany" Width="1.5" PointX="5.75" PointY="3.75" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="dbTrainModel.tblCustom" Width="1.5" PointX="7.75" PointY="0.75" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="dbTrainModel.tblHandover" Width="1.5" PointX="3" PointY="1.75" Height="4.2879036458333388" />
         <EntityTypeShape EntityType="dbTrainModel.tblHandoverResource" Width="1.5" PointX="5.25" PointY="7.375" Height="1.595683593749996" />
         <EntityTypeShape EntityType="dbTrainModel.tblTauKhachDetail" Width="1.5" PointX="3" PointY="6.75" Height="2.1725878906250031" />
-        <EntityTypeShape EntityType="dbTrainModel.tblToaTau" Width="1.5" PointX="3" PointY="9.625" Height="5.0571093750000031" />
-        <EntityTypeShape EntityType="dbTrainModel.tblToKhaiTau" Width="2.5" PointX="3" PointY="15.5" Height="3.5186979166666674" />
-        <EntityTypeShape EntityType="dbTrainModel.tblToKhaiTauResource" Width="1.5" PointX="5.25" PointY="13.5" Height="1.5956835937500067" />
+        <EntityTypeShape EntityType="dbTrainModel.tblToaTau" Width="1.5" PointX="3" PointY="9.625" Height="5.0571093750000067" />
+        <EntityTypeShape EntityType="dbTrainModel.tblToKhaiTau" Width="1.5" PointX="3" PointY="15.5" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="dbTrainModel.tblToKhaiTauResource" Width="1.5" PointX="5.25" PointY="13.5" Height="1.5956835937500102" />
         <EntityTypeShape EntityType="dbTrainModel.tblTrain" Width="1.5" PointX="7.75" PointY="4.75" Height="5.2494108072916674" />
         <EntityTypeShape EntityType="dbTrainModel.tblType" Width="1.5" PointX="9.75" PointY="0.75" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="dbTrainModel.tblUser" Width="1.5" PointX="9.75" PointY="4.75" Height="3.1340950520833246" />
@@ -941,8 +975,8 @@
           <ConnectorPoint PointX="3" PointY="17.259348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblHandoverResource_tblHandover" >
-          <ConnectorPoint PointX="4.5" PointY="4.6076464843750031" />
-          <ConnectorPoint PointX="5.46875" PointY="4.6076464843750031" />
+          <ConnectorPoint PointX="4.5" PointY="3.2401432291666694" />
+          <ConnectorPoint PointX="5.46875" PointY="3.2401432291666694" />
           <ConnectorPoint PointX="5.46875" PointY="7.375" />
         </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblHandoverResource_tblToaTau" >
@@ -952,15 +986,13 @@
           <ConnectorPoint PointX="5.2511528461538459" PointY="8.970683593749996" />
         </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau" >
-          <ConnectorPoint PointX="4.5" PointY="14.091054687500002" />
-          <ConnectorPoint PointX="5.25" PointY="14.091054687500002" />
+          <ConnectorPoint PointX="4.5" PointY="14.091054687500003" />
+          <ConnectorPoint PointX="5.25" PointY="14.091054687500003" />
         </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau" >
-          <ConnectorPoint PointX="4.25" PointY="15.5" />
-          <ConnectorPoint PointX="4.25" PointY="15.125" />
-          <ConnectorPoint PointX="4.875" PointY="15.125" />
-          <ConnectorPoint PointX="4.875" PointY="14.624621140625006" />
-          <ConnectorPoint PointX="5.25" PointY="14.624621140625006" />
+          <ConnectorPoint PointX="4.5" PointY="17.259348958333334" />
+          <ConnectorPoint PointX="6" PointY="17.259348958333334" />
+          <ConnectorPoint PointX="6" PointY="15.09568359375001" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
