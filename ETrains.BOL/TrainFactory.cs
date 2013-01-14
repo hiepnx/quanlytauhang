@@ -117,7 +117,7 @@ namespace ETrains.BOL
         public static tblChuyenTau GetByCode(string code)
         {
             var db = new dbTrainEntities(ConnectionController.GetConnection());
-            var train = db.tblChuyenTaus.Include("tblToaTaus").Where(x=>x.Ma_Chuyen_Tau == code).FirstOrDefault();
+            var train = db.tblChuyenTaus.Where(x=>x.Ma_Chuyen_Tau == code).FirstOrDefault();
             return train;
         }
 
@@ -164,6 +164,13 @@ namespace ETrains.BOL
         {
             var db = new dbTrainEntities(ConnectionController.GetConnection());
             db.AddTotblToKhaiTaus(toKhaiTau);
+            return db.SaveChanges();
+        }
+
+        public static int InsertToKhaiTauResource(tblToKhaiTauResource resource)
+        {
+            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            db.AddTotblToKhaiTauResources(resource);
             return db.SaveChanges();
         }
     }
