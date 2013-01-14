@@ -135,6 +135,31 @@ namespace ETrains.BOL
             return db.SaveChanges();
         }
 
+        public static tblHandover FindHandoverByID(long id)
+        {
+            var db = new dbTrainEntities(ConnectionController.GetConnection());
+
+            return db.tblHandovers.Where(g => g.ID == id).FirstOrDefault();
+
+        }
+
+        public static List<tblHandoverResource> FindHandoverResourceByHandoverID(long id)
+        {
+            var db = new dbTrainEntities(ConnectionController.GetConnection());
+
+            return db.tblHandoverResources.Where(g => g.tblHandover.ID == id).ToList();
+
+        }
+
+
+        public static tblToaTau GetToaTauByID(long id)
+        {
+            var db = new dbTrainEntities(ConnectionController.GetConnection());
+
+            return db.tblToaTaus.Where(g => g.ToaTauID == id).FirstOrDefault();
+
+        }
+
         public static int InsertToKhaiTau(tblToKhaiTau toKhaiTau)
         {
             var db = new dbTrainEntities(ConnectionController.GetConnection());

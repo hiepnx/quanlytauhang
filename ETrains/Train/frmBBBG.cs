@@ -6,6 +6,7 @@ using ETrains.BOL;
 using ETrains.DAL;
 using ETrains.Utilities;
 using ETrains.Utilities.Enums;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace ETrains.Train
 {
@@ -237,6 +238,46 @@ namespace ETrains.Train
             {
                 BindToaTau();
             }
+        }
+
+        private void btnPrintBBBG_Click(object sender, EventArgs e)
+        {
+            var reportHandOver = new ReportHandOver();
+
+            var txtNumberHandover = (TextObject)reportHandOver.Section1.ReportObjects["txtNumberHandover"];
+            var txtSummary = (TextObject)reportHandOver.Section1.ReportObjects["txtSummary"];
+            var txtStatusVehicle = (TextObject)reportHandOver.Section1.ReportObjects["txtStatusVehicle"];
+            var txtStatusGoods = (TextObject)reportHandOver.Section1.ReportObjects["txtStatusGoods"];
+
+            long handoverId = 1L;
+
+            tblHandover handover = TrainFactory.FindHandoverByID(handoverId);
+            if (handover != null)
+            {
+                List<tblHandoverResource> listTblHandoverResources = TrainFactory.FindHandoverResourceByHandoverID(handoverId);
+                List<tblToaTau> listToaTau = new List<tblToaTau>();
+                foreach (tblHandoverResource obj in listTblHandoverResources)
+                {
+                    listToaTau.Add(obj.tblToaTau);
+                }
+
+                reportHandOver.SetDataSource(listToaTau);
+
+                if (handover.DateHandover != null)
+                {
+                    String dateString = "Hồi " + handover.DateHandover.Value.Hour + " giờ " + handover.DateHandover.Value.Minute + " phút, ngày " + handover.DateHandover.Value.Day + " tháng " + handover.DateHandover.Value.Month + " năm " + handover.DateHandover.Value.Year;
+                    txtSummary.Text = dateString +  " Chi cục Hải quan ga ĐSQT Đồng Đăng bàn giao cho Chi nhánh vận tải hàng hóa đường sắt Đồng Đăng lô hàng nhập khẩu chuyển cảng vận chuyển từ Hải quan Ga ĐSQT Đồng Đăng đến Chi cục Hải quan Ga ĐSQT Yên Viên.";
+                }
+
+                txtNumberHandover.Text = handover.NumberHandover;
+                txtStatusVehicle.Text = handover.StatusVehicle;
+                txtStatusGoods.Text = handover.StatusGoods;
+
+            }
+
+            FrmPreviewReport frmReport = new FrmPreviewReport(reportHandOver);
+            frmReport.MdiParent = this.MdiParent;
+            frmReport.Show();
         }
     }
 }
