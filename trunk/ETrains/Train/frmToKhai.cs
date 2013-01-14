@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Objects.DataClasses;
 using System.Linq;
 using System.Windows.Forms;
 using ETrains.BOL;
@@ -141,20 +142,18 @@ namespace ETrains.Train
                                           CreatedBy = _userInfo.UserID,
                                           CreatedDate = CommonFactory.GetCurrentDate()
                                       };
-                foreach (var toaTau in listToaTau)
-                {
-                    var declarationResource = new tblToKhaiTauResource
-                                               {
-                                                   tblToaTau = toaTau
-                                               };
-                    
-                    if (declaration.EntityState != System.Data.EntityState.Added &&!declaration.tblToKhaiTauResources.IsLoaded) declaration.tblToKhaiTauResources.Load();
-                    declaration.tblToKhaiTauResources.Add(declarationResource);
-                }
-
                 var result = TrainFactory.InsertToKhaiTau(declaration);
                 if (result > 0)
                 {
+                    foreach (var toaTau in listToaTau)
+                    {
+                        var declarationResource = new tblToKhaiTauResource()
+                                                      {
+                                                          tblToaTau = toaTau,
+                                                          tblToKhaiTau = declaration
+                                                      };
+                        TrainFactory.InsertToKhaiTauResource(declarationResource);
+                    }
                     MessageBox.Show(string.Format("Thêm mới Tờ khai {0} thành công!", _type == 0 ? "xuất cảnh" : "nhập cảnh"));
                     Reset();
                 }
