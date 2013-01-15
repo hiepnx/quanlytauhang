@@ -7,6 +7,8 @@ using ETrains.DAL;
 using ETrains.Utilities;
 using ETrains.Utilities.Enums;
 using CrystalDecisions.CrystalReports.Engine;
+using System.Data;
+using System.Reflection;
 
 namespace ETrains.Train
 {
@@ -242,42 +244,90 @@ namespace ETrains.Train
 
         private void btnPrintBBBG_Click(object sender, EventArgs e)
         {
-            var reportHandOver = new ReportHandOver();
-
-            var txtNumberHandover = (TextObject)reportHandOver.Section1.ReportObjects["txtNumberHandover"];
-            var txtSummary = (TextObject)reportHandOver.Section1.ReportObjects["txtSummary"];
-            var txtStatusVehicle = (TextObject)reportHandOver.Section1.ReportObjects["txtStatusVehicle"];
-            var txtStatusGoods = (TextObject)reportHandOver.Section1.ReportObjects["txtStatusGoods"];
-
-            long handoverId = 1L;
-
-            tblHandover handover = TrainFactory.FindHandoverByID(handoverId);
-            if (handover != null)
+            try
             {
-                List<tblHandoverResource> listTblHandoverResources = TrainFactory.FindHandoverResourceByHandoverID(handoverId);
-                List<tblToaTau> listToaTau = new List<tblToaTau>();
-                foreach (tblHandoverResource obj in listTblHandoverResources)
+                var reportHandOver = new ReportHandOver();
+
+                var txtNumberHandover = (TextObject)reportHandOver.Section1.ReportObjects["txtNumberHandover"];
+                var txtSummary = (TextObject)reportHandOver.Section1.ReportObjects["txtSummary"];
+                var txtStatusVehicle = (TextObject)reportHandOver.Section1.ReportObjects["txtStatusVehicle"];
+                var txtStatusGoods = (TextObject)reportHandOver.Section1.ReportObjects["txtStatusGoods"];
+
+                long handoverId = 1L;
+
+                tblHandover handover = TrainFactory.FindHandoverByID(handoverId);
+                if (handover != null)
                 {
-                    listToaTau.Add(obj.tblToaTau);
+                    if (handover.tblHandoverResources.IsLoaded == false)
+                    {
+                        handover.tblHandoverResources.Load();
+                    }
+                    List<tblHandoverResource> listTblHandoverResources = TrainFactory.FindHandoverResourceByHandoverID(handoverId);
+                    //List<tblHandoverResource> listTblHandoverResources = handover.tblHandoverResources.ToList(); ;
+                    List<tblToaTau> listToaTau = new List<tblToaTau>();
+                    foreach (tblHandoverResource obj in listTblHandoverResources)
+                    {
+                        if (obj.tblToaTauReference.IsLoaded == false)
+                        {
+                            obj.tblToaTauReference.Load();
+                        }
+                        if (obj.tblToaTau != null)
+                        {
+                            listToaTau.Add(obj.tblToaTau);
+                        }
+                    }
+
+                    DataSet1 dataset = new DataSet1();
+                    DataTable dt = dataset.tblToaTau;
+                    //dt = ListToDataTable.ToDataTable(listToaTau);
+                    foreach (tblToaTau toaTau in listToaTau)
+                    {
+                        if (toaTau.tblChuyenTauReference.IsLoaded == false)
+                        {
+                            toaTau.tblChuyenTauReference.Load();
+                        }
+                        dt.Rows.Add(toaTau.ToaTauID,
+                                      toaTau.Ma_ToaTau
+                                      , toaTau.So_VanTai_Don
+                                      , toaTau.Ngay_VanTai_Don
+                                      , toaTau.Ten_DoiTac
+                                      , toaTau.Ma_DoanhNghiep
+                                      , toaTau.Ten_Hang
+                                      , toaTau.Trong_Luong
+                                      , toaTau.Don_Vi_Tinh
+                                      , toaTau.Seal_VanTai
+                                      , toaTau.Seal_VanTai2
+                                      , toaTau.Seal_HaiQuan
+                                      , toaTau.Seal_HaiQuan2
+                                      , toaTau.Ghi_Chu
+                                      , toaTau.CreatedDate
+                                      , toaTau.CreatedBy
+                                      , toaTau.ModifiedDate
+                                      , toaTau.ModifiedBy
+                                      , toaTau.tblChuyenTau.TrainID);
+                    }
+
+                    reportHandOver.SetDataSource(dataset);
+
+                    if (handover.DateHandover != null)
+                    {
+                        String dateString = "Hồi " + handover.DateHandover.Value.Hour + " giờ " + handover.DateHandover.Value.Minute + " phút, ngày " + handover.DateHandover.Value.Day + " tháng " + handover.DateHandover.Value.Month + " năm " + handover.DateHandover.Value.Year;
+                        txtSummary.Text = dateString + " Chi cục Hải quan ga ĐSQT Đồng Đăng bàn giao cho Chi nhánh vận tải hàng hóa đường sắt Đồng Đăng lô hàng nhập khẩu chuyển cảng vận chuyển từ Hải quan Ga ĐSQT Đồng Đăng đến Chi cục Hải quan Ga ĐSQT Yên Viên.";
+                    }
+
+                    txtNumberHandover.Text = handover.NumberHandover;
+                    txtStatusVehicle.Text = handover.StatusVehicle;
+                    txtStatusGoods.Text = handover.StatusGoods;
+
                 }
 
-                reportHandOver.SetDataSource(listToaTau);
-
-                if (handover.DateHandover != null)
-                {
-                    String dateString = "Hồi " + handover.DateHandover.Value.Hour + " giờ " + handover.DateHandover.Value.Minute + " phút, ngày " + handover.DateHandover.Value.Day + " tháng " + handover.DateHandover.Value.Month + " năm " + handover.DateHandover.Value.Year;
-                    txtSummary.Text = dateString +  " Chi cục Hải quan ga ĐSQT Đồng Đăng bàn giao cho Chi nhánh vận tải hàng hóa đường sắt Đồng Đăng lô hàng nhập khẩu chuyển cảng vận chuyển từ Hải quan Ga ĐSQT Đồng Đăng đến Chi cục Hải quan Ga ĐSQT Yên Viên.";
-                }
-
-                txtNumberHandover.Text = handover.NumberHandover;
-                txtStatusVehicle.Text = handover.StatusVehicle;
-                txtStatusGoods.Text = handover.StatusGoods;
-
+                FrmPreviewReport frmReport = new FrmPreviewReport(reportHandOver);
+                frmReport.MdiParent = this.MdiParent;
+                frmReport.Show();
             }
-
-            FrmPreviewReport frmReport = new FrmPreviewReport(reportHandOver);
-            frmReport.MdiParent = this.MdiParent;
-            frmReport.Show();
+            catch (Exception ex)
+            {
+            }
         }
     }
 }
