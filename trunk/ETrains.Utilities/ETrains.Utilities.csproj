@@ -54,6 +54,7 @@
     <Compile Include="Enums\TrainType.cs" />
     <Compile Include="FDHelper.cs" />
     <Compile Include="GlobalInfo.cs" />
+    <Compile Include="ListToDataTable.cs" />
     <Compile Include="ObjectToXml.cs" />
     <Compile Include="PermissionInfo.cs" />
     <Compile Include="PrinterChecking.cs" />
