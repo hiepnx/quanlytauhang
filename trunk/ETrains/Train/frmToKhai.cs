@@ -142,18 +142,17 @@ namespace ETrains.Train
                                           CreatedBy = _userInfo.UserID,
                                           CreatedDate = CommonFactory.GetCurrentDate()
                                       };
+                foreach (var toaTau in listToaTau)
+                {
+                    var declarationResource = new tblToKhaiTauResource
+                                                  {
+                                                      tblToaTau = toaTau
+                                                  };
+                    declaration.tblToKhaiTauResources.Add(declarationResource);
+                }
                 var result = TrainFactory.InsertToKhaiTau(declaration);
                 if (result > 0)
                 {
-                    foreach (var toaTau in listToaTau)
-                    {
-                        var declarationResource = new tblToKhaiTauResource()
-                                                      {
-                                                          tblToaTau = toaTau,
-                                                          tblToKhaiTau = declaration
-                                                      };
-                        TrainFactory.InsertToKhaiTauResource(declarationResource);
-                    }
                     MessageBox.Show(string.Format("Thêm mới Tờ khai {0} thành công!", _type == 0 ? "xuất cảnh" : "nhập cảnh"));
                     Reset();
                 }

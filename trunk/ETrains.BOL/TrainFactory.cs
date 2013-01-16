@@ -8,6 +8,12 @@ namespace ETrains.BOL
 {
     public class TrainFactory
     {
+        private static dbTrainEntities _db;
+        private static dbTrainEntities Instance()
+        {
+            return _db ?? (_db = new dbTrainEntities(ConnectionController.GetConnection()));
+        }
+
         public static List<tblTrain> GetAll()
         {
             var db = new dbTrainEntities(ConnectionController.GetConnection());
@@ -108,7 +114,7 @@ namespace ETrains.BOL
         //New Flow
         public static int InsertChuyenTau(tblChuyenTau train)
         {
-            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            var db = Instance();
             db.AddTotblChuyenTaus(train);
 
             return db.SaveChanges();    
@@ -116,36 +122,35 @@ namespace ETrains.BOL
 
         public static tblChuyenTau GetByCode(string code)
         {
-            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            var db = Instance();
             var train = db.tblChuyenTaus.Where(x=>x.Ma_Chuyen_Tau == code).FirstOrDefault();
             return train;
         }
 
         public static tblChuyenTau GetById(long id)
         {
-            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            var db = Instance();
             var train = db.tblChuyenTaus.Where(x => x.TrainID == id).FirstOrDefault();
             return train;
         }
 
         public static int InsertBBBG(tblHandover handover)
         {
-            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            var db = Instance();
             db.AddTotblHandovers(handover);
             return db.SaveChanges();
         }
 
         public static tblHandover FindHandoverByID(long id)
         {
-            var db = new dbTrainEntities(ConnectionController.GetConnection());
-
+            var db = Instance();
             return db.tblHandovers.Where(g => g.ID == id).FirstOrDefault();
 
         }
 
         public static List<tblHandoverResource> FindHandoverResourceByHandoverID(long id)
         {
-            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            var db = Instance();
 
             return db.tblHandoverResources.Where(g => g.tblHandover.ID == id).ToList();
 
@@ -154,22 +159,21 @@ namespace ETrains.BOL
 
         public static tblToaTau GetToaTauByID(long id)
         {
-            var db = new dbTrainEntities(ConnectionController.GetConnection());
-
+            var db = Instance();
             return db.tblToaTaus.Where(g => g.ToaTauID == id).FirstOrDefault();
 
         }
 
         public static int InsertToKhaiTau(tblToKhaiTau toKhaiTau)
         {
-            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            var db = Instance();
             db.AddTotblToKhaiTaus(toKhaiTau);
             return db.SaveChanges();
         }
 
         public static int InsertToKhaiTauResource(tblToKhaiTauResource resource)
         {
-            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            var db = Instance();
             db.AddTotblToKhaiTauResources(resource);
             return db.SaveChanges();
         }
