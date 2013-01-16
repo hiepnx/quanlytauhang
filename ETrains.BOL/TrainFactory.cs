@@ -156,7 +156,6 @@ namespace ETrains.BOL
 
         }
 
-
         public static tblToaTau GetToaTauByID(long id)
         {
             var db = Instance();
@@ -176,6 +175,20 @@ namespace ETrains.BOL
             var db = Instance();
             db.AddTotblToKhaiTauResources(resource);
             return db.SaveChanges();
+        }
+
+        public static List<tblChuyenTau> SearchChuyenTau(string number, int type, bool searchByDate, DateTime dateFrom, DateTime dateTo)
+        {
+            var db = Instance();
+            IQueryable<tblChuyenTau> lst = db.tblChuyenTaus;
+            if (searchByDate) {
+                var fromDate = new DateTime(dateFrom.Year, dateFrom.Month, dateFrom.Day, 0, 0, 0);
+                var toDate = new DateTime(dateTo.Year, dateTo.Month, dateTo.Day, 23, 59, 59);
+                lst = lst.Where(x => x.Ngay_XNC.HasValue && x.Ngay_XNC.Value >= fromDate && x.Ngay_XNC.Value <= toDate);
+            }
+            if (!string.IsNullOrEmpty(number)) lst = lst.Where(x => x.Ma_Chuyen_Tau.Contains(number));
+            if (type >= 0) lst = lst.Where(x => x.Type == type);
+            return lst.ToList();
         }
     }
 }

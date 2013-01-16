@@ -273,5 +273,12 @@ namespace ETrains
             frm.Show();
         }
 
+        private void quảnLýChuyếnTàuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new Train.frmQLChuyenTau();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
     }
 }

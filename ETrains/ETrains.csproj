@@ -182,6 +182,12 @@
     <Compile Include="SubFormBase.Designer.cs">
       <DependentUpon>SubFormBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Train\frmQLChuyenTau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\frmQLChuyenTau.Designer.cs">
+      <DependentUpon>frmQLChuyenTau.cs</DependentUpon>
+    </Compile>
     <Compile Include="Train\frmDanhSachToaTau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubFormBase.resx">
       <DependentUpon>SubFormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\frmQLChuyenTau.resx">
+      <DependentUpon>frmQLChuyenTau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Train\frmDanhSachToaTau.resx">
       <DependentUpon>frmDanhSachToaTau.cs</DependentUpon>
