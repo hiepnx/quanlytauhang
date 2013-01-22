@@ -6,7 +6,7 @@ namespace ETrains
 {
     public partial class frmMainForm : MDIFormBase
     {
-        private readonly UserInfo _userInfo;
+        public static UserInfo _userInfo;
         public frmMainForm()
         {
             InitializeComponent();
@@ -276,6 +276,20 @@ namespace ETrains
         private void quảnLýChuyếnTàuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var frm = new Train.frmQLChuyenTau();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void quảnLýBiênBảnBànGiaoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new Train.frmQLBBBG();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void quảnLýTờKhaiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new Train.frmQLToKhai();
             frm.MdiParent = this;
             frm.Show();
         }

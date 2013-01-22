@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using ETrains.DAL;
 using ETrains.Utilities.Enums;
@@ -119,6 +120,52 @@ namespace ETrains.BOL
 
             return db.SaveChanges();    
         }
+        public static int UpdateChuyenTau(tblChuyenTau train)
+        {
+            var db = Instance();
+            train.ModifiedDate = CommonFactory.GetCurrentDate();
+            var originChuyenTau = db.tblChuyenTaus.Where(g => g.TrainID == train.TrainID).FirstOrDefault();
+            if (originChuyenTau == null) return -1;
+            db.Detach(originChuyenTau);
+            if (originChuyenTau.EntityState == EntityState.Detached)
+            {
+                object original = null;
+                if (_db.TryGetObjectByKey(originChuyenTau.EntityKey, out original))
+                    _db.ApplyPropertyChanges(originChuyenTau.EntityKey.EntitySetName, train);
+            }
+
+            //if (!train.tblToaTaus.IsLoaded) train.tblToaTaus.Load();
+            foreach (var toaTau in train.tblToaTaus)
+            {
+                var originalToaTau = originChuyenTau.tblToaTaus
+                    .Where(c => c.ToaTauID == toaTau.ToaTauID)
+                    .SingleOrDefault();
+                if (originalToaTau != null)
+                {
+                    //db.Attach(originalToaTau);
+                    //db.ApplyPropertyChanges("tblToaTaus", toaTau);
+                    db.Detach(originalToaTau);
+                    if (originalToaTau.EntityState == EntityState.Detached)
+                    {
+                        object original = null;
+                        if (_db.TryGetObjectByKey(originalToaTau.EntityKey, out original))
+                            _db.ApplyPropertyChanges(originalToaTau.EntityKey.EntitySetName, toaTau);
+                    }
+                }
+                else
+                {
+                    originChuyenTau.tblToaTaus.Add(toaTau);
+                }
+            }
+
+            foreach (var originalToaTau in originChuyenTau.tblToaTaus.Where(c => c.ToaTauID != 0).ToList())
+            {
+                if (!train.tblToaTaus.Any(c => c.ToaTauID == originalToaTau.ToaTauID))
+                    db.DeleteObject(originalToaTau);
+            }
+
+            return db.SaveChanges();
+        }
 
         public static tblChuyenTau GetByCode(string code)
         {
@@ -188,6 +235,21 @@ namespace ETrains.BOL
             }
             if (!string.IsNullOrEmpty(number)) lst = lst.Where(x => x.Ma_Chuyen_Tau.Contains(number));
             if (type >= 0) lst = lst.Where(x => x.Type == type);
+            return lst.ToList();
+        }
+
+        public static List<tblHandover> SearchBBBG(string number, bool searchByDate, DateTime dateFrom, DateTime dateTo)
+        {
+            var db = Instance();
+            IQueryable<tblHandover> lst = db.tblHandovers.Include("tblChuyenTau");
+            if (searchByDate)
+            {
+                var fromDate = new DateTime(dateFrom.Year, dateFrom.Month, dateFrom.Day, 0, 0, 0);
+                var toDate = new DateTime(dateTo.Year, dateTo.Month, dateTo.Day, 23, 59, 59);
+                lst = lst.Where(x => x.DateHandover.HasValue && x.DateHandover.Value >= fromDate && x.DateHandover.Value <= toDate);
+            }
+            if (!string.IsNullOrEmpty(number)) lst = lst.Where(x => x.NumberHandover.Contains(number));
+            //if (type >= 0) lst = lst.Where(x => x.Type == type);
             return lst.ToList();
         }
     }

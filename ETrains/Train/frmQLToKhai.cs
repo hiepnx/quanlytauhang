@@ -7,15 +7,15 @@ using ETrains.Utilities;
 
 namespace ETrains.Train
 {
-    public partial class frmQLChuyenTau : Form
+    public partial class frmQLToKhai : Form
     {
         private List<tblChuyenTau> listTrain;
-        public frmQLChuyenTau()
+        public frmQLToKhai()
         {
             InitializeComponent();
         }
 
-        private void frmQLChuyenTau_Load(object sender, EventArgs e)
+        private void frmQLToKhai_Load(object sender, EventArgs e)
         {
             this.Text = "Quan ly Tau hang XNK" + ConstantInfo.MESSAGE_TITLE + GlobalInfo.CompanyName;
             Init();
@@ -40,7 +40,7 @@ namespace ETrains.Train
             {
                 listTrain = TrainFactory.SearchChuyenTau(txtNumberTrain.Text.Trim(),
                                                              Convert.ToInt32(((ComboBoxItem) ddlTypeName.SelectedItem).Value),
-                                                             cbNgayXNC.Checked, dtpFrom.Value, dtpTo.Value);
+                                                             cbNgayDK.Checked, dtpFrom.Value, dtpTo.Value);
                 grdTrain.AutoGenerateColumns = false;
                 grdTrain.DataSource = listTrain;
 
@@ -58,7 +58,7 @@ namespace ETrains.Train
 
         private void cbNgayXNC_CheckedChanged(object sender, EventArgs e)
         {
-            dtpFrom.Enabled = dtpTo.Enabled = cbNgayXNC.Checked;
+            dtpFrom.Enabled = dtpTo.Enabled = cbNgayDK.Checked;
         }
 
         private void grdTrain_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -68,6 +68,5 @@ namespace ETrains.Train
             var frm = new Train.frmThemChuyenTau(frmMainForm._userInfo, (short)train.Type, train);
             frm.ShowDialog();
         }
-
     }
 }

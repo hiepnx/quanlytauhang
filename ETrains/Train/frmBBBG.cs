@@ -18,6 +18,7 @@ namespace ETrains.Train
         private short _mode; //0: addnew, 1: edit
         private UserInfo _userInfo;
         private List<tblToaTau> listToaTau = new List<tblToaTau>();
+        private tblHandover _handover;
 
         public frmBBBG()
         {
@@ -29,6 +30,15 @@ namespace ETrains.Train
             _userInfo = userInfo;
             _type = type;
             _mode = mode;
+        }
+
+        public frmBBBG(UserInfo userInfo, short type, tblHandover handover, short mode = (short)1)
+        {
+            InitializeComponent();
+            _userInfo = userInfo;
+            _type = type;
+            _mode = mode;
+            _handover = handover;
         }
 
         private void frmBBBG_Load(object sender, EventArgs e)
@@ -97,7 +107,26 @@ namespace ETrains.Train
             else
             {
                 btnAddNew.Enabled = false;
+                InitData();
             }
+        }
+
+        private void InitData()
+        {
+            if (_handover == null) return;
+            txtNumberHandover.Text = _handover.NumberHandover;
+            dtpHandover.Value = (DateTime) _handover.DateHandover;
+            txtCodeCuaKhau.Text = _handover.CodeStation;
+            ddlCuaKhau.SelectedValue = _handover.CodeStation;
+            txtCodeGaDenDi.Text = _handover.CodeStationFromTo;
+            ddlGaDenDi.SelectedValue = _handover.CodeStationFromTo;
+            txtStatusGood.Text = _handover.StatusGoods;
+            txtStatusVehicle.Text = _handover.StatusVehicle;
+            txtNumberTrain.Text = _handover.Ma_Chuyen_Tau;
+
+            if (!_handover.tblHandoverResources.IsLoaded) _handover.tblHandoverResources.Load();
+            listToaTau = _handover.tblHandoverResources.Select(t => t.tblToaTau).ToList();
+            BindToaTau();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -253,7 +282,7 @@ namespace ETrains.Train
                 var txtStatusVehicle = (TextObject)reportHandOver.Section1.ReportObjects["txtStatusVehicle"];
                 var txtStatusGoods = (TextObject)reportHandOver.Section1.ReportObjects["txtStatusGoods"];
 
-                long handoverId = 1L;
+                long handoverId = _handover.ID; //1L;
 
                 tblHandover handover = TrainFactory.FindHandoverByID(handoverId);
                 if (handover != null)
