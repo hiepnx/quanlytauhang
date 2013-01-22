@@ -182,6 +182,18 @@
     <Compile Include="SubFormBase.Designer.cs">
       <DependentUpon>SubFormBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Train\frmQLBBBG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\frmQLBBBG.Designer.cs">
+      <DependentUpon>frmQLBBBG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Train\frmQLToKhai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\frmQLToKhai.Designer.cs">
+      <DependentUpon>frmQLToKhai.cs</DependentUpon>
+    </Compile>
     <Compile Include="Train\frmQLChuyenTau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +310,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubFormBase.resx">
       <DependentUpon>SubFormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\frmQLBBBG.resx">
+      <DependentUpon>frmQLBBBG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\frmQLToKhai.resx">
+      <DependentUpon>frmQLToKhai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Train\frmQLChuyenTau.resx">
       <DependentUpon>frmQLChuyenTau.cs</DependentUpon>

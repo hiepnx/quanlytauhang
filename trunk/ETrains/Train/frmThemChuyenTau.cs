@@ -13,6 +13,8 @@ namespace ETrains.Train
     {
         private short _type; //0: xuat canh, 1 nhap canh
         private short _mode; //0: addnew, 1: edit
+        private long _trainID;
+        private tblChuyenTau _train;
         private UserInfo _userInfo;
         private List<tblToaTau> listToaTau = new List<tblToaTau>();
 
@@ -26,6 +28,23 @@ namespace ETrains.Train
             _userInfo = userInfo;
             _type = type;
             _mode = mode;
+        }
+
+        public frmThemChuyenTau(UserInfo userInfo, short type, long trainID, short mode = (short)1)
+        {
+            InitializeComponent();
+            _userInfo = userInfo;
+            _type = type;
+            _mode = mode;
+            _trainID = trainID;
+        }
+        public frmThemChuyenTau(UserInfo userInfo, short type, tblChuyenTau train, short mode = (short)1)
+        {
+            InitializeComponent();
+            _userInfo = userInfo;
+            _type = type;
+            _mode = mode;
+            _train = train;
         }
 
         private void frmThemChuyenTau_Load(object sender, EventArgs e)
@@ -59,14 +78,25 @@ namespace ETrains.Train
             grdToaTau.AutoGenerateColumns = false;
 
             //mode
-            if (_mode == 0)
+            if (_mode == 0) //add
             {
                 btnUpdate.Enabled = btnDelete.Enabled = false;
             }
-            else
+            else // edit
             {
                 btnAddNew.Enabled = false;
+                InitData();
             }
+        }
+
+        private void InitData()
+        {
+            if (_train == null) return;
+            txtNumberTrain.Text = _train.Ma_Chuyen_Tau;
+            if (_train.Ngay_XNC != null) dtpDateXNC.Value = (DateTime)_train.Ngay_XNC;
+            if (!_train.tblToaTaus.IsLoaded) _train.tblToaTaus.Load();
+            listToaTau = _train.tblToaTaus.ToList();
+            BindToaTau();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -185,6 +215,37 @@ namespace ETrains.Train
             var company = CompanyFactory.FindByCode(txtCompanyCode.Text.Trim());
             txtCompanyName.Text = company != null ? Converter.TCVN3ToUnicode(company.CompanyName) : "";
             if (company == null) txtCompanyCode.Text = string.Empty;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!ValidateChuyenTau()) return;
+                _train.ModifiedBy = _userInfo.UserID;
+                _train.Ma_Chuyen_Tau = txtNumberTrain.Text.Trim();
+                _train.Ngay_XNC = dtpDateXNC.Value;
+                _train.tblToaTaus.Clear();
+                foreach (var toaTau in listToaTau)
+                {
+                    _train.tblToaTaus.Add(toaTau);
+                }
+                var result = TrainFactory.UpdateChuyenTau(_train);
+                if (result > 0)
+                {
+                    MessageBox.Show("Cập nhật chuyến tàu thành công!");    
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật chuyến không thành công!");
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                if (GlobalInfo.IsDebug) MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
