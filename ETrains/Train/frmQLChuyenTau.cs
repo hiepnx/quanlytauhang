@@ -67,6 +67,10 @@ namespace ETrains.Train
             var train = listTrain[e.RowIndex];
             var frm = new Train.frmThemChuyenTau(frmMainForm._userInfo, (short)train.Type, train);
             frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK )
+            {
+                btnSearch_Click(null, null);
+            }
         }
 
     }

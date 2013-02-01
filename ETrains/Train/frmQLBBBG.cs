@@ -66,6 +66,10 @@ namespace ETrains.Train
             var handover = listHandOver[e.RowIndex];
             var frm = new Train.frmBBBG(frmMainForm._userInfo, (short)handover.tblChuyenTau.Type, handover);
             frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                btnSearch_Click(null, null);
+            }
         }
     }
 }

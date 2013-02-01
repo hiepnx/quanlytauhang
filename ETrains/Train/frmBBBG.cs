@@ -114,6 +114,7 @@ namespace ETrains.Train
         private void InitData()
         {
             if (_handover == null) return;
+            _handover = TrainFactory.FindHandoverByID(_handover.ID);
             txtNumberHandover.Text = _handover.NumberHandover;
             dtpHandover.Value = (DateTime) _handover.DateHandover;
             txtCodeCuaKhau.Text = _handover.CodeStation;
@@ -123,9 +124,14 @@ namespace ETrains.Train
             txtStatusGood.Text = _handover.StatusGoods;
             txtStatusVehicle.Text = _handover.StatusVehicle;
             txtNumberTrain.Text = _handover.Ma_Chuyen_Tau;
+            txtNumberTrain.ReadOnly = true;
 
             if (!_handover.tblHandoverResources.IsLoaded) _handover.tblHandoverResources.Load();
-            listToaTau = _handover.tblHandoverResources.Select(t => t.tblToaTau).ToList();
+            foreach(var resource in _handover.tblHandoverResources)
+            {
+                resource.tblToaTauReference.Load();
+                listToaTau.Add(resource.tblToaTau);
+            }
             BindToaTau();
         }
 
@@ -356,6 +362,39 @@ namespace ETrains.Train
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!Validate()) return;
+                _handover.ModifiedBy = _userInfo.UserID;
+                _handover.NumberHandover = txtNumberHandover.Text.Trim();
+                _handover.DateHandover = dtpHandover.Value;
+                _handover.CodeStation = txtCodeCuaKhau.Text.Trim();
+                _handover.CodeStationFromTo = txtCodeGaDenDi.Text.Trim();
+                _handover.StatusGoods = txtStatusGood.Text.Trim();
+                _handover.StatusVehicle = txtStatusVehicle.Text.Trim();
+                _handover.ModifiedBy = _userInfo.UserID;  
+                
+                var result = TrainFactory.UpdateHandover(_handover, listToaTau);
+                if (result > 0)
+                {
+                    MessageBox.Show("Cập nhật BBBG thành công!");
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật BBBG không thành công!");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                if (GlobalInfo.IsDebug) MessageBox.Show(ex.ToString());
             }
         }
     }

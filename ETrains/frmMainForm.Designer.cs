@@ -58,6 +58,8 @@
             this.đăngKýTờKhaiNhậpCảnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.quảnLýChuyếnTàuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quảnLýBiênBảnBànGiaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quảnLýTờKhaiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hướngDẫnSửDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -68,8 +70,6 @@
             this.toolStripButtonListdeclarace = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.quảnLýBiênBảnBànGiaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quảnLýTờKhaiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnMain.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -202,6 +202,7 @@
             this.tàuHàngTrungQuốcNhậpCảnhToolStripMenuItem.Name = "tàuHàngTrungQuốcNhậpCảnhToolStripMenuItem";
             this.tàuHàngTrungQuốcNhậpCảnhToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.tàuHàngTrungQuốcNhậpCảnhToolStripMenuItem.Text = "Tàu hàng Trung Quốc nhập cảnh";
+            this.tàuHàngTrungQuốcNhậpCảnhToolStripMenuItem.Visible = false;
             this.tàuHàngTrungQuốcNhậpCảnhToolStripMenuItem.Click += new System.EventHandler(this.tàuHàngTrungQuốcNhậpCảnhToolStripMenuItem_Click);
             // 
             // tàuHàngTrungQuốcXuấtCảnhToolStripMenuItem
@@ -209,6 +210,7 @@
             this.tàuHàngTrungQuốcXuấtCảnhToolStripMenuItem.Name = "tàuHàngTrungQuốcXuấtCảnhToolStripMenuItem";
             this.tàuHàngTrungQuốcXuấtCảnhToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.tàuHàngTrungQuốcXuấtCảnhToolStripMenuItem.Text = "Tàu hàng Trung Quốc xuất cảnh";
+            this.tàuHàngTrungQuốcXuấtCảnhToolStripMenuItem.Visible = false;
             this.tàuHàngTrungQuốcXuấtCảnhToolStripMenuItem.Click += new System.EventHandler(this.tàuHàngTrungQuốcXuấtCảnhToolStripMenuItem_Click);
             // 
             // khaiBáoToaTàuXuấtToolStripMenuItem
@@ -216,6 +218,7 @@
             this.khaiBáoToaTàuXuấtToolStripMenuItem.Name = "khaiBáoToaTàuXuấtToolStripMenuItem";
             this.khaiBáoToaTàuXuấtToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.khaiBáoToaTàuXuấtToolStripMenuItem.Text = "Khai báo toa tàu xuất";
+            this.khaiBáoToaTàuXuấtToolStripMenuItem.Visible = false;
             this.khaiBáoToaTàuXuấtToolStripMenuItem.Click += new System.EventHandler(this.khaiBáoToaTàuXuấtToolStripMenuItem_Click);
             // 
             // tàuKháchXNKToolStripMenuItem
@@ -223,6 +226,7 @@
             this.tàuKháchXNKToolStripMenuItem.Name = "tàuKháchXNKToolStripMenuItem";
             this.tàuKháchXNKToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.tàuKháchXNKToolStripMenuItem.Text = "Tàu khách XNC";
+            this.tàuKháchXNKToolStripMenuItem.Visible = false;
             this.tàuKháchXNKToolStripMenuItem.Click += new System.EventHandler(this.tàuKháchXNKToolStripMenuItem_Click);
             // 
             // quảnLýTàuHàngTrungQuốcXNCToolStripMenuItem
@@ -230,6 +234,7 @@
             this.quảnLýTàuHàngTrungQuốcXNCToolStripMenuItem.Name = "quảnLýTàuHàngTrungQuốcXNCToolStripMenuItem";
             this.quảnLýTàuHàngTrungQuốcXNCToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.quảnLýTàuHàngTrungQuốcXNCToolStripMenuItem.Text = "Quản lý tàu hàng Trung Quốc XNC";
+            this.quảnLýTàuHàngTrungQuốcXNCToolStripMenuItem.Visible = false;
             this.quảnLýTàuHàngTrungQuốcXNCToolStripMenuItem.Click += new System.EventHandler(this.quảnLýTàuHàngTrungQuốcXNCToolStripMenuItem_Click);
             // 
             // quảnLýTàuKháchXNCToolStripMenuItem
@@ -237,12 +242,14 @@
             this.quảnLýTàuKháchXNCToolStripMenuItem.Name = "quảnLýTàuKháchXNCToolStripMenuItem";
             this.quảnLýTàuKháchXNCToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.quảnLýTàuKháchXNCToolStripMenuItem.Text = "Quản lý tàu khách XNC";
+            this.quảnLýTàuKháchXNCToolStripMenuItem.Visible = false;
             this.quảnLýTàuKháchXNCToolStripMenuItem.Click += new System.EventHandler(this.quảnLýTàuKháchXNCToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(249, 6);
+            this.toolStripSeparator3.Visible = false;
             // 
             // khaiBáoTàuHàngXuấtCảnhToolStripMenuItem
             // 
@@ -308,6 +315,20 @@
             this.quảnLýChuyếnTàuToolStripMenuItem.Text = "Quản lý chuyến tàu";
             this.quảnLýChuyếnTàuToolStripMenuItem.Click += new System.EventHandler(this.quảnLýChuyếnTàuToolStripMenuItem_Click);
             // 
+            // quảnLýBiênBảnBànGiaoToolStripMenuItem
+            // 
+            this.quảnLýBiênBảnBànGiaoToolStripMenuItem.Name = "quảnLýBiênBảnBànGiaoToolStripMenuItem";
+            this.quảnLýBiênBảnBànGiaoToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
+            this.quảnLýBiênBảnBànGiaoToolStripMenuItem.Text = "Quản lý Biên bản bàn giao";
+            this.quảnLýBiênBảnBànGiaoToolStripMenuItem.Click += new System.EventHandler(this.quảnLýBiênBảnBànGiaoToolStripMenuItem_Click);
+            // 
+            // quảnLýTờKhaiToolStripMenuItem
+            // 
+            this.quảnLýTờKhaiToolStripMenuItem.Name = "quảnLýTờKhaiToolStripMenuItem";
+            this.quảnLýTờKhaiToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
+            this.quảnLýTờKhaiToolStripMenuItem.Text = "Quản lý tờ khai";
+            this.quảnLýTờKhaiToolStripMenuItem.Click += new System.EventHandler(this.quảnLýTờKhaiToolStripMenuItem_Click);
+            // 
             // trợGiúpToolStripMenuItem
             // 
             this.trợGiúpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -341,6 +362,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(1140, 44);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Visible = false;
             // 
             // toolstripLabelWelcome
             // 
@@ -419,27 +441,13 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 41);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // quảnLýBiênBảnBànGiaoToolStripMenuItem
-            // 
-            this.quảnLýBiênBảnBànGiaoToolStripMenuItem.Name = "quảnLýBiênBảnBànGiaoToolStripMenuItem";
-            this.quảnLýBiênBảnBànGiaoToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
-            this.quảnLýBiênBảnBànGiaoToolStripMenuItem.Text = "Quản lý Biên bản bàn giao";
-            this.quảnLýBiênBảnBànGiaoToolStripMenuItem.Click += new System.EventHandler(this.quảnLýBiênBảnBànGiaoToolStripMenuItem_Click);
-            // 
-            // quảnLýTờKhaiToolStripMenuItem
-            // 
-            this.quảnLýTờKhaiToolStripMenuItem.Name = "quảnLýTờKhaiToolStripMenuItem";
-            this.quảnLýTờKhaiToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
-            this.quảnLýTờKhaiToolStripMenuItem.Text = "Quản lý tờ khai";
-            this.quảnLýTờKhaiToolStripMenuItem.Click += new System.EventHandler(this.quảnLýTờKhaiToolStripMenuItem_Click);
-            // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ETrains.Properties.Resources.logoBackgound;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1140, 688);
+            this.ClientSize = new System.Drawing.Size(1140, 694);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.mnMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
