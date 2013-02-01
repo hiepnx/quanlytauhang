@@ -10,8 +10,9 @@ namespace ETrains.BOL
     public class TrainFactory
     {
         private static dbTrainEntities _db;
-        private static dbTrainEntities Instance()
+        private static dbTrainEntities Instance(bool isNewInstance = false)
         {
+            if (isNewInstance) return new dbTrainEntities(ConnectionController.GetConnection());
             return _db ?? (_db = new dbTrainEntities(ConnectionController.GetConnection()));
         }
 
@@ -120,36 +121,26 @@ namespace ETrains.BOL
 
             return db.SaveChanges();    
         }
-        public static int UpdateChuyenTau(tblChuyenTau train)
+        public static int UpdateChuyenTau(tblChuyenTau train, List<tblToaTau> listToaTau)
         {
             var db = Instance();
             train.ModifiedDate = CommonFactory.GetCurrentDate();
-            var originChuyenTau = db.tblChuyenTaus.Where(g => g.TrainID == train.TrainID).FirstOrDefault();
-            if (originChuyenTau == null) return -1;
-            db.Detach(originChuyenTau);
-            if (originChuyenTau.EntityState == EntityState.Detached)
-            {
-                object original = null;
-                if (_db.TryGetObjectByKey(originChuyenTau.EntityKey, out original))
-                    _db.ApplyPropertyChanges(originChuyenTau.EntityKey.EntitySetName, train);
-            }
-
-            //if (!train.tblToaTaus.IsLoaded) train.tblToaTaus.Load();
-            foreach (var toaTau in train.tblToaTaus)
+            var originChuyenTau = db.tblChuyenTaus.Include("tblToaTaus").Where(g => g.TrainID == train.TrainID).FirstOrDefault();
+          
+            foreach (var toaTau in listToaTau)
             {
                 var originalToaTau = originChuyenTau.tblToaTaus
                     .Where(c => c.ToaTauID == toaTau.ToaTauID)
-                    .SingleOrDefault();
+                    .FirstOrDefault();
                 if (originalToaTau != null)
                 {
-                    //db.Attach(originalToaTau);
-                    //db.ApplyPropertyChanges("tblToaTaus", toaTau);
+                    toaTau.ModifiedDate = train.ModifiedDate;
                     db.Detach(originalToaTau);
                     if (originalToaTau.EntityState == EntityState.Detached)
                     {
                         object original = null;
-                        if (_db.TryGetObjectByKey(originalToaTau.EntityKey, out original))
-                            _db.ApplyPropertyChanges(originalToaTau.EntityKey.EntitySetName, toaTau);
+                        if (db.TryGetObjectByKey(originalToaTau.EntityKey, out original))
+                            db.ApplyPropertyChanges(originalToaTau.EntityKey.EntitySetName, toaTau);
                     }
                 }
                 else
@@ -160,11 +151,74 @@ namespace ETrains.BOL
 
             foreach (var originalToaTau in originChuyenTau.tblToaTaus.Where(c => c.ToaTauID != 0).ToList())
             {
-                if (!train.tblToaTaus.Any(c => c.ToaTauID == originalToaTau.ToaTauID))
+                if (!listToaTau.Any(c => c.ToaTauID == originalToaTau.ToaTauID))
                     db.DeleteObject(originalToaTau);
             }
 
+            db.Detach(originChuyenTau);
+            if (originChuyenTau.EntityState == EntityState.Detached)
+            {
+                object original = null;
+                if (db.TryGetObjectByKey(originChuyenTau.EntityKey, out original))
+                    db.ApplyPropertyChanges(originChuyenTau.EntityKey.EntitySetName, train);
+            }
+
             return db.SaveChanges();
+        }
+
+        public static int UpdateHandover(tblHandover handover, List<tblToaTau> listToaTau)
+        {
+            try
+            {
+
+            
+            var db = Instance();
+            handover.ModifiedDate = CommonFactory.GetCurrentDate();
+            var originHandover = db.tblHandovers.Include("tblHandoverResources").Where(g => g.ID == handover.ID).FirstOrDefault();
+
+            foreach (var toaTau in listToaTau)
+            {
+                var originalResource = originHandover.tblHandoverResources
+                    .Where(c => c.tblToaTau.ToaTauID == toaTau.ToaTauID)
+                    .FirstOrDefault();
+                if (originalResource != null)
+                {
+                    //db.Detach(originalToaTau);
+                    //if (originalToaTau.EntityState == EntityState.Detached)
+                    //{
+                    //    object original = null;
+                    //    if (db.TryGetObjectByKey(originalToaTau.EntityKey, out original))
+                    //        db.ApplyPropertyChanges(originalToaTau.EntityKey.EntitySetName, toaTau);
+                    //}
+                }
+                else
+                {
+                    originalResource = new tblHandoverResource {tblToaTau = toaTau};
+                    db.AddTotblHandoverResources(originalResource);
+                }
+            }
+
+            foreach (var originalResource in originHandover.tblHandoverResources.Where(c => c.ID != 0).ToList())
+            {
+                if (!listToaTau.Any(c => c.ToaTauID == originalResource.tblToaTau.ToaTauID))
+                    db.DeleteObject(originalResource);
+            }
+
+            db.Detach(originHandover);
+            if (originHandover.EntityState == EntityState.Detached)
+            {
+                object original = null;
+                if (db.TryGetObjectByKey(originHandover.EntityKey, out original))
+                    db.ApplyPropertyChanges(originHandover.EntityKey.EntitySetName, handover);
+            }
+
+            return db.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+            }
+            return 1;
         }
 
         public static tblChuyenTau GetByCode(string code)
