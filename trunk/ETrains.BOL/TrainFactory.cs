@@ -281,7 +281,7 @@ namespace ETrains.BOL
         public static List<tblChuyenTau> SearchChuyenTau(string number, int type, bool searchByDate, DateTime dateFrom, DateTime dateTo)
         {
             var db = Instance();
-            IQueryable<tblChuyenTau> lst = db.tblChuyenTaus;
+            IQueryable<tblChuyenTau> lst = db.tblChuyenTaus.Where(t=>t.IsDeleted == null || t.IsDeleted == false);
             if (searchByDate) {
                 var fromDate = new DateTime(dateFrom.Year, dateFrom.Month, dateFrom.Day, 0, 0, 0);
                 var toDate = new DateTime(dateTo.Year, dateTo.Month, dateTo.Day, 23, 59, 59);
@@ -295,7 +295,7 @@ namespace ETrains.BOL
         public static List<tblHandover> SearchBBBG(string number, bool searchByDate, DateTime dateFrom, DateTime dateTo)
         {
             var db = Instance();
-            IQueryable<tblHandover> lst = db.tblHandovers.Include("tblChuyenTau");
+            IQueryable<tblHandover> lst = db.tblHandovers.Include("tblChuyenTau").Where(h => h.IsDeleted == null || h.IsDeleted == false);
             if (searchByDate)
             {
                 var fromDate = new DateTime(dateFrom.Year, dateFrom.Month, dateFrom.Day, 0, 0, 0);
@@ -305,6 +305,50 @@ namespace ETrains.BOL
             if (!string.IsNullOrEmpty(number)) lst = lst.Where(x => x.NumberHandover.Contains(number));
             //if (type >= 0) lst = lst.Where(x => x.Type == type);
             return lst.ToList();
+        }
+
+        public static List<tblToKhaiTau> SearchToKhai(string number, int type, bool searchByDate, DateTime dateFrom, DateTime dateTo)
+        {
+            var db = Instance();
+            IQueryable<tblToKhaiTau> lst = db.tblToKhaiTaus.Include("tblChuyenTau").Where(h => h.IsDeleted == null || h.IsDeleted == false);
+            if (searchByDate)
+            {
+                var fromDate = new DateTime(dateFrom.Year, dateFrom.Month, dateFrom.Day, 0, 0, 0);
+                var toDate = new DateTime(dateTo.Year, dateTo.Month, dateTo.Day, 23, 59, 59);
+                lst = lst.Where(x => x.DateDeclaration.HasValue && x.DateDeclaration.Value >= fromDate && x.DateDeclaration.Value <= toDate);
+            }
+            if (!string.IsNullOrEmpty(number))
+            {
+                int intNumber;
+                int.TryParse(number, out intNumber);
+                if (intNumber > 0) lst = lst.Where(x => x.Number == intNumber);
+            }
+            if (type >= 0) lst = lst.Where(x => x.tblChuyenTau.Type == type);
+            return lst.ToList();
+        }
+
+        public static int DeleteHandoverByID(long handoverId)
+        {
+            var db = Instance();
+            var handover = db.tblHandovers.Where(h => h.ID == handoverId).FirstOrDefault();
+            handover.IsDeleted = true;
+            return db.SaveChanges();
+        }
+
+        public static int DeleteChuyenTauByID(long trainID)
+        {
+            var db = Instance();
+            var train = db.tblChuyenTaus.Where(t => t.TrainID == trainID).FirstOrDefault();
+            train.IsDeleted = true;
+            return db.SaveChanges();
+        }
+
+        public static int DeleteToKhaiByID(long toKhaiID)
+        {
+            var db = Instance();
+            var toKhai = db.tblToKhaiTaus.Where(t => t.ID == toKhaiID).FirstOrDefault();
+            toKhai.IsDeleted = true;
+            return db.SaveChanges();
         }
     }
 }

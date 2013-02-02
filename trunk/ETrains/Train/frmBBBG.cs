@@ -397,5 +397,28 @@ namespace ETrains.Train
                 if (GlobalInfo.IsDebug) MessageBox.Show(ex.ToString());
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var dr = MessageBox.Show("Bạn có chắc là muốn xóa?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    if (TrainFactory.DeleteHandoverByID(_handover.ID) > 0)
+                    {    
+                        MessageBox.Show("Xóa xong");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Xóa bị lỗi");
+                }
+            }
+            catch (Exception ex)
+            {
+                if (GlobalInfo.IsDebug) MessageBox.Show(ex.ToString());
+            }            
+        }
     }
 }

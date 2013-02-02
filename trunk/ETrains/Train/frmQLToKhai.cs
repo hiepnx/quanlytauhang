@@ -9,7 +9,7 @@ namespace ETrains.Train
 {
     public partial class frmQLToKhai : Form
     {
-        private List<tblChuyenTau> listTrain;
+        private List<tblToKhaiTau> listToKhai;
         public frmQLToKhai()
         {
             InitializeComponent();
@@ -38,11 +38,11 @@ namespace ETrains.Train
         {
             try
             {
-                listTrain = TrainFactory.SearchChuyenTau(txtNumberTrain.Text.Trim(),
+                listToKhai = TrainFactory.SearchToKhai(txtNumberTrain.Text.Trim(),
                                                              Convert.ToInt32(((ComboBoxItem) ddlTypeName.SelectedItem).Value),
                                                              cbNgayDK.Checked, dtpFrom.Value, dtpTo.Value);
                 grdTrain.AutoGenerateColumns = false;
-                grdTrain.DataSource = listTrain;
+                grdTrain.DataSource = listToKhai;
 
                 for (var i = 0; i < grdTrain.Rows.Count; i++)
                 {
@@ -64,8 +64,8 @@ namespace ETrains.Train
         private void grdTrain_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-            var train = listTrain[e.RowIndex];
-            var frm = new Train.frmThemChuyenTau(frmMainForm._userInfo, (short)train.Type, train);
+            var toKhai = listToKhai[e.RowIndex];
+            var frm = new Train.frmThemChuyenTau(frmMainForm._userInfo, (short)toKhai.tblChuyenTau.Type, toKhai.tblChuyenTau);
             frm.ShowDialog();
         }
     }

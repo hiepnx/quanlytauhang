@@ -179,21 +179,22 @@ namespace ETrains.DAL
             }
         }
 
-        public string CompanyName
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(_companyName))
-                {
-                    if (string.IsNullOrEmpty(CompanyName)) _companyName = string.Empty;
-                    else
-                    {
-                        var db = DataAccess.Instance();
-                        _companyName = db.tblCompanies.Where(x => x.CompanyCode == CompanyCode).FirstOrDefault().CompanyName;
-                    }
-                }
-                return _companyName;
-            }
-        }
+        //public string CompanyName
+        //{
+        //    get
+        //    {
+        //        if (string.IsNullOrEmpty(_companyName))
+        //        {
+        //            if (string.IsNullOrEmpty(CompanyCode)) _companyName = string.Empty;
+        //            else
+        //            {
+        //                var db = DataAccess.Instance();
+        //                var company = db.tblCompanies.Where(x => x.CompanyCode == CompanyCode).FirstOrDefault();
+        //                if (company != null) _companyName = company.CompanyName;
+        //            }
+        //        }
+        //        return _companyName;
+        //    }
+        //}
     }
 }

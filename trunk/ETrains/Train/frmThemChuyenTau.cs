@@ -124,7 +124,7 @@ namespace ETrains.Train
         private void ResetToaTau()
         {
             txtNumberToaTau.Text = txtSoVanDon.Text = txtPartner.Text = txtCompanyCode.Text = txtCompanyName.Text =
-                txtTenHang.Text = txtTrongLuong.Text = txtDVT.Text = txtSealVT.Text = txtSealHQ.Text = txtNote.Text = string.Empty;
+                txtTenHang.Text = txtTrongLuong.Text = txtDVT.Text = txtSealVT.Text = txtSealVT2.Text = txtSealHQ2.Text = txtSealHQ.Text = txtNote.Text = string.Empty;
             dtpVanDon.Value = DateTime.Now;
             btnUpdateToaTau.Enabled = btnDeleteToaTau.Enabled = false;
             btnAddToaTau.Enabled = true;
@@ -179,7 +179,9 @@ namespace ETrains.Train
                     Trong_Luong = txtTrongLuong.Text.Trim(),
                     Don_Vi_Tinh = txtDVT.Text.Trim(),
                     Seal_VanTai = txtSealVT.Text.Trim(),
+                    Seal_VanTai2 = txtSealVT2.Text.Trim(),
                     Seal_HaiQuan = txtSealHQ.Text.Trim(),
+                    Seal_HaiQuan2 = txtSealHQ2.Text.Trim(),
                     Ghi_Chu = txtNote.Text.Trim(),
                     CreatedBy = _userInfo.UserID,
                     CreatedDate = CommonFactory.GetCurrentDate()
@@ -266,7 +268,9 @@ namespace ETrains.Train
             txtTrongLuong.Text = toaTau.Trong_Luong;
             txtDVT.Text = toaTau.Don_Vi_Tinh;
             txtSealVT.Text = toaTau.Seal_VanTai;
+            txtSealVT2.Text = toaTau.Seal_VanTai2;
             txtSealHQ.Text = toaTau.Seal_HaiQuan;
+            txtSealHQ2.Text = toaTau.Seal_HaiQuan2;
             txtNote.Text = toaTau.Ghi_Chu;
         }
 
@@ -283,7 +287,9 @@ namespace ETrains.Train
             toaTau.Trong_Luong = txtTrongLuong.Text.Trim();
             toaTau.Don_Vi_Tinh = txtDVT.Text.Trim();
             toaTau.Seal_VanTai = txtSealVT.Text.Trim();
+            toaTau.Seal_VanTai2 = txtSealVT2.Text.Trim();
             toaTau.Seal_HaiQuan = txtSealHQ.Text.Trim();
+            toaTau.Seal_HaiQuan2 = txtSealHQ2.Text.Trim();
             toaTau.Ghi_Chu = txtNote.Text.Trim();
             toaTau.ModifiedBy = _userInfo.UserID;
 
@@ -299,6 +305,29 @@ namespace ETrains.Train
             BindToaTau();
             MessageBox.Show("Xóa toa tàu thành công!");
             ResetToaTau();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var dr = MessageBox.Show("Bạn có chắc là muốn xóa?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    if (TrainFactory.DeleteChuyenTauByID(_train.TrainID) > 0)
+                    {
+                        MessageBox.Show("Xóa xong");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Xóa bị lỗi");
+                }
+            }
+            catch (Exception ex)
+            {
+                if (GlobalInfo.IsDebug) MessageBox.Show(ex.ToString());
+            }         
         }
     }
 }
