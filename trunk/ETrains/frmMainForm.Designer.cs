@@ -60,6 +60,8 @@
             this.quảnLýChuyếnTàuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýBiênBảnBànGiaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýTờKhaiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quảnLýThôngTinChungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCompany = new System.Windows.Forms.ToolStripMenuItem();
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hướngDẫnSửDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -80,6 +82,7 @@
             this.mnMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hệThốngToolStripMenuItem,
             this.mnuTauHang,
+            this.quảnLýThôngTinChungToolStripMenuItem,
             this.trợGiúpToolStripMenuItem});
             this.mnMain.Location = new System.Drawing.Point(0, 0);
             this.mnMain.Name = "mnMain";
@@ -329,6 +332,21 @@
             this.quảnLýTờKhaiToolStripMenuItem.Text = "Quản lý tờ khai";
             this.quảnLýTờKhaiToolStripMenuItem.Click += new System.EventHandler(this.quảnLýTờKhaiToolStripMenuItem_Click);
             // 
+            // quảnLýThôngTinChungToolStripMenuItem
+            // 
+            this.quảnLýThôngTinChungToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuCompany});
+            this.quảnLýThôngTinChungToolStripMenuItem.Name = "quảnLýThôngTinChungToolStripMenuItem";
+            this.quảnLýThôngTinChungToolStripMenuItem.Size = new System.Drawing.Size(147, 20);
+            this.quảnLýThôngTinChungToolStripMenuItem.Text = "Quản lý thông tin chung";
+            // 
+            // mnuCompany
+            // 
+            this.mnuCompany.Name = "mnuCompany";
+            this.mnuCompany.Size = new System.Drawing.Size(201, 22);
+            this.mnuCompany.Text = "Thông tin doanh nghiệp";
+            this.mnuCompany.Click += new System.EventHandler(this.mnuCompany_Click);
+            // 
             // trợGiúpToolStripMenuItem
             // 
             this.trợGiúpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -447,7 +465,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ETrains.Properties.Resources.logoBackgound;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1140, 694);
+            this.ClientSize = new System.Drawing.Size(1140, 706);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.mnMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -509,5 +527,7 @@
         private System.Windows.Forms.ToolStripMenuItem quảnLýChuyếnTàuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýBiênBảnBànGiaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýTờKhaiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quảnLýThôngTinChungToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuCompany;
     }
 }

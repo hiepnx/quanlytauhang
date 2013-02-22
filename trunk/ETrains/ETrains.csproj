@@ -106,6 +106,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FrmAddCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddCompany.Designer.cs">
+      <DependentUpon>FrmAddCompany.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,12 @@
     </Compile>
     <Compile Include="frmConfigSQL2DbEcus.Designer.cs">
       <DependentUpon>frmConfigSQL2DbEcus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListCompany.Designer.cs">
+      <DependentUpon>FrmListCompany.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -264,6 +276,9 @@
     <Compile Include="Train\frmTrainPassengers.Designer.cs">
       <DependentUpon>frmTrainPassengers.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmAddCompany.resx">
+      <DependentUpon>FrmAddCompany.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddUser.resx">
       <DependentUpon>frmAddUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -275,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConfigSQL2DbEcus.resx">
       <DependentUpon>frmConfigSQL2DbEcus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListCompany.resx">
+      <DependentUpon>FrmListCompany.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
