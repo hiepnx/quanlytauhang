@@ -124,6 +124,27 @@ namespace ETrains
         private void frmConfigSQL_Load(object sender, EventArgs e)
         {
             this.Text = "Cau hinh ket noi CSDL" + ConstantInfo.MESSAGE_TITLE + GlobalInfo.CompanyName;
+            cbDatabase.DataSource = null;
+            if (rbIntergrated.Checked)
+            {
+                txtUser.Tag = txtPassword.Tag = "";
+                if (techlinkErrorProvider1.Validate(this))
+                {
+                    SqlAccessor.Instance().SetConnection(txtServer.Text, "", "");
+                    cbDatabase.DataSource = SqlAccessor.Instance().GetDatabases();
+                    cbDatabase.DisplayMember = "Name";
+                }
+            }
+            else
+            {
+                txtUser.Tag = txtPassword.Tag = "required";
+                if (techlinkErrorProvider1.Validate(this))
+                {
+                    SqlAccessor.Instance().SetConnection(txtServer.Text, txtUser.Text, txtPassword.Text);
+                    cbDatabase.DataSource = SqlAccessor.Instance().GetDatabases();
+                    cbDatabase.DisplayMember = "Name";
+                }
+            }
         }
     }
 }
