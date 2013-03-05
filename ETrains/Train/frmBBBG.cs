@@ -103,10 +103,12 @@ namespace ETrains.Train
             if (_mode == 0)
             {
                 btnUpdate.Enabled = btnDelete.Enabled = false;
+                btnPrintBBBG.Visible = false;
             }
             else
             {
                 btnAddNew.Enabled = false;
+                btnPrintBBBG.Visible = true;
                 InitData();
             }
         }
@@ -118,7 +120,7 @@ namespace ETrains.Train
             txtNumberHandover.Text = _handover.NumberHandover;
             dtpHandover.Value = (DateTime) _handover.DateHandover;
             txtCodeCuaKhau.Text = _handover.CodeStation;
-            ddlCuaKhau.SelectedValue = _handover.CodeStation;
+            ddlCuaKhau.SelectedValue = _handover.CodeStation; 
             txtCodeGaDenDi.Text = _handover.CodeStationFromTo;
             ddlGaDenDi.SelectedValue = _handover.CodeStationFromTo;
             txtStatusGood.Text = _handover.StatusGoods;
@@ -197,8 +199,18 @@ namespace ETrains.Train
                 var result = TrainFactory.InsertBBBG(handOver);
                 if (result > 0)
                 {
-                    MessageBox.Show("Thêm mới Biên bản bàn giao thành công!");
-                    Reset();
+                    if (cbPrint.Checked == true)
+                    {
+                        MessageBox.Show("Thêm mới Biên bản bàn giao thành công. Bạn hãy tắt hộp thoại này để xem bản in");
+                        _handover = TrainFactory.FindHandoverByID(handOver.ID);
+                        printBBBG(); 
+                        Reset();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm mới Biên bản bàn giao thành công!");
+                        Reset();
+                    }
                 }
                 else MessageBox.Show("Thêm mới Biên bản bàn không thành công!");
             }
@@ -278,6 +290,11 @@ namespace ETrains.Train
         }
 
         private void btnPrintBBBG_Click(object sender, EventArgs e)
+        {
+            printBBBG();
+        }
+
+        private void printBBBG()
         {
             try
             {
@@ -378,6 +395,7 @@ namespace ETrains.Train
             {
             }
         }
+            
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -396,9 +414,18 @@ namespace ETrains.Train
                 var result = TrainFactory.UpdateHandover(_handover, listToaTau);
                 if (result > 0)
                 {
-                    MessageBox.Show("Cập nhật BBBG thành công!");
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                    if (cbPrint.Checked == true)
+                    {
+                        MessageBox.Show("Cập nhật BBBG thành công. Bạn hãy tắt hộp thoại này để xem bản in");
+                        printBBBG();
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Cập nhật BBBG thành công!");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
                 }
                 else
                 {
