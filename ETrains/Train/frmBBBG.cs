@@ -371,11 +371,11 @@ namespace ETrains.Train
                     if (handover.DateHandover != null)
                     {
                         String dateString = "Hồi " + handover.DateHandover.Value.Hour + " giờ " + handover.DateHandover.Value.Minute + " phút, ngày " + handover.DateHandover.Value.Day + " tháng " + handover.DateHandover.Value.Month + " năm " + handover.DateHandover.Value.Year;
-                        txtSummary.Text = dateString + " " + fromStation + " bàn giao cho " + toStation +
+                        txtSummary.Text = dateString + " " + fromStation + " bàn giao cho Chi nhánh vận tải hàng hóa đường sắt Đồng Đăng" +
                         " lô hàng nhập khẩu chuyển cảng vận chuyển từ " + fromStation + " đến " + toStation + ".";
                     }
 
-                    txtNumberHandover.Text = handover.NumberHandover;
+                    txtNumberHandover.Text = "Số: " + handover.NumberHandover + "/BBBG-HQGA";
                     txtStatusVehicle.Text = handover.StatusVehicle;
                     txtStatusGoods.Text = handover.StatusGoods;
 
