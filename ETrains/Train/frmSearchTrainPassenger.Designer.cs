@@ -30,12 +30,12 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.ddlTypeName = new System.Windows.Forms.ComboBox();
@@ -46,17 +46,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.grdTrain = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumberOfContainer = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +57,17 @@
             this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTrain)).BeginInit();
@@ -101,7 +101,7 @@
             this.btnSearch.Location = new System.Drawing.Point(703, 13);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(78, 36);
-            this.btnSearch.TabIndex = 41;
+            this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Tìm k&iếm";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -116,7 +116,7 @@
             this.ddlTypeName.Location = new System.Drawing.Point(514, 21);
             this.ddlTypeName.Name = "ddlTypeName";
             this.ddlTypeName.Size = new System.Drawing.Size(142, 21);
-            this.ddlTypeName.TabIndex = 40;
+            this.ddlTypeName.TabIndex = 3;
             // 
             // label3
             // 
@@ -134,7 +134,7 @@
             this.dtpDateXNC.Location = new System.Drawing.Point(336, 22);
             this.dtpDateXNC.Name = "dtpDateXNC";
             this.dtpDateXNC.Size = new System.Drawing.Size(89, 20);
-            this.dtpDateXNC.TabIndex = 5;
+            this.dtpDateXNC.TabIndex = 2;
             // 
             // label2
             // 
@@ -207,6 +207,90 @@
             this.grdTrain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdTrain.Size = new System.Drawing.Size(788, 290);
             this.grdTrain.TabIndex = 60;
+            // 
+            // Count
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Count.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Count.HeaderText = "STT";
+            this.Count.Name = "Count";
+            this.Count.ReadOnly = true;
+            this.Count.Width = 50;
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Number.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Number.HeaderText = "SH Chuyến tàu";
+            this.Number.Name = "Number";
+            this.Number.Width = 120;
+            // 
+            // NumberOfContainer
+            // 
+            this.NumberOfContainer.DataPropertyName = "DateExImport";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.NumberOfContainer.DefaultCellStyle = dataGridViewCellStyle4;
+            this.NumberOfContainer.HeaderText = "Ngày XNC";
+            this.NumberOfContainer.Name = "NumberOfContainer";
+            // 
+            // feeExportAmount
+            // 
+            this.feeExportAmount.DataPropertyName = "TypeExImport";
+            this.feeExportAmount.HeaderText = "Loại hình XNC";
+            this.feeExportAmount.Name = "feeExportAmount";
+            // 
+            // Jounery
+            // 
+            this.Jounery.DataPropertyName = "Jounery";
+            this.Jounery.HeaderText = "Hành trình";
+            this.Jounery.Name = "Jounery";
+            this.Jounery.ReadOnly = true;
+            // 
+            // NumberPassengersVN
+            // 
+            this.NumberPassengersVN.DataPropertyName = "PassengerVN";
+            this.NumberPassengersVN.HeaderText = "Số lượng HK VN";
+            this.NumberPassengersVN.Name = "NumberPassengersVN";
+            this.NumberPassengersVN.ReadOnly = true;
+            this.NumberPassengersVN.Width = 120;
+            // 
+            // NumberPassengersNN
+            // 
+            this.NumberPassengersNN.DataPropertyName = "PassengerForegin";
+            this.NumberPassengersNN.HeaderText = "Số lượng HK NN";
+            this.NumberPassengersNN.Name = "NumberPassengersNN";
+            this.NumberPassengersNN.ReadOnly = true;
+            this.NumberPassengersNN.Width = 120;
+            // 
+            // NumberStaff
+            // 
+            this.NumberStaff.DataPropertyName = "Staff";
+            this.NumberStaff.HeaderText = "Số nhân viên";
+            this.NumberStaff.Name = "NumberStaff";
+            this.NumberStaff.ReadOnly = true;
+            // 
+            // CreatedDate
+            // 
+            this.CreatedDate.DataPropertyName = "CreatedDate";
+            this.CreatedDate.HeaderText = "Ngày nhập máy";
+            this.CreatedDate.Name = "CreatedDate";
+            this.CreatedDate.Width = 120;
+            // 
+            // CreatedBy
+            // 
+            this.CreatedBy.DataPropertyName = "CreatedBy";
+            this.CreatedBy.HeaderText = "Người nhập máy";
+            this.CreatedBy.Name = "CreatedBy";
+            this.CreatedBy.Width = 130;
+            // 
+            // Note
+            // 
+            this.Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Note.DataPropertyName = "Note";
+            this.Note.HeaderText = "Ghi chú";
+            this.Note.Name = "Note";
+            this.Note.Visible = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -292,90 +376,6 @@
             this.dataGridViewTextBoxColumn11.HeaderText = "Ghi chú";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.Visible = false;
-            // 
-            // Count
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Count.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Count.HeaderText = "STT";
-            this.Count.Name = "Count";
-            this.Count.ReadOnly = true;
-            this.Count.Width = 50;
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "Number";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Number.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Number.HeaderText = "SH Chuyến tàu";
-            this.Number.Name = "Number";
-            this.Number.Width = 120;
-            // 
-            // NumberOfContainer
-            // 
-            this.NumberOfContainer.DataPropertyName = "DateExImport";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.NumberOfContainer.DefaultCellStyle = dataGridViewCellStyle4;
-            this.NumberOfContainer.HeaderText = "Ngày XNC";
-            this.NumberOfContainer.Name = "NumberOfContainer";
-            // 
-            // feeExportAmount
-            // 
-            this.feeExportAmount.DataPropertyName = "TypeExImport";
-            this.feeExportAmount.HeaderText = "Loại hình XNC";
-            this.feeExportAmount.Name = "feeExportAmount";
-            // 
-            // Jounery
-            // 
-            this.Jounery.DataPropertyName = "Jounery";
-            this.Jounery.HeaderText = "Hành trình";
-            this.Jounery.Name = "Jounery";
-            this.Jounery.ReadOnly = true;
-            // 
-            // NumberPassengersVN
-            // 
-            this.NumberPassengersVN.DataPropertyName = "PassengerVN";
-            this.NumberPassengersVN.HeaderText = "Số lượng HK VN";
-            this.NumberPassengersVN.Name = "NumberPassengersVN";
-            this.NumberPassengersVN.ReadOnly = true;
-            this.NumberPassengersVN.Width = 120;
-            // 
-            // NumberPassengersNN
-            // 
-            this.NumberPassengersNN.DataPropertyName = "PassengerForegin";
-            this.NumberPassengersNN.HeaderText = "Số lượng HK NN";
-            this.NumberPassengersNN.Name = "NumberPassengersNN";
-            this.NumberPassengersNN.ReadOnly = true;
-            this.NumberPassengersNN.Width = 120;
-            // 
-            // NumberStaff
-            // 
-            this.NumberStaff.DataPropertyName = "Staff";
-            this.NumberStaff.HeaderText = "Số nhân viên";
-            this.NumberStaff.Name = "NumberStaff";
-            this.NumberStaff.ReadOnly = true;
-            // 
-            // CreatedDate
-            // 
-            this.CreatedDate.DataPropertyName = "CreatedDate";
-            this.CreatedDate.HeaderText = "Ngày nhập máy";
-            this.CreatedDate.Name = "CreatedDate";
-            this.CreatedDate.Width = 120;
-            // 
-            // CreatedBy
-            // 
-            this.CreatedBy.DataPropertyName = "CreatedBy";
-            this.CreatedBy.HeaderText = "Người nhập máy";
-            this.CreatedBy.Name = "CreatedBy";
-            this.CreatedBy.Width = 130;
-            // 
-            // Note
-            // 
-            this.Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Note.DataPropertyName = "Note";
-            this.Note.HeaderText = "Ghi chú";
-            this.Note.Name = "Note";
-            this.Note.Visible = false;
             // 
             // frmSearchTrainPassenger
             // 

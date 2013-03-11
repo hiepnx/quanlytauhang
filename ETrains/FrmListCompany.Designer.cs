@@ -111,7 +111,7 @@
             this.btnSearch.Location = new System.Drawing.Point(523, 21);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(80, 28);
-            this.btnSearch.TabIndex = 8;
+            this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Tìm k&iếm";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -182,7 +182,7 @@
             this.btnClose.Location = new System.Drawing.Point(565, 331);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(62, 28);
-            this.btnClose.TabIndex = 38;
+            this.btnClose.TabIndex = 7;
             this.btnClose.Text = "Th&oát";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClose.UseVisualStyleBackColor = true;
@@ -199,7 +199,7 @@
             this.btnDelete.Location = new System.Drawing.Point(504, 331);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(53, 28);
-            this.btnDelete.TabIndex = 37;
+            this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "&Xóa";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -216,7 +216,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(420, 331);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(76, 28);
-            this.btnUpdate.TabIndex = 35;
+            this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "&Cập nhật";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -233,7 +233,7 @@
             this.btnAdd.Location = new System.Drawing.Point(342, 331);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(70, 28);
-            this.btnAdd.TabIndex = 34;
+            this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Tạo &mới";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.UseVisualStyleBackColor = true;

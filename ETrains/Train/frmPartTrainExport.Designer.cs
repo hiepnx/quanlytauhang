@@ -72,7 +72,7 @@
             this.txtNumberPartofTrain.Location = new System.Drawing.Point(108, 57);
             this.txtNumberPartofTrain.Name = "txtNumberPartofTrain";
             this.txtNumberPartofTrain.Size = new System.Drawing.Size(142, 20);
-            this.txtNumberPartofTrain.TabIndex = 41;
+            this.txtNumberPartofTrain.TabIndex = 4;
             this.txtNumberPartofTrain.Tag = "required";
             // 
             // label2
@@ -93,7 +93,7 @@
             this.ddlTypeName.Location = new System.Drawing.Point(571, 25);
             this.ddlTypeName.Name = "ddlTypeName";
             this.ddlTypeName.Size = new System.Drawing.Size(142, 21);
-            this.ddlTypeName.TabIndex = 39;
+            this.ddlTypeName.TabIndex = 3;
             // 
             // label5
             // 
@@ -111,7 +111,7 @@
             this.dtpRegisterDate.Location = new System.Drawing.Point(371, 26);
             this.dtpRegisterDate.Name = "dtpRegisterDate";
             this.dtpRegisterDate.Size = new System.Drawing.Size(83, 20);
-            this.dtpRegisterDate.TabIndex = 5;
+            this.dtpRegisterDate.TabIndex = 2;
             // 
             // txtNumberTrain
             // 
@@ -159,10 +159,10 @@
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnDelete.Image = global::ETrains.Properties.Resources.delete;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(209, 150);
+            this.btnDelete.Location = new System.Drawing.Point(173, 150);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(53, 28);
-            this.btnDelete.TabIndex = 28;
+            this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "&Xóa";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -177,7 +177,7 @@
             this.btnAddNew.Location = new System.Drawing.Point(21, 150);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(83, 28);
-            this.btnAddNew.TabIndex = 27;
+            this.btnAddNew.TabIndex = 5;
             this.btnAddNew.Text = "&Thêm mới";
             this.btnAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddNew.UseVisualStyleBackColor = true;
@@ -191,10 +191,10 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnClose.Image = global::ETrains.Properties.Resources.Exit;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(287, 150);
+            this.btnClose.Location = new System.Drawing.Point(232, 150);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(63, 28);
-            this.btnClose.TabIndex = 26;
+            this.btnClose.TabIndex = 8;
             this.btnClose.Text = "Th&oát";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClose.UseVisualStyleBackColor = true;
@@ -207,10 +207,10 @@
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnUpdate.Image = global::ETrains.Properties.Resources.save;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(126, 150);
+            this.btnUpdate.Location = new System.Drawing.Point(110, 150);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(57, 28);
-            this.btnUpdate.TabIndex = 25;
+            this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "&Lưu";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = true;

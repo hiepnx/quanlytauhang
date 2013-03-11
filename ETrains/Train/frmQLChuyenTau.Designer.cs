@@ -117,7 +117,7 @@
             this.dtpTo.Location = new System.Drawing.Point(255, 51);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(89, 20);
-            this.dtpTo.TabIndex = 43;
+            this.dtpTo.TabIndex = 5;
             // 
             // cbNgayXNC
             // 
@@ -125,7 +125,7 @@
             this.cbNgayXNC.Location = new System.Drawing.Point(9, 54);
             this.cbNgayXNC.Name = "cbNgayXNC";
             this.cbNgayXNC.Size = new System.Drawing.Size(76, 17);
-            this.cbNgayXNC.TabIndex = 42;
+            this.cbNgayXNC.TabIndex = 3;
             this.cbNgayXNC.Text = "Ngày XNC";
             this.cbNgayXNC.UseVisualStyleBackColor = true;
             this.cbNgayXNC.CheckedChanged += new System.EventHandler(this.cbNgayXNC_CheckedChanged);
@@ -140,7 +140,7 @@
             this.btnSearch.Location = new System.Drawing.Point(702, 25);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(78, 36);
-            this.btnSearch.TabIndex = 41;
+            this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "Tìm k&iếm";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -155,7 +155,7 @@
             this.ddlTypeName.Location = new System.Drawing.Point(514, 21);
             this.ddlTypeName.Name = "ddlTypeName";
             this.ddlTypeName.Size = new System.Drawing.Size(142, 21);
-            this.ddlTypeName.TabIndex = 40;
+            this.ddlTypeName.TabIndex = 2;
             // 
             // label3
             // 
@@ -174,7 +174,7 @@
             this.dtpFrom.Location = new System.Drawing.Point(111, 51);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(89, 20);
-            this.dtpFrom.TabIndex = 5;
+            this.dtpFrom.TabIndex = 4;
             // 
             // txtNumberTrain
             // 
