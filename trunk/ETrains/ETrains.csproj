@@ -136,6 +136,18 @@
     <Compile Include="frmConfigSQL2DbEcus.Designer.cs">
       <DependentUpon>frmConfigSQL2DbEcus.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportListFeedback1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportListFeedback.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Train\FrmFeedbackReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\FrmFeedbackReport.Designer.cs">
+      <DependentUpon>FrmFeedbackReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListCompany.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +302,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConfigSQL2DbEcus.resx">
       <DependentUpon>frmConfigSQL2DbEcus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportListFeedback.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportListFeedback1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\FrmFeedbackReport.resx">
+      <DependentUpon>FrmFeedbackReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListCompany.resx">
       <DependentUpon>FrmListCompany.cs</DependentUpon>

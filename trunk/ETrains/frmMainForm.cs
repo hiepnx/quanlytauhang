@@ -301,5 +301,12 @@ namespace ETrains
             form.Show();
         }
 
+        private void mnuFeedbackReport_Click(object sender, EventArgs e)
+        {
+            FrmFeedbackReport form = new FrmFeedbackReport();
+            form.MdiParent = this;
+            form.Show();
+        }
+
     }
 }
