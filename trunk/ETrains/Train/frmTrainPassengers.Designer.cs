@@ -97,7 +97,7 @@
             this.txtNumberStaff.Mask = "00000";
             this.txtNumberStaff.Name = "txtNumberStaff";
             this.txtNumberStaff.Size = new System.Drawing.Size(133, 20);
-            this.txtNumberStaff.TabIndex = 49;
+            this.txtNumberStaff.TabIndex = 7;
             this.txtNumberStaff.Tag = "required";
             // 
             // label6
@@ -115,7 +115,7 @@
             this.txtNumberPersonForegin.Mask = "00000";
             this.txtNumberPersonForegin.Name = "txtNumberPersonForegin";
             this.txtNumberPersonForegin.Size = new System.Drawing.Size(106, 20);
-            this.txtNumberPersonForegin.TabIndex = 47;
+            this.txtNumberPersonForegin.TabIndex = 6;
             this.txtNumberPersonForegin.Tag = "required";
             // 
             // txtNumberPersonVN
@@ -124,7 +124,7 @@
             this.txtNumberPersonVN.Mask = "00000";
             this.txtNumberPersonVN.Name = "txtNumberPersonVN";
             this.txtNumberPersonVN.Size = new System.Drawing.Size(105, 20);
-            this.txtNumberPersonVN.TabIndex = 46;
+            this.txtNumberPersonVN.TabIndex = 5;
             this.txtNumberPersonVN.Tag = "required";
             // 
             // label4
@@ -151,7 +151,7 @@
             this.txtJourney.Location = new System.Drawing.Point(108, 55);
             this.txtJourney.Name = "txtJourney";
             this.txtJourney.Size = new System.Drawing.Size(605, 20);
-            this.txtJourney.TabIndex = 41;
+            this.txtJourney.TabIndex = 4;
             this.txtJourney.Tag = "required";
             // 
             // label2
@@ -172,7 +172,7 @@
             this.ddlTypeName.Location = new System.Drawing.Point(580, 25);
             this.ddlTypeName.Name = "ddlTypeName";
             this.ddlTypeName.Size = new System.Drawing.Size(133, 21);
-            this.ddlTypeName.TabIndex = 39;
+            this.ddlTypeName.TabIndex = 3;
             // 
             // label5
             // 
@@ -190,7 +190,7 @@
             this.dtpRegisterDate.Location = new System.Drawing.Point(371, 26);
             this.dtpRegisterDate.Name = "dtpRegisterDate";
             this.dtpRegisterDate.Size = new System.Drawing.Size(83, 20);
-            this.dtpRegisterDate.TabIndex = 5;
+            this.dtpRegisterDate.TabIndex = 2;
             // 
             // txtNumberTrain
             // 
@@ -226,10 +226,10 @@
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnDelete.Image = global::ETrains.Properties.Resources.delete;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(209, 180);
+            this.btnDelete.Location = new System.Drawing.Point(173, 180);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(53, 28);
-            this.btnDelete.TabIndex = 29;
+            this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "&Xóa";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -244,7 +244,7 @@
             this.btnAddNew.Location = new System.Drawing.Point(21, 180);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(83, 28);
-            this.btnAddNew.TabIndex = 27;
+            this.btnAddNew.TabIndex = 8;
             this.btnAddNew.Text = "&Thêm mới";
             this.btnAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddNew.UseVisualStyleBackColor = true;
@@ -258,10 +258,10 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnClose.Image = global::ETrains.Properties.Resources.Exit;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(290, 180);
+            this.btnClose.Location = new System.Drawing.Point(232, 180);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(63, 28);
-            this.btnClose.TabIndex = 26;
+            this.btnClose.TabIndex = 11;
             this.btnClose.Text = "Th&oát";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClose.UseVisualStyleBackColor = true;
@@ -274,10 +274,10 @@
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnUpdate.Image = global::ETrains.Properties.Resources.save;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(126, 180);
+            this.btnUpdate.Location = new System.Drawing.Point(110, 180);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(57, 28);
-            this.btnUpdate.TabIndex = 25;
+            this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "&Lưu";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = true;

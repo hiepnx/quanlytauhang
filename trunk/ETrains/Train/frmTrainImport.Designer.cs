@@ -30,6 +30,10 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -38,10 +42,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblHeader = new System.Windows.Forms.Label();
             this.gbImportTrain = new System.Windows.Forms.GroupBox();
             this.ddlTypeName = new System.Windows.Forms.ComboBox();
@@ -68,6 +68,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNumberHandover = new System.Windows.Forms.TextBox();
             this.grdToaTau = new System.Windows.Forms.DataGridView();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ToaTauID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ma_ToaTau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.So_VanTai_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ngay_VanTai_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten_DoiTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ma_DoanhNghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten_Hang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Trong_Luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seal_VanTai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seal_HaiQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ghi_Chu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnNormally = new System.Windows.Forms.Panel();
             this.dtpDeclaration = new System.Windows.Forms.DateTimePicker();
             this.label19 = new System.Windows.Forms.Label();
@@ -105,18 +117,6 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ToaTauID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ma_ToaTau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.So_VanTai_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ngay_VanTai_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten_DoiTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ma_DoanhNghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten_Hang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Trong_Luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seal_VanTai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seal_HaiQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ghi_Chu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbImportTrain.SuspendLayout();
             this.pnChangeStation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdToaTau)).BeginInit();
@@ -151,7 +151,7 @@
             this.gbImportTrain.Location = new System.Drawing.Point(12, 36);
             this.gbImportTrain.Name = "gbImportTrain";
             this.gbImportTrain.Size = new System.Drawing.Size(851, 60);
-            this.gbImportTrain.TabIndex = 0;
+            this.gbImportTrain.TabIndex = 1;
             this.gbImportTrain.TabStop = false;
             this.gbImportTrain.Text = "Thông tin tàu hàng Trung Quốc nhập cảnh";
             // 
@@ -244,7 +244,7 @@
             this.ddlGaDenDi.Location = new System.Drawing.Point(411, 65);
             this.ddlGaDenDi.Name = "ddlGaDenDi";
             this.ddlGaDenDi.Size = new System.Drawing.Size(430, 21);
-            this.ddlGaDenDi.TabIndex = 5;
+            this.ddlGaDenDi.TabIndex = 8;
             this.ddlGaDenDi.SelectedIndexChanged += new System.EventHandler(this.ddlGaDenDi_SelectedIndexChanged);
             // 
             // ddlCuaKhau
@@ -255,7 +255,7 @@
             this.ddlCuaKhau.Location = new System.Drawing.Point(411, 38);
             this.ddlCuaKhau.Name = "ddlCuaKhau";
             this.ddlCuaKhau.Size = new System.Drawing.Size(430, 21);
-            this.ddlCuaKhau.TabIndex = 3;
+            this.ddlCuaKhau.TabIndex = 6;
             this.ddlCuaKhau.SelectedIndexChanged += new System.EventHandler(this.ddlCuaKhau_SelectedIndexChanged);
             // 
             // lblGaDenDi
@@ -273,7 +273,7 @@
             this.txtCodeGaDenDi.Multiline = true;
             this.txtCodeGaDenDi.Name = "txtCodeGaDenDi";
             this.txtCodeGaDenDi.Size = new System.Drawing.Size(176, 20);
-            this.txtCodeGaDenDi.TabIndex = 4;
+            this.txtCodeGaDenDi.TabIndex = 7;
             this.txtCodeGaDenDi.Tag = "";
             this.txtCodeGaDenDi.Leave += new System.EventHandler(this.txtCodeGaDenDi_Leave);
             // 
@@ -301,7 +301,7 @@
             this.txtCodeCuaKhau.Multiline = true;
             this.txtCodeCuaKhau.Name = "txtCodeCuaKhau";
             this.txtCodeCuaKhau.Size = new System.Drawing.Size(176, 20);
-            this.txtCodeCuaKhau.TabIndex = 2;
+            this.txtCodeCuaKhau.TabIndex = 5;
             this.txtCodeCuaKhau.Tag = "";
             this.txtCodeCuaKhau.Leave += new System.EventHandler(this.txtCodeCuaKhau_Leave);
             // 
@@ -320,7 +320,7 @@
             this.txtStatusGood.Multiline = true;
             this.txtStatusGood.Name = "txtStatusGood";
             this.txtStatusGood.Size = new System.Drawing.Size(430, 20);
-            this.txtStatusGood.TabIndex = 7;
+            this.txtStatusGood.TabIndex = 10;
             this.txtStatusGood.Tag = "";
             // 
             // label12
@@ -338,7 +338,7 @@
             this.txtStatusVehicle.Multiline = true;
             this.txtStatusVehicle.Name = "txtStatusVehicle";
             this.txtStatusVehicle.Size = new System.Drawing.Size(176, 20);
-            this.txtStatusVehicle.TabIndex = 6;
+            this.txtStatusVehicle.TabIndex = 9;
             this.txtStatusVehicle.Tag = "";
             // 
             // label11
@@ -357,7 +357,7 @@
             this.dtpHandover.Location = new System.Drawing.Point(411, 12);
             this.dtpHandover.Name = "dtpHandover";
             this.dtpHandover.Size = new System.Drawing.Size(83, 20);
-            this.dtpHandover.TabIndex = 1;
+            this.dtpHandover.TabIndex = 4;
             // 
             // label3
             // 
@@ -382,7 +382,7 @@
             this.txtNumberHandover.Location = new System.Drawing.Point(108, 12);
             this.txtNumberHandover.Name = "txtNumberHandover";
             this.txtNumberHandover.Size = new System.Drawing.Size(176, 20);
-            this.txtNumberHandover.TabIndex = 0;
+            this.txtNumberHandover.TabIndex = 3;
             // 
             // grdToaTau
             // 
@@ -421,6 +421,94 @@
             this.grdToaTau.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdToaTau.Size = new System.Drawing.Size(836, 121);
             this.grdToaTau.TabIndex = 0;
+            // 
+            // Count
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Count.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Count.HeaderText = "STT";
+            this.Count.Name = "Count";
+            this.Count.ReadOnly = true;
+            this.Count.Width = 50;
+            // 
+            // ToaTauID
+            // 
+            this.ToaTauID.DataPropertyName = "ToaTauID";
+            this.ToaTauID.HeaderText = "ToaTauID";
+            this.ToaTauID.Name = "ToaTauID";
+            this.ToaTauID.Visible = false;
+            // 
+            // Ma_ToaTau
+            // 
+            this.Ma_ToaTau.DataPropertyName = "Ma_ToaTau";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ma_ToaTau.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Ma_ToaTau.HeaderText = "SH Toa tàu";
+            this.Ma_ToaTau.Name = "Ma_ToaTau";
+            // 
+            // So_VanTai_Don
+            // 
+            this.So_VanTai_Don.DataPropertyName = "So_VanTai_Don";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.So_VanTai_Don.DefaultCellStyle = dataGridViewCellStyle4;
+            this.So_VanTai_Don.HeaderText = "Số Vận đơn";
+            this.So_VanTai_Don.Name = "So_VanTai_Don";
+            // 
+            // Ngay_VanTai_Don
+            // 
+            this.Ngay_VanTai_Don.DataPropertyName = "Ngay_VanTai_Don";
+            this.Ngay_VanTai_Don.HeaderText = "Ngày vận đơn";
+            this.Ngay_VanTai_Don.Name = "Ngay_VanTai_Don";
+            // 
+            // Ten_DoiTac
+            // 
+            this.Ten_DoiTac.DataPropertyName = "Ten_DoiTac";
+            this.Ten_DoiTac.HeaderText = "Ten_DoiTac";
+            this.Ten_DoiTac.Name = "Ten_DoiTac";
+            this.Ten_DoiTac.Visible = false;
+            // 
+            // Ma_DoanhNghiep
+            // 
+            this.Ma_DoanhNghiep.DataPropertyName = "Ma_DoanhNghiep";
+            this.Ma_DoanhNghiep.HeaderText = "Ma_DoanhNghiep";
+            this.Ma_DoanhNghiep.Name = "Ma_DoanhNghiep";
+            this.Ma_DoanhNghiep.Visible = false;
+            // 
+            // Ten_Hang
+            // 
+            this.Ten_Hang.DataPropertyName = "Ten_Hang";
+            this.Ten_Hang.HeaderText = "Tên hàng";
+            this.Ten_Hang.Name = "Ten_Hang";
+            this.Ten_Hang.Width = 200;
+            // 
+            // Trong_Luong
+            // 
+            this.Trong_Luong.DataPropertyName = "Trong_Luong";
+            this.Trong_Luong.HeaderText = "Trọng lượng";
+            this.Trong_Luong.Name = "Trong_Luong";
+            // 
+            // Seal_VanTai
+            // 
+            this.Seal_VanTai.DataPropertyName = "Seal_VanTai";
+            this.Seal_VanTai.HeaderText = "Số Seal hãng vận tải";
+            this.Seal_VanTai.Name = "Seal_VanTai";
+            this.Seal_VanTai.Width = 130;
+            // 
+            // Seal_HaiQuan
+            // 
+            this.Seal_HaiQuan.DataPropertyName = "Seal_HaiQuan";
+            dataGridViewCellStyle5.Format = "dd/MM/yyyy";
+            this.Seal_HaiQuan.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Seal_HaiQuan.HeaderText = "Số Seal Hải quan";
+            this.Seal_HaiQuan.Name = "Seal_HaiQuan";
+            this.Seal_HaiQuan.Width = 130;
+            // 
+            // Ghi_Chu
+            // 
+            this.Ghi_Chu.DataPropertyName = "Ghi_Chu";
+            this.Ghi_Chu.HeaderText = "Ghi chú";
+            this.Ghi_Chu.Name = "Ghi_Chu";
+            this.Ghi_Chu.Width = 150;
             // 
             // pnNormally
             // 
@@ -563,10 +651,10 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnClose.Image = global::ETrains.Properties.Resources.Exit;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(444, 429);
+            this.btnClose.Location = new System.Drawing.Point(363, 429);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(63, 28);
-            this.btnClose.TabIndex = 4;
+            this.btnClose.TabIndex = 18;
             this.btnClose.Text = "Th&oát";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClose.UseVisualStyleBackColor = true;
@@ -580,10 +668,10 @@
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnUpdate.Image = global::ETrains.Properties.Resources.save;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(123, 429);
+            this.btnUpdate.Location = new System.Drawing.Point(105, 429);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(57, 28);
-            this.btnUpdate.TabIndex = 1;
+            this.btnUpdate.TabIndex = 15;
             this.btnUpdate.Text = "&Lưu";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -599,7 +687,7 @@
             this.btnAddNew.Location = new System.Drawing.Point(16, 429);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(83, 28);
-            this.btnAddNew.TabIndex = 0;
+            this.btnAddNew.TabIndex = 14;
             this.btnAddNew.Text = "&Thêm mới";
             this.btnAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddNew.UseVisualStyleBackColor = true;
@@ -613,10 +701,10 @@
             this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnReport.Image = global::ETrains.Properties.Resources.edit;
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReport.Location = new System.Drawing.Point(207, 429);
+            this.btnReport.Location = new System.Drawing.Point(168, 429);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(130, 28);
-            this.btnReport.TabIndex = 2;
+            this.btnReport.TabIndex = 16;
             this.btnReport.Text = "In biên bản bàn giao";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReport.UseVisualStyleBackColor = true;
@@ -629,10 +717,10 @@
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnDelete.Image = global::ETrains.Properties.Resources.delete;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(363, 429);
+            this.btnDelete.Location = new System.Drawing.Point(304, 429);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(53, 28);
-            this.btnDelete.TabIndex = 3;
+            this.btnDelete.TabIndex = 17;
             this.btnDelete.Text = "&Xóa";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -652,7 +740,7 @@
             this.btnAddToaTau.Location = new System.Drawing.Point(6, 146);
             this.btnAddToaTau.Name = "btnAddToaTau";
             this.btnAddToaTau.Size = new System.Drawing.Size(119, 28);
-            this.btnAddToaTau.TabIndex = 1;
+            this.btnAddToaTau.TabIndex = 11;
             this.btnAddToaTau.Text = "Thêm mới toa tàu";
             this.btnAddToaTau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddToaTau.UseVisualStyleBackColor = true;
@@ -666,10 +754,10 @@
             this.btnUpdateToaTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnUpdateToaTau.Image = global::ETrains.Properties.Resources.save;
             this.btnUpdateToaTau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateToaTau.Location = new System.Drawing.Point(141, 146);
+            this.btnUpdateToaTau.Location = new System.Drawing.Point(131, 146);
             this.btnUpdateToaTau.Name = "btnUpdateToaTau";
             this.btnUpdateToaTau.Size = new System.Drawing.Size(121, 28);
-            this.btnUpdateToaTau.TabIndex = 2;
+            this.btnUpdateToaTau.TabIndex = 12;
             this.btnUpdateToaTau.Text = " Cập nhật toa tàu";
             this.btnUpdateToaTau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdateToaTau.UseVisualStyleBackColor = true;
@@ -682,10 +770,10 @@
             this.btnDeleteToaTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnDeleteToaTau.Image = global::ETrains.Properties.Resources.delete;
             this.btnDeleteToaTau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteToaTau.Location = new System.Drawing.Point(280, 146);
+            this.btnDeleteToaTau.Location = new System.Drawing.Point(258, 146);
             this.btnDeleteToaTau.Name = "btnDeleteToaTau";
             this.btnDeleteToaTau.Size = new System.Drawing.Size(101, 28);
-            this.btnDeleteToaTau.TabIndex = 3;
+            this.btnDeleteToaTau.TabIndex = 13;
             this.btnDeleteToaTau.Text = "Xóa toa tàu";
             this.btnDeleteToaTau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeleteToaTau.UseVisualStyleBackColor = true;
@@ -818,94 +906,6 @@
             this.dataGridViewTextBoxColumn14.HeaderText = "Ghi chú";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.Width = 150;
-            // 
-            // Count
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Count.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Count.HeaderText = "STT";
-            this.Count.Name = "Count";
-            this.Count.ReadOnly = true;
-            this.Count.Width = 50;
-            // 
-            // ToaTauID
-            // 
-            this.ToaTauID.DataPropertyName = "ToaTauID";
-            this.ToaTauID.HeaderText = "ToaTauID";
-            this.ToaTauID.Name = "ToaTauID";
-            this.ToaTauID.Visible = false;
-            // 
-            // Ma_ToaTau
-            // 
-            this.Ma_ToaTau.DataPropertyName = "Ma_ToaTau";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ma_ToaTau.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Ma_ToaTau.HeaderText = "SH Toa tàu";
-            this.Ma_ToaTau.Name = "Ma_ToaTau";
-            // 
-            // So_VanTai_Don
-            // 
-            this.So_VanTai_Don.DataPropertyName = "So_VanTai_Don";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.So_VanTai_Don.DefaultCellStyle = dataGridViewCellStyle4;
-            this.So_VanTai_Don.HeaderText = "Số Vận đơn";
-            this.So_VanTai_Don.Name = "So_VanTai_Don";
-            // 
-            // Ngay_VanTai_Don
-            // 
-            this.Ngay_VanTai_Don.DataPropertyName = "Ngay_VanTai_Don";
-            this.Ngay_VanTai_Don.HeaderText = "Ngày vận đơn";
-            this.Ngay_VanTai_Don.Name = "Ngay_VanTai_Don";
-            // 
-            // Ten_DoiTac
-            // 
-            this.Ten_DoiTac.DataPropertyName = "Ten_DoiTac";
-            this.Ten_DoiTac.HeaderText = "Ten_DoiTac";
-            this.Ten_DoiTac.Name = "Ten_DoiTac";
-            this.Ten_DoiTac.Visible = false;
-            // 
-            // Ma_DoanhNghiep
-            // 
-            this.Ma_DoanhNghiep.DataPropertyName = "Ma_DoanhNghiep";
-            this.Ma_DoanhNghiep.HeaderText = "Ma_DoanhNghiep";
-            this.Ma_DoanhNghiep.Name = "Ma_DoanhNghiep";
-            this.Ma_DoanhNghiep.Visible = false;
-            // 
-            // Ten_Hang
-            // 
-            this.Ten_Hang.DataPropertyName = "Ten_Hang";
-            this.Ten_Hang.HeaderText = "Tên hàng";
-            this.Ten_Hang.Name = "Ten_Hang";
-            this.Ten_Hang.Width = 200;
-            // 
-            // Trong_Luong
-            // 
-            this.Trong_Luong.DataPropertyName = "Trong_Luong";
-            this.Trong_Luong.HeaderText = "Trọng lượng";
-            this.Trong_Luong.Name = "Trong_Luong";
-            // 
-            // Seal_VanTai
-            // 
-            this.Seal_VanTai.DataPropertyName = "Seal_VanTai";
-            this.Seal_VanTai.HeaderText = "Số Seal hãng vận tải";
-            this.Seal_VanTai.Name = "Seal_VanTai";
-            this.Seal_VanTai.Width = 130;
-            // 
-            // Seal_HaiQuan
-            // 
-            this.Seal_HaiQuan.DataPropertyName = "Seal_HaiQuan";
-            dataGridViewCellStyle5.Format = "dd/MM/yyyy";
-            this.Seal_HaiQuan.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Seal_HaiQuan.HeaderText = "Số Seal Hải quan";
-            this.Seal_HaiQuan.Name = "Seal_HaiQuan";
-            this.Seal_HaiQuan.Width = 130;
-            // 
-            // Ghi_Chu
-            // 
-            this.Ghi_Chu.DataPropertyName = "Ghi_Chu";
-            this.Ghi_Chu.HeaderText = "Ghi chú";
-            this.Ghi_Chu.Name = "Ghi_Chu";
-            this.Ghi_Chu.Width = 150;
             // 
             // frmTrainImport
             // 

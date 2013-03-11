@@ -30,15 +30,15 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
@@ -51,6 +51,24 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.grdTrain = new System.Windows.Forms.DataGridView();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrainID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateDeclaration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeCodeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ma_Chuyen_Tau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ngay_XNC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedByName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModifiedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModifiedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModifiedByName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,24 +89,6 @@
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrainID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateDeclaration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeCodeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ma_Chuyen_Tau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ngay_XNC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedByName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModifiedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModifiedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModifiedByName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTrain)).BeginInit();
@@ -131,7 +131,7 @@
             this.dtpTo.Location = new System.Drawing.Point(255, 51);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(89, 20);
-            this.dtpTo.TabIndex = 43;
+            this.dtpTo.TabIndex = 5;
             // 
             // cbNgayDK
             // 
@@ -139,7 +139,7 @@
             this.cbNgayDK.Location = new System.Drawing.Point(9, 54);
             this.cbNgayDK.Name = "cbNgayDK";
             this.cbNgayDK.Size = new System.Drawing.Size(93, 17);
-            this.cbNgayDK.TabIndex = 42;
+            this.cbNgayDK.TabIndex = 3;
             this.cbNgayDK.Text = "Ngày đăng ký";
             this.cbNgayDK.UseVisualStyleBackColor = true;
             this.cbNgayDK.CheckedChanged += new System.EventHandler(this.cbNgayXNC_CheckedChanged);
@@ -154,7 +154,7 @@
             this.btnSearch.Location = new System.Drawing.Point(702, 25);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(78, 36);
-            this.btnSearch.TabIndex = 41;
+            this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "Tìm k&iếm";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -169,7 +169,7 @@
             this.ddlTypeName.Location = new System.Drawing.Point(514, 21);
             this.ddlTypeName.Name = "ddlTypeName";
             this.ddlTypeName.Size = new System.Drawing.Size(142, 21);
-            this.ddlTypeName.TabIndex = 40;
+            this.ddlTypeName.TabIndex = 2;
             // 
             // label3
             // 
@@ -188,7 +188,7 @@
             this.dtpFrom.Location = new System.Drawing.Point(111, 51);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(89, 20);
-            this.dtpFrom.TabIndex = 5;
+            this.dtpFrom.TabIndex = 4;
             // 
             // txtNumberTrain
             // 
@@ -261,6 +261,154 @@
             this.grdTrain.Size = new System.Drawing.Size(788, 270);
             this.grdTrain.TabIndex = 60;
             this.grdTrain.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTrain_CellDoubleClick);
+            // 
+            // Count
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Count.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Count.HeaderText = "STT";
+            this.Count.Name = "Count";
+            this.Count.ReadOnly = true;
+            this.Count.Width = 50;
+            // 
+            // TrainID
+            // 
+            this.TrainID.DataPropertyName = "TrainID";
+            this.TrainID.HeaderText = "TrainID";
+            this.TrainID.Name = "TrainID";
+            this.TrainID.ReadOnly = true;
+            this.TrainID.Visible = false;
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "Số tờ khai";
+            this.Number.Name = "Number";
+            this.Number.ReadOnly = true;
+            // 
+            // DateDeclaration
+            // 
+            this.DateDeclaration.DataPropertyName = "DateDeclaration";
+            this.DateDeclaration.HeaderText = "Ngày tờ khai";
+            this.DateDeclaration.Name = "DateDeclaration";
+            this.DateDeclaration.ReadOnly = true;
+            // 
+            // TypeCode
+            // 
+            this.TypeCode.HeaderText = "Mã loại hình";
+            this.TypeCode.Name = "TypeCode";
+            this.TypeCode.ReadOnly = true;
+            this.TypeCode.Visible = false;
+            // 
+            // TypeCodeName
+            // 
+            this.TypeCodeName.DataPropertyName = "TypeCodeName";
+            this.TypeCodeName.HeaderText = "Tên loại hình";
+            this.TypeCodeName.Name = "TypeCodeName";
+            this.TypeCodeName.ReadOnly = true;
+            // 
+            // CustomCode
+            // 
+            this.CustomCode.DataPropertyName = "CustomCode";
+            this.CustomCode.HeaderText = "Mã Hải quan";
+            this.CustomCode.Name = "CustomCode";
+            this.CustomCode.ReadOnly = true;
+            // 
+            // Ma_Chuyen_Tau
+            // 
+            this.Ma_Chuyen_Tau.DataPropertyName = "Ma_Chuyen_Tau";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ma_Chuyen_Tau.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Ma_Chuyen_Tau.HeaderText = "SH Chuyến tàu";
+            this.Ma_Chuyen_Tau.Name = "Ma_Chuyen_Tau";
+            this.Ma_Chuyen_Tau.ReadOnly = true;
+            this.Ma_Chuyen_Tau.Width = 105;
+            // 
+            // Ngay_XNC
+            // 
+            this.Ngay_XNC.DataPropertyName = "Ngay_XNC";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Ngay_XNC.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Ngay_XNC.HeaderText = "Ngày XNC";
+            this.Ngay_XNC.Name = "Ngay_XNC";
+            this.Ngay_XNC.ReadOnly = true;
+            this.Ngay_XNC.Visible = false;
+            this.Ngay_XNC.Width = 110;
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Mã Loại hình XNC";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            this.Type.Visible = false;
+            // 
+            // TypeName
+            // 
+            this.TypeName.DataPropertyName = "TypeName";
+            this.TypeName.HeaderText = "Loại hình XNC";
+            this.TypeName.Name = "TypeName";
+            this.TypeName.ReadOnly = true;
+            this.TypeName.Visible = false;
+            // 
+            // CreatedDate
+            // 
+            this.CreatedDate.DataPropertyName = "CreatedDate";
+            this.CreatedDate.HeaderText = "Ngày nhập máy";
+            this.CreatedDate.Name = "CreatedDate";
+            this.CreatedDate.ReadOnly = true;
+            this.CreatedDate.Width = 110;
+            // 
+            // CreatedBy
+            // 
+            this.CreatedBy.DataPropertyName = "CreatedBy";
+            this.CreatedBy.HeaderText = "Mã Người nhập máy";
+            this.CreatedBy.Name = "CreatedBy";
+            this.CreatedBy.ReadOnly = true;
+            this.CreatedBy.Visible = false;
+            this.CreatedBy.Width = 120;
+            // 
+            // CreatedByName
+            // 
+            this.CreatedByName.DataPropertyName = "CreatedByName";
+            this.CreatedByName.HeaderText = "Người nhập máy";
+            this.CreatedByName.Name = "CreatedByName";
+            this.CreatedByName.ReadOnly = true;
+            this.CreatedByName.Width = 120;
+            // 
+            // ModifiedDate
+            // 
+            this.ModifiedDate.DataPropertyName = "ModifiedDate";
+            this.ModifiedDate.HeaderText = "Ngày sửa";
+            this.ModifiedDate.Name = "ModifiedDate";
+            this.ModifiedDate.ReadOnly = true;
+            this.ModifiedDate.Width = 110;
+            // 
+            // ModifiedBy
+            // 
+            this.ModifiedBy.DataPropertyName = "ModifiedBy";
+            this.ModifiedBy.HeaderText = "Mã Người sửa";
+            this.ModifiedBy.Name = "ModifiedBy";
+            this.ModifiedBy.ReadOnly = true;
+            this.ModifiedBy.Visible = false;
+            this.ModifiedBy.Width = 120;
+            // 
+            // ModifiedByName
+            // 
+            this.ModifiedByName.DataPropertyName = "ModifiedByName";
+            this.ModifiedByName.HeaderText = "Người sửa";
+            this.ModifiedByName.Name = "ModifiedByName";
+            this.ModifiedByName.ReadOnly = true;
+            this.ModifiedByName.Width = 120;
+            // 
+            // Note
+            // 
+            this.Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Note.DataPropertyName = "Note";
+            this.Note.HeaderText = "Ghi chú";
+            this.Note.Name = "Note";
+            this.Note.ReadOnly = true;
+            this.Note.Visible = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -442,154 +590,6 @@
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
             this.dataGridViewTextBoxColumn20.Visible = false;
-            // 
-            // Count
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Count.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Count.HeaderText = "STT";
-            this.Count.Name = "Count";
-            this.Count.ReadOnly = true;
-            this.Count.Width = 50;
-            // 
-            // TrainID
-            // 
-            this.TrainID.DataPropertyName = "TrainID";
-            this.TrainID.HeaderText = "TrainID";
-            this.TrainID.Name = "TrainID";
-            this.TrainID.ReadOnly = true;
-            this.TrainID.Visible = false;
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "Number";
-            this.Number.HeaderText = "Số tờ khai";
-            this.Number.Name = "Number";
-            this.Number.ReadOnly = true;
-            // 
-            // DateDeclaration
-            // 
-            this.DateDeclaration.DataPropertyName = "DateDeclaration";
-            this.DateDeclaration.HeaderText = "Ngày tờ khai";
-            this.DateDeclaration.Name = "DateDeclaration";
-            this.DateDeclaration.ReadOnly = true;
-            // 
-            // TypeCode
-            // 
-            this.TypeCode.HeaderText = "Mã loại hình";
-            this.TypeCode.Name = "TypeCode";
-            this.TypeCode.ReadOnly = true;
-            this.TypeCode.Visible = false;
-            // 
-            // TypeCodeName
-            // 
-            this.TypeCodeName.DataPropertyName = "TypeCodeName";
-            this.TypeCodeName.HeaderText = "Tên loại hình";
-            this.TypeCodeName.Name = "TypeCodeName";
-            this.TypeCodeName.ReadOnly = true;
-            // 
-            // CustomCode
-            // 
-            this.CustomCode.DataPropertyName = "CustomCode";
-            this.CustomCode.HeaderText = "Mã Hải quan";
-            this.CustomCode.Name = "CustomCode";
-            this.CustomCode.ReadOnly = true;
-            // 
-            // Ma_Chuyen_Tau
-            // 
-            this.Ma_Chuyen_Tau.DataPropertyName = "Ma_Chuyen_Tau";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ma_Chuyen_Tau.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Ma_Chuyen_Tau.HeaderText = "SH Chuyến tàu";
-            this.Ma_Chuyen_Tau.Name = "Ma_Chuyen_Tau";
-            this.Ma_Chuyen_Tau.ReadOnly = true;
-            this.Ma_Chuyen_Tau.Width = 105;
-            // 
-            // Ngay_XNC
-            // 
-            this.Ngay_XNC.DataPropertyName = "Ngay_XNC";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Ngay_XNC.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Ngay_XNC.HeaderText = "Ngày XNC";
-            this.Ngay_XNC.Name = "Ngay_XNC";
-            this.Ngay_XNC.ReadOnly = true;
-            this.Ngay_XNC.Visible = false;
-            this.Ngay_XNC.Width = 110;
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "Mã Loại hình XNC";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            this.Type.Visible = false;
-            // 
-            // TypeName
-            // 
-            this.TypeName.DataPropertyName = "TypeName";
-            this.TypeName.HeaderText = "Loại hình XNC";
-            this.TypeName.Name = "TypeName";
-            this.TypeName.ReadOnly = true;
-            this.TypeName.Visible = false;
-            // 
-            // CreatedDate
-            // 
-            this.CreatedDate.DataPropertyName = "CreatedDate";
-            this.CreatedDate.HeaderText = "Ngày nhập máy";
-            this.CreatedDate.Name = "CreatedDate";
-            this.CreatedDate.ReadOnly = true;
-            this.CreatedDate.Width = 110;
-            // 
-            // CreatedBy
-            // 
-            this.CreatedBy.DataPropertyName = "CreatedBy";
-            this.CreatedBy.HeaderText = "Mã Người nhập máy";
-            this.CreatedBy.Name = "CreatedBy";
-            this.CreatedBy.ReadOnly = true;
-            this.CreatedBy.Visible = false;
-            this.CreatedBy.Width = 120;
-            // 
-            // CreatedByName
-            // 
-            this.CreatedByName.DataPropertyName = "CreatedByName";
-            this.CreatedByName.HeaderText = "Người nhập máy";
-            this.CreatedByName.Name = "CreatedByName";
-            this.CreatedByName.ReadOnly = true;
-            this.CreatedByName.Width = 120;
-            // 
-            // ModifiedDate
-            // 
-            this.ModifiedDate.DataPropertyName = "ModifiedDate";
-            this.ModifiedDate.HeaderText = "Ngày sửa";
-            this.ModifiedDate.Name = "ModifiedDate";
-            this.ModifiedDate.ReadOnly = true;
-            this.ModifiedDate.Width = 110;
-            // 
-            // ModifiedBy
-            // 
-            this.ModifiedBy.DataPropertyName = "ModifiedBy";
-            this.ModifiedBy.HeaderText = "Mã Người sửa";
-            this.ModifiedBy.Name = "ModifiedBy";
-            this.ModifiedBy.ReadOnly = true;
-            this.ModifiedBy.Visible = false;
-            this.ModifiedBy.Width = 120;
-            // 
-            // ModifiedByName
-            // 
-            this.ModifiedByName.DataPropertyName = "ModifiedByName";
-            this.ModifiedByName.HeaderText = "Người sửa";
-            this.ModifiedByName.Name = "ModifiedByName";
-            this.ModifiedByName.ReadOnly = true;
-            this.ModifiedByName.Width = 120;
-            // 
-            // Note
-            // 
-            this.Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Note.DataPropertyName = "Note";
-            this.Note.HeaderText = "Ghi chú";
-            this.Note.Name = "Note";
-            this.Note.ReadOnly = true;
-            this.Note.Visible = false;
             // 
             // frmQLToKhai
             // 

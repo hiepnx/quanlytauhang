@@ -117,7 +117,7 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(489, 77);
-            this.txtDescription.TabIndex = 83;
+            this.txtDescription.TabIndex = 3;
             // 
             // txtCompanyCode
             // 
@@ -128,7 +128,7 @@
             this.txtCompanyCode.MaxLength = 50;
             this.txtCompanyCode.Name = "txtCompanyCode";
             this.txtCompanyCode.Size = new System.Drawing.Size(489, 20);
-            this.txtCompanyCode.TabIndex = 80;
+            this.txtCompanyCode.TabIndex = 1;
             this.txtCompanyCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCompanyCode_KeyDown);
             this.txtCompanyCode.Leave += new System.EventHandler(this.txtCompanyCode_Leave);
             // 
@@ -140,7 +140,7 @@
             this.txtCompanyName.MaxLength = 500;
             this.txtCompanyName.Name = "txtCompanyName";
             this.txtCompanyName.Size = new System.Drawing.Size(489, 20);
-            this.txtCompanyName.TabIndex = 81;
+            this.txtCompanyName.TabIndex = 2;
             this.txtCompanyName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCompanyName_KeyDown);
             // 
             // lblPassword
@@ -161,11 +161,11 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnClose.Image = global::ETrains.Properties.Resources.Exit;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(581, 193);
+            this.btnClose.Location = new System.Drawing.Point(183, 193);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(63, 28);
-            this.btnClose.TabIndex = 81;
+            this.btnClose.TabIndex = 6;
             this.btnClose.Text = "Th&oát";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClose.UseVisualStyleBackColor = true;
@@ -178,11 +178,11 @@
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnUpdate.Image = global::ETrains.Properties.Resources.edit;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(498, 193);
+            this.btnUpdate.Location = new System.Drawing.Point(100, 193);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 28);
-            this.btnUpdate.TabIndex = 80;
+            this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "&Cập nhật";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -195,11 +195,11 @@
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnAdd.Image = global::ETrains.Properties.Resources.add;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(410, 193);
+            this.btnAdd.Location = new System.Drawing.Point(12, 193);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(80, 28);
-            this.btnAdd.TabIndex = 79;
+            this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Thêm &mới";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.UseVisualStyleBackColor = true;
