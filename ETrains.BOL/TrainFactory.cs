@@ -307,6 +307,23 @@ namespace ETrains.BOL
             return lst.ToList();
         }
 
+
+        public static List<tblHandover> SearchBBBG(string number, bool searchByDate, DateTime dateFrom, DateTime dateTo, String customCode)
+        {
+            var db = Instance();
+            IQueryable<tblHandover> lst = db.tblHandovers.Include("tblChuyenTau").Where(h => h.IsDeleted == null || h.IsDeleted == false);
+            lst = lst.Where(x => x.CodeStationFromTo == customCode);
+            if (searchByDate)
+            {
+                var fromDate = new DateTime(dateFrom.Year, dateFrom.Month, dateFrom.Day, 0, 0, 0);
+                var toDate = new DateTime(dateTo.Year, dateTo.Month, dateTo.Day, 23, 59, 59);
+                lst = lst.Where(x => x.DateHandover.HasValue && x.DateHandover.Value >= fromDate && x.DateHandover.Value <= toDate);
+            }
+            if (!string.IsNullOrEmpty(number)) lst = lst.Where(x => x.NumberHandover.Contains(number));
+            //if (type >= 0) lst = lst.Where(x => x.Type == type);
+            return lst.ToList();
+        }
+
         public static List<tblToKhaiTau> SearchToKhai(string number, int type, bool searchByDate, DateTime dateFrom, DateTime dateTo)
         {
             var db = Instance();
