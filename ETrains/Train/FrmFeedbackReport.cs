@@ -87,7 +87,10 @@ namespace ETrains
                          obj.NumberReply,
                          obj.DateReply,
                          obj.NoteReply,
-                         obj.IsDeleted);
+                         obj.IsDeleted,
+                         obj.IsReplied,
+                         obj.Note,
+                         obj.Type);
                 }
 
                 report.SetDataSource(dataset);
