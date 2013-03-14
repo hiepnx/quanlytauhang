@@ -30,10 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -43,6 +39,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblHeader = new System.Windows.Forms.Label();
             this.gbBBBG = new System.Windows.Forms.GroupBox();
             this.ddlGaDenDi = new System.Windows.Forms.ComboBox();
@@ -62,22 +62,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtNumberHandover = new System.Windows.Forms.TextBox();
             this.grdToaTau = new System.Windows.Forms.DataGridView();
-            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ToaTauID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ma_ToaTau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.So_VanTai_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ngay_VanTai_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten_DoiTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten_DoanhNghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ma_DoanhNghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten_Hang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Trong_Luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seal_VanTai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seal_VanTai2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seal_HaiQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seal_HaiQuan2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ghi_Chu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.techlinkErrorProvider1 = new ETrains.Utilities.TechlinkErrorProvider();
             this.gbToaTau = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtNumberTrain = new System.Windows.Forms.TextBox();
@@ -88,6 +72,13 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.cbPrint = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbReply = new System.Windows.Forms.CheckBox();
+            this.txtReplyNote = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpReplyDate = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.techlinkErrorProvider1 = new ETrains.Utilities.TechlinkErrorProvider();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -103,10 +94,26 @@
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ToaTauID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ma_ToaTau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.So_VanTai_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ngay_VanTai_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten_DoiTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten_DoanhNghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ma_DoanhNghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten_Hang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Trong_Luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seal_VanTai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seal_VanTai2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seal_HaiQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seal_HaiQuan2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ghi_Chu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbBBBG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdToaTau)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.techlinkErrorProvider1)).BeginInit();
             this.gbToaTau.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.techlinkErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblHeader
@@ -341,121 +348,6 @@
             this.grdToaTau.Size = new System.Drawing.Size(845, 267);
             this.grdToaTau.TabIndex = 2;
             // 
-            // Count
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Count.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Count.HeaderText = "STT";
-            this.Count.Name = "Count";
-            this.Count.ReadOnly = true;
-            this.Count.Width = 50;
-            // 
-            // ToaTauID
-            // 
-            this.ToaTauID.DataPropertyName = "ToaTauID";
-            this.ToaTauID.HeaderText = "ToaTauID";
-            this.ToaTauID.Name = "ToaTauID";
-            this.ToaTauID.Visible = false;
-            // 
-            // Ma_ToaTau
-            // 
-            this.Ma_ToaTau.DataPropertyName = "Ma_ToaTau";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ma_ToaTau.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Ma_ToaTau.HeaderText = "SH Toa tàu";
-            this.Ma_ToaTau.Name = "Ma_ToaTau";
-            // 
-            // So_VanTai_Don
-            // 
-            this.So_VanTai_Don.DataPropertyName = "So_VanTai_Don";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.So_VanTai_Don.DefaultCellStyle = dataGridViewCellStyle4;
-            this.So_VanTai_Don.HeaderText = "Số Vận đơn";
-            this.So_VanTai_Don.Name = "So_VanTai_Don";
-            // 
-            // Ngay_VanTai_Don
-            // 
-            this.Ngay_VanTai_Don.DataPropertyName = "Ngay_VanTai_Don";
-            this.Ngay_VanTai_Don.HeaderText = "Ngày vận đơn";
-            this.Ngay_VanTai_Don.Name = "Ngay_VanTai_Don";
-            this.Ngay_VanTai_Don.Visible = false;
-            // 
-            // Ten_DoiTac
-            // 
-            this.Ten_DoiTac.DataPropertyName = "Ten_DoiTac";
-            this.Ten_DoiTac.HeaderText = "Tên người gửi";
-            this.Ten_DoiTac.Name = "Ten_DoiTac";
-            this.Ten_DoiTac.Visible = false;
-            // 
-            // Ten_DoanhNghiep
-            // 
-            this.Ten_DoanhNghiep.DataPropertyName = "Ten_DoanhNghiep";
-            this.Ten_DoanhNghiep.HeaderText = "Tên người nhận";
-            this.Ten_DoanhNghiep.Name = "Ten_DoanhNghiep";
-            this.Ten_DoanhNghiep.Visible = false;
-            this.Ten_DoanhNghiep.Width = 120;
-            // 
-            // Ma_DoanhNghiep
-            // 
-            this.Ma_DoanhNghiep.DataPropertyName = "Ma_DoanhNghiep";
-            this.Ma_DoanhNghiep.HeaderText = "Ma_DoanhNghiep";
-            this.Ma_DoanhNghiep.Name = "Ma_DoanhNghiep";
-            this.Ma_DoanhNghiep.Visible = false;
-            // 
-            // Ten_Hang
-            // 
-            this.Ten_Hang.DataPropertyName = "Ten_Hang";
-            this.Ten_Hang.HeaderText = "Tên hàng";
-            this.Ten_Hang.Name = "Ten_Hang";
-            this.Ten_Hang.Width = 200;
-            // 
-            // Trong_Luong
-            // 
-            this.Trong_Luong.DataPropertyName = "Trong_Luong";
-            this.Trong_Luong.HeaderText = "Trọng lượng";
-            this.Trong_Luong.Name = "Trong_Luong";
-            // 
-            // Seal_VanTai
-            // 
-            this.Seal_VanTai.DataPropertyName = "Seal_VanTai";
-            this.Seal_VanTai.HeaderText = "Số Seal hãng vận tải 1";
-            this.Seal_VanTai.Name = "Seal_VanTai";
-            this.Seal_VanTai.Width = 130;
-            // 
-            // Seal_VanTai2
-            // 
-            this.Seal_VanTai2.DataPropertyName = "Seal_VanTai2";
-            this.Seal_VanTai2.HeaderText = "Số Seal hãng vận tải 2";
-            this.Seal_VanTai2.Name = "Seal_VanTai2";
-            this.Seal_VanTai2.Width = 130;
-            // 
-            // Seal_HaiQuan
-            // 
-            this.Seal_HaiQuan.DataPropertyName = "Seal_HaiQuan";
-            dataGridViewCellStyle5.Format = "dd/MM/yyyy";
-            this.Seal_HaiQuan.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Seal_HaiQuan.HeaderText = "Số Seal Hải quan 1";
-            this.Seal_HaiQuan.Name = "Seal_HaiQuan";
-            this.Seal_HaiQuan.Width = 130;
-            // 
-            // Seal_HaiQuan2
-            // 
-            this.Seal_HaiQuan2.DataPropertyName = "Seal_HaiQuan2";
-            this.Seal_HaiQuan2.HeaderText = "Số Seal Hải quan 2";
-            this.Seal_HaiQuan2.Name = "Seal_HaiQuan2";
-            this.Seal_HaiQuan2.Width = 130;
-            // 
-            // Ghi_Chu
-            // 
-            this.Ghi_Chu.DataPropertyName = "Ghi_Chu";
-            this.Ghi_Chu.HeaderText = "Ghi chú";
-            this.Ghi_Chu.Name = "Ghi_Chu";
-            this.Ghi_Chu.Width = 150;
-            // 
-            // techlinkErrorProvider1
-            // 
-            this.techlinkErrorProvider1.ContainerControl = this;
-            // 
             // gbToaTau
             // 
             this.gbToaTau.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -465,7 +357,7 @@
             this.gbToaTau.Controls.Add(this.txtNumberTrain);
             this.gbToaTau.Controls.Add(this.label12);
             this.gbToaTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.gbToaTau.Location = new System.Drawing.Point(12, 175);
+            this.gbToaTau.Location = new System.Drawing.Point(12, 268);
             this.gbToaTau.Name = "gbToaTau";
             this.gbToaTau.Size = new System.Drawing.Size(851, 321);
             this.gbToaTau.TabIndex = 1;
@@ -515,7 +407,7 @@
             this.btnPrintBBBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnPrintBBBG.Image = global::ETrains.Properties.Resources.print_icon;
             this.btnPrintBBBG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrintBBBG.Location = new System.Drawing.Point(784, 502);
+            this.btnPrintBBBG.Location = new System.Drawing.Point(784, 595);
             this.btnPrintBBBG.Name = "btnPrintBBBG";
             this.btnPrintBBBG.Size = new System.Drawing.Size(79, 28);
             this.btnPrintBBBG.TabIndex = 14;
@@ -532,7 +424,7 @@
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnDelete.Image = global::ETrains.Properties.Resources.delete;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(198, 508);
+            this.btnDelete.Location = new System.Drawing.Point(198, 601);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(53, 28);
             this.btnDelete.TabIndex = 12;
@@ -549,7 +441,7 @@
             this.btnAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnAddNew.Image = global::ETrains.Properties.Resources.add;
             this.btnAddNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddNew.Location = new System.Drawing.Point(16, 508);
+            this.btnAddNew.Location = new System.Drawing.Point(16, 601);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(83, 28);
             this.btnAddNew.TabIndex = 10;
@@ -567,7 +459,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnClose.Image = global::ETrains.Properties.Resources.Exit;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(257, 508);
+            this.btnClose.Location = new System.Drawing.Point(257, 601);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(63, 28);
             this.btnClose.TabIndex = 13;
@@ -584,7 +476,7 @@
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnUpdate.Image = global::ETrains.Properties.Resources.save;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(105, 508);
+            this.btnUpdate.Location = new System.Drawing.Point(105, 601);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(87, 28);
             this.btnUpdate.TabIndex = 11;
@@ -596,12 +488,82 @@
             // cbPrint
             // 
             this.cbPrint.AutoSize = true;
-            this.cbPrint.Location = new System.Drawing.Point(398, 511);
+            this.cbPrint.Location = new System.Drawing.Point(385, 612);
             this.cbPrint.Name = "cbPrint";
             this.cbPrint.Size = new System.Drawing.Size(255, 17);
             this.cbPrint.TabIndex = 7;
             this.cbPrint.Text = "In BBBG ngay sau khi Thêm mới  hoặc Cập nhật";
             this.cbPrint.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.cbReply);
+            this.groupBox1.Controls.Add(this.txtReplyNote);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.dtpReplyDate);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.groupBox1.Location = new System.Drawing.Point(12, 177);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(851, 78);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thông tin hồi báo";
+            // 
+            // cbReply
+            // 
+            this.cbReply.AutoSize = true;
+            this.cbReply.Location = new System.Drawing.Point(6, 19);
+            this.cbReply.Name = "cbReply";
+            this.cbReply.Size = new System.Drawing.Size(78, 17);
+            this.cbReply.TabIndex = 81;
+            this.cbReply.Text = "Đã hồi báo";
+            this.cbReply.UseVisualStyleBackColor = true;
+            this.cbReply.CheckedChanged += new System.EventHandler(this.cbReply_CheckedChanged);
+            // 
+            // txtReplyNote
+            // 
+            this.txtReplyNote.Enabled = false;
+            this.txtReplyNote.Location = new System.Drawing.Point(209, 48);
+            this.txtReplyNote.Multiline = true;
+            this.txtReplyNote.Name = "txtReplyNote";
+            this.txtReplyNote.Size = new System.Drawing.Size(626, 20);
+            this.txtReplyNote.TabIndex = 2;
+            this.txtReplyNote.Tag = "";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(107, 51);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 13);
+            this.label5.TabIndex = 79;
+            this.label5.Text = "Ghi chú hồi báo";
+            // 
+            // dtpReplyDate
+            // 
+            this.dtpReplyDate.CustomFormat = "dd/MM/yyyy";
+            this.dtpReplyDate.Enabled = false;
+            this.dtpReplyDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpReplyDate.Location = new System.Drawing.Point(209, 20);
+            this.dtpReplyDate.Name = "dtpReplyDate";
+            this.dtpReplyDate.Size = new System.Drawing.Size(83, 20);
+            this.dtpReplyDate.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(110, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(70, 13);
+            this.label9.TabIndex = 76;
+            this.label9.Text = "Ngày hồi báo";
+            // 
+            // techlinkErrorProvider1
+            // 
+            this.techlinkErrorProvider1.ContainerControl = this;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -729,11 +691,123 @@
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.Width = 150;
             // 
+            // Count
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Count.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Count.HeaderText = "STT";
+            this.Count.Name = "Count";
+            this.Count.ReadOnly = true;
+            this.Count.Width = 50;
+            // 
+            // ToaTauID
+            // 
+            this.ToaTauID.DataPropertyName = "ToaTauID";
+            this.ToaTauID.HeaderText = "ToaTauID";
+            this.ToaTauID.Name = "ToaTauID";
+            this.ToaTauID.Visible = false;
+            // 
+            // Ma_ToaTau
+            // 
+            this.Ma_ToaTau.DataPropertyName = "Ma_ToaTau";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ma_ToaTau.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Ma_ToaTau.HeaderText = "SH Toa tàu";
+            this.Ma_ToaTau.Name = "Ma_ToaTau";
+            // 
+            // So_VanTai_Don
+            // 
+            this.So_VanTai_Don.DataPropertyName = "So_VanTai_Don";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.So_VanTai_Don.DefaultCellStyle = dataGridViewCellStyle4;
+            this.So_VanTai_Don.HeaderText = "Số Vận đơn";
+            this.So_VanTai_Don.Name = "So_VanTai_Don";
+            // 
+            // Ngay_VanTai_Don
+            // 
+            this.Ngay_VanTai_Don.DataPropertyName = "Ngay_VanTai_Don";
+            this.Ngay_VanTai_Don.HeaderText = "Ngày vận đơn";
+            this.Ngay_VanTai_Don.Name = "Ngay_VanTai_Don";
+            this.Ngay_VanTai_Don.Visible = false;
+            // 
+            // Ten_DoiTac
+            // 
+            this.Ten_DoiTac.DataPropertyName = "Ten_DoiTac";
+            this.Ten_DoiTac.HeaderText = "Tên người gửi";
+            this.Ten_DoiTac.Name = "Ten_DoiTac";
+            this.Ten_DoiTac.Visible = false;
+            // 
+            // Ten_DoanhNghiep
+            // 
+            this.Ten_DoanhNghiep.DataPropertyName = "Ten_DoanhNghiep";
+            this.Ten_DoanhNghiep.HeaderText = "Tên người nhận";
+            this.Ten_DoanhNghiep.Name = "Ten_DoanhNghiep";
+            this.Ten_DoanhNghiep.Visible = false;
+            this.Ten_DoanhNghiep.Width = 120;
+            // 
+            // Ma_DoanhNghiep
+            // 
+            this.Ma_DoanhNghiep.DataPropertyName = "Ma_DoanhNghiep";
+            this.Ma_DoanhNghiep.HeaderText = "Ma_DoanhNghiep";
+            this.Ma_DoanhNghiep.Name = "Ma_DoanhNghiep";
+            this.Ma_DoanhNghiep.Visible = false;
+            // 
+            // Ten_Hang
+            // 
+            this.Ten_Hang.DataPropertyName = "Ten_Hang";
+            this.Ten_Hang.HeaderText = "Tên hàng";
+            this.Ten_Hang.Name = "Ten_Hang";
+            this.Ten_Hang.Width = 200;
+            // 
+            // Trong_Luong
+            // 
+            this.Trong_Luong.DataPropertyName = "Trong_Luong";
+            this.Trong_Luong.HeaderText = "Trọng lượng";
+            this.Trong_Luong.Name = "Trong_Luong";
+            // 
+            // Seal_VanTai
+            // 
+            this.Seal_VanTai.DataPropertyName = "Seal_VanTai";
+            this.Seal_VanTai.HeaderText = "Số Seal hãng vận tải 1";
+            this.Seal_VanTai.Name = "Seal_VanTai";
+            this.Seal_VanTai.Width = 130;
+            // 
+            // Seal_VanTai2
+            // 
+            this.Seal_VanTai2.DataPropertyName = "Seal_VanTai2";
+            this.Seal_VanTai2.HeaderText = "Số Seal hãng vận tải 2";
+            this.Seal_VanTai2.Name = "Seal_VanTai2";
+            this.Seal_VanTai2.Width = 130;
+            // 
+            // Seal_HaiQuan
+            // 
+            this.Seal_HaiQuan.DataPropertyName = "Seal_HaiQuan";
+            dataGridViewCellStyle5.Format = "dd/MM/yyyy";
+            this.Seal_HaiQuan.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Seal_HaiQuan.HeaderText = "Số Seal Hải quan 1";
+            this.Seal_HaiQuan.Name = "Seal_HaiQuan";
+            this.Seal_HaiQuan.Width = 130;
+            // 
+            // Seal_HaiQuan2
+            // 
+            this.Seal_HaiQuan2.DataPropertyName = "Seal_HaiQuan2";
+            this.Seal_HaiQuan2.HeaderText = "Số Seal Hải quan 2";
+            this.Seal_HaiQuan2.Name = "Seal_HaiQuan2";
+            this.Seal_HaiQuan2.Width = 130;
+            // 
+            // Ghi_Chu
+            // 
+            this.Ghi_Chu.DataPropertyName = "Ghi_Chu";
+            this.Ghi_Chu.HeaderText = "Ghi chú";
+            this.Ghi_Chu.Name = "Ghi_Chu";
+            this.Ghi_Chu.Width = 150;
+            // 
             // frmBBBG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 548);
+            this.ClientSize = new System.Drawing.Size(875, 641);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cbPrint);
             this.Controls.Add(this.btnPrintBBBG);
             this.Controls.Add(this.gbToaTau);
@@ -750,9 +824,11 @@
             this.gbBBBG.ResumeLayout(false);
             this.gbBBBG.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdToaTau)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.techlinkErrorProvider1)).EndInit();
             this.gbToaTau.ResumeLayout(false);
             this.gbToaTau.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.techlinkErrorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -820,5 +896,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Seal_HaiQuan2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ghi_Chu;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox cbReply;
+        private System.Windows.Forms.TextBox txtReplyNote;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtpReplyDate;
+        public System.Windows.Forms.Label label9;
     }
 }

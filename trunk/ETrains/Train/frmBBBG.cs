@@ -14,7 +14,7 @@ namespace ETrains.Train
 {
     public partial class frmBBBG : Form
     {
-        private short _type; //0: xuat canh, 1 nhap canh
+        private short _type; //0: BBBG chuyen den, 1 BBBG chuyen di
         private short _mode; //0: addnew, 1: edit
         private UserInfo _userInfo;
         private List<tblToaTau> listToaTau = new List<tblToaTau>();
@@ -43,21 +43,21 @@ namespace ETrains.Train
 
         private void frmBBBG_Load(object sender, EventArgs e)
         {
-            this.Text = "Khai bao tau hang " + (_type == 0 ? "xuat canh" : "nhap canh") + ConstantInfo.MESSAGE_TITLE + GlobalInfo.CompanyName;
+            this.Text = "Khai bao Bien ban ban giao " + (_type == 0 ? "chuyen den" : "chuyen di") + ConstantInfo.MESSAGE_TITLE + GlobalInfo.CompanyName;
             Init();
         }
 
         private void Init()
         {
-            if (_type == 0)
+            if (_type == (short)HandoverType.HandoverComeIn) //BBBG chuyen den
             {
                 lblHeader.Text = "Cập nhật Biên bản bàn giao, chuyển đến";
                 lblCodeGaDenDi.Text = "Mã HQ ga đi";
                 lblGaDenDi.Text = "Tên HQ ga đi";
             }
-            else if (_type == 1)
+            else if (_type == (short)HandoverType.HandoverToGoOut) //BBBG chuyen di
             {
-                lblHeader.Text = "Cập nhật Biên bản bàn giao, hồi báo";
+                lblHeader.Text = "Cập nhật Biên bản bàn giao, chuyển đi";
                 lblCodeGaDenDi.Text = "Mã HQ ga đến";
                 lblGaDenDi.Text = "Tên HQ ga đến";
             }
@@ -127,6 +127,20 @@ namespace ETrains.Train
             txtStatusVehicle.Text = _handover.StatusVehicle;
             txtNumberTrain.Text = _handover.Ma_Chuyen_Tau;
             txtNumberTrain.ReadOnly = true;
+            cbReply.Checked = _handover.IsReplied.Value;
+            if (cbReply.Checked)
+            {
+                dtpReplyDate.Enabled = true;
+                dtpReplyDate.Value = _handover.DateReply.Value;
+                txtReplyNote.Text = _handover.NoteReply;
+                txtReplyNote.Enabled = true;
+            }
+            else
+            {
+                dtpReplyDate.Enabled = false;
+                txtReplyNote.Text = "";
+                txtReplyNote.Enabled = false;
+            }
 
             if (!_handover.tblHandoverResources.IsLoaded) _handover.tblHandoverResources.Load();
             foreach(var resource in _handover.tblHandoverResources)
@@ -156,6 +170,10 @@ namespace ETrains.Train
             btnUpdate.Enabled = btnDelete.Enabled = false;
             btnAddNew.Enabled = true;
             listToaTau.Clear();
+            cbReply.Checked = false;
+            dtpReplyDate.Enabled = false;
+            txtReplyNote.Enabled = false;
+            txtReplyNote.Text = "";
         }
         
         private void btnAddNew_Click(object sender, EventArgs e)
@@ -175,6 +193,11 @@ namespace ETrains.Train
                     MessageBox.Show("Bạn phải chọn ít nhất một toa tàu!");
                     return;    
                 } 
+                Nullable<DateTime> replyDate = null;
+                if(cbReply.Checked)
+                {
+                    replyDate = dtpReplyDate.Value;
+                }
                 var handOver = new tblHandover
                                    {
                                        tblChuyenTau = train,
@@ -185,7 +208,11 @@ namespace ETrains.Train
                                        StatusGoods = txtStatusGood.Text.Trim(),
                                        StatusVehicle = txtStatusVehicle.Text.Trim(),
                                        CreatedBy = _userInfo.UserID,
-                                       CreatedDate = CommonFactory.GetCurrentDate()
+                                       CreatedDate = CommonFactory.GetCurrentDate(),
+                                       Type= _type.ToString(),
+                                       IsReplied=cbReply.Checked,
+                                       DateReply = replyDate,
+                                       NoteReply = cbReply.Checked?txtReplyNote.Text:null
                                    };
                 foreach (var toaTau in listToaTau)
                 {
@@ -410,6 +437,16 @@ namespace ETrains.Train
                 _handover.StatusGoods = txtStatusGood.Text.Trim();
                 _handover.StatusVehicle = txtStatusVehicle.Text.Trim();
                 _handover.ModifiedBy = _userInfo.UserID;  
+
+                //thong tin hoi bao
+                _handover.IsReplied = cbReply.Checked;
+                _handover.NoteReply = cbReply.Checked ? txtReplyNote.Text : null;
+                 Nullable < DateTime > replyDate = null;;
+                if(cbReply.Checked)
+                {
+                    replyDate=dtpReplyDate.Value;
+                }
+                _handover.DateReply = replyDate;
                 
                 var result = TrainFactory.UpdateHandover(_handover, listToaTau);
                 if (result > 0)
@@ -460,6 +497,14 @@ namespace ETrains.Train
             {
                 if (GlobalInfo.IsDebug) MessageBox.Show(ex.ToString());
             }            
+        }
+
+        private void cbReply_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpReplyDate.Enabled = cbReply.Checked;
+            txtReplyNote.Enabled = cbReply.Checked;
+            if(cbReply.Checked==false)
+                txtReplyNote.Text="";
         }
     }
 }

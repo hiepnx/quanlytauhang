@@ -281,14 +281,14 @@
             // 
             this.cậpNhậtBBBGHồiBáoToolStripMenuItem.Name = "cậpNhậtBBBGHồiBáoToolStripMenuItem";
             this.cậpNhậtBBBGHồiBáoToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
-            this.cậpNhậtBBBGHồiBáoToolStripMenuItem.Text = "Cập nhật BBBG, hồi báo";
+            this.cậpNhậtBBBGHồiBáoToolStripMenuItem.Text = "Tạo BBBG chuyển đi";
             this.cậpNhậtBBBGHồiBáoToolStripMenuItem.Click += new System.EventHandler(this.cậpNhậtBBBGHồiBáoToolStripMenuItem_Click);
             // 
             // cậpNhậtBBBGChuyểnĐếnToolStripMenuItem
             // 
             this.cậpNhậtBBBGChuyểnĐếnToolStripMenuItem.Name = "cậpNhậtBBBGChuyểnĐếnToolStripMenuItem";
             this.cậpNhậtBBBGChuyểnĐếnToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
-            this.cậpNhậtBBBGChuyểnĐếnToolStripMenuItem.Text = "Cập nhật BBBG, chuyển đến";
+            this.cậpNhậtBBBGChuyểnĐếnToolStripMenuItem.Text = "Tiếp nhận BBBG  chuyển đến";
             this.cậpNhậtBBBGChuyểnĐếnToolStripMenuItem.Click += new System.EventHandler(this.cậpNhậtBBBGChuyểnĐếnToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
@@ -491,7 +491,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ETrains.Properties.Resources.logoBackgound;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1140, 712);
+            this.ClientSize = new System.Drawing.Size(1140, 714);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.mnMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

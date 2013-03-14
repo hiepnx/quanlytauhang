@@ -30,4 +30,13 @@ namespace ETrains.Utilities.Enums
         //Nhap canh
         TypeImport = 1
     }
+
+    public enum HandoverType
+    {
+        //BBBG chuyen den
+        HandoverComeIn = 0,
+
+        //BBBG chuyen di
+        HandoverToGoOut = 1
+    }
 }
