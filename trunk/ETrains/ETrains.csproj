@@ -615,9 +615,6 @@
     <None Include="Resources\application_side_boxes.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\background.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\car_delete.png" />
   </ItemGroup>
   <ItemGroup>
@@ -682,9 +679,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\export.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\export.png" />
