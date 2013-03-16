@@ -136,6 +136,11 @@
     <Compile Include="frmConfigSQL2DbEcus.Designer.cs">
       <DependentUpon>frmConfigSQL2DbEcus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ReportListFeedback1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -337,14 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="ReportHandOver.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportHandOver.cs</LastGenOutput>
@@ -438,9 +438,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\search2.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
@@ -550,9 +547,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\search41.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\searchIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SearchVehicle.gif" />
