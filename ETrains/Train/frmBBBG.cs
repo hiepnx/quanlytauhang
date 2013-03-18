@@ -52,12 +52,22 @@ namespace ETrains.Train
             if (_type == (short)HandoverType.HandoverComeIn) //BBBG chuyen den
             {
                 lblHeader.Text = "Cập nhật Biên bản bàn giao, chuyển đến";
+                if (_mode == 0)
+                {
+                    lblHeader.Text = "Thêm mới Biên bản bàn giao, chuyển đến";
+                }
                 lblCodeGaDenDi.Text = "Mã HQ ga đi";
                 lblGaDenDi.Text = "Tên HQ ga đi";
             }
             else if (_type == (short)HandoverType.HandoverToGoOut) //BBBG chuyen di
             {
                 lblHeader.Text = "Cập nhật Biên bản bàn giao, chuyển đi";
+                if (_mode == 0)
+                {
+                    lblHeader.Text = "Thêm mới Biên bản bàn giao, chuyển đi";
+                    tblNumberGenerate NumberGenerate = NumberGenerateFactory.Insert(NumberGenerateFactory.NUMBER_TYPE_HANDOVER);
+                    txtNumberHandover.Text = NumberGenerate.HandoverNumber + "/BBBG-HQGA";
+                }
                 lblCodeGaDenDi.Text = "Mã HQ ga đến";
                 lblGaDenDi.Text = "Tên HQ ga đến";
             }
@@ -134,12 +144,16 @@ namespace ETrains.Train
                 dtpReplyDate.Value = _handover.DateReply.Value;
                 txtReplyNote.Text = _handover.NoteReply;
                 txtReplyNote.Enabled = true;
+                txtReplyStatusGoods.Text = _handover.ReplyStatusGoods;
+                txtReplyStatusGoods.Enabled = true;
             }
             else
             {
                 dtpReplyDate.Enabled = false;
                 txtReplyNote.Text = "";
                 txtReplyNote.Enabled = false;
+                txtReplyStatusGoods.Enabled = false;
+                txtReplyStatusGoods.Text = "";
             }
 
             if (!_handover.tblHandoverResources.IsLoaded) _handover.tblHandoverResources.Load();
@@ -174,6 +188,17 @@ namespace ETrains.Train
             dtpReplyDate.Enabled = false;
             txtReplyNote.Enabled = false;
             txtReplyNote.Text = "";
+            txtReplyStatusGoods.Enabled = false;
+            txtReplyStatusGoods.Text = "";
+
+            if (_type == (short)HandoverType.HandoverToGoOut) //BBBG chuyen di
+            {
+                if (_mode == 0) //add mode
+                {
+                    tblNumberGenerate NumberGenerate = NumberGenerateFactory.Insert(NumberGenerateFactory.NUMBER_TYPE_HANDOVER);
+                    txtNumberHandover.Text = NumberGenerate.HandoverNumber + "/BBBG-HQGA";
+                }
+            }
         }
         
         private void btnAddNew_Click(object sender, EventArgs e)
@@ -212,7 +237,8 @@ namespace ETrains.Train
                                        Type= _type.ToString(),
                                        IsReplied=cbReply.Checked,
                                        DateReply = replyDate,
-                                       NoteReply = cbReply.Checked?txtReplyNote.Text:null
+                                       NoteReply = cbReply.Checked?txtReplyNote.Text:null,
+                                       ReplyStatusGoods = cbReply.Checked ? txtReplyStatusGoods.Text : null,
                                    };
                 foreach (var toaTau in listToaTau)
                 {
@@ -401,8 +427,9 @@ namespace ETrains.Train
                         txtSummary.Text = dateString + " " + fromStation + " bàn giao cho Chi nhánh vận tải hàng hóa đường sắt Đồng Đăng" +
                         " lô hàng nhập khẩu chuyển cảng vận chuyển từ " + fromStation + " đến " + toStation + ".";
                     }
-
-                    txtNumberHandover.Text = "Số: " + handover.NumberHandover + "/BBBG-HQGA";
+                    
+                    //txtNumberHandover.Text = "Số: " + handover.NumberHandover + "/BBBG-HQGA";
+                    txtNumberHandover.Text = "Số: " + handover.NumberHandover;
                     txtStatusVehicle.Text = handover.StatusVehicle;
                     txtStatusGoods.Text = handover.StatusGoods;
 
@@ -441,6 +468,7 @@ namespace ETrains.Train
                 //thong tin hoi bao
                 _handover.IsReplied = cbReply.Checked;
                 _handover.NoteReply = cbReply.Checked ? txtReplyNote.Text : null;
+                _handover.ReplyStatusGoods = cbReply.Checked ? txtReplyStatusGoods.Text : null;
                  Nullable < DateTime > replyDate = null;;
                 if(cbReply.Checked)
                 {
@@ -503,8 +531,22 @@ namespace ETrains.Train
         {
             dtpReplyDate.Enabled = cbReply.Checked;
             txtReplyNote.Enabled = cbReply.Checked;
-            if(cbReply.Checked==false)
-                txtReplyNote.Text="";
+            txtReplyStatusGoods.Enabled = cbReply.Checked;
+            if (cbReply.Checked == false)
+            {
+                txtReplyNote.Text = "";
+                txtReplyStatusGoods.Text = "";
+            }
+        }
+
+        private void txtNumberHandover_Leave(object sender, EventArgs e)
+        {
+            String handoverNumber = txtNumberHandover.Text.Trim();
+            if (handoverNumber.Contains("/BBBG-HQGA")==false)
+            {
+                handoverNumber += "/BBBG-HQGA";
+                txtNumberHandover.Text = handoverNumber;
+            }
         }
     }
 }

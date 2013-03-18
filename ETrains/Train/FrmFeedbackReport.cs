@@ -90,7 +90,8 @@ namespace ETrains
                          obj.IsDeleted,
                          obj.IsReplied,
                          obj.Note,
-                         obj.Type);
+                         obj.Type,
+                         obj.ReplyStatusGoods);
                 }
 
                 report.SetDataSource(dataset);

@@ -897,6 +897,8 @@ namespace ETrains {
             
             private global::System.Data.DataColumn columnType;
             
+            private global::System.Data.DataColumn columnReplyStatusGoods;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public tblHandoverDataTable() {
@@ -1084,6 +1086,14 @@ namespace ETrains {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ReplyStatusGoodsColumn {
+                get {
+                    return this.columnReplyStatusGoods;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1137,7 +1147,8 @@ namespace ETrains {
                         bool IsDeleted, 
                         bool IsReplied, 
                         string Note, 
-                        string Type) {
+                        string Type, 
+                        string ReplyStatusGoods) {
                 tblHandoverRow rowtblHandoverRow = ((tblHandoverRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1158,7 +1169,8 @@ namespace ETrains {
                         IsDeleted,
                         IsReplied,
                         Note,
-                        Type};
+                        Type,
+                        ReplyStatusGoods};
                 rowtblHandoverRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtblHandoverRow);
                 return rowtblHandoverRow;
@@ -1207,6 +1219,7 @@ namespace ETrains {
                 this.columnIsReplied = base.Columns["IsReplied"];
                 this.columnNote = base.Columns["Note"];
                 this.columnType = base.Columns["Type"];
+                this.columnReplyStatusGoods = base.Columns["ReplyStatusGoods"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1250,6 +1263,8 @@ namespace ETrains {
                 base.Columns.Add(this.columnNote);
                 this.columnType = new global::System.Data.DataColumn("Type", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnType);
+                this.columnReplyStatusGoods = new global::System.Data.DataColumn("ReplyStatusGoods", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReplyStatusGoods);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -1268,6 +1283,7 @@ namespace ETrains {
                 this.columnNoteReply.MaxLength = 500;
                 this.columnNote.MaxLength = 500;
                 this.columnType.MaxLength = 200;
+                this.columnReplyStatusGoods.MaxLength = 500;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2217,6 +2233,22 @@ namespace ETrains {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ReplyStatusGoods {
+                get {
+                    try {
+                        return ((string)(this[this.tabletblHandover.ReplyStatusGoodsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ReplyStatusGoods\' in table \'tblHandover\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletblHandover.ReplyStatusGoodsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNumberHandoverNull() {
                 return this.IsNull(this.tabletblHandover.NumberHandoverColumn);
             }
@@ -2417,6 +2449,18 @@ namespace ETrains {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTypeNull() {
                 this[this.tabletblHandover.TypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsReplyStatusGoodsNull() {
+                return this.IsNull(this.tabletblHandover.ReplyStatusGoodsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetReplyStatusGoodsNull() {
+                this[this.tabletblHandover.ReplyStatusGoodsColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3689,6 +3733,7 @@ SELECT ToaTauID, Ma_ToaTau, So_VanTai_Don, Ngay_VanTai_Don, Ten_DoiTac, Ma_Doanh
             tableMapping.ColumnMappings.Add("IsReplied", "IsReplied");
             tableMapping.ColumnMappings.Add("Note", "Note");
             tableMapping.ColumnMappings.Add("Type", "Type");
+            tableMapping.ColumnMappings.Add("ReplyStatusGoods", "ReplyStatusGoods");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -3711,9 +3756,11 @@ SELECT ToaTauID, Ma_ToaTau, So_VanTai_Don, Ngay_VanTai_Don, Ten_DoiTac, Ma_Doanh
                 " IS NULL) OR ([NumberReply] = @Original_NumberReply)) AND ((@IsNull_DateReply = " +
                 "1 AND [DateReply] IS NULL) OR ([DateReply] = @Original_DateReply)) AND ((@IsNull" +
                 "_NoteReply = 1 AND [NoteReply] IS NULL) OR ([NoteReply] = @Original_NoteReply)) " +
-                "AND ((@IsNull_Note = 1 AND [Note] IS NULL) OR ([Note] = @Original_Note)) AND ((@" +
-                "IsNull_Type = 1 AND [Type] IS NULL) OR ([Type] = @Original_Type)) AND ((@IsNull_" +
-                "IsDeleted = 1 AND [IsDeleted] IS NULL) OR ([IsDeleted] = @Original_IsDeleted)))";
+                "AND ((@IsNull_ReplyStatusGoods = 1 AND [ReplyStatusGoods] IS NULL) OR ([ReplySta" +
+                "tusGoods] = @Original_ReplyStatusGoods)) AND ((@IsNull_Note = 1 AND [Note] IS NU" +
+                "LL) OR ([Note] = @Original_Note)) AND ((@IsNull_Type = 1 AND [Type] IS NULL) OR " +
+                "([Type] = @Original_Type)) AND ((@IsNull_IsDeleted = 1 AND [IsDeleted] IS NULL) " +
+                "OR ([IsDeleted] = @Original_IsDeleted)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TrainID", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TrainID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3745,6 +3792,8 @@ SELECT ToaTauID, Ma_ToaTau, So_VanTai_Don, Ngay_VanTai_Don, Ten_DoiTac, Ma_Doanh
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateReply", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateReply", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NoteReply", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NoteReply", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NoteReply", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NoteReply", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReplyStatusGoods", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReplyStatusGoods", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReplyStatusGoods", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReplyStatusGoods", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Note", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -3753,8 +3802,8 @@ SELECT ToaTauID, Ma_ToaTau, So_VanTai_Don, Ngay_VanTai_Don, Ten_DoiTac, Ma_Doanh
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IsDeleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsDeleted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [tblHandover] ([TrainID], [NumberHandover], [DateHandover], [CodeStation], [CodeStationFromTo], [StatusGoods], [StatusVehicle], [CreatedDate], [CreatedBy], [ModifiedDate], [ModifiedBy], [IsReplied], [NumberReply], [DateReply], [NoteReply], [Note], [Type], [IsDeleted]) VALUES (@TrainID, @NumberHandover, @DateHandover, @CodeStation, @CodeStationFromTo, @StatusGoods, @StatusVehicle, @CreatedDate, @CreatedBy, @ModifiedDate, @ModifiedBy, @IsReplied, @NumberReply, @DateReply, @NoteReply, @Note, @Type, @IsDeleted);
-SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo, StatusGoods, StatusVehicle, CreatedDate, CreatedBy, ModifiedDate, ModifiedBy, IsReplied, NumberReply, DateReply, NoteReply, Note, Type, IsDeleted FROM tblHandover WHERE (ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [tblHandover] ([TrainID], [NumberHandover], [DateHandover], [CodeStation], [CodeStationFromTo], [StatusGoods], [StatusVehicle], [CreatedDate], [CreatedBy], [ModifiedDate], [ModifiedBy], [IsReplied], [NumberReply], [DateReply], [NoteReply], [ReplyStatusGoods], [Note], [Type], [IsDeleted]) VALUES (@TrainID, @NumberHandover, @DateHandover, @CodeStation, @CodeStationFromTo, @StatusGoods, @StatusVehicle, @CreatedDate, @CreatedBy, @ModifiedDate, @ModifiedBy, @IsReplied, @NumberReply, @DateReply, @NoteReply, @ReplyStatusGoods, @Note, @Type, @IsDeleted);
+SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo, StatusGoods, StatusVehicle, CreatedDate, CreatedBy, ModifiedDate, ModifiedBy, IsReplied, NumberReply, DateReply, NoteReply, ReplyStatusGoods, Note, Type, IsDeleted FROM tblHandover WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrainID", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TrainID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberHandover", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberHandover", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3771,6 +3820,7 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberReply", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberReply", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateReply", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateReply", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NoteReply", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NoteReply", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReplyStatusGoods", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReplyStatusGoods", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsDeleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsDeleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3781,33 +3831,35 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
                 "To] = @CodeStationFromTo, [StatusGoods] = @StatusGoods, [StatusVehicle] = @Statu" +
                 "sVehicle, [CreatedDate] = @CreatedDate, [CreatedBy] = @CreatedBy, [ModifiedDate]" +
                 " = @ModifiedDate, [ModifiedBy] = @ModifiedBy, [IsReplied] = @IsReplied, [NumberR" +
-                "eply] = @NumberReply, [DateReply] = @DateReply, [NoteReply] = @NoteReply, [Note]" +
-                " = @Note, [Type] = @Type, [IsDeleted] = @IsDeleted WHERE (([ID] = @Original_ID) " +
-                "AND ([TrainID] = @Original_TrainID) AND ((@IsNull_NumberHandover = 1 AND [Number" +
-                "Handover] IS NULL) OR ([NumberHandover] = @Original_NumberHandover)) AND ((@IsNu" +
-                "ll_DateHandover = 1 AND [DateHandover] IS NULL) OR ([DateHandover] = @Original_D" +
-                "ateHandover)) AND ((@IsNull_CodeStation = 1 AND [CodeStation] IS NULL) OR ([Code" +
-                "Station] = @Original_CodeStation)) AND ((@IsNull_CodeStationFromTo = 1 AND [Code" +
-                "StationFromTo] IS NULL) OR ([CodeStationFromTo] = @Original_CodeStationFromTo)) " +
-                "AND ((@IsNull_StatusGoods = 1 AND [StatusGoods] IS NULL) OR ([StatusGoods] = @Or" +
-                "iginal_StatusGoods)) AND ((@IsNull_StatusVehicle = 1 AND [StatusVehicle] IS NULL" +
-                ") OR ([StatusVehicle] = @Original_StatusVehicle)) AND ((@IsNull_CreatedDate = 1 " +
-                "AND [CreatedDate] IS NULL) OR ([CreatedDate] = @Original_CreatedDate)) AND ((@Is" +
-                "Null_CreatedBy = 1 AND [CreatedBy] IS NULL) OR ([CreatedBy] = @Original_CreatedB" +
-                "y)) AND ((@IsNull_ModifiedDate = 1 AND [ModifiedDate] IS NULL) OR ([ModifiedDate" +
-                "] = @Original_ModifiedDate)) AND ((@IsNull_ModifiedBy = 1 AND [ModifiedBy] IS NU" +
-                "LL) OR ([ModifiedBy] = @Original_ModifiedBy)) AND ((@IsNull_IsReplied = 1 AND [I" +
-                "sReplied] IS NULL) OR ([IsReplied] = @Original_IsReplied)) AND ((@IsNull_NumberR" +
-                "eply = 1 AND [NumberReply] IS NULL) OR ([NumberReply] = @Original_NumberReply)) " +
-                "AND ((@IsNull_DateReply = 1 AND [DateReply] IS NULL) OR ([DateReply] = @Original" +
-                "_DateReply)) AND ((@IsNull_NoteReply = 1 AND [NoteReply] IS NULL) OR ([NoteReply" +
-                "] = @Original_NoteReply)) AND ((@IsNull_Note = 1 AND [Note] IS NULL) OR ([Note] " +
-                "= @Original_Note)) AND ((@IsNull_Type = 1 AND [Type] IS NULL) OR ([Type] = @Orig" +
-                "inal_Type)) AND ((@IsNull_IsDeleted = 1 AND [IsDeleted] IS NULL) OR ([IsDeleted]" +
-                " = @Original_IsDeleted)));\r\nSELECT ID, TrainID, NumberHandover, DateHandover, Co" +
-                "deStation, CodeStationFromTo, StatusGoods, StatusVehicle, CreatedDate, CreatedBy" +
-                ", ModifiedDate, ModifiedBy, IsReplied, NumberReply, DateReply, NoteReply, Note, " +
-                "Type, IsDeleted FROM tblHandover WHERE (ID = @ID)";
+                "eply] = @NumberReply, [DateReply] = @DateReply, [NoteReply] = @NoteReply, [Reply" +
+                "StatusGoods] = @ReplyStatusGoods, [Note] = @Note, [Type] = @Type, [IsDeleted] = " +
+                "@IsDeleted WHERE (([ID] = @Original_ID) AND ([TrainID] = @Original_TrainID) AND " +
+                "((@IsNull_NumberHandover = 1 AND [NumberHandover] IS NULL) OR ([NumberHandover] " +
+                "= @Original_NumberHandover)) AND ((@IsNull_DateHandover = 1 AND [DateHandover] I" +
+                "S NULL) OR ([DateHandover] = @Original_DateHandover)) AND ((@IsNull_CodeStation " +
+                "= 1 AND [CodeStation] IS NULL) OR ([CodeStation] = @Original_CodeStation)) AND (" +
+                "(@IsNull_CodeStationFromTo = 1 AND [CodeStationFromTo] IS NULL) OR ([CodeStation" +
+                "FromTo] = @Original_CodeStationFromTo)) AND ((@IsNull_StatusGoods = 1 AND [Statu" +
+                "sGoods] IS NULL) OR ([StatusGoods] = @Original_StatusGoods)) AND ((@IsNull_Statu" +
+                "sVehicle = 1 AND [StatusVehicle] IS NULL) OR ([StatusVehicle] = @Original_Status" +
+                "Vehicle)) AND ((@IsNull_CreatedDate = 1 AND [CreatedDate] IS NULL) OR ([CreatedD" +
+                "ate] = @Original_CreatedDate)) AND ((@IsNull_CreatedBy = 1 AND [CreatedBy] IS NU" +
+                "LL) OR ([CreatedBy] = @Original_CreatedBy)) AND ((@IsNull_ModifiedDate = 1 AND [" +
+                "ModifiedDate] IS NULL) OR ([ModifiedDate] = @Original_ModifiedDate)) AND ((@IsNu" +
+                "ll_ModifiedBy = 1 AND [ModifiedBy] IS NULL) OR ([ModifiedBy] = @Original_Modifie" +
+                "dBy)) AND ((@IsNull_IsReplied = 1 AND [IsReplied] IS NULL) OR ([IsReplied] = @Or" +
+                "iginal_IsReplied)) AND ((@IsNull_NumberReply = 1 AND [NumberReply] IS NULL) OR (" +
+                "[NumberReply] = @Original_NumberReply)) AND ((@IsNull_DateReply = 1 AND [DateRep" +
+                "ly] IS NULL) OR ([DateReply] = @Original_DateReply)) AND ((@IsNull_NoteReply = 1" +
+                " AND [NoteReply] IS NULL) OR ([NoteReply] = @Original_NoteReply)) AND ((@IsNull_" +
+                "ReplyStatusGoods = 1 AND [ReplyStatusGoods] IS NULL) OR ([ReplyStatusGoods] = @O" +
+                "riginal_ReplyStatusGoods)) AND ((@IsNull_Note = 1 AND [Note] IS NULL) OR ([Note]" +
+                " = @Original_Note)) AND ((@IsNull_Type = 1 AND [Type] IS NULL) OR ([Type] = @Ori" +
+                "ginal_Type)) AND ((@IsNull_IsDeleted = 1 AND [IsDeleted] IS NULL) OR ([IsDeleted" +
+                "] = @Original_IsDeleted)));\r\nSELECT ID, TrainID, NumberHandover, DateHandover, C" +
+                "odeStation, CodeStationFromTo, StatusGoods, StatusVehicle, CreatedDate, CreatedB" +
+                "y, ModifiedDate, ModifiedBy, IsReplied, NumberReply, DateReply, NoteReply, Reply" +
+                "StatusGoods, Note, Type, IsDeleted FROM tblHandover WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrainID", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TrainID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberHandover", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberHandover", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3824,6 +3876,7 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberReply", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberReply", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateReply", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateReply", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NoteReply", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NoteReply", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReplyStatusGoods", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReplyStatusGoods", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsDeleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsDeleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3857,6 +3910,8 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateReply", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateReply", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NoteReply", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NoteReply", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NoteReply", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NoteReply", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReplyStatusGoods", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReplyStatusGoods", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReplyStatusGoods", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReplyStatusGoods", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Note", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -3957,6 +4012,7 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
                     string Original_NumberReply, 
                     global::System.Nullable<global::System.DateTime> Original_DateReply, 
                     string Original_NoteReply, 
+                    string Original_ReplyStatusGoods, 
                     string Original_Note, 
                     string Original_Type, 
                     global::System.Nullable<bool> Original_IsDeleted) {
@@ -4074,29 +4130,37 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
                 this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[29].Value = ((string)(Original_NoteReply));
             }
-            if ((Original_Note == null)) {
+            if ((Original_ReplyStatusGoods == null)) {
                 this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[31].Value = ((string)(Original_Note));
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((string)(Original_ReplyStatusGoods));
             }
-            if ((Original_Type == null)) {
+            if ((Original_Note == null)) {
                 this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[33].Value = ((string)(Original_Type));
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((string)(Original_Note));
             }
-            if ((Original_IsDeleted.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[35].Value = ((bool)(Original_IsDeleted.Value));
-            }
-            else {
+            if ((Original_Type == null)) {
                 this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((string)(Original_Type));
+            }
+            if ((Original_IsDeleted.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((bool)(Original_IsDeleted.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4134,6 +4198,7 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
                     string NumberReply, 
                     global::System.Nullable<global::System.DateTime> DateReply, 
                     string NoteReply, 
+                    string ReplyStatusGoods, 
                     string Note, 
                     string Type, 
                     global::System.Nullable<bool> IsDeleted) {
@@ -4222,23 +4287,29 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
             else {
                 this.Adapter.InsertCommand.Parameters[14].Value = ((string)(NoteReply));
             }
-            if ((Note == null)) {
+            if ((ReplyStatusGoods == null)) {
                 this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(Note));
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(ReplyStatusGoods));
             }
-            if ((Type == null)) {
+            if ((Note == null)) {
                 this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(Type));
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(Note));
             }
-            if ((IsDeleted.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((bool)(IsDeleted.Value));
+            if ((Type == null)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(Type));
+            }
+            if ((IsDeleted.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((bool)(IsDeleted.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4276,6 +4347,7 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
                     string NumberReply, 
                     global::System.Nullable<global::System.DateTime> DateReply, 
                     string NoteReply, 
+                    string ReplyStatusGoods, 
                     string Note, 
                     string Type, 
                     global::System.Nullable<bool> IsDeleted, 
@@ -4295,6 +4367,7 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
                     string Original_NumberReply, 
                     global::System.Nullable<global::System.DateTime> Original_DateReply, 
                     string Original_NoteReply, 
+                    string Original_ReplyStatusGoods, 
                     string Original_Note, 
                     string Original_Type, 
                     global::System.Nullable<bool> Original_IsDeleted, 
@@ -4384,163 +4457,177 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
             else {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(NoteReply));
             }
-            if ((Note == null)) {
+            if ((ReplyStatusGoods == null)) {
                 this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Note));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(ReplyStatusGoods));
             }
-            if ((Type == null)) {
+            if ((Note == null)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Type));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Note));
             }
-            if ((IsDeleted.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((bool)(IsDeleted.Value));
-            }
-            else {
+            if ((Type == null)) {
                 this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((long)(Original_ID));
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((long)(Original_TrainID));
-            if ((Original_NumberHandover == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Type));
+            }
+            if ((IsDeleted.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((bool)(IsDeleted.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_NumberHandover));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((long)(Original_ID));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((long)(Original_TrainID));
+            if ((Original_NumberHandover == null)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_NumberHandover));
             }
             if ((Original_DateHandover.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_DateHandover.Value));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(Original_DateHandover.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             if ((Original_CodeStation == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_CodeStation));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_CodeStation));
             }
             if ((Original_CodeStationFromTo == null)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_CodeStationFromTo));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_CodeStationFromTo));
             }
             if ((Original_StatusGoods == null)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_StatusGoods));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_StatusGoods));
             }
             if ((Original_StatusVehicle == null)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_StatusVehicle));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_StatusVehicle));
             }
             if ((Original_CreatedDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((System.DateTime)(Original_CreatedDate.Value));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((System.DateTime)(Original_CreatedDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
             if ((Original_CreatedBy.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Original_CreatedBy.Value));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(Original_CreatedBy.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
             if ((Original_ModifiedDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((System.DateTime)(Original_ModifiedDate.Value));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((System.DateTime)(Original_ModifiedDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
             if ((Original_ModifiedBy.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(Original_ModifiedBy.Value));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(Original_ModifiedBy.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
             if ((Original_IsReplied.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((bool)(Original_IsReplied.Value));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((bool)(Original_IsReplied.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
             if ((Original_NumberReply == null)) {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_NumberReply));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_NumberReply));
             }
             if ((Original_DateReply.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((System.DateTime)(Original_DateReply.Value));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((System.DateTime)(Original_DateReply.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
             }
             if ((Original_NoteReply == null)) {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_NoteReply));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_NoteReply));
+            }
+            if ((Original_ReplyStatusGoods == null)) {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(Original_ReplyStatusGoods));
             }
             if ((Original_Note == null)) {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_Note));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((string)(Original_Note));
             }
             if ((Original_Type == null)) {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(Original_Type));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((string)(Original_Type));
             }
             if ((Original_IsDeleted.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((bool)(Original_IsDeleted.Value));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((bool)(Original_IsDeleted.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[54].Value = ((long)(ID));
+            this.Adapter.UpdateCommand.Parameters[57].Value = ((long)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4577,6 +4664,7 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
                     string NumberReply, 
                     global::System.Nullable<global::System.DateTime> DateReply, 
                     string NoteReply, 
+                    string ReplyStatusGoods, 
                     string Note, 
                     string Type, 
                     global::System.Nullable<bool> IsDeleted, 
@@ -4596,10 +4684,11 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
                     string Original_NumberReply, 
                     global::System.Nullable<global::System.DateTime> Original_DateReply, 
                     string Original_NoteReply, 
+                    string Original_ReplyStatusGoods, 
                     string Original_Note, 
                     string Original_Type, 
                     global::System.Nullable<bool> Original_IsDeleted) {
-            return this.Update(TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo, StatusGoods, StatusVehicle, CreatedDate, CreatedBy, ModifiedDate, ModifiedBy, IsReplied, NumberReply, DateReply, NoteReply, Note, Type, IsDeleted, Original_ID, Original_TrainID, Original_NumberHandover, Original_DateHandover, Original_CodeStation, Original_CodeStationFromTo, Original_StatusGoods, Original_StatusVehicle, Original_CreatedDate, Original_CreatedBy, Original_ModifiedDate, Original_ModifiedBy, Original_IsReplied, Original_NumberReply, Original_DateReply, Original_NoteReply, Original_Note, Original_Type, Original_IsDeleted, Original_ID);
+            return this.Update(TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo, StatusGoods, StatusVehicle, CreatedDate, CreatedBy, ModifiedDate, ModifiedBy, IsReplied, NumberReply, DateReply, NoteReply, ReplyStatusGoods, Note, Type, IsDeleted, Original_ID, Original_TrainID, Original_NumberHandover, Original_DateHandover, Original_CodeStation, Original_CodeStationFromTo, Original_StatusGoods, Original_StatusVehicle, Original_CreatedDate, Original_CreatedBy, Original_ModifiedDate, Original_ModifiedBy, Original_IsReplied, Original_NumberReply, Original_DateReply, Original_NoteReply, Original_ReplyStatusGoods, Original_Note, Original_Type, Original_IsDeleted, Original_ID);
         }
     }
     

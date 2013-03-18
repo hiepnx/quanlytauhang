@@ -12,6 +12,7 @@
           <EntitySet Name="tblCustoms" EntityType="dbTrainModel.Store.tblCustoms" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblHandover" EntityType="dbTrainModel.Store.tblHandover" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblHandoverResource" EntityType="dbTrainModel.Store.tblHandoverResource" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblNumberGenerate" EntityType="dbTrainModel.Store.tblNumberGenerate" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblTauKhachDetail" EntityType="dbTrainModel.Store.tblTauKhachDetail" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblToaTau" EntityType="dbTrainModel.Store.tblToaTau" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblToKhaiTau" EntityType="dbTrainModel.Store.tblToKhaiTau" store:Type="Tables" Schema="dbo" />
@@ -126,6 +127,7 @@
           <Property Name="NumberReply" Type="nvarchar" MaxLength="50" />
           <Property Name="DateReply" Type="datetime" />
           <Property Name="NoteReply" Type="nvarchar" MaxLength="500" />
+          <Property Name="ReplyStatusGoods" Type="nvarchar" MaxLength="500" />
           <Property Name="Note" Type="nvarchar" MaxLength="500" />
           <Property Name="Type" Type="nvarchar" MaxLength="200" />
           <Property Name="IsDeleted" Type="bit" />
@@ -137,6 +139,15 @@
           <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="HandoverID" Type="bigint" Nullable="false" />
           <Property Name="ToaTauID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblNumberGenerate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="HandoverNumber" Type="bigint" Nullable="false" />
+          <Property Name="ReplyReportNumber" Type="bigint" Nullable="false" />
+          <Property Name="NumberType" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblTauKhachDetail">
           <Key>
@@ -409,6 +420,7 @@
             <End Role="tblHandover" EntitySet="tblHandovers" />
             <End Role="tblHandoverResource" EntitySet="tblHandoverResources" />
           </AssociationSet>
+          <EntitySet Name="tblNumberGenerates" EntityType="dbTrainModel.tblNumberGenerate" />
         </EntityContainer>
         <EntityType Name="sysdiagram">
           <Key>
@@ -638,6 +650,7 @@
           <Property Type="String" Name="NumberReply" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="DateReply" />
           <Property Type="String" Name="NoteReply" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ReplyStatusGoods" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Note" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Type" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="IsDeleted" />
@@ -652,6 +665,15 @@
           <End Type="dbTrainModel.tblHandover" Role="tblHandover" Multiplicity="1" />
           <End Type="dbTrainModel.tblHandoverResource" Role="tblHandoverResource" Multiplicity="*" />
         </Association>
+        <EntityType Name="tblNumberGenerate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="HandoverNumber" Nullable="false" />
+          <Property Type="Int64" Name="ReplyReportNumber" Nullable="false" />
+          <Property Type="Int32" Name="NumberType" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -896,6 +918,7 @@
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="ReplyStatusGoods" ColumnName="ReplyStatusGoods" />
                 <ScalarProperty Name="NoteReply" ColumnName="NoteReply" />
                 <ScalarProperty Name="DateReply" ColumnName="DateReply" />
                 <ScalarProperty Name="NumberReply" ColumnName="NumberReply" />
@@ -930,6 +953,16 @@
               <ScalarProperty Name="ID" ColumnName="HandoverID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="tblNumberGenerates">
+            <EntityTypeMapping TypeName="dbTrainModel.tblNumberGenerate">
+              <MappingFragment StoreEntitySet="tblNumberGenerate">
+                <ScalarProperty Name="NumberType" ColumnName="NumberType" />
+                <ScalarProperty Name="ReplyReportNumber" ColumnName="ReplyReportNumber" />
+                <ScalarProperty Name="HandoverNumber" ColumnName="HandoverNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -992,17 +1025,18 @@
           <ConnectorPoint PointX="6" PointY="17.259348958333334" />
           <ConnectorPoint PointX="6" PointY="15.09568359375001" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="dbTrainModel.tblHandover" Width="1.5" PointX="3" PointY="0.875" Height="4.8648079427083388" />
+        <EntityTypeShape EntityType="dbTrainModel.tblHandover" Width="1.5" PointX="3" PointY="0.875" Height="5.057109374999996" />
         <AssociationConnector Association="dbTrainModel.FK_tblHandover_tblChuyenTau" >
           <ConnectorPoint PointX="1.5" PointY="8.5" />
-          <ConnectorPoint PointX="1.5" PointY="3.3074039713541694" />
-          <ConnectorPoint PointX="3" PointY="3.3074039713541694" />
+          <ConnectorPoint PointX="1.5" PointY="3.403554687499998" />
+          <ConnectorPoint PointX="3" PointY="3.403554687499998" />
         </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblHandoverResource_tblHandover" >
           <ConnectorPoint PointX="4.5" PointY="3.2401432291666694" />
           <ConnectorPoint PointX="5.46875" PointY="3.2401432291666694" />
           <ConnectorPoint PointX="5.46875" PointY="7.375" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="dbTrainModel.tblNumberGenerate" Width="1.5" PointX="5.375" PointY="10.75" Height="1.7879850260416674" />
         </Diagram>
     </Diagrams>
   </Designer>
