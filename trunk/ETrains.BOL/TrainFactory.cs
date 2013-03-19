@@ -292,19 +292,32 @@ namespace ETrains.BOL
             return lst.ToList();
         }
 
-        public static List<tblHandover> SearchBBBG(string number, bool searchByDate, DateTime dateFrom, DateTime dateTo)
+        public static List<tblHandover> SearchBBBG(string number, bool searchByDate, DateTime dateFrom, DateTime dateTo,Nullable<Boolean> replyStatus, String replyType)
         {
-            var db = Instance();
-            IQueryable<tblHandover> lst = db.tblHandovers.Include("tblChuyenTau").Where(h => h.IsDeleted == null || h.IsDeleted == false);
-            if (searchByDate)
+            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            try
             {
-                var fromDate = new DateTime(dateFrom.Year, dateFrom.Month, dateFrom.Day, 0, 0, 0);
-                var toDate = new DateTime(dateTo.Year, dateTo.Month, dateTo.Day, 23, 59, 59);
-                lst = lst.Where(x => x.DateHandover.HasValue && x.DateHandover.Value >= fromDate && x.DateHandover.Value <= toDate);
+                IQueryable<tblHandover> lst = db.tblHandovers.Include("tblChuyenTau").Where(h => h.IsDeleted == null || h.IsDeleted == false);
+                if (searchByDate)
+                {
+                    var fromDate = new DateTime(dateFrom.Year, dateFrom.Month, dateFrom.Day, 0, 0, 0);
+                    var toDate = new DateTime(dateTo.Year, dateTo.Month, dateTo.Day, 23, 59, 59);
+                    lst = lst.Where(x => x.DateHandover.HasValue && x.DateHandover.Value >= fromDate && x.DateHandover.Value <= toDate);
+                }
+                if (!string.IsNullOrEmpty(number)) lst = lst.Where(x => x.NumberHandover.Contains(number));
+                if (replyStatus != null) lst = lst.Where(x => x.IsReplied == replyStatus);
+
+                if (replyType != "-1") lst = lst.Where(x => x.Type == replyType);
+                //if (type >= 0) lst = lst.Where(x => x.Type == type);
+                return lst.ToList();
             }
-            if (!string.IsNullOrEmpty(number)) lst = lst.Where(x => x.NumberHandover.Contains(number));
-            //if (type >= 0) lst = lst.Where(x => x.Type == type);
-            return lst.ToList();
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally{
+                db.Dispose();
+            }
         }
 
 
