@@ -165,6 +165,28 @@ namespace ETrains.BOL
 
             return db.SaveChanges();
         }
+        public static int UpdateHandover(tblHandover handover)
+        {
+            try
+            {
+                var db = Instance();
+                handover.ModifiedDate = CommonFactory.GetCurrentDate();
+                var originHandover = db.tblHandovers.Include("tblHandoverResources").Where(g => g.ID == handover.ID).FirstOrDefault();
+                if (originHandover == null) return 0;
+                db.Detach(originHandover);
+                if (originHandover.EntityState == EntityState.Detached)
+                {
+                    object original = null;
+                    if (db.TryGetObjectByKey(originHandover.EntityKey, out original))
+                        db.ApplyPropertyChanges(originHandover.EntityKey.EntitySetName, handover);
+                }
+                return db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
 
         public static int UpdateHandover(tblHandover handover, List<tblToaTau> listToaTau)
         {
