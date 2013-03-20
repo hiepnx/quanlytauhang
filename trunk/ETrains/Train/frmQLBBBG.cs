@@ -115,16 +115,34 @@ namespace ETrains.Train
         {
             if (e.ColumnIndex != 2) return;
             var handover = TrainFactory.FindHandoverByID(listHandOver[e.RowIndex].ID);
-            if (handover.tblChuyenTauReference.IsLoaded == false)
+            if (handover.IsReplied != true && handover.Type == "1") //neu chua duoc hoi bao, va la loai BBBG di
             {
-                handover.tblChuyenTauReference.Load();
+                var dr = MessageBox.Show("Bạn có muốn hồi báo BBBG: " + handover.NumberHandover, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    handover.IsReplied = true;
+                    handover.DateReply = DateTime.Now;
+                    int update = TrainFactory.UpdateHandover(handover);
+                    if (update < 1)
+                    {
+                        MessageBox.Show("Thực hiện hồi báo không thành công, xin kiểm tra lại kết nối Cơ sở dữ liệu, hoặc BBBG này không còn tồn tại");
+                    }
+                    else
+                    {
+                        search();
+                    }
+                }
             }
-            var frm = new Train.frmBBBG(frmMainForm._userInfo, (short)handover.tblChuyenTau.Type, handover);
-            frm.ShowDialog();
-            if (frm.DialogResult == DialogResult.OK)
-            {
-                search();
-            }
+            //if (handover.tblChuyenTauReference.IsLoaded == false)
+            //{
+            //    handover.tblChuyenTauReference.Load();
+            //}
+            //var frm = new Train.frmBBBG(frmMainForm._userInfo, (short)handover.tblChuyenTau.Type, handover);
+            //frm.ShowDialog();
+            //if (frm.DialogResult == DialogResult.OK)
+            //{
+            //    search();
+            //}
         }
     }
 }
