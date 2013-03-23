@@ -215,6 +215,12 @@
     <Compile Include="SubFormBase.Designer.cs">
       <DependentUpon>SubFormBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Train\FrmListHandoverReply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\FrmListHandoverReply.Designer.cs">
+      <DependentUpon>FrmListHandoverReply.cs</DependentUpon>
+    </Compile>
     <Compile Include="Train\frmQLBBBG.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -351,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubFormBase.resx">
       <DependentUpon>SubFormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\FrmListHandoverReply.resx">
+      <DependentUpon>FrmListHandoverReply.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Train\frmQLBBBG.resx">
       <DependentUpon>frmQLBBBG.cs</DependentUpon>
