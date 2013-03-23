@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using ETrains.Utilities;
+using ETrains.Train;
 
 namespace ETrains
 {
@@ -304,6 +305,13 @@ namespace ETrains
         private void mnuFeedbackReport_Click(object sender, EventArgs e)
         {
             FrmFeedbackReport form = new FrmFeedbackReport();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void mnuListReplyManagement_Click(object sender, EventArgs e)
+        {
+            FrmListHandoverReply form = new FrmListHandoverReply();
             form.MdiParent = this;
             form.Show();
         }

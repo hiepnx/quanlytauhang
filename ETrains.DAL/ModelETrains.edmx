@@ -12,6 +12,7 @@
           <EntitySet Name="tblCustoms" EntityType="dbTrainModel.Store.tblCustoms" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblHandover" EntityType="dbTrainModel.Store.tblHandover" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblHandoverResource" EntityType="dbTrainModel.Store.tblHandoverResource" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblListHandoverReply" EntityType="dbTrainModel.Store.tblListHandoverReply" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblNumberGenerate" EntityType="dbTrainModel.Store.tblNumberGenerate" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblTauKhachDetail" EntityType="dbTrainModel.Store.tblTauKhachDetail" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblToaTau" EntityType="dbTrainModel.Store.tblToaTau" store:Type="Tables" Schema="dbo" />
@@ -25,6 +26,27 @@
       [ViewGetCurrentDate].[CurrentDateTime] AS [CurrentDateTime]
       FROM [dbo].[ViewGetCurrentDate] AS [ViewGetCurrentDate]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="ViewListHanoverReply" EntityType="dbTrainModel.Store.ViewListHanoverReply" store:Type="Views" store:Schema="dbo" store:Name="ViewListHanoverReply">
+            <DefiningQuery>SELECT 
+      [ViewListHanoverReply].[ID] AS [ID], 
+      [ViewListHanoverReply].[ListReplyNumber] AS [ListReplyNumber], 
+      [ViewListHanoverReply].[ReplyStatusGoods] AS [ReplyStatusGoods], 
+      [ViewListHanoverReply].[ListReplyDate] AS [ListReplyDate], 
+      [ViewListHanoverReply].[ReportFromDate] AS [ReportFromDate], 
+      [ViewListHanoverReply].[ReportToDate] AS [ReportToDate], 
+      [ViewListHanoverReply].[CustomsCodeReceiver] AS [CustomsCodeReceiver], 
+      [ViewListHanoverReply].[Note] AS [Note], 
+      [ViewListHanoverReply].[CreatedDate] AS [CreatedDate], 
+      [ViewListHanoverReply].[CreatedBy] AS [CreatedBy], 
+      [ViewListHanoverReply].[ModifiedDate] AS [ModifiedDate], 
+      [ViewListHanoverReply].[ModifiedBy] AS [ModifiedBy], 
+      [ViewListHanoverReply].[CustomsReceiverName] AS [CustomsReceiverName]
+      FROM [dbo].[ViewListHanoverReply] AS [ViewListHanoverReply]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__tblHandov__ListR__06CD04F7" Association="dbTrainModel.Store.FK__tblHandov__ListR__06CD04F7">
+            <End Role="tblListHandoverReply" EntitySet="tblListHandoverReply" />
+            <End Role="tblHandover" EntitySet="tblHandover" />
+          </AssociationSet>
           <AssociationSet Name="FK_tblHandover_tblChuyenTau" Association="dbTrainModel.Store.FK_tblHandover_tblChuyenTau">
             <End Role="tblChuyenTau" EntitySet="tblChuyenTau" />
             <End Role="tblHandover" EntitySet="tblHandover" />
@@ -131,6 +153,7 @@
           <Property Name="Note" Type="nvarchar" MaxLength="500" />
           <Property Name="Type" Type="nvarchar" MaxLength="200" />
           <Property Name="IsDeleted" Type="bit" />
+          <Property Name="ListReplyID" Type="bigint" />
         </EntityType>
         <EntityType Name="tblHandoverResource">
           <Key>
@@ -139,6 +162,23 @@
           <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="HandoverID" Type="bigint" Nullable="false" />
           <Property Name="ToaTauID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblListHandoverReply">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ListReplyNumber" Type="varchar" MaxLength="100" />
+          <Property Name="ReplyStatusGoods" Type="varchar" MaxLength="500" />
+          <Property Name="ListReplyDate" Type="datetime" />
+          <Property Name="ReportFromDate" Type="datetime" />
+          <Property Name="ReportToDate" Type="datetime" />
+          <Property Name="CustomsCodeReceiver" Type="nvarchar" MaxLength="50" />
+          <Property Name="Note" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
         </EntityType>
         <EntityType Name="tblNumberGenerate">
           <Key>
@@ -273,6 +313,39 @@
           </Key>
           <Property Name="CurrentDateTime" Type="datetime" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'dbTrain.dbo.ViewListHanoverReply' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ViewListHanoverReply">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="ListReplyNumber" Type="varchar" MaxLength="100" />
+          <Property Name="ReplyStatusGoods" Type="varchar" MaxLength="500" />
+          <Property Name="ListReplyDate" Type="datetime" />
+          <Property Name="ReportFromDate" Type="datetime" />
+          <Property Name="ReportToDate" Type="datetime" />
+          <Property Name="CustomsCodeReceiver" Type="nvarchar" MaxLength="50" />
+          <Property Name="Note" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="CustomsReceiverName" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK__tblHandov__ListR__06CD04F7">
+          <End Role="tblListHandoverReply" Type="dbTrainModel.Store.tblListHandoverReply" Multiplicity="0..1" />
+          <End Role="tblHandover" Type="dbTrainModel.Store.tblHandover" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblListHandoverReply">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblHandover">
+              <PropertyRef Name="ListReplyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tblHandover_tblChuyenTau">
           <End Role="tblChuyenTau" Type="dbTrainModel.Store.tblChuyenTau" Multiplicity="1" />
           <End Role="tblHandover" Type="dbTrainModel.Store.tblHandover" Multiplicity="*" />
@@ -388,64 +461,70 @@
           <EntitySet Name="tblUsers" EntityType="dbTrainModel.tblUser" />
           <EntitySet Name="ViewGetCurrentDates" EntityType="dbTrainModel.ViewGetCurrentDate" />
           <AssociationSet Name="FK_tblTauKhachDetail_tblChuyenTau" Association="dbTrainModel.FK_tblTauKhachDetail_tblChuyenTau">
-            <End Role="tblChuyenTau" EntitySet="tblChuyenTaus" />
-            <End Role="tblTauKhachDetail" EntitySet="tblTauKhachDetails" />
+            <End EntitySet="tblChuyenTaus" Role="tblChuyenTau" />
+            <End EntitySet="tblTauKhachDetails" Role="tblTauKhachDetail" />
           </AssociationSet>
           <AssociationSet Name="FK_tblToaTau_tblChuyenTau" Association="dbTrainModel.FK_tblToaTau_tblChuyenTau">
-            <End Role="tblChuyenTau" EntitySet="tblChuyenTaus" />
-            <End Role="tblToaTau" EntitySet="tblToaTaus" />
+            <End EntitySet="tblChuyenTaus" Role="tblChuyenTau" />
+            <End EntitySet="tblToaTaus" Role="tblToaTau" />
           </AssociationSet>
           <AssociationSet Name="FK_tblToKhaiTau_tblChuyenTau" Association="dbTrainModel.FK_tblToKhaiTau_tblChuyenTau">
-            <End Role="tblChuyenTau" EntitySet="tblChuyenTaus" />
-            <End Role="tblToKhaiTau" EntitySet="tblToKhaiTaus" />
+            <End EntitySet="tblChuyenTaus" Role="tblChuyenTau" />
+            <End EntitySet="tblToKhaiTaus" Role="tblToKhaiTau" />
           </AssociationSet>
           <AssociationSet Name="FK_tblHandoverResource_tblToaTau" Association="dbTrainModel.FK_tblHandoverResource_tblToaTau">
-            <End Role="tblToaTau" EntitySet="tblToaTaus" />
-            <End Role="tblHandoverResource" EntitySet="tblHandoverResources" />
+            <End EntitySet="tblToaTaus" Role="tblToaTau" />
+            <End EntitySet="tblHandoverResources" Role="tblHandoverResource" />
           </AssociationSet>
           <AssociationSet Name="FK_tblToKhaiTauResource_tblToaTau" Association="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau">
-            <End Role="tblToaTau" EntitySet="tblToaTaus" />
-            <End Role="tblToKhaiTauResource" EntitySet="tblToKhaiTauResources" />
+            <End EntitySet="tblToaTaus" Role="tblToaTau" />
+            <End EntitySet="tblToKhaiTauResources" Role="tblToKhaiTauResource" />
           </AssociationSet>
           <AssociationSet Name="FK_tblToKhaiTauResource_tblToKhaiTau" Association="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau">
-            <End Role="tblToKhaiTau" EntitySet="tblToKhaiTaus" />
-            <End Role="tblToKhaiTauResource" EntitySet="tblToKhaiTauResources" />
+            <End EntitySet="tblToKhaiTaus" Role="tblToKhaiTau" />
+            <End EntitySet="tblToKhaiTauResources" Role="tblToKhaiTauResource" />
           </AssociationSet>
+          <EntitySet Name="tblNumberGenerates" EntityType="dbTrainModel.tblNumberGenerate" />
           <EntitySet Name="tblHandovers" EntityType="dbTrainModel.tblHandover" />
+          <EntitySet Name="tblListHandoverReplies" EntityType="dbTrainModel.tblListHandoverReply" />
           <AssociationSet Name="FK_tblHandover_tblChuyenTau" Association="dbTrainModel.FK_tblHandover_tblChuyenTau">
             <End Role="tblChuyenTau" EntitySet="tblChuyenTaus" />
+            <End Role="tblHandover" EntitySet="tblHandovers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblHandov__ListR__06CD04F7" Association="dbTrainModel.FK__tblHandov__ListR__06CD04F7">
+            <End Role="tblListHandoverReply" EntitySet="tblListHandoverReplies" />
             <End Role="tblHandover" EntitySet="tblHandovers" />
           </AssociationSet>
           <AssociationSet Name="FK_tblHandoverResource_tblHandover" Association="dbTrainModel.FK_tblHandoverResource_tblHandover">
             <End Role="tblHandover" EntitySet="tblHandovers" />
             <End Role="tblHandoverResource" EntitySet="tblHandoverResources" />
           </AssociationSet>
-          <EntitySet Name="tblNumberGenerates" EntityType="dbTrainModel.tblNumberGenerate" />
-        </EntityContainer>
+          <EntitySet Name="ViewListHanoverReplies" EntityType="dbTrainModel.ViewListHanoverReply" />
+          </EntityContainer>
         <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="principal_id" Nullable="false" />
-          <Property Type="Int32" Name="diagram_id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="Int32" Name="version" />
-          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+          <Property Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="principal_id" Nullable="false" Type="Int32" />
+          <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="diagram_id" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" MaxLength="Max" FixedLength="false" Type="Binary" />
         </EntityType>
         <EntityType Name="tblChuyenTau">
           <Key>
             <PropertyRef Name="TrainID" />
           </Key>
-          <Property Type="Int64" Name="TrainID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="String" Name="Ma_Chuyen_Tau" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int16" Name="Type" />
-          <Property Type="DateTime" Name="Ngay_XNC" />
-          <Property Type="Boolean" Name="IsPassengerTrain" />
-          <Property Type="DateTime" Name="CreatedDate" />
-          <Property Type="Int32" Name="CreatedBy" />
-          <Property Type="DateTime" Name="ModifiedDate" />
-          <Property Type="Int32" Name="ModifiedBy" />
-          <Property Type="Boolean" Name="IsDeleted" />
+          <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="TrainID" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Int64" />
+          <Property Name="Ma_Chuyen_Tau" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Type" Type="Int16" />
+          <Property Name="Ngay_XNC" Type="DateTime" />
+          <Property Name="IsPassengerTrain" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="tblTauKhachDetails" Relationship="dbTrainModel.FK_tblTauKhachDetail_tblChuyenTau" FromRole="tblChuyenTau" ToRole="tblTauKhachDetail" />
           <NavigationProperty Name="tblToaTaus" Relationship="dbTrainModel.FK_tblToaTau_tblChuyenTau" FromRole="tblChuyenTau" ToRole="tblToaTau" />
           <NavigationProperty Name="tblToKhaiTaus" Relationship="dbTrainModel.FK_tblToKhaiTau_tblChuyenTau" FromRole="tblChuyenTau" ToRole="tblToKhaiTau" />
@@ -455,31 +534,31 @@
           <Key>
             <PropertyRef Name="CompanyCode" />
           </Key>
-          <Property Type="String" Name="CompanyCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CompanyName" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Description" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="CreatedDate" />
-          <Property Type="Int32" Name="CreatedBy" />
-          <Property Type="DateTime" Name="ModifiedDate" />
-          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Name="CompanyCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="CompanyName" MaxLength="500" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Description" MaxLength="1000" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="ModifiedBy" Type="Int32" />
         </EntityType>
         <EntityType Name="tblCustom">
           <Key>
             <PropertyRef Name="CustomsCode" />
           </Key>
-          <Property Type="String" Name="CustomsCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CustomsName" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Description" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="CreatedDate" />
-          <Property Type="Int32" Name="CreatedBy" />
-          <Property Type="DateTime" Name="ModifiedDate" />
-          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Name="CustomsCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="CustomsName" MaxLength="500" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Description" MaxLength="1000" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="ModifiedBy" Type="Int32" />
         </EntityType>
         <EntityType Name="tblHandoverResource">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Int64" />
           <NavigationProperty Name="tblToaTau" Relationship="dbTrainModel.FK_tblHandoverResource_tblToaTau" FromRole="tblHandoverResource" ToRole="tblToaTau" />
           <NavigationProperty Name="tblHandover" Relationship="dbTrainModel.FK_tblHandoverResource_tblHandover" FromRole="tblHandoverResource" ToRole="tblHandover" />
         </EntityType>
@@ -487,35 +566,35 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="String" Name="Jounery" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="PassengerVN" />
-          <Property Type="Int32" Name="PassengerForegin" />
-          <Property Type="Int32" Name="Staff" />
+          <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Int64" />
+          <Property Name="Jounery" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="PassengerVN" Type="Int32" />
+          <Property Name="PassengerForegin" Type="Int32" />
+          <Property Name="Staff" Type="Int32" />
           <NavigationProperty Name="tblChuyenTau" Relationship="dbTrainModel.FK_tblTauKhachDetail_tblChuyenTau" FromRole="tblTauKhachDetail" ToRole="tblChuyenTau" />
         </EntityType>
         <EntityType Name="tblToaTau">
           <Key>
             <PropertyRef Name="ToaTauID" />
           </Key>
-          <Property Type="Int64" Name="ToaTauID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="String" Name="Ma_ToaTau" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="So_VanTai_Don" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Ngay_VanTai_Don" />
-          <Property Type="String" Name="Ten_DoiTac" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ma_DoanhNghiep" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ten_Hang" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Trong_Luong" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Don_Vi_Tinh" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Seal_VanTai" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Seal_VanTai2" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Seal_HaiQuan" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Seal_HaiQuan2" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ghi_Chu" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="CreatedDate" />
-          <Property Type="Int32" Name="CreatedBy" />
-          <Property Type="DateTime" Name="ModifiedDate" />
-          <Property Type="Int32" Name="ModifiedBy" />
+          <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="ToaTauID" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Int64" />
+          <Property Name="Ma_ToaTau" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="So_VanTai_Don" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Ngay_VanTai_Don" Type="DateTime" />
+          <Property Name="Ten_DoiTac" MaxLength="250" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Ma_DoanhNghiep" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Ten_Hang" MaxLength="250" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Trong_Luong" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Don_Vi_Tinh" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Seal_VanTai" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Seal_VanTai2" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Seal_HaiQuan" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Seal_HaiQuan2" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Ghi_Chu" MaxLength="500" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="ModifiedBy" Type="Int32" />
           <NavigationProperty Name="tblChuyenTau" Relationship="dbTrainModel.FK_tblToaTau_tblChuyenTau" FromRole="tblToaTau" ToRole="tblChuyenTau" />
           <NavigationProperty Name="tblHandoverResources" Relationship="dbTrainModel.FK_tblHandoverResource_tblToaTau" FromRole="tblToaTau" ToRole="tblHandoverResource" />
           <NavigationProperty Name="tblToKhaiTauResources" Relationship="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau" FromRole="tblToaTau" ToRole="tblToKhaiTauResource" />
@@ -524,17 +603,17 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="Int32" Name="Number" />
-          <Property Type="DateTime" Name="DateDeclaration" />
-          <Property Type="String" Name="TypeCode" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CustomCode" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CompanyCode" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="CreatedDate" />
-          <Property Type="Int32" Name="CreatedBy" />
-          <Property Type="DateTime" Name="ModifiedDate" />
-          <Property Type="Int32" Name="ModifiedBy" />
-          <Property Type="Boolean" Name="IsDeleted" />
+          <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Int64" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="DateDeclaration" Type="DateTime" />
+          <Property Name="TypeCode" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="CustomCode" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="CompanyCode" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="tblChuyenTau" Relationship="dbTrainModel.FK_tblToKhaiTau_tblChuyenTau" FromRole="tblToKhaiTau" ToRole="tblChuyenTau" />
           <NavigationProperty Name="tblToKhaiTauResources" Relationship="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau" FromRole="tblToKhaiTau" ToRole="tblToKhaiTauResource" />
         </EntityType>
@@ -542,7 +621,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Int64" />
           <NavigationProperty Name="tblToaTau" Relationship="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau" FromRole="tblToKhaiTauResource" ToRole="tblToaTau" />
           <NavigationProperty Name="tblToKhaiTau" Relationship="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau" FromRole="tblToKhaiTauResource" ToRole="tblToKhaiTau" />
         </EntityType>
@@ -550,87 +629,96 @@
           <Key>
             <PropertyRef Name="TrainID" />
           </Key>
-          <Property Type="Int64" Name="TrainID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="String" Name="Number" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int16" Name="Type" />
-          <Property Type="Boolean" Name="IsImport" />
-          <Property Type="DateTime" Name="DateImport" />
-          <Property Type="Boolean" Name="IsExport" />
-          <Property Type="DateTime" Name="DateExport" />
-          <Property Type="String" Name="NumberHandover" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="DateHandover" />
-          <Property Type="String" Name="CodeStation" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CodeStationFromTo" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="StatusVehicle" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="StatusGoods" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="NumberPartTrain" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="Jounery" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="PassengerVN" />
-          <Property Type="Int32" Name="PassengerForegin" />
-          <Property Type="Int32" Name="Staff" />
-          <Property Type="DateTime" Name="CreatedDate" />
-          <Property Type="Int32" Name="CreatedBy" />
-          <Property Type="DateTime" Name="ModifiedDate" />
-          <Property Type="Int32" Name="ModifiedBy" />
+          <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="TrainID" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Int64" />
+          <Property Name="Number" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Type" Type="Int16" />
+          <Property Name="IsImport" Type="Boolean" />
+          <Property Name="DateImport" Type="DateTime" />
+          <Property Name="IsExport" Type="Boolean" />
+          <Property Name="DateExport" Type="DateTime" />
+          <Property Name="NumberHandover" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="DateHandover" Type="DateTime" />
+          <Property Name="CodeStation" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="CodeStationFromTo" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="StatusVehicle" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="StatusGoods" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="NumberPartTrain" MaxLength="10" FixedLength="true" Unicode="true" Type="String" />
+          <Property Name="Jounery" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="PassengerVN" Type="Int32" />
+          <Property Name="PassengerForegin" Type="Int32" />
+          <Property Name="Staff" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="ModifiedBy" Type="Int32" />
         </EntityType>
         <EntityType Name="tblType">
           <Key>
             <PropertyRef Name="TypeCode" />
           </Key>
-          <Property Type="String" Name="TypeCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="TypeName" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Description" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="CreatedDate" />
-          <Property Type="Int32" Name="CreatedBy" />
-          <Property Type="DateTime" Name="ModifiedDate" />
-          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Name="TypeCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="TypeName" MaxLength="500" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Description" MaxLength="1000" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="ModifiedBy" Type="Int32" />
         </EntityType>
         <EntityType Name="tblUser">
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
-          <Property Type="Int32" Name="UserID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="String" Name="Name" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="Sex" />
-          <Property Type="DateTime" Name="Birthday" />
-          <Property Type="String" Name="Address" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="PhoneNumber" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Password" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="PermissionID" />
-          <Property Type="Int32" Name="IsActive" />
+          <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="UserID" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="Name" MaxLength="500" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Sex" Type="Int32" />
+          <Property Name="Birthday" Type="DateTime" />
+          <Property Name="Address" MaxLength="300" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Email" MaxLength="100" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="PhoneNumber" MaxLength="20" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="UserName" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Password" MaxLength="300" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="PermissionID" Type="Int32" />
+          <Property Name="IsActive" Type="Int32" />
         </EntityType>
         <EntityType Name="ViewGetCurrentDate">
           <Key>
             <PropertyRef Name="CurrentDateTime" />
           </Key>
-          <Property Type="DateTime" Name="CurrentDateTime" Nullable="false" />
+          <Property Name="CurrentDateTime" Nullable="false" Type="DateTime" />
         </EntityType>
         <Association Name="FK_tblTauKhachDetail_tblChuyenTau">
-          <End Type="dbTrainModel.tblChuyenTau" Role="tblChuyenTau" Multiplicity="1" />
-          <End Type="dbTrainModel.tblTauKhachDetail" Role="tblTauKhachDetail" Multiplicity="*" />
+          <End Type="dbTrainModel.tblChuyenTau" Multiplicity="1" Role="tblChuyenTau" />
+          <End Type="dbTrainModel.tblTauKhachDetail" Multiplicity="*" Role="tblTauKhachDetail" />
         </Association>
         <Association Name="FK_tblToaTau_tblChuyenTau">
-          <End Type="dbTrainModel.tblChuyenTau" Role="tblChuyenTau" Multiplicity="1" />
-          <End Type="dbTrainModel.tblToaTau" Role="tblToaTau" Multiplicity="*" />
+          <End Type="dbTrainModel.tblChuyenTau" Multiplicity="1" Role="tblChuyenTau" />
+          <End Type="dbTrainModel.tblToaTau" Multiplicity="*" Role="tblToaTau" />
         </Association>
         <Association Name="FK_tblToKhaiTau_tblChuyenTau">
-          <End Type="dbTrainModel.tblChuyenTau" Role="tblChuyenTau" Multiplicity="1" />
-          <End Type="dbTrainModel.tblToKhaiTau" Role="tblToKhaiTau" Multiplicity="*" />
+          <End Type="dbTrainModel.tblChuyenTau" Multiplicity="1" Role="tblChuyenTau" />
+          <End Type="dbTrainModel.tblToKhaiTau" Multiplicity="*" Role="tblToKhaiTau" />
         </Association>
         <Association Name="FK_tblHandoverResource_tblToaTau">
-          <End Type="dbTrainModel.tblToaTau" Role="tblToaTau" Multiplicity="1" />
-          <End Type="dbTrainModel.tblHandoverResource" Role="tblHandoverResource" Multiplicity="*" />
+          <End Type="dbTrainModel.tblToaTau" Multiplicity="1" Role="tblToaTau" />
+          <End Type="dbTrainModel.tblHandoverResource" Multiplicity="*" Role="tblHandoverResource" />
         </Association>
         <Association Name="FK_tblToKhaiTauResource_tblToaTau">
-          <End Type="dbTrainModel.tblToaTau" Role="tblToaTau" Multiplicity="1" />
-          <End Type="dbTrainModel.tblToKhaiTauResource" Role="tblToKhaiTauResource" Multiplicity="*" />
+          <End Type="dbTrainModel.tblToaTau" Multiplicity="1" Role="tblToaTau" />
+          <End Type="dbTrainModel.tblToKhaiTauResource" Multiplicity="*" Role="tblToKhaiTauResource" />
         </Association>
         <Association Name="FK_tblToKhaiTauResource_tblToKhaiTau">
-          <End Type="dbTrainModel.tblToKhaiTau" Role="tblToKhaiTau" Multiplicity="1" />
-          <End Type="dbTrainModel.tblToKhaiTauResource" Role="tblToKhaiTauResource" Multiplicity="*" />
+          <End Type="dbTrainModel.tblToKhaiTau" Multiplicity="1" Role="tblToKhaiTau" />
+          <End Type="dbTrainModel.tblToKhaiTauResource" Multiplicity="*" Role="tblToKhaiTauResource" />
         </Association>
+        <EntityType Name="tblNumberGenerate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Int64" />
+          <Property Name="HandoverNumber" Nullable="false" Type="Int64" />
+          <Property Name="ReplyReportNumber" Nullable="false" Type="Int64" />
+          <Property Name="NumberType" Nullable="false" Type="Int32" />
+        </EntityType>
         <EntityType Name="tblHandover">
           <Key>
             <PropertyRef Name="ID" />
@@ -655,24 +743,56 @@
           <Property Type="String" Name="Type" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="IsDeleted" />
           <NavigationProperty Name="tblChuyenTau" Relationship="dbTrainModel.FK_tblHandover_tblChuyenTau" FromRole="tblHandover" ToRole="tblChuyenTau" />
+          <NavigationProperty Name="tblListHandoverReply" Relationship="dbTrainModel.FK__tblHandov__ListR__06CD04F7" FromRole="tblHandover" ToRole="tblListHandoverReply" />
           <NavigationProperty Name="tblHandoverResources" Relationship="dbTrainModel.FK_tblHandoverResource_tblHandover" FromRole="tblHandover" ToRole="tblHandoverResource" />
+        </EntityType>
+        <EntityType Name="tblListHandoverReply">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="ListReplyNumber" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ReplyStatusGoods" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ListReplyDate" />
+          <Property Type="DateTime" Name="ReportFromDate" />
+          <Property Type="DateTime" Name="ReportToDate" />
+          <Property Type="String" Name="CustomsCodeReceiver" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Note" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <NavigationProperty Name="tblHandovers" Relationship="dbTrainModel.FK__tblHandov__ListR__06CD04F7" FromRole="tblListHandoverReply" ToRole="tblHandover" />
         </EntityType>
         <Association Name="FK_tblHandover_tblChuyenTau">
           <End Type="dbTrainModel.tblChuyenTau" Role="tblChuyenTau" Multiplicity="1" />
+          <End Type="dbTrainModel.tblHandover" Role="tblHandover" Multiplicity="*" />
+        </Association>
+        <Association Name="FK__tblHandov__ListR__06CD04F7">
+          <End Type="dbTrainModel.tblListHandoverReply" Role="tblListHandoverReply" Multiplicity="0..1" />
           <End Type="dbTrainModel.tblHandover" Role="tblHandover" Multiplicity="*" />
         </Association>
         <Association Name="FK_tblHandoverResource_tblHandover">
           <End Type="dbTrainModel.tblHandover" Role="tblHandover" Multiplicity="1" />
           <End Type="dbTrainModel.tblHandoverResource" Role="tblHandoverResource" Multiplicity="*" />
         </Association>
-        <EntityType Name="tblNumberGenerate">
+        <EntityType Name="ViewListHanoverReply">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="Int64" Name="HandoverNumber" Nullable="false" />
-          <Property Type="Int64" Name="ReplyReportNumber" Nullable="false" />
-          <Property Type="Int32" Name="NumberType" Nullable="false" />
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="String" Name="ListReplyNumber" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ReplyStatusGoods" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ListReplyDate" />
+          <Property Type="DateTime" Name="ReportFromDate" />
+          <Property Type="DateTime" Name="ReportToDate" />
+          <Property Type="String" Name="CustomsCodeReceiver" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Note" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="String" Name="CustomsReceiverName" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -912,6 +1032,16 @@
               <ScalarProperty Name="ID" ColumnName="ToKhaiTauID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="tblNumberGenerates">
+            <EntityTypeMapping TypeName="dbTrainModel.tblNumberGenerate">
+              <MappingFragment StoreEntitySet="tblNumberGenerate">
+                <ScalarProperty Name="NumberType" ColumnName="NumberType" />
+                <ScalarProperty Name="ReplyReportNumber" ColumnName="ReplyReportNumber" />
+                <ScalarProperty Name="HandoverNumber" ColumnName="HandoverNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tblHandovers">
             <EntityTypeMapping TypeName="dbTrainModel.tblHandover">
               <MappingFragment StoreEntitySet="tblHandover">
@@ -937,6 +1067,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tblListHandoverReplies">
+            <EntityTypeMapping TypeName="dbTrainModel.tblListHandoverReply">
+              <MappingFragment StoreEntitySet="tblListHandoverReply">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="CustomsCodeReceiver" ColumnName="CustomsCodeReceiver" />
+                <ScalarProperty Name="ReportToDate" ColumnName="ReportToDate" />
+                <ScalarProperty Name="ReportFromDate" ColumnName="ReportFromDate" />
+                <ScalarProperty Name="ListReplyDate" ColumnName="ListReplyDate" />
+                <ScalarProperty Name="ReplyStatusGoods" ColumnName="ReplyStatusGoods" />
+                <ScalarProperty Name="ListReplyNumber" ColumnName="ListReplyNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <AssociationSetMapping Name="FK_tblHandover_tblChuyenTau" TypeName="dbTrainModel.FK_tblHandover_tblChuyenTau" StoreEntitySet="tblHandover">
             <EndProperty Name="tblHandover">
               <ScalarProperty Name="ID" ColumnName="ID" />
@@ -944,6 +1092,15 @@
             <EndProperty Name="tblChuyenTau">
               <ScalarProperty Name="TrainID" ColumnName="TrainID" />
             </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK__tblHandov__ListR__06CD04F7" TypeName="dbTrainModel.FK__tblHandov__ListR__06CD04F7" StoreEntitySet="tblHandover">
+            <EndProperty Name="tblHandover">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <EndProperty Name="tblListHandoverReply">
+              <ScalarProperty Name="ID" ColumnName="ListReplyID" />
+            </EndProperty>
+            <Condition ColumnName="ListReplyID" IsNull="false" />
           </AssociationSetMapping>
           <AssociationSetMapping Name="FK_tblHandoverResource_tblHandover" TypeName="dbTrainModel.FK_tblHandoverResource_tblHandover" StoreEntitySet="tblHandoverResource">
             <EndProperty Name="tblHandoverResource">
@@ -953,12 +1110,21 @@
               <ScalarProperty Name="ID" ColumnName="HandoverID" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="tblNumberGenerates">
-            <EntityTypeMapping TypeName="dbTrainModel.tblNumberGenerate">
-              <MappingFragment StoreEntitySet="tblNumberGenerate">
-                <ScalarProperty Name="NumberType" ColumnName="NumberType" />
-                <ScalarProperty Name="ReplyReportNumber" ColumnName="ReplyReportNumber" />
-                <ScalarProperty Name="HandoverNumber" ColumnName="HandoverNumber" />
+          <EntitySetMapping Name="ViewListHanoverReplies">
+            <EntityTypeMapping TypeName="dbTrainModel.ViewListHanoverReply">
+              <MappingFragment StoreEntitySet="ViewListHanoverReply">
+                <ScalarProperty Name="CustomsReceiverName" ColumnName="CustomsReceiverName" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="CustomsCodeReceiver" ColumnName="CustomsCodeReceiver" />
+                <ScalarProperty Name="ReportToDate" ColumnName="ReportToDate" />
+                <ScalarProperty Name="ReportFromDate" ColumnName="ReportFromDate" />
+                <ScalarProperty Name="ListReplyDate" ColumnName="ListReplyDate" />
+                <ScalarProperty Name="ReplyStatusGoods" ColumnName="ReplyStatusGoods" />
+                <ScalarProperty Name="ListReplyNumber" ColumnName="ListReplyNumber" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -984,59 +1150,69 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="ModelETrains" ZoomLevel="58">
-        <EntityTypeShape EntityType="dbTrainModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" Height="1.9802864583333388" />
-        <EntityTypeShape EntityType="dbTrainModel.tblChuyenTau" Width="1.5" PointX="0.75" PointY="8.5" Height="3.7109993489583388" />
-        <EntityTypeShape EntityType="dbTrainModel.tblCompany" Width="1.5" PointX="5.75" PointY="3.75" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="dbTrainModel.tblCustom" Width="1.5" PointX="7.75" PointY="0.75" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="dbTrainModel.tblHandoverResource" Width="1.5" PointX="5.25" PointY="7.375" Height="1.595683593749996" />
-        <EntityTypeShape EntityType="dbTrainModel.tblTauKhachDetail" Width="1.5" PointX="3" PointY="6.75" Height="2.1725878906250031" />
-        <EntityTypeShape EntityType="dbTrainModel.tblToaTau" Width="1.5" PointX="3" PointY="9.625" Height="5.0571093750000067" />
-        <EntityTypeShape EntityType="dbTrainModel.tblToKhaiTau" Width="1.5" PointX="3" PointY="15.5" Height="3.5186979166666674" />
-        <EntityTypeShape EntityType="dbTrainModel.tblToKhaiTauResource" Width="1.5" PointX="5.25" PointY="13.5" Height="1.5956835937500102" />
-        <EntityTypeShape EntityType="dbTrainModel.tblTrain" Width="1.5" PointX="7.75" PointY="4.75" Height="5.2494108072916674" />
-        <EntityTypeShape EntityType="dbTrainModel.tblType" Width="1.5" PointX="9.75" PointY="0.75" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="dbTrainModel.tblUser" Width="1.5" PointX="9.75" PointY="4.75" Height="3.1340950520833246" />
-        <EntityTypeShape EntityType="dbTrainModel.ViewGetCurrentDate" Width="1.5" PointX="9.75" PointY="8.75" Height="1.2110807291666674" />
-        <AssociationConnector Association="dbTrainModel.FK_tblTauKhachDetail_tblChuyenTau" >
+        <EntityTypeShape EntityType="dbTrainModel.sysdiagram" PointX="5.75" PointY="0.75" Width="1.5" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="dbTrainModel.tblChuyenTau" PointX="0.75" PointY="8.5" Width="1.5" Height="3.7109993489583388" />
+        <EntityTypeShape EntityType="dbTrainModel.tblCompany" PointX="5.75" PointY="3.75" Width="1.5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="dbTrainModel.tblCustom" PointX="7.75" PointY="0.75" Width="1.5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="dbTrainModel.tblHandoverResource" PointX="5.25" PointY="7.375" Width="1.5" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="dbTrainModel.tblTauKhachDetail" PointX="3" PointY="6.75" Width="1.5" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="dbTrainModel.tblToaTau" PointX="3" PointY="9.625" Width="1.5" Height="5.0571093750000067" />
+        <EntityTypeShape EntityType="dbTrainModel.tblToKhaiTau" PointX="3" PointY="15.5" Width="1.5" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="dbTrainModel.tblToKhaiTauResource" PointX="5.25" PointY="13.5" Width="1.5" Height="1.5956835937500102" />
+        <EntityTypeShape EntityType="dbTrainModel.tblTrain" PointX="7.75" PointY="4.75" Width="1.5" Height="5.2494108072916674" />
+        <EntityTypeShape EntityType="dbTrainModel.tblType" PointX="9.75" PointY="0.75" Width="1.5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="dbTrainModel.tblUser" PointX="9.75" PointY="4.75" Width="1.5" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="dbTrainModel.ViewGetCurrentDate" PointX="9.75" PointY="8.75" Width="1.5" Height="1.2110807291666674" />
+        <AssociationConnector Association="dbTrainModel.FK_tblTauKhachDetail_tblChuyenTau">
           <ConnectorPoint PointX="2.25" PointY="8.7112939453125016" />
           <ConnectorPoint PointX="3" PointY="8.7112939453125016" />
         </AssociationConnector>
-        <AssociationConnector Association="dbTrainModel.FK_tblToaTau_tblChuyenTau" >
+        <AssociationConnector Association="dbTrainModel.FK_tblToaTau_tblChuyenTau">
           <ConnectorPoint PointX="2.25" PointY="10.917999674479166" />
           <ConnectorPoint PointX="3" PointY="10.917999674479166" />
         </AssociationConnector>
-        <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTau_tblChuyenTau" >
+        <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTau_tblChuyenTau">
           <ConnectorPoint PointX="1.5" PointY="12.210999348958332" />
           <ConnectorPoint PointX="1.5" PointY="17.259348958333334" />
           <ConnectorPoint PointX="3" PointY="17.259348958333334" />
         </AssociationConnector>
-        <AssociationConnector Association="dbTrainModel.FK_tblHandoverResource_tblToaTau" >
-          <ConnectorPoint PointX="4.5" PointY="9.6261528461538468" />
-          <ConnectorPoint PointX="4.875" PointY="9.2511528461538468" />
+        <AssociationConnector Association="dbTrainModel.FK_tblHandoverResource_tblToaTau">
+          <ConnectorPoint PointX="4.5" PointY="9.626152846153845" />
+          <ConnectorPoint PointX="4.875" PointY="9.251152846153845" />
           <ConnectorPoint PointX="4.875" PointY="9.3468364399038464" />
           <ConnectorPoint PointX="5.2511528461538459" PointY="8.97068359375" />
         </AssociationConnector>
-        <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau" >
+        <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau">
           <ConnectorPoint PointX="4.5" PointY="14.091054687500003" />
           <ConnectorPoint PointX="5.25" PointY="14.091054687500003" />
         </AssociationConnector>
-        <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau" >
-          <ConnectorPoint PointX="4.5" PointY="17.259348958333334" />
-          <ConnectorPoint PointX="6" PointY="17.259348958333334" />
-          <ConnectorPoint PointX="6" PointY="15.09568359375001" />
+        <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau">
+          <ConnectorPoint PointX="4.5" PointY="16.03125" />
+          <ConnectorPoint PointX="5.65625" PointY="16.03125" />
+          <ConnectorPoint PointX="5.65625" PointY="15.09568359375001" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="dbTrainModel.tblHandover" Width="1.5" PointX="3" PointY="0.875" Height="5.057109374999996" />
+        <EntityTypeShape EntityType="dbTrainModel.tblNumberGenerate" PointX="5.375" PointY="10.75" Width="1.5" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="dbTrainModel.tblHandover" Width="1.5" PointX="8.375" PointY="10.75" Height="5.2494108072916674" />
+        <EntityTypeShape EntityType="dbTrainModel.tblListHandoverReply" Width="1.5" PointX="6.125" PointY="16.625" Height="3.5186979166666674" />
         <AssociationConnector Association="dbTrainModel.FK_tblHandover_tblChuyenTau" >
-          <ConnectorPoint PointX="1.5" PointY="8.5" />
-          <ConnectorPoint PointX="1.5" PointY="3.403554687499998" />
-          <ConnectorPoint PointX="3" PointY="3.403554687499998" />
+          <ConnectorPoint PointX="1.9062525" PointY="12.210999348958332" />
+          <ConnectorPoint PointX="1.9062525" PointY="15.297841796875005" />
+          <ConnectorPoint PointX="5.572916666666667" PointY="15.297841796875005" />
+          <ConnectorPoint PointX="5.739583333333333" PointY="15.297841796875005" />
+          <ConnectorPoint PointX="8.375" PointY="15.297841796875005" />
+        </AssociationConnector>
+        <AssociationConnector Association="dbTrainModel.FK__tblHandov__ListR__06CD04F7" >
+          <ConnectorPoint PointX="7.625" PointY="18.384348958333334" />
+          <ConnectorPoint PointX="9.125" PointY="18.384348958333334" />
+          <ConnectorPoint PointX="9.125" PointY="15.999410807291667" />
         </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblHandoverResource_tblHandover" >
-          <ConnectorPoint PointX="4.5" PointY="3.2401432291666694" />
-          <ConnectorPoint PointX="5.46875" PointY="3.2401432291666694" />
-          <ConnectorPoint PointX="5.46875" PointY="7.375" />
+          <ConnectorPoint PointX="8.375" PointY="10.75" />
+          <ConnectorPoint PointX="8" PointY="10.375" />
+          <ConnectorPoint PointX="6.0318284230769228" PointY="10.375" />
+          <ConnectorPoint PointX="6.0318284230769228" PointY="8.97068359375" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="dbTrainModel.tblNumberGenerate" Width="1.5" PointX="5.375" PointY="10.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="dbTrainModel.ViewListHanoverReply" Width="1.5" PointX="0.75" PointY="0.75" Height="3.5186979166666674" />
         </Diagram>
     </Diagrams>
   </Designer>

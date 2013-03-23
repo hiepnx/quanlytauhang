@@ -75,6 +75,7 @@
             this.toolStripButtonListdeclarace = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.mnuListReplyManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.mnMain.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -199,6 +200,7 @@
             this.toolStripSeparator5,
             this.quảnLýChuyếnTàuToolStripMenuItem,
             this.quảnLýBiênBảnBànGiaoToolStripMenuItem,
+            this.mnuListReplyManagement,
             this.quảnLýTờKhaiToolStripMenuItem});
             this.mnuTauHang.Name = "mnuTauHang";
             this.mnuTauHang.Size = new System.Drawing.Size(109, 20);
@@ -485,13 +487,20 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 41);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
+            // mnuListReplyManagement
+            // 
+            this.mnuListReplyManagement.Name = "mnuListReplyManagement";
+            this.mnuListReplyManagement.Size = new System.Drawing.Size(252, 22);
+            this.mnuListReplyManagement.Text = "Quản lý bảng kê hồi báo";
+            this.mnuListReplyManagement.Click += new System.EventHandler(this.mnuListReplyManagement_Click);
+            // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ETrains.Properties.Resources.logoBackgound;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1140, 714);
+            this.ClientSize = new System.Drawing.Size(1140, 716);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.mnMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -558,5 +567,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuReport;
         private System.Windows.Forms.ToolStripMenuItem mnuFeedbackReport;
         private System.Windows.Forms.ToolStripMenuItem mnuHandoverReport;
+        private System.Windows.Forms.ToolStripMenuItem mnuListReplyManagement;
     }
 }
