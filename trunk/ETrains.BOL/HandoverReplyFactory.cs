@@ -12,6 +12,13 @@ namespace ETrains.BOL
 {
     public class HandoverReplyFactory
     {
+        private static dbTrainEntities _db;
+        private static dbTrainEntities Instance(bool isNewInstance = false)
+        {
+            if (isNewInstance) return new dbTrainEntities(ConnectionController.GetConnection());
+            return _db ?? (_db = new dbTrainEntities(ConnectionController.GetConnection()));
+        }
+
         public static List<ViewListHanoverReply> getAllHanoverReply()
         {
             var db = new dbTrainEntities(ConnectionController.GetConnection());
@@ -40,6 +47,14 @@ namespace ETrains.BOL
             var db = new dbTrainEntities(ConnectionController.GetConnection());
 
             return db.tblListHandoverReplies.Where(g => g.ID == ID).FirstOrDefault();
+
+        }
+
+        public static tblListHandoverReply FindByNumber(string number)
+        {
+            var db = new dbTrainEntities(ConnectionController.GetConnection());
+
+            return db.tblListHandoverReplies.Where(g => g.ListReplyNumber == number).FirstOrDefault();
 
         }
 
@@ -94,6 +109,22 @@ namespace ETrains.BOL
             {
                 db.Dispose();
             }
+        }
+
+        public static int InsertListHandoverReply(tblListHandoverReply handoverReply, List<tblHandover> listHandover)
+        {
+            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            db.AddTotblListHandoverReplies(handoverReply);
+
+            foreach (tblHandover handover in listHandover)
+            {
+                tblHandover obj = db.tblHandovers.Where(g => g.ID == handover.ID).FirstOrDefault();
+                if (obj != null)
+                {
+                    obj.tblListHandoverReply = handoverReply;
+                }
+            }
+            return db.SaveChanges();
         }
     }
 }

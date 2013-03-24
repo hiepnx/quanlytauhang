@@ -147,6 +147,12 @@
       <DependentUpon>ReportListFeedback.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Train\FrmAddListHandoverReply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\FrmAddListHandoverReply.Designer.cs">
+      <DependentUpon>FrmAddListHandoverReply.cs</DependentUpon>
+    </Compile>
     <Compile Include="Train\FrmFeedbackReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +257,12 @@
     <Compile Include="Train\frmBBBG.Designer.cs">
       <DependentUpon>frmBBBG.cs</DependentUpon>
     </Compile>
+    <Compile Include="Train\FrmSearchBBBG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\FrmSearchBBBG.Designer.cs">
+      <DependentUpon>FrmSearchBBBG.cs</DependentUpon>
+    </Compile>
     <Compile Include="Train\frmThemChuyenTau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -318,6 +330,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportListFeedback1.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Train\FrmAddListHandoverReply.resx">
+      <DependentUpon>FrmAddListHandoverReply.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Train\FrmFeedbackReport.resx">
       <DependentUpon>FrmFeedbackReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -375,6 +390,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Train\frmBBBG.resx">
       <DependentUpon>frmBBBG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\FrmSearchBBBG.resx">
+      <DependentUpon>FrmSearchBBBG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Train\frmThemChuyenTau.resx">
       <DependentUpon>frmThemChuyenTau.cs</DependentUpon>

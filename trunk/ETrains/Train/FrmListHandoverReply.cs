@@ -16,9 +16,16 @@ namespace ETrains.Train
 {
     public partial class FrmListHandoverReply : Form
     {
+        private UserInfo _userInfo;
         public FrmListHandoverReply()
         {
             InitializeComponent();
+        }
+
+        public FrmListHandoverReply(UserInfo userInfo)
+        {
+            InitializeComponent();
+            _userInfo = userInfo;
         }
 
         private void FrmListHandoverReply_Load(object sender, EventArgs e)
@@ -114,6 +121,18 @@ namespace ETrains.Train
             {
                 if (GlobalInfo.IsDebug) MessageBox.Show(ex.ToString());
             } 
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            FrmAddListHandoverReply addForm = new FrmAddListHandoverReply(this, _userInfo, 0);
+            addForm.MdiParent = this.MdiParent;
+            addForm.Show();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

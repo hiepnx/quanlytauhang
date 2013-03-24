@@ -311,7 +311,14 @@ namespace ETrains
 
         private void mnuListReplyManagement_Click(object sender, EventArgs e)
         {
-            FrmListHandoverReply form = new FrmListHandoverReply();
+            FrmListHandoverReply form = new FrmListHandoverReply(_userInfo);
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void mnuAddHandoverReply_Click(object sender, EventArgs e)
+        {
+            FrmAddListHandoverReply form = new FrmAddListHandoverReply(null,_userInfo,0);
             form.MdiParent = this;
             form.Show();
         }
