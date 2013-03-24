@@ -59,6 +59,7 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.quảnLýChuyếnTàuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýBiênBảnBànGiaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuListReplyManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýTờKhaiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýThôngTinChungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCompany = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,7 +76,7 @@
             this.toolStripButtonListdeclarace = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.mnuListReplyManagement = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAddHandoverReply = new System.Windows.Forms.ToolStripMenuItem();
             this.mnMain.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -194,6 +195,7 @@
             this.toolStripSeparator2,
             this.cậpNhậtBBBGHồiBáoToolStripMenuItem,
             this.cậpNhậtBBBGChuyểnĐếnToolStripMenuItem,
+            this.mnuAddHandoverReply,
             this.toolStripSeparator4,
             this.đăngKýTờKhaiXuấtCảnhToolStripMenuItem,
             this.đăngKýTờKhaiNhậpCảnhToolStripMenuItem,
@@ -330,6 +332,13 @@
             this.quảnLýBiênBảnBànGiaoToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.quảnLýBiênBảnBànGiaoToolStripMenuItem.Text = "Quản lý Biên bản bàn giao";
             this.quảnLýBiênBảnBànGiaoToolStripMenuItem.Click += new System.EventHandler(this.quảnLýBiênBảnBànGiaoToolStripMenuItem_Click);
+            // 
+            // mnuListReplyManagement
+            // 
+            this.mnuListReplyManagement.Name = "mnuListReplyManagement";
+            this.mnuListReplyManagement.Size = new System.Drawing.Size(252, 22);
+            this.mnuListReplyManagement.Text = "Quản lý bảng kê hồi báo";
+            this.mnuListReplyManagement.Click += new System.EventHandler(this.mnuListReplyManagement_Click);
             // 
             // quảnLýTờKhaiToolStripMenuItem
             // 
@@ -487,12 +496,12 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 41);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // mnuListReplyManagement
+            // mnuAddHandoverReply
             // 
-            this.mnuListReplyManagement.Name = "mnuListReplyManagement";
-            this.mnuListReplyManagement.Size = new System.Drawing.Size(252, 22);
-            this.mnuListReplyManagement.Text = "Quản lý bảng kê hồi báo";
-            this.mnuListReplyManagement.Click += new System.EventHandler(this.mnuListReplyManagement_Click);
+            this.mnuAddHandoverReply.Name = "mnuAddHandoverReply";
+            this.mnuAddHandoverReply.Size = new System.Drawing.Size(252, 22);
+            this.mnuAddHandoverReply.Text = "Tạo bảng kê hồi báo";
+            this.mnuAddHandoverReply.Click += new System.EventHandler(this.mnuAddHandoverReply_Click);
             // 
             // frmMainForm
             // 
@@ -500,7 +509,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ETrains.Properties.Resources.logoBackgound;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1140, 716);
+            this.ClientSize = new System.Drawing.Size(1140, 720);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.mnMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -568,5 +577,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuFeedbackReport;
         private System.Windows.Forms.ToolStripMenuItem mnuHandoverReport;
         private System.Windows.Forms.ToolStripMenuItem mnuListReplyManagement;
+        private System.Windows.Forms.ToolStripMenuItem mnuAddHandoverReply;
     }
 }
