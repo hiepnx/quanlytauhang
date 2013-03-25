@@ -480,6 +480,7 @@
             this.btnUpdate.Text = "&Cập nhật";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // techlinkErrorProvider1
             // 
@@ -909,6 +910,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private Utilities.TechlinkErrorProvider techlinkErrorProvider1;
         private System.Windows.Forms.DataGridViewButtonColumn delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrainID;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsReplied;
@@ -928,7 +931,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ModifiedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModifiedByName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
-        private Utilities.TechlinkErrorProvider techlinkErrorProvider1;
     }
 }

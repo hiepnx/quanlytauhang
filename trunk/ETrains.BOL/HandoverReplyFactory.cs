@@ -42,19 +42,20 @@ namespace ETrains.BOL
             return lst.ToList();
         }
 
-        public static tblListHandoverReply FindByCode(Int64 ID)
-        {
-            var db = new dbTrainEntities(ConnectionController.GetConnection());
-
-            return db.tblListHandoverReplies.Where(g => g.ID == ID).FirstOrDefault();
-
-        }
 
         public static tblListHandoverReply FindByNumber(string number)
         {
             var db = new dbTrainEntities(ConnectionController.GetConnection());
 
             return db.tblListHandoverReplies.Where(g => g.ListReplyNumber == number).FirstOrDefault();
+
+        }
+
+        public static tblListHandoverReply FindByID(Int64 ID)
+        {
+            var db = new dbTrainEntities(ConnectionController.GetConnection());
+
+            return db.tblListHandoverReplies.Where(g => g.ID == ID).FirstOrDefault();
 
         }
 
@@ -111,7 +112,53 @@ namespace ETrains.BOL
             }
         }
 
-        public static int InsertListHandoverReply(tblListHandoverReply handoverReply, List<tblHandover> listHandover)
+        public static int UpdateListHandoverReply(tblListHandoverReply handoverReply, List<tblHandover> listHandover)
+        {
+            //update all related Handover 
+            RemoveListReplyIDFromHandover(handoverReply.ID);
+
+            //update ListHandoverReply
+            var db = new dbTrainEntities(ConnectionController.GetConnection());
+
+            tblListHandoverReply objUpdate = db.tblListHandoverReplies.Where(g => g.ID == handoverReply.ID).FirstOrDefault();
+            if (objUpdate != null)
+            {
+                try
+                {
+                    objUpdate.ListReplyNumber = handoverReply.ListReplyNumber;
+                    objUpdate.ListReplyDate = handoverReply.ListReplyDate;
+                    objUpdate.ReportFromDate = handoverReply.ReportFromDate;
+                    objUpdate.ReportToDate = handoverReply.ReportToDate;
+                    objUpdate.CustomsCodeReceiver = handoverReply.CustomsCodeReceiver;
+                    objUpdate.ReplyStatusGoods = handoverReply.ReplyStatusGoods;
+                    objUpdate.Note = handoverReply.Note;
+
+                    //db.SaveChanges();
+                    //db.Dispose();
+
+                    //db = new dbTrainEntities(ConnectionController.GetConnection());
+
+                    foreach (tblHandover handover in listHandover)
+                    {
+                        tblHandover obj = db.tblHandovers.Where(g => g.ID == handover.ID).FirstOrDefault();
+                        if (obj != null)
+                        {
+                            obj.tblListHandoverReply = objUpdate;
+                        }
+                    }
+                    return db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    return 0;
+                }
+                
+            }
+            return 0;
+        }
+
+
+        public static int InsertListHandoverReply (tblListHandoverReply handoverReply, List<tblHandover> listHandover)
         {
             var db = new dbTrainEntities(ConnectionController.GetConnection());
             db.AddTotblListHandoverReplies(handoverReply);

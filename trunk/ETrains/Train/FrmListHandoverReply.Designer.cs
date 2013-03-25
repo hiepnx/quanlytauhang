@@ -124,6 +124,7 @@
             this.grdHandover.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdHandover.Size = new System.Drawing.Size(782, 276);
             this.grdHandover.TabIndex = 60;
+            this.grdHandover.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdHandover_CellDoubleClick);
             // 
             // ID
             // 
@@ -335,6 +336,7 @@
             this.btnUpdate.Text = "&Cập nhật";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 

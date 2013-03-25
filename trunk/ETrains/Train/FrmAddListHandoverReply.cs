@@ -21,10 +21,23 @@ namespace ETrains.Train
         private UserInfo _userInfo;
         private FrmListHandoverReply _listReplyForm;
         private List<tblHandover> _listHanover;
+        private tblListHandoverReply _tblListHandoverReply;
+
         public FrmAddListHandoverReply()
         {
             InitializeComponent();
         }
+
+        public FrmAddListHandoverReply(FrmListHandoverReply listReply, UserInfo userInfo, tblListHandoverReply tblListHandoverReply, short mode = (short)0)
+        {
+            InitializeComponent();
+            _userInfo = userInfo;
+            _mode = mode;
+            _listReplyForm = listReply;
+            _listHanover = new List<tblHandover>();  
+            _tblListHandoverReply = tblListHandoverReply;
+        }
+
 
         public FrmAddListHandoverReply(FrmListHandoverReply listReply, UserInfo userInfo, short mode = (short)0)
         {
@@ -33,24 +46,6 @@ namespace ETrains.Train
             _mode = mode;
             _listReplyForm = listReply;
             _listHanover = new List<tblHandover>();
-
-            ////init ma cua khau
-            var listHQ = CustomsFacory.getAll();
-            var listStation = new List<tblCustom>();
-            listStation.AddRange(listHQ);
-            listStation.Insert(0, new tblCustom
-            {
-                CustomsName = "Tên HQ Cửa khẩu",
-                CustomsCode = ""
-            });
-            ddlCustomsName.DataSource = listStation.Select(x => new
-            {
-                x.CustomsName,
-                CustomsCode = x.CustomsCode.Trim()
-            }).ToList();
-            ddlCustomsName.ValueMember = "CustomsCode";
-            ddlCustomsName.DisplayMember = "CustomsName";
-            ddlCustomsName.SelectedIndex = 0;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -90,6 +85,73 @@ namespace ETrains.Train
 
         private void FrmAddListHandoverReply_Load(object sender, EventArgs e)
         {
+
+            ////init ma cua khau
+            var listHQ = CustomsFacory.getAll();
+            var listStation = new List<tblCustom>();
+            listStation.AddRange(listHQ);
+            listStation.Insert(0, new tblCustom
+            {
+                CustomsName = "Tên HQ Cửa khẩu",
+                CustomsCode = ""
+            });
+            ddlCustomsName.DataSource = listStation.Select(x => new
+            {
+                x.CustomsName,
+                CustomsCode = x.CustomsCode.Trim()
+            }).ToList();
+            ddlCustomsName.ValueMember = "CustomsCode";
+            ddlCustomsName.DisplayMember = "CustomsName";
+            ddlCustomsName.SelectedIndex = 0;
+
+            if (_mode == 0)
+            {
+                btnAddNew.Enabled = true;
+                btnUpdate.Enabled = false;
+                lblHeader.Text = "Thêm mới bảng kê hồi báo";
+            }
+            else
+            {
+                btnAddNew.Enabled = false;
+                btnUpdate.Enabled = true;
+                lblHeader.Text = "Cập nhật bảng kê hồi báo";
+                initUpdateForm();
+            }
+        }
+
+        private void initUpdateForm()
+        {
+            if(_tblListHandoverReply!=null && _tblListHandoverReply.tblHandovers.IsLoaded==false)
+                _tblListHandoverReply.tblHandovers.Load();
+            _listHanover = _tblListHandoverReply.tblHandovers.ToList();
+            grdHandover.AutoGenerateColumns=false;
+
+            foreach (tblHandover handover in _listHanover)
+            {
+                if (handover.tblChuyenTauReference.IsLoaded == false)
+                    handover.tblChuyenTauReference.Load();
+                if (handover.Type == "0")
+                {
+                    handover.Type = "BBBG Đến";
+                }
+                else
+                {
+                    handover.Type = "BBBG Đi";
+                }
+            }
+
+            grdHandover.DataSource=_listHanover;
+           
+            txtNumberHandoverReply.Enabled=false;
+            txtNumberHandoverReply.Text=_tblListHandoverReply.ListReplyNumber;
+            dtpHandoverReplyDate.Value=_tblListHandoverReply.ListReplyDate.GetValueOrDefault();
+            dtpFrom.Value = _tblListHandoverReply.ReportFromDate.GetValueOrDefault();
+            dtpTo.Value=_tblListHandoverReply.ReportToDate.GetValueOrDefault();
+            txtCustomsCode.Text = _tblListHandoverReply.CustomsCodeReceiver;
+            ddlCustomsName.SelectedValue = _tblListHandoverReply.CustomsCodeReceiver;
+            txtStatusGood.Text =_tblListHandoverReply.ReplyStatusGoods;
+            txtNote.Text=_tblListHandoverReply.Note;
+
 
         }
 
@@ -143,17 +205,21 @@ namespace ETrains.Train
             {
                 if (cbPrint.Checked == true)
                 {
-                   // MessageBox.Show("Thêm mới Biên bản bàn giao thành công. Bạn hãy tắt hộp thoại này để xem bản in");
+                    // MessageBox.Show("Thêm mới bảng kê hồi báo  thành công. Bạn hãy tắt hộp thoại này để xem bản in");
                     //printBBBG();
                     //Reset();
                 }
                 else
                 {
-                    MessageBox.Show("Thêm mới Biên bản bàn giao thành công!");
+                    MessageBox.Show("Thêm mới bảng kê hồi báo thành công!");
                     Reset();
                 }
             }
-            else MessageBox.Show("Thêm mới Biên bản bàn không thành công!");
+            else MessageBox.Show("Thêm mới bảng kê hồi báo không thành công!");
+            if (_listReplyForm != null)
+            {
+                _listReplyForm.search();
+            }
 
         }
 
@@ -189,6 +255,12 @@ namespace ETrains.Train
             return valid;
         }
 
+        private bool ValidateUpdate()
+        {
+            bool valid = techlinkErrorProvider1.Validate(this);
+            return valid;
+        }
+
         private void ddlCustomsName_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtCustomsCode.Text = ddlCustomsName.SelectedValue.ToString();
@@ -206,6 +278,42 @@ namespace ETrains.Train
                 ddlCustomsName.SelectedIndex = 0;
                 txtCustomsCode.Text = string.Empty;
             }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (!ValidateUpdate()) return;
+
+            
+            _tblListHandoverReply.ListReplyNumber = txtNumberHandoverReply.Text.Trim();
+            _tblListHandoverReply.ListReplyDate = dtpHandoverReplyDate.Value;
+            _tblListHandoverReply.ReportFromDate = dtpFrom.Value;
+            _tblListHandoverReply.ReportToDate = dtpTo.Value;
+            _tblListHandoverReply.CustomsCodeReceiver = ddlCustomsName.SelectedValue.ToString();
+            _tblListHandoverReply.ReplyStatusGoods = txtStatusGood.Text.Trim();
+            _tblListHandoverReply.Note = txtNote.Text.Trim();
+
+            var result = HandoverReplyFactory.UpdateListHandoverReply(_tblListHandoverReply, _listHanover);
+            if (result > 0)
+            {
+                if (cbPrint.Checked == true)
+                {
+                     MessageBox.Show("Cập nhật Biên bản bàn giao thành công. Bạn hãy tắt hộp thoại này để xem bản in");
+                    //printBBBG();
+                     this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật bảng kê hồi báo giao thành công!");
+                    this.Close();
+                }
+            }
+            else MessageBox.Show("Cập nhật bảng kê hồi báo không thành công!");
+            if (_listReplyForm != null)
+            {
+                _listReplyForm.search();
+            }
+            
         }
 
     }

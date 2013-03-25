@@ -86,7 +86,7 @@ namespace ETrains.Train
                         // gets the RowID from the first column in the grid
                         var ID = Int64.Parse(grdHandover[0, selectedIndex].Value.ToString());
 
-                        tblListHandoverReply reply = HandoverReplyFactory.FindByCode(ID);
+                        tblListHandoverReply reply = HandoverReplyFactory.FindByID(ID);
                         if (reply == null)
                         {
                             MessageBox.Show("Bảng kê này không còn tồn tại trong Cơ Sở Dữ Liệu. Bạn hãy kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -120,7 +120,7 @@ namespace ETrains.Train
             catch (Exception ex)
             {
                 if (GlobalInfo.IsDebug) MessageBox.Show(ex.ToString());
-            } 
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -133,6 +133,80 @@ namespace ETrains.Train
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.grdHandover.SelectedRows.Count > 0)
+                {
+
+                    int selectedIndex = grdHandover.SelectedRows[0].Index;
+
+                    // gets the RowID from the first column in the grid
+                    var ID = Int64.Parse(grdHandover[0, selectedIndex].Value.ToString());
+
+                    tblListHandoverReply reply = HandoverReplyFactory.FindByID(ID);
+                    if (reply == null)
+                    {
+                        MessageBox.Show("Bảng kê này không còn tồn tại trong Cơ Sở Dữ Liệu. Bạn hãy kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        FrmAddListHandoverReply form = new FrmAddListHandoverReply(this, _userInfo, reply, 1);
+                        form.MdiParent = this.MdiParent;
+                        form.Show();
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Bạn cần chọn một bản ghi để cập nhật", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void grdHandover_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (this.grdHandover.SelectedRows.Count > 0)
+                {
+
+                    int selectedIndex = grdHandover.SelectedRows[0].Index;
+
+                    // gets the RowID from the first column in the grid
+                    var ID = Int64.Parse(grdHandover[0, selectedIndex].Value.ToString());
+
+                    tblListHandoverReply reply = HandoverReplyFactory.FindByID(ID);
+                    if (reply == null)
+                    {
+                        MessageBox.Show("Bảng kê này không còn tồn tại trong Cơ Sở Dữ Liệu. Bạn hãy kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        FrmAddListHandoverReply form = new FrmAddListHandoverReply(this, _userInfo, reply, 1);
+                        form.MdiParent = this.MdiParent;
+                        form.Show();
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Bạn cần chọn một bản ghi để cập nhật", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }
