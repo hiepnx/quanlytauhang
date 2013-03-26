@@ -103,12 +103,15 @@ namespace ETrains.Train
             ddlCustomsName.ValueMember = "CustomsCode";
             ddlCustomsName.DisplayMember = "CustomsName";
             ddlCustomsName.SelectedIndex = 0;
+            txtCustomsCode.Text = "";
 
             if (_mode == 0)
             {
                 btnAddNew.Enabled = true;
                 btnUpdate.Enabled = false;
                 lblHeader.Text = "Thêm mới bảng kê hồi báo";
+                tblNumberGenerate NumberGenerate = NumberGenerateFactory.Insert(NumberGenerateFactory.NUMBER_TYPE_REPLY);
+                txtNumberHandoverReply.Text = NumberGenerate.ReplyReportNumber + "/BK-HQGA";
             }
             else
             {
@@ -237,6 +240,8 @@ namespace ETrains.Train
             _listHanover.Clear();
             _listHanover = new List<tblHandover>();
             grdHandover.DataSource = _listHanover;
+            tblNumberGenerate NumberGenerate = NumberGenerateFactory.Insert(NumberGenerateFactory.NUMBER_TYPE_REPLY);
+            txtNumberHandoverReply.Text = NumberGenerate.ReplyReportNumber + "/BK-HQGA";
         }
 
 
