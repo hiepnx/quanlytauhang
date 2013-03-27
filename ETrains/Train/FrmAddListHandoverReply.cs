@@ -113,6 +113,8 @@ namespace ETrains.Train
                 lblHeader.Text = "Thêm mới bảng kê hồi báo";
                 _NumberGenerate = NumberGenerateFactory.AutoGenerate(NumberGenerateFactory.NUMBER_TYPE_REPLY);
                 txtNumberHandoverReply.Text = _NumberGenerate.ReplyReportNumber + "/BK-HQGA";
+                txtStatusGood.Text = "Hàng hóa về ga Yên Viên đủ, đúng số toa, nguyên chì TQ và chì của Chi cục Hải quan ga ĐSQT Đồng Đăng";
+                txtNote.Text = "Chi cục Hải quan ga ĐSQT Yên Viên đề nghị chi cục sau khi nhận được bảng kê này, xác nhận và Fax lại cho chúng tôi theo số: (04)8781450-8781019";
             }
             else
             {
