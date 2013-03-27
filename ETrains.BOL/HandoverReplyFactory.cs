@@ -158,9 +158,10 @@ namespace ETrains.BOL
         }
 
 
-        public static int InsertListHandoverReply (tblListHandoverReply handoverReply, List<tblHandover> listHandover)
+        public static int InsertListHandoverReply(tblListHandoverReply handoverReply, List<tblHandover> listHandover, tblNumberGenerate numberGenerate)
         {
             var db = new dbTrainEntities(ConnectionController.GetConnection());
+            db.AddTotblNumberGenerates(numberGenerate);
             db.AddTotblListHandoverReplies(handoverReply);
 
             foreach (tblHandover handover in listHandover)

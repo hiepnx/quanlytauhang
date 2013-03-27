@@ -11,7 +11,7 @@ namespace ETrains.BOL
         public const int NUMBER_TYPE_HANDOVER = 1;
         public const int NUMBER_TYPE_REPLY = 2;
 
-        public static tblNumberGenerate Insert(int type)
+        public static tblNumberGenerate AutoGenerate(int type)
         {
             var db = new dbTrainEntities(ConnectionController.GetConnection());
             tblNumberGenerate number= new tblNumberGenerate();
@@ -34,20 +34,25 @@ namespace ETrains.BOL
                 number.ReplyReportNumber = max.ReplyReportNumber + 1;
             }
 
-            db.AddTotblNumberGenerates(number);
-
-            //number.HandoverNumber = getMaxValueByType(type)!=null?getMaxValueByType
-
-            db.SaveChanges();
             return number;
         }
+
+        public static int AddNew(tblNumberGenerate number)
+        {
+            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            
+            db.AddTotblNumberGenerates(number);
+
+            return db.SaveChanges();
+            
+        }
+
         public static tblNumberGenerate getMaxValueByType(int type)
         {
             var db = new dbTrainEntities(ConnectionController.GetConnection());
             return db.tblNumberGenerates.
                 Where(x => x.NumberType == type).
-                OrderByDescending(x => x.ID).FirstOrDefault();
-            
+                OrderByDescending(x => x.ID).FirstOrDefault(); 
         }
     }
 }

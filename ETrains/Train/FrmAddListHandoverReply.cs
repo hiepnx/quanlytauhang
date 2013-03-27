@@ -22,6 +22,7 @@ namespace ETrains.Train
         private FrmListHandoverReply _listReplyForm;
         private List<tblHandover> _listHanover;
         private tblListHandoverReply _tblListHandoverReply;
+        private tblNumberGenerate _NumberGenerate;  
 
         public FrmAddListHandoverReply()
         {
@@ -110,8 +111,8 @@ namespace ETrains.Train
                 btnAddNew.Enabled = true;
                 btnUpdate.Enabled = false;
                 lblHeader.Text = "Thêm mới bảng kê hồi báo";
-                tblNumberGenerate NumberGenerate = NumberGenerateFactory.Insert(NumberGenerateFactory.NUMBER_TYPE_REPLY);
-                txtNumberHandoverReply.Text = NumberGenerate.ReplyReportNumber + "/BK-HQGA";
+                _NumberGenerate = NumberGenerateFactory.AutoGenerate(NumberGenerateFactory.NUMBER_TYPE_REPLY);
+                txtNumberHandoverReply.Text = _NumberGenerate.ReplyReportNumber + "/BK-HQGA";
             }
             else
             {
@@ -197,13 +198,7 @@ namespace ETrains.Train
                
             };
 
-            //foreach (var handover in _listHanover)
-            //{
-
-            //    hanoverReply.tblHandovers.Add(handover);
-            //}
-
-            var result = HandoverReplyFactory.InsertListHandoverReply(hanoverReply, _listHanover);
+            var result = HandoverReplyFactory.InsertListHandoverReply(hanoverReply, _listHanover, _NumberGenerate);
             if (result > 0)
             {
                 if (cbPrint.Checked == true)
@@ -240,8 +235,8 @@ namespace ETrains.Train
             _listHanover.Clear();
             _listHanover = new List<tblHandover>();
             grdHandover.DataSource = _listHanover;
-            tblNumberGenerate NumberGenerate = NumberGenerateFactory.Insert(NumberGenerateFactory.NUMBER_TYPE_REPLY);
-            txtNumberHandoverReply.Text = NumberGenerate.ReplyReportNumber + "/BK-HQGA";
+            _NumberGenerate = NumberGenerateFactory.AutoGenerate(NumberGenerateFactory.NUMBER_TYPE_REPLY);
+            txtNumberHandoverReply.Text = _NumberGenerate.ReplyReportNumber + "/BK-HQGA";
         }
 
 

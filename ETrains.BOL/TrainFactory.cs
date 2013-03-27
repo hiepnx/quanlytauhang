@@ -257,9 +257,10 @@ namespace ETrains.BOL
             return train;
         }
 
-        public static int InsertBBBG(tblHandover handover)
+        public static int InsertBBBG(tblHandover handover, tblNumberGenerate numberGenerate)
         {
             var db = Instance();
+            db.AddTotblNumberGenerates(numberGenerate);
             db.AddTotblHandovers(handover);
             return db.SaveChanges();
         }
