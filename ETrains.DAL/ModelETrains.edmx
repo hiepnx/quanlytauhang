@@ -169,12 +169,12 @@
           </Key>
           <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ListReplyNumber" Type="varchar" MaxLength="100" />
-          <Property Name="ReplyStatusGoods" Type="varchar" MaxLength="500" />
+          <Property Name="ReplyStatusGoods" Type="nvarchar" MaxLength="500" />
           <Property Name="ListReplyDate" Type="datetime" />
           <Property Name="ReportFromDate" Type="datetime" />
           <Property Name="ReportToDate" Type="datetime" />
           <Property Name="CustomsCodeReceiver" Type="nvarchar" MaxLength="50" />
-          <Property Name="Note" Type="varchar" MaxLength="500" />
+          <Property Name="Note" Type="nvarchar" MaxLength="500" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="CreatedBy" Type="int" />
           <Property Name="ModifiedDate" Type="datetime" />
@@ -486,18 +486,18 @@
           </AssociationSet>
           <EntitySet Name="tblNumberGenerates" EntityType="dbTrainModel.tblNumberGenerate" />
           <EntitySet Name="tblHandovers" EntityType="dbTrainModel.tblHandover" />
-          <EntitySet Name="tblListHandoverReplies" EntityType="dbTrainModel.tblListHandoverReply" />
           <AssociationSet Name="FK_tblHandover_tblChuyenTau" Association="dbTrainModel.FK_tblHandover_tblChuyenTau">
             <End Role="tblChuyenTau" EntitySet="tblChuyenTaus" />
-            <End Role="tblHandover" EntitySet="tblHandovers" />
-          </AssociationSet>
-          <AssociationSet Name="FK__tblHandov__ListR__06CD04F7" Association="dbTrainModel.FK__tblHandov__ListR__06CD04F7">
-            <End Role="tblListHandoverReply" EntitySet="tblListHandoverReplies" />
             <End Role="tblHandover" EntitySet="tblHandovers" />
           </AssociationSet>
           <AssociationSet Name="FK_tblHandoverResource_tblHandover" Association="dbTrainModel.FK_tblHandoverResource_tblHandover">
             <End Role="tblHandover" EntitySet="tblHandovers" />
             <End Role="tblHandoverResource" EntitySet="tblHandoverResources" />
+          </AssociationSet>
+          <EntitySet Name="tblListHandoverReplies" EntityType="dbTrainModel.tblListHandoverReply" />
+          <AssociationSet Name="FK__tblHandov__ListR__06CD04F7" Association="dbTrainModel.FK__tblHandov__ListR__06CD04F7">
+            <End Role="tblListHandoverReply" EntitySet="tblListHandoverReplies" />
+            <End Role="tblHandover" EntitySet="tblHandovers" />
           </AssociationSet>
           <EntitySet Name="ViewListHanoverReplies" EntityType="dbTrainModel.ViewListHanoverReply" />
           </EntityContainer>
@@ -743,38 +743,38 @@
           <Property Type="String" Name="Type" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="IsDeleted" />
           <NavigationProperty Name="tblChuyenTau" Relationship="dbTrainModel.FK_tblHandover_tblChuyenTau" FromRole="tblHandover" ToRole="tblChuyenTau" />
-          <NavigationProperty Name="tblListHandoverReply" Relationship="dbTrainModel.FK__tblHandov__ListR__06CD04F7" FromRole="tblHandover" ToRole="tblListHandoverReply" />
           <NavigationProperty Name="tblHandoverResources" Relationship="dbTrainModel.FK_tblHandoverResource_tblHandover" FromRole="tblHandover" ToRole="tblHandoverResource" />
+          <NavigationProperty Name="tblListHandoverReply" Relationship="dbTrainModel.FK__tblHandov__ListR__06CD04F7" FromRole="tblHandover" ToRole="tblListHandoverReply" />
         </EntityType>
+        <Association Name="FK_tblHandover_tblChuyenTau">
+          <End Type="dbTrainModel.tblChuyenTau" Role="tblChuyenTau" Multiplicity="1" />
+          <End Type="dbTrainModel.tblHandover" Role="tblHandover" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_tblHandoverResource_tblHandover">
+          <End Type="dbTrainModel.tblHandover" Role="tblHandover" Multiplicity="1" />
+          <End Type="dbTrainModel.tblHandoverResource" Role="tblHandoverResource" Multiplicity="*" />
+        </Association>
         <EntityType Name="tblListHandoverReply">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Int64" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="String" Name="ListReplyNumber" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ReplyStatusGoods" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ReplyStatusGoods" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="ListReplyDate" />
           <Property Type="DateTime" Name="ReportFromDate" />
           <Property Type="DateTime" Name="ReportToDate" />
           <Property Type="String" Name="CustomsCodeReceiver" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Note" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Note" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="CreatedDate" />
           <Property Type="Int32" Name="CreatedBy" />
           <Property Type="DateTime" Name="ModifiedDate" />
           <Property Type="Int32" Name="ModifiedBy" />
           <NavigationProperty Name="tblHandovers" Relationship="dbTrainModel.FK__tblHandov__ListR__06CD04F7" FromRole="tblListHandoverReply" ToRole="tblHandover" />
         </EntityType>
-        <Association Name="FK_tblHandover_tblChuyenTau">
-          <End Type="dbTrainModel.tblChuyenTau" Role="tblChuyenTau" Multiplicity="1" />
-          <End Type="dbTrainModel.tblHandover" Role="tblHandover" Multiplicity="*" />
-        </Association>
         <Association Name="FK__tblHandov__ListR__06CD04F7">
           <End Type="dbTrainModel.tblListHandoverReply" Role="tblListHandoverReply" Multiplicity="0..1" />
           <End Type="dbTrainModel.tblHandover" Role="tblHandover" Multiplicity="*" />
-        </Association>
-        <Association Name="FK_tblHandoverResource_tblHandover">
-          <End Type="dbTrainModel.tblHandover" Role="tblHandover" Multiplicity="1" />
-          <End Type="dbTrainModel.tblHandoverResource" Role="tblHandoverResource" Multiplicity="*" />
         </Association>
         <EntityType Name="ViewListHanoverReply">
           <Key>
@@ -1067,6 +1067,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="FK_tblHandover_tblChuyenTau" TypeName="dbTrainModel.FK_tblHandover_tblChuyenTau" StoreEntitySet="tblHandover">
+            <EndProperty Name="tblHandover">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <EndProperty Name="tblChuyenTau">
+              <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_tblHandoverResource_tblHandover" TypeName="dbTrainModel.FK_tblHandoverResource_tblHandover" StoreEntitySet="tblHandoverResource">
+            <EndProperty Name="tblHandoverResource">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <EndProperty Name="tblHandover">
+              <ScalarProperty Name="ID" ColumnName="HandoverID" />
+            </EndProperty>
+          </AssociationSetMapping>
           <EntitySetMapping Name="tblListHandoverReplies">
             <EntityTypeMapping TypeName="dbTrainModel.tblListHandoverReply">
               <MappingFragment StoreEntitySet="tblListHandoverReply">
@@ -1085,14 +1101,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="FK_tblHandover_tblChuyenTau" TypeName="dbTrainModel.FK_tblHandover_tblChuyenTau" StoreEntitySet="tblHandover">
-            <EndProperty Name="tblHandover">
-              <ScalarProperty Name="ID" ColumnName="ID" />
-            </EndProperty>
-            <EndProperty Name="tblChuyenTau">
-              <ScalarProperty Name="TrainID" ColumnName="TrainID" />
-            </EndProperty>
-          </AssociationSetMapping>
           <AssociationSetMapping Name="FK__tblHandov__ListR__06CD04F7" TypeName="dbTrainModel.FK__tblHandov__ListR__06CD04F7" StoreEntitySet="tblHandover">
             <EndProperty Name="tblHandover">
               <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1101,14 +1109,6 @@
               <ScalarProperty Name="ID" ColumnName="ListReplyID" />
             </EndProperty>
             <Condition ColumnName="ListReplyID" IsNull="false" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_tblHandoverResource_tblHandover" TypeName="dbTrainModel.FK_tblHandoverResource_tblHandover" StoreEntitySet="tblHandoverResource">
-            <EndProperty Name="tblHandoverResource">
-              <ScalarProperty Name="ID" ColumnName="ID" />
-            </EndProperty>
-            <EndProperty Name="tblHandover">
-              <ScalarProperty Name="ID" ColumnName="HandoverID" />
-            </EndProperty>
           </AssociationSetMapping>
           <EntitySetMapping Name="ViewListHanoverReplies">
             <EntityTypeMapping TypeName="dbTrainModel.ViewListHanoverReply">
@@ -1180,7 +1180,7 @@
           <ConnectorPoint PointX="4.5" PointY="9.626152846153845" />
           <ConnectorPoint PointX="4.875" PointY="9.251152846153845" />
           <ConnectorPoint PointX="4.875" PointY="9.3468364399038464" />
-          <ConnectorPoint PointX="5.2511528461538459" PointY="8.97068359375" />
+          <ConnectorPoint PointX="5.7819230769230767" PointY="8.970683593749996" />
         </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau">
           <ConnectorPoint PointX="4.5" PointY="14.091054687500003" />
@@ -1193,24 +1193,23 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="dbTrainModel.tblNumberGenerate" PointX="5.375" PointY="10.75" Width="1.5" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="dbTrainModel.tblHandover" Width="1.5" PointX="8.375" PointY="10.75" Height="5.2494108072916674" />
-        <EntityTypeShape EntityType="dbTrainModel.tblListHandoverReply" Width="1.5" PointX="6.125" PointY="16.625" Height="3.5186979166666674" />
         <AssociationConnector Association="dbTrainModel.FK_tblHandover_tblChuyenTau" >
-          <ConnectorPoint PointX="1.9062525" PointY="12.210999348958332" />
+          <ConnectorPoint PointX="1.9062525" PointY="12.210999348958339" />
           <ConnectorPoint PointX="1.9062525" PointY="15.297841796875005" />
           <ConnectorPoint PointX="5.572916666666667" PointY="15.297841796875005" />
           <ConnectorPoint PointX="5.739583333333333" PointY="15.297841796875005" />
           <ConnectorPoint PointX="8.375" PointY="15.297841796875005" />
         </AssociationConnector>
-        <AssociationConnector Association="dbTrainModel.FK__tblHandov__ListR__06CD04F7" >
-          <ConnectorPoint PointX="7.625" PointY="18.384348958333334" />
-          <ConnectorPoint PointX="9.125" PointY="18.384348958333334" />
-          <ConnectorPoint PointX="9.125" PointY="15.999410807291667" />
-        </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblHandoverResource_tblHandover" >
           <ConnectorPoint PointX="8.375" PointY="10.75" />
           <ConnectorPoint PointX="8" PointY="10.375" />
-          <ConnectorPoint PointX="6.0318284230769228" PointY="10.375" />
-          <ConnectorPoint PointX="6.0318284230769228" PointY="8.97068359375" />
+          <ConnectorPoint PointX="6" PointY="10.375" />
+          <ConnectorPoint PointX="6" PointY="8.970683593749996" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="dbTrainModel.tblListHandoverReply" Width="1.5" PointX="10.375" PointY="11" Height="3.5186979166666674" />
+        <AssociationConnector Association="dbTrainModel.FK__tblHandov__ListR__06CD04F7" >
+          <ConnectorPoint PointX="10.375" PointY="12.759348958333334" />
+          <ConnectorPoint PointX="9.875" PointY="12.759348958333334" />
         </AssociationConnector>
         <EntityTypeShape EntityType="dbTrainModel.ViewListHanoverReply" Width="1.5" PointX="0.75" PointY="0.75" Height="3.5186979166666674" />
         </Diagram>

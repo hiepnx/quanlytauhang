@@ -147,6 +147,12 @@
       <DependentUpon>ReportListFeedback.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ReportListHanoverReply.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportListHanoverReply.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Train\FrmAddListHandoverReply.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -329,6 +335,10 @@
     <EmbeddedResource Include="ReportListFeedback.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportListFeedback1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportListHanoverReply.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportListHanoverReply.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Train\FrmAddListHandoverReply.resx">
       <DependentUpon>FrmAddListHandoverReply.cs</DependentUpon>
