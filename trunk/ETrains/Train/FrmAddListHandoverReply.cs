@@ -200,14 +200,16 @@ namespace ETrains.Train
                
             };
 
-            var result = HandoverReplyFactory.InsertListHandoverReply(hanoverReply, _listHanover, _NumberGenerate);
-            if (result > 0)
+            var resultHanoverReply = HandoverReplyFactory.InsertListHandoverReply(hanoverReply, _listHanover, _NumberGenerate);
+            if (resultHanoverReply != null)
             {
+                _tblListHandoverReply = resultHanoverReply;
+
                 if (cbPrint.Checked == true)
                 {
-                    // MessageBox.Show("Thêm mới bảng kê hồi báo  thành công. Bạn hãy tắt hộp thoại này để xem bản in");
-                    //printBBBG();
-                    //Reset();
+                     MessageBox.Show("Thêm mới bảng kê hồi báo  thành công. Bạn hãy tắt hộp thoại này để xem bản in");
+                     print();
+                     Reset();
                 }
                 else
                 {
@@ -301,7 +303,7 @@ namespace ETrains.Train
                 if (cbPrint.Checked == true)
                 {
                      MessageBox.Show("Cập nhật Biên bản bàn giao thành công. Bạn hãy tắt hộp thoại này để xem bản in");
-                    //printBBBG();
+                     print();
                      this.Close();
                 }
                 else
@@ -316,6 +318,95 @@ namespace ETrains.Train
                 _listReplyForm.search();
             }
             
+        }
+
+        private void btnPrintBBBG_Click(object sender, EventArgs e)
+        {
+            print();
+        }
+
+        private void print()
+        {
+            try
+            {
+                long replyId = _tblListHandoverReply.ID;
+
+                tblListHandoverReply handoverReply = HandoverReplyFactory.FindByID(replyId);
+
+                if (handoverReply == null)
+                {
+                    MessageBox.Show("Không kết nối được với CSDL hoặc Bảng kê hồi báo này không còn tồn tại. Xin kiểm tra lại ");
+                    return;
+                }
+
+
+                var report = new ReportListHanoverReply();
+
+                var txtNumber = (TextObject)report.Section1.ReportObjects["txtNumber"];
+                var txtReplyDate = (TextObject)report.Section1.ReportObjects["txtReplyDate"];
+                var txtReceiverCustomsName = (TextObject)report.Section1.ReportObjects["txtReceiverCustomsName"];
+                var txtSummary = (TextObject)report.Section1.ReportObjects["txtSummary"];
+                var txtGoodsStatus = (TextObject)report.Section4.ReportObjects["txtGoodsStatus"];
+                var txtNote = (TextObject)report.Section4.ReportObjects["txtNote"];
+
+                txtNumber.Text = "Số: " + handoverReply.ListReplyNumber;
+                txtReplyDate.Text = "Hà Nội, ngày " + handoverReply.ListReplyDate.GetValueOrDefault().Day + " tháng " + handoverReply.ListReplyDate.GetValueOrDefault().Month + " năm " + handoverReply.ListReplyDate.GetValueOrDefault().Year;
+                txtReceiverCustomsName.Text = "Kính gửi: " + CustomsFacory.FindByCode(handoverReply.CustomsCodeReceiver).CustomsName;
+                String fromDate = handoverReply.ReportFromDate.GetValueOrDefault().ToString("dd/MM/yyyy");
+                String toDate = handoverReply.ReportToDate.GetValueOrDefault().ToString("dd/MM/yyyy");
+                txtSummary.Text =       "     " + "Chi cục Hải quan ĐSQT Yên Viên đã nhận được hàng và Biên bản bàn giao hàng nhập khẩu của chi cục từ ngày " + fromDate + " đến ngày " + toDate;
+                txtGoodsStatus.Text =   "     " + "Tình trạng hàng hóa: " + handoverReply.ReplyStatusGoods;
+                txtNote.Text =          "     " +  handoverReply.Note;
+
+                //fill table BBBG
+                DataSet1 dataset = new DataSet1();
+                DataTable dt = dataset.tblHandover;
+                if (handoverReply != null && handoverReply.tblHandovers.IsLoaded == false)
+                    handoverReply.tblHandovers.Load();
+                List<tblHandover> listHandover = handoverReply.tblHandovers.ToList();
+                foreach (tblHandover obj in listHandover)
+                {
+                    if (obj.IsDeleted.GetValueOrDefault() != true)
+                    {
+                        if (obj.tblChuyenTauReference.IsLoaded == false)
+                        {
+                            obj.tblChuyenTauReference.Load();
+                        }
+
+                        dt.Rows.Add( obj.ID,
+                                     obj.tblChuyenTau.TrainID,
+                                     obj.NumberHandover,
+                                     obj.DateHandover,
+                                     obj.CodeStation,
+                                     obj.CodeStationFromTo,
+                                     obj.StatusGoods,
+                                     obj.StatusVehicle,
+                                     obj.CreatedDate,
+                                     obj.CreatedBy,
+                                     obj.ModifiedDate,
+                                     obj.ModifiedBy,
+                                     obj.NumberReply,
+                                     obj.DateReply,
+                                     obj.NoteReply,
+                                     obj.IsDeleted,
+                                     obj.IsReplied,
+                                     obj.Note,
+                                     obj.Type,
+                                     obj.ReplyStatusGoods,
+                                     null);
+                    }
+                }
+                report.SetDataSource(dataset);
+
+                FrmPreviewReport frmReport = new FrmPreviewReport(report);
+                frmReport.MdiParent = this.MdiParent;
+                frmReport.Show();
+
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
 
     }

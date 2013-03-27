@@ -334,6 +334,12 @@ namespace ETrains.Train
             }
         }
 
+        private void cbNgayXNC_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpFrom.Enabled = cbNgayXNC.Checked;
+            dtpTo.Enabled = cbNgayXNC.Checked;
+        }
+
 
 
     }

@@ -239,6 +239,7 @@
             this.cbNgayXNC.TabIndex = 3;
             this.cbNgayXNC.Text = "Ngày BBBG";
             this.cbNgayXNC.UseVisualStyleBackColor = true;
+            this.cbNgayXNC.CheckedChanged += new System.EventHandler(this.cbNgayXNC_CheckedChanged);
             // 
             // btnSearch
             // 

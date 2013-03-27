@@ -158,7 +158,7 @@ namespace ETrains.BOL
         }
 
 
-        public static int InsertListHandoverReply(tblListHandoverReply handoverReply, List<tblHandover> listHandover, tblNumberGenerate numberGenerate)
+        public static tblListHandoverReply InsertListHandoverReply(tblListHandoverReply handoverReply, List<tblHandover> listHandover, tblNumberGenerate numberGenerate)
         {
             var db = new dbTrainEntities(ConnectionController.GetConnection());
             db.AddTotblNumberGenerates(numberGenerate);
@@ -172,7 +172,11 @@ namespace ETrains.BOL
                     obj.tblListHandoverReply = handoverReply;
                 }
             }
-            return db.SaveChanges();
+            int result= db.SaveChanges();
+            if (result > 0)
+                return handoverReply;
+            else
+                return null;
         }
     }
 }

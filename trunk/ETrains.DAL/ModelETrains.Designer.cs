@@ -16,11 +16,11 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("dbTrainModel", "FK_tblToKhaiTauResource_tblToaTau", "tblToaTau", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblToaTau), "tblToKhaiTauResource", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblToKhaiTauResource))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("dbTrainModel", "FK_tblToKhaiTauResource_tblToKhaiTau", "tblToKhaiTau", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblToKhaiTau), "tblToKhaiTauResource", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblToKhaiTauResource))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("dbTrainModel", "FK_tblHandover_tblChuyenTau", "tblChuyenTau", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblChuyenTau), "tblHandover", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblHandover))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("dbTrainModel", "FK__tblHandov__ListR__06CD04F7", "tblListHandoverReply", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ETrains.DAL.tblListHandoverReply), "tblHandover", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblHandover))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("dbTrainModel", "FK_tblHandoverResource_tblHandover", "tblHandover", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblHandover), "tblHandoverResource", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblHandoverResource))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("dbTrainModel", "FK__tblHandov__ListR__06CD04F7", "tblListHandoverReply", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ETrains.DAL.tblListHandoverReply), "tblHandover", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblHandover))]
 
 // Original file name:
-// Generation date: 3/23/2013 10:17:33 PM
+// Generation date: 3/27/2013 11:43:47 PM
 namespace ETrains.DAL
 {
     
@@ -4784,6 +4784,28 @@ namespace ETrains.DAL
             }
         }
         /// <summary>
+        /// There are no comments for tblHandoverResources in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblHandoverResource_tblHandover", "tblHandoverResource")]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<tblHandoverResource> tblHandoverResources
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<tblHandoverResource>("dbTrainModel.FK_tblHandoverResource_tblHandover", "tblHandoverResource");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<tblHandoverResource>("dbTrainModel.FK_tblHandoverResource_tblHandover", "tblHandoverResource", value);
+                }
+            }
+        }
+        /// <summary>
         /// There are no comments for tblListHandoverReply in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK__tblHandov__ListR__06CD04F7", "tblListHandoverReply")]
@@ -4819,28 +4841,6 @@ namespace ETrains.DAL
                 if ((value != null))
                 {
                     ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<tblListHandoverReply>("dbTrainModel.FK__tblHandov__ListR__06CD04F7", "tblListHandoverReply", value);
-                }
-            }
-        }
-        /// <summary>
-        /// There are no comments for tblHandoverResources in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("dbTrainModel", "FK_tblHandoverResource_tblHandover", "tblHandoverResource")]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<tblHandoverResource> tblHandoverResources
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<tblHandoverResource>("dbTrainModel.FK_tblHandoverResource_tblHandover", "tblHandoverResource");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<tblHandoverResource>("dbTrainModel.FK_tblHandoverResource_tblHandover", "tblHandoverResource", value);
                 }
             }
         }
