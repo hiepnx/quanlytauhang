@@ -18,6 +18,7 @@ namespace ETrains.Train
         private short _mode; //0: addnew, 1: edit
         private UserInfo _userInfo;
         private List<tblToaTau> listToaTau = new List<tblToaTau>();
+        private tblNumberGenerate _NumberGenerate;  
         private tblHandover _handover;
 
         public frmBBBG()
@@ -58,6 +59,7 @@ namespace ETrains.Train
                 }
                 lblCodeGaDenDi.Text = "Mã HQ ga đi";
                 lblGaDenDi.Text = "Tên HQ ga đi";
+                txtNumberHandover.Text = "/BBBG-HQYV";
             }
             else if (_type == (short)HandoverType.HandoverToGoOut) //BBBG chuyen di
             {
@@ -65,8 +67,8 @@ namespace ETrains.Train
                 if (_mode == 0)
                 {
                     lblHeader.Text = "Thêm mới Biên bản bàn giao, chuyển đi";
-                    tblNumberGenerate NumberGenerate = NumberGenerateFactory.Insert(NumberGenerateFactory.NUMBER_TYPE_HANDOVER);
-                    txtNumberHandover.Text = NumberGenerate.HandoverNumber + "/BBBG-HQGA";
+                    _NumberGenerate = NumberGenerateFactory.AutoGenerate(NumberGenerateFactory.NUMBER_TYPE_HANDOVER);
+                    txtNumberHandover.Text = _NumberGenerate.HandoverNumber + "/BBBG-HQGA";
                 }
                 lblCodeGaDenDi.Text = "Mã HQ ga đến";
                 lblGaDenDi.Text = "Tên HQ ga đến";
@@ -195,8 +197,8 @@ namespace ETrains.Train
             {
                 if (_mode == 0) //add mode
                 {
-                    tblNumberGenerate NumberGenerate = NumberGenerateFactory.Insert(NumberGenerateFactory.NUMBER_TYPE_HANDOVER);
-                    txtNumberHandover.Text = NumberGenerate.HandoverNumber + "/BBBG-HQGA";
+                    _NumberGenerate = NumberGenerateFactory.AutoGenerate(NumberGenerateFactory.NUMBER_TYPE_HANDOVER);
+                    txtNumberHandover.Text = _NumberGenerate.HandoverNumber + "/BBBG-HQGA";
                 }
             }
         }
@@ -248,8 +250,8 @@ namespace ETrains.Train
                                                };
                     handOver.tblHandoverResources.Add(handOverResource);
                 }
-
-                var result = TrainFactory.InsertBBBG(handOver);
+                
+                var result = TrainFactory.InsertBBBG(handOver, _NumberGenerate);
                 if (result > 0)
                 {
                     if (cbPrint.Checked == true)
