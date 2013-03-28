@@ -260,9 +260,19 @@ namespace ETrains.BOL
         public static int InsertBBBG(tblHandover handover, tblNumberGenerate numberGenerate)
         {
             var db = Instance();
-            db.AddTotblNumberGenerates(numberGenerate);
+            if (handover.Type == "1") //neu la BBBG chuyen den, khong generate handoverNumber
+            {
+                db.AddTotblNumberGenerates(numberGenerate);
+            }
             db.AddTotblHandovers(handover);
             return db.SaveChanges();
+        }
+
+        public static tblHandover FindHandoverByNumber(string number)
+        {
+            var db = Instance();
+            return db.tblHandovers.Where(g => g.NumberHandover == number).FirstOrDefault();
+
         }
 
         public static tblHandover FindHandoverByID(long id)

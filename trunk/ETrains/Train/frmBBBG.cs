@@ -50,6 +50,10 @@ namespace ETrains.Train
 
         private void Init()
         {
+            if (_mode == 1)
+            {
+                txtNumberHandover.Enabled = false;
+            }
             if (_type == (short)HandoverType.HandoverComeIn) //BBBG chuyen den
             {
                 lblHeader.Text = "Cập nhật Biên bản bàn giao, chuyển đến";
@@ -59,10 +63,11 @@ namespace ETrains.Train
                 }
                 lblCodeGaDenDi.Text = "Mã HQ ga đi";
                 lblGaDenDi.Text = "Tên HQ ga đi";
-                txtNumberHandover.Text = "/BBBG-HQYV";
+                
             }
             else if (_type == (short)HandoverType.HandoverToGoOut) //BBBG chuyen di
             {
+                txtNumberHandover.Enabled = false;
                 lblHeader.Text = "Cập nhật Biên bản bàn giao, chuyển đi";
                 if (_mode == 0)
                 {
@@ -174,7 +179,21 @@ namespace ETrains.Train
 
         private bool Validate()
         {
-            return techlinkErrorProvider1.Validate(this);
+            var valid= techlinkErrorProvider1.Validate(this);
+            if (_mode == 0) //kiem tra so BBBG trung lap khi nhap moi
+            {
+                tblHandover exist = TrainFactory.FindHandoverByNumber(txtNumberHandover.Text.Trim());
+                if (exist != null)
+                {
+                    MessageBox.Show("Số BBBG này đã tồn tại, xin nhập số khác");
+                    return false;
+                }
+                return valid;
+            }
+            else
+            {
+                return valid;
+            }
         }
 
         private void Reset()
