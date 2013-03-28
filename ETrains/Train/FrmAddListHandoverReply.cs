@@ -113,8 +113,8 @@ namespace ETrains.Train
                 lblHeader.Text = "Thêm mới bảng kê hồi báo";
                 _NumberGenerate = NumberGenerateFactory.AutoGenerate(NumberGenerateFactory.NUMBER_TYPE_REPLY);
                 txtNumberHandoverReply.Text = _NumberGenerate.ReplyReportNumber + "/BK-HQGA";
-                txtStatusGood.Text = "Hàng hóa về ga Yên Viên đủ, đúng số toa, nguyên chì TQ và chì của Chi cục Hải quan ga ĐSQT Đồng Đăng";
-                txtNote.Text = "Chi cục Hải quan ga ĐSQT Yên Viên đề nghị chi cục sau khi nhận được bảng kê này, xác nhận và Fax lại cho chúng tôi theo số: (04)8781450-8781019";
+                txtStatusGood.Text = "Hàng hóa về ga Đồng Đăng đủ, đúng số toa, nguyên chì TQ và chì của ";
+                txtNote.Text = "Chi cục Hải quan ga ĐSQT Đồng Đăng đề nghị chi cục sau khi nhận được bảng kê này, xác nhận và Fax lại cho chúng tôi theo số: (04)8781450-8781019";
             }
             else
             {
@@ -268,6 +268,10 @@ namespace ETrains.Train
         private void ddlCustomsName_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtCustomsCode.Text = ddlCustomsName.SelectedValue.ToString();
+            if (ddlCustomsName.SelectedIndex > 0)
+            {
+                txtStatusGood.Text = "Hàng hóa về ga Đồng Đăng đủ, đúng số toa, nguyên chì TQ và chì của " + ddlCustomsName.Text;
+            }
         }
 
         private void txtCustomsCode_Leave(object sender, EventArgs e)
@@ -350,11 +354,11 @@ namespace ETrains.Train
                 var txtNote = (TextObject)report.Section4.ReportObjects["txtNote"];
 
                 txtNumber.Text = "Số: " + handoverReply.ListReplyNumber;
-                txtReplyDate.Text = "Hà Nội, ngày " + handoverReply.ListReplyDate.GetValueOrDefault().Day + " tháng " + handoverReply.ListReplyDate.GetValueOrDefault().Month + " năm " + handoverReply.ListReplyDate.GetValueOrDefault().Year;
+                txtReplyDate.Text = "Lạng Sơn, ngày " + handoverReply.ListReplyDate.GetValueOrDefault().Day + " tháng " + handoverReply.ListReplyDate.GetValueOrDefault().Month + " năm " + handoverReply.ListReplyDate.GetValueOrDefault().Year;
                 txtReceiverCustomsName.Text = "Kính gửi: " + CustomsFacory.FindByCode(handoverReply.CustomsCodeReceiver).CustomsName;
                 String fromDate = handoverReply.ReportFromDate.GetValueOrDefault().ToString("dd/MM/yyyy");
                 String toDate = handoverReply.ReportToDate.GetValueOrDefault().ToString("dd/MM/yyyy");
-                txtSummary.Text =       "     " + "Chi cục Hải quan ĐSQT Yên Viên đã nhận được hàng và Biên bản bàn giao hàng nhập khẩu của chi cục từ ngày " + fromDate + " đến ngày " + toDate;
+                txtSummary.Text =       "     " + "Chi cục Hải quan ĐSQT Đồng đăng đã nhận được hàng và Biên bản bàn giao hàng nhập khẩu của chi cục từ ngày " + fromDate + " đến ngày " + toDate;
                 txtGoodsStatus.Text =   "     " + "Tình trạng hàng hóa: " + handoverReply.ReplyStatusGoods;
                 txtNote.Text =          "     " +  handoverReply.Note;
 
