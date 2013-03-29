@@ -358,7 +358,7 @@ namespace ETrains.Train
                 txtReceiverCustomsName.Text = "Kính gửi: " + CustomsFacory.FindByCode(handoverReply.CustomsCodeReceiver).CustomsName;
                 String fromDate = handoverReply.ReportFromDate.GetValueOrDefault().ToString("dd/MM/yyyy");
                 String toDate = handoverReply.ReportToDate.GetValueOrDefault().ToString("dd/MM/yyyy");
-                txtSummary.Text =       "     " + "Chi cục Hải quan ĐSQT Đồng đăng đã nhận được hàng và Biên bản bàn giao hàng nhập khẩu của chi cục từ ngày " + fromDate + " đến ngày " + toDate;
+                txtSummary.Text =       "     " + "Chi cục Hải quan ga ĐSQT Đồng đăng đã nhận được hàng và Biên bản bàn giao hàng nhập khẩu của chi cục từ ngày " + fromDate + " đến ngày " + toDate;
                 txtGoodsStatus.Text =   "     " + "Tình trạng hàng hóa: " + handoverReply.ReplyStatusGoods;
                 txtNote.Text =          "     " +  handoverReply.Note;
 
