@@ -562,12 +562,8 @@ namespace ETrains.Train
 
         private void txtNumberHandover_Leave(object sender, EventArgs e)
         {
-            String handoverNumber = txtNumberHandover.Text.Trim();
-            if (handoverNumber.Contains("/BBBG-HQGA")==false)
-            {
-                handoverNumber += "/BBBG-HQGA";
-                txtNumberHandover.Text = handoverNumber;
-            }
+            //do nothing
+           
         }
     }
 }
