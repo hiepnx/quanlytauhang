@@ -33,14 +33,14 @@
             this.lbPassword = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.techlinkErrorProvider1 = new ETrains.Utilities.TechlinkErrorProvider();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pbLogin = new System.Windows.Forms.PictureBox();
-            this.techlinkErrorProvider1 = new ETrains.Utilities.TechlinkErrorProvider();
+            ((System.ComponentModel.ISupportInitialize)(this.techlinkErrorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.techlinkErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -49,7 +49,7 @@
             this.lblUsername.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.Location = new System.Drawing.Point(78, 146);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(86, 14);
+            this.lblUsername.Size = new System.Drawing.Size(83, 14);
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Tên truy nhập";
             // 
@@ -59,7 +59,7 @@
             this.lbPassword.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPassword.Location = new System.Drawing.Point(78, 182);
             this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(79, 14);
+            this.lbPassword.Size = new System.Drawing.Size(78, 14);
             this.lbPassword.TabIndex = 2;
             this.lbPassword.Text = "Mã truy nhập";
             // 
@@ -83,6 +83,10 @@
             this.txtPassword.TabIndex = 4;
             this.txtPassword.Tag = "required";
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
+            // 
+            // techlinkErrorProvider1
+            // 
+            this.techlinkErrorProvider1.ContainerControl = this;
             // 
             // pictureBox1
             // 
@@ -127,16 +131,12 @@
             // 
             // pbLogin
             // 
-            this.pbLogin.Image = global::ETrains.Properties.Resources.imageGS1;
-            this.pbLogin.Location = new System.Drawing.Point(100, 1);
+            this.pbLogin.Image = global::ETrains.Properties.Resources.Train;
+            this.pbLogin.Location = new System.Drawing.Point(99, 3);
             this.pbLogin.Name = "pbLogin";
-            this.pbLogin.Size = new System.Drawing.Size(104, 125);
+            this.pbLogin.Size = new System.Drawing.Size(134, 137);
             this.pbLogin.TabIndex = 0;
             this.pbLogin.TabStop = false;
-            // 
-            // techlinkErrorProvider1
-            // 
-            this.techlinkErrorProvider1.ContainerControl = this;
             // 
             // frmLogin
             // 
@@ -159,9 +159,9 @@
             this.Name = "frmLogin";
             this.Text = "Đăng nhập";
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.techlinkErrorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.techlinkErrorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

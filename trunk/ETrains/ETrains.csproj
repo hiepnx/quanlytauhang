@@ -401,7 +401,9 @@
     <EmbeddedResource Include="Train\frmTrainPassengers.resx">
       <DependentUpon>frmTrainPassengers.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -692,6 +694,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exportSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Train.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

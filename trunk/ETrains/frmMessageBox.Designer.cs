@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMessageBox));
             this.lblContent = new System.Windows.Forms.Label();
             this.btnYes = new System.Windows.Forms.Button();
             this.btnNo = new System.Windows.Forms.Button();
@@ -72,6 +73,7 @@
             this.Controls.Add(this.btnYes);
             this.Controls.Add(this.lblContent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMessageBox";
