@@ -86,7 +86,7 @@ namespace ETrains.Train
                                  };
 
                 _listToaTau.Add(toaTau);
-                ((frmTrainImport)this.Owner.ActiveMdiChild).BindToaTau();
+                //((frmTrainImport)this.Owner.ActiveMdiChild).BindToaTau();
                 MessageBox.Show("Thêm mới toa tàu thành công!");
                 Reset();
 

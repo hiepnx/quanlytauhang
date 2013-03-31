@@ -20,7 +20,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("dbTrainModel", "FK__tblHandov__ListR__06CD04F7", "tblListHandoverReply", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ETrains.DAL.tblListHandoverReply), "tblHandover", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblHandover))]
 
 // Original file name:
-// Generation date: 3/27/2013 11:43:47 PM
+// Generation date: 3/31/2013 11:19:47 AM
 namespace ETrains.DAL
 {
     
@@ -208,23 +208,6 @@ namespace ETrains.DAL
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         private global::System.Data.Objects.ObjectQuery<tblToKhaiTauResource> _tblToKhaiTauResources;
         /// <summary>
-        /// There are no comments for tblTrains in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Data.Objects.ObjectQuery<tblTrain> tblTrains
-        {
-            get
-            {
-                if ((this._tblTrains == null))
-                {
-                    this._tblTrains = base.CreateQuery<tblTrain>("[tblTrains]");
-                }
-                return this._tblTrains;
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Data.Objects.ObjectQuery<tblTrain> _tblTrains;
-        /// <summary>
         /// There are no comments for tblTypes in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
@@ -344,6 +327,23 @@ namespace ETrains.DAL
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         private global::System.Data.Objects.ObjectQuery<ViewListHanoverReply> _ViewListHanoverReplies;
         /// <summary>
+        /// There are no comments for tblTrains in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Data.Objects.ObjectQuery<tblTrain> tblTrains
+        {
+            get
+            {
+                if ((this._tblTrains == null))
+                {
+                    this._tblTrains = base.CreateQuery<tblTrain>("[tblTrains]");
+                }
+                return this._tblTrains;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Data.Objects.ObjectQuery<tblTrain> _tblTrains;
+        /// <summary>
         /// There are no comments for sysdiagrams in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
@@ -416,14 +416,6 @@ namespace ETrains.DAL
             base.AddObject("tblToKhaiTauResources", tblToKhaiTauResource);
         }
         /// <summary>
-        /// There are no comments for tblTrains in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public void AddTotblTrains(tblTrain tblTrain)
-        {
-            base.AddObject("tblTrains", tblTrain);
-        }
-        /// <summary>
         /// There are no comments for tblTypes in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
@@ -478,6 +470,14 @@ namespace ETrains.DAL
         public void AddToViewListHanoverReplies(ViewListHanoverReply viewListHanoverReply)
         {
             base.AddObject("ViewListHanoverReplies", viewListHanoverReply);
+        }
+        /// <summary>
+        /// There are no comments for tblTrains in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public void AddTotblTrains(tblTrain tblTrain)
+        {
+            base.AddObject("tblTrains", tblTrain);
         }
     }
     /// <summary>
@@ -2874,623 +2874,6 @@ namespace ETrains.DAL
         }
     }
     /// <summary>
-    /// There are no comments for dbTrainModel.tblTrain in the schema.
-    /// </summary>
-    /// <KeyProperties>
-    /// TrainID
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="dbTrainModel", Name="tblTrain")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class tblTrain : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// Create a new tblTrain object.
-        /// </summary>
-        /// <param name="trainID">Initial value of TrainID.</param>
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public static tblTrain CreatetblTrain(long trainID)
-        {
-            tblTrain tblTrain = new tblTrain();
-            tblTrain.TrainID = trainID;
-            return tblTrain;
-        }
-        /// <summary>
-        /// There are no comments for property TrainID in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public long TrainID
-        {
-            get
-            {
-                return this._TrainID;
-            }
-            set
-            {
-                this.OnTrainIDChanging(value);
-                this.ReportPropertyChanging("TrainID");
-                this._TrainID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("TrainID");
-                this.OnTrainIDChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private long _TrainID;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnTrainIDChanging(long value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnTrainIDChanged();
-        /// <summary>
-        /// There are no comments for property Number in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public string Number
-        {
-            get
-            {
-                return this._Number;
-            }
-            set
-            {
-                this.OnNumberChanging(value);
-                this.ReportPropertyChanging("Number");
-                this._Number = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("Number");
-                this.OnNumberChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private string _Number;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnNumberChanging(string value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnNumberChanged();
-        /// <summary>
-        /// There are no comments for property Type in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<short> Type
-        {
-            get
-            {
-                return this._Type;
-            }
-            set
-            {
-                this.OnTypeChanging(value);
-                this.ReportPropertyChanging("Type");
-                this._Type = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("Type");
-                this.OnTypeChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<short> _Type;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnTypeChanging(global::System.Nullable<short> value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnTypeChanged();
-        /// <summary>
-        /// There are no comments for property IsImport in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<bool> IsImport
-        {
-            get
-            {
-                return this._IsImport;
-            }
-            set
-            {
-                this.OnIsImportChanging(value);
-                this.ReportPropertyChanging("IsImport");
-                this._IsImport = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("IsImport");
-                this.OnIsImportChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<bool> _IsImport;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnIsImportChanging(global::System.Nullable<bool> value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnIsImportChanged();
-        /// <summary>
-        /// There are no comments for property DateImport in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<global::System.DateTime> DateImport
-        {
-            get
-            {
-                return this._DateImport;
-            }
-            set
-            {
-                this.OnDateImportChanging(value);
-                this.ReportPropertyChanging("DateImport");
-                this._DateImport = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("DateImport");
-                this.OnDateImportChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<global::System.DateTime> _DateImport;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnDateImportChanging(global::System.Nullable<global::System.DateTime> value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnDateImportChanged();
-        /// <summary>
-        /// There are no comments for property IsExport in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<bool> IsExport
-        {
-            get
-            {
-                return this._IsExport;
-            }
-            set
-            {
-                this.OnIsExportChanging(value);
-                this.ReportPropertyChanging("IsExport");
-                this._IsExport = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("IsExport");
-                this.OnIsExportChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<bool> _IsExport;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnIsExportChanging(global::System.Nullable<bool> value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnIsExportChanged();
-        /// <summary>
-        /// There are no comments for property DateExport in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<global::System.DateTime> DateExport
-        {
-            get
-            {
-                return this._DateExport;
-            }
-            set
-            {
-                this.OnDateExportChanging(value);
-                this.ReportPropertyChanging("DateExport");
-                this._DateExport = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("DateExport");
-                this.OnDateExportChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<global::System.DateTime> _DateExport;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnDateExportChanging(global::System.Nullable<global::System.DateTime> value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnDateExportChanged();
-        /// <summary>
-        /// There are no comments for property NumberHandover in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public string NumberHandover
-        {
-            get
-            {
-                return this._NumberHandover;
-            }
-            set
-            {
-                this.OnNumberHandoverChanging(value);
-                this.ReportPropertyChanging("NumberHandover");
-                this._NumberHandover = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("NumberHandover");
-                this.OnNumberHandoverChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private string _NumberHandover;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnNumberHandoverChanging(string value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnNumberHandoverChanged();
-        /// <summary>
-        /// There are no comments for property DateHandover in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<global::System.DateTime> DateHandover
-        {
-            get
-            {
-                return this._DateHandover;
-            }
-            set
-            {
-                this.OnDateHandoverChanging(value);
-                this.ReportPropertyChanging("DateHandover");
-                this._DateHandover = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("DateHandover");
-                this.OnDateHandoverChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<global::System.DateTime> _DateHandover;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnDateHandoverChanging(global::System.Nullable<global::System.DateTime> value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnDateHandoverChanged();
-        /// <summary>
-        /// There are no comments for property CodeStation in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public string CodeStation
-        {
-            get
-            {
-                return this._CodeStation;
-            }
-            set
-            {
-                this.OnCodeStationChanging(value);
-                this.ReportPropertyChanging("CodeStation");
-                this._CodeStation = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("CodeStation");
-                this.OnCodeStationChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private string _CodeStation;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnCodeStationChanging(string value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnCodeStationChanged();
-        /// <summary>
-        /// There are no comments for property CodeStationFromTo in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public string CodeStationFromTo
-        {
-            get
-            {
-                return this._CodeStationFromTo;
-            }
-            set
-            {
-                this.OnCodeStationFromToChanging(value);
-                this.ReportPropertyChanging("CodeStationFromTo");
-                this._CodeStationFromTo = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("CodeStationFromTo");
-                this.OnCodeStationFromToChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private string _CodeStationFromTo;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnCodeStationFromToChanging(string value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnCodeStationFromToChanged();
-        /// <summary>
-        /// There are no comments for property StatusVehicle in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public string StatusVehicle
-        {
-            get
-            {
-                return this._StatusVehicle;
-            }
-            set
-            {
-                this.OnStatusVehicleChanging(value);
-                this.ReportPropertyChanging("StatusVehicle");
-                this._StatusVehicle = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("StatusVehicle");
-                this.OnStatusVehicleChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private string _StatusVehicle;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnStatusVehicleChanging(string value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnStatusVehicleChanged();
-        /// <summary>
-        /// There are no comments for property StatusGoods in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public string StatusGoods
-        {
-            get
-            {
-                return this._StatusGoods;
-            }
-            set
-            {
-                this.OnStatusGoodsChanging(value);
-                this.ReportPropertyChanging("StatusGoods");
-                this._StatusGoods = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("StatusGoods");
-                this.OnStatusGoodsChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private string _StatusGoods;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnStatusGoodsChanging(string value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnStatusGoodsChanged();
-        /// <summary>
-        /// There are no comments for property NumberPartTrain in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public string NumberPartTrain
-        {
-            get
-            {
-                return this._NumberPartTrain;
-            }
-            set
-            {
-                this.OnNumberPartTrainChanging(value);
-                this.ReportPropertyChanging("NumberPartTrain");
-                this._NumberPartTrain = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("NumberPartTrain");
-                this.OnNumberPartTrainChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private string _NumberPartTrain;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnNumberPartTrainChanging(string value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnNumberPartTrainChanged();
-        /// <summary>
-        /// There are no comments for property Jounery in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public string Jounery
-        {
-            get
-            {
-                return this._Jounery;
-            }
-            set
-            {
-                this.OnJouneryChanging(value);
-                this.ReportPropertyChanging("Jounery");
-                this._Jounery = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("Jounery");
-                this.OnJouneryChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private string _Jounery;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnJouneryChanging(string value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnJouneryChanged();
-        /// <summary>
-        /// There are no comments for property PassengerVN in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<int> PassengerVN
-        {
-            get
-            {
-                return this._PassengerVN;
-            }
-            set
-            {
-                this.OnPassengerVNChanging(value);
-                this.ReportPropertyChanging("PassengerVN");
-                this._PassengerVN = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("PassengerVN");
-                this.OnPassengerVNChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<int> _PassengerVN;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnPassengerVNChanging(global::System.Nullable<int> value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnPassengerVNChanged();
-        /// <summary>
-        /// There are no comments for property PassengerForegin in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<int> PassengerForegin
-        {
-            get
-            {
-                return this._PassengerForegin;
-            }
-            set
-            {
-                this.OnPassengerForeginChanging(value);
-                this.ReportPropertyChanging("PassengerForegin");
-                this._PassengerForegin = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("PassengerForegin");
-                this.OnPassengerForeginChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<int> _PassengerForegin;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnPassengerForeginChanging(global::System.Nullable<int> value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnPassengerForeginChanged();
-        /// <summary>
-        /// There are no comments for property Staff in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<int> Staff
-        {
-            get
-            {
-                return this._Staff;
-            }
-            set
-            {
-                this.OnStaffChanging(value);
-                this.ReportPropertyChanging("Staff");
-                this._Staff = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("Staff");
-                this.OnStaffChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<int> _Staff;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnStaffChanging(global::System.Nullable<int> value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnStaffChanged();
-        /// <summary>
-        /// There are no comments for property CreatedDate in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<global::System.DateTime> CreatedDate
-        {
-            get
-            {
-                return this._CreatedDate;
-            }
-            set
-            {
-                this.OnCreatedDateChanging(value);
-                this.ReportPropertyChanging("CreatedDate");
-                this._CreatedDate = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("CreatedDate");
-                this.OnCreatedDateChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<global::System.DateTime> _CreatedDate;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnCreatedDateChanging(global::System.Nullable<global::System.DateTime> value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnCreatedDateChanged();
-        /// <summary>
-        /// There are no comments for property CreatedBy in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<int> CreatedBy
-        {
-            get
-            {
-                return this._CreatedBy;
-            }
-            set
-            {
-                this.OnCreatedByChanging(value);
-                this.ReportPropertyChanging("CreatedBy");
-                this._CreatedBy = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("CreatedBy");
-                this.OnCreatedByChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<int> _CreatedBy;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnCreatedByChanging(global::System.Nullable<int> value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnCreatedByChanged();
-        /// <summary>
-        /// There are no comments for property ModifiedDate in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<global::System.DateTime> ModifiedDate
-        {
-            get
-            {
-                return this._ModifiedDate;
-            }
-            set
-            {
-                this.OnModifiedDateChanging(value);
-                this.ReportPropertyChanging("ModifiedDate");
-                this._ModifiedDate = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("ModifiedDate");
-                this.OnModifiedDateChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<global::System.DateTime> _ModifiedDate;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnModifiedDateChanging(global::System.Nullable<global::System.DateTime> value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnModifiedDateChanged();
-        /// <summary>
-        /// There are no comments for property ModifiedBy in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<int> ModifiedBy
-        {
-            get
-            {
-                return this._ModifiedBy;
-            }
-            set
-            {
-                this.OnModifiedByChanging(value);
-                this.ReportPropertyChanging("ModifiedBy");
-                this._ModifiedBy = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("ModifiedBy");
-                this.OnModifiedByChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<int> _ModifiedBy;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnModifiedByChanging(global::System.Nullable<int> value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnModifiedByChanged();
-    }
-    /// <summary>
     /// There are no comments for dbTrainModel.tblType in the schema.
     /// </summary>
     /// <KeyProperties>
@@ -5587,5 +4970,352 @@ namespace ETrains.DAL
         partial void OnCustomsReceiverNameChanging(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnCustomsReceiverNameChanged();
+    }
+    /// <summary>
+    /// There are no comments for dbTrainModel.tblTrain in the schema.
+    /// </summary>
+    /// <KeyProperties>
+    /// TrainID
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="dbTrainModel", Name="tblTrain")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class tblTrain : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// Create a new tblTrain object.
+        /// </summary>
+        /// <param name="trainID">Initial value of TrainID.</param>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public static tblTrain CreatetblTrain(long trainID)
+        {
+            tblTrain tblTrain = new tblTrain();
+            tblTrain.TrainID = trainID;
+            return tblTrain;
+        }
+        /// <summary>
+        /// There are no comments for property TrainID in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public long TrainID
+        {
+            get
+            {
+                return this._TrainID;
+            }
+            set
+            {
+                this.OnTrainIDChanging(value);
+                this.ReportPropertyChanging("TrainID");
+                this._TrainID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("TrainID");
+                this.OnTrainIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private long _TrainID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTrainIDChanging(long value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTrainIDChanged();
+        /// <summary>
+        /// There are no comments for property Number in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string Number
+        {
+            get
+            {
+                return this._Number;
+            }
+            set
+            {
+                this.OnNumberChanging(value);
+                this.ReportPropertyChanging("Number");
+                this._Number = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("Number");
+                this.OnNumberChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _Number;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnNumberChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnNumberChanged();
+        /// <summary>
+        /// There are no comments for property Type in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<short> Type
+        {
+            get
+            {
+                return this._Type;
+            }
+            set
+            {
+                this.OnTypeChanging(value);
+                this.ReportPropertyChanging("Type");
+                this._Type = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("Type");
+                this.OnTypeChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<short> _Type;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTypeChanging(global::System.Nullable<short> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTypeChanged();
+        /// <summary>
+        /// There are no comments for property DateImportExport in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<global::System.DateTime> DateImportExport
+        {
+            get
+            {
+                return this._DateImportExport;
+            }
+            set
+            {
+                this.OnDateImportExportChanging(value);
+                this.ReportPropertyChanging("DateImportExport");
+                this._DateImportExport = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("DateImportExport");
+                this.OnDateImportExportChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<global::System.DateTime> _DateImportExport;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnDateImportExportChanging(global::System.Nullable<global::System.DateTime> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnDateImportExportChanged();
+        /// <summary>
+        /// There are no comments for property Jounery in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string Jounery
+        {
+            get
+            {
+                return this._Jounery;
+            }
+            set
+            {
+                this.OnJouneryChanging(value);
+                this.ReportPropertyChanging("Jounery");
+                this._Jounery = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("Jounery");
+                this.OnJouneryChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _Jounery;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnJouneryChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnJouneryChanged();
+        /// <summary>
+        /// There are no comments for property PassengerVN in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<int> PassengerVN
+        {
+            get
+            {
+                return this._PassengerVN;
+            }
+            set
+            {
+                this.OnPassengerVNChanging(value);
+                this.ReportPropertyChanging("PassengerVN");
+                this._PassengerVN = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("PassengerVN");
+                this.OnPassengerVNChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<int> _PassengerVN;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnPassengerVNChanging(global::System.Nullable<int> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnPassengerVNChanged();
+        /// <summary>
+        /// There are no comments for property PassengerForegin in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<int> PassengerForegin
+        {
+            get
+            {
+                return this._PassengerForegin;
+            }
+            set
+            {
+                this.OnPassengerForeginChanging(value);
+                this.ReportPropertyChanging("PassengerForegin");
+                this._PassengerForegin = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("PassengerForegin");
+                this.OnPassengerForeginChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<int> _PassengerForegin;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnPassengerForeginChanging(global::System.Nullable<int> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnPassengerForeginChanged();
+        /// <summary>
+        /// There are no comments for property Staff in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<int> Staff
+        {
+            get
+            {
+                return this._Staff;
+            }
+            set
+            {
+                this.OnStaffChanging(value);
+                this.ReportPropertyChanging("Staff");
+                this._Staff = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("Staff");
+                this.OnStaffChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<int> _Staff;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnStaffChanging(global::System.Nullable<int> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnStaffChanged();
+        /// <summary>
+        /// There are no comments for property CreatedDate in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<global::System.DateTime> CreatedDate
+        {
+            get
+            {
+                return this._CreatedDate;
+            }
+            set
+            {
+                this.OnCreatedDateChanging(value);
+                this.ReportPropertyChanging("CreatedDate");
+                this._CreatedDate = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("CreatedDate");
+                this.OnCreatedDateChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<global::System.DateTime> _CreatedDate;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCreatedDateChanging(global::System.Nullable<global::System.DateTime> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCreatedDateChanged();
+        /// <summary>
+        /// There are no comments for property CreatedBy in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<int> CreatedBy
+        {
+            get
+            {
+                return this._CreatedBy;
+            }
+            set
+            {
+                this.OnCreatedByChanging(value);
+                this.ReportPropertyChanging("CreatedBy");
+                this._CreatedBy = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("CreatedBy");
+                this.OnCreatedByChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<int> _CreatedBy;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCreatedByChanging(global::System.Nullable<int> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCreatedByChanged();
+        /// <summary>
+        /// There are no comments for property ModifiedDate in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<global::System.DateTime> ModifiedDate
+        {
+            get
+            {
+                return this._ModifiedDate;
+            }
+            set
+            {
+                this.OnModifiedDateChanging(value);
+                this.ReportPropertyChanging("ModifiedDate");
+                this._ModifiedDate = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("ModifiedDate");
+                this.OnModifiedDateChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<global::System.DateTime> _ModifiedDate;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnModifiedDateChanging(global::System.Nullable<global::System.DateTime> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnModifiedDateChanged();
+        /// <summary>
+        /// There are no comments for property ModifiedBy in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<int> ModifiedBy
+        {
+            get
+            {
+                return this._ModifiedBy;
+            }
+            set
+            {
+                this.OnModifiedByChanging(value);
+                this.ReportPropertyChanging("ModifiedBy");
+                this._ModifiedBy = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("ModifiedBy");
+                this.OnModifiedByChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<int> _ModifiedBy;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnModifiedByChanging(global::System.Nullable<int> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnModifiedByChanged();
     }
 }

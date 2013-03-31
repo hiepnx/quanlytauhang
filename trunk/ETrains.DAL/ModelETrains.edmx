@@ -256,17 +256,7 @@
           <Property Name="TrainID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Number" Type="nvarchar" MaxLength="50" />
           <Property Name="Type" Type="smallint" />
-          <Property Name="IsImport" Type="bit" />
-          <Property Name="DateImport" Type="datetime" />
-          <Property Name="IsExport" Type="bit" />
-          <Property Name="DateExport" Type="datetime" />
-          <Property Name="NumberHandover" Type="nvarchar" MaxLength="50" />
-          <Property Name="DateHandover" Type="datetime" />
-          <Property Name="CodeStation" Type="nvarchar" MaxLength="50" />
-          <Property Name="CodeStationFromTo" Type="nvarchar" MaxLength="50" />
-          <Property Name="StatusVehicle" Type="nvarchar" MaxLength="200" />
-          <Property Name="StatusGoods" Type="nvarchar" MaxLength="200" />
-          <Property Name="NumberPartTrain" Type="nchar" MaxLength="10" />
+          <Property Name="DateImportExport" Type="datetime" />
           <Property Name="Jounery" Type="nvarchar" MaxLength="200" />
           <Property Name="PassengerVN" Type="int" />
           <Property Name="PassengerForegin" Type="int" />
@@ -456,7 +446,6 @@
           <EntitySet Name="tblToaTaus" EntityType="dbTrainModel.tblToaTau" />
           <EntitySet Name="tblToKhaiTaus" EntityType="dbTrainModel.tblToKhaiTau" />
           <EntitySet Name="tblToKhaiTauResources" EntityType="dbTrainModel.tblToKhaiTauResource" />
-          <EntitySet Name="tblTrains" EntityType="dbTrainModel.tblTrain" />
           <EntitySet Name="tblTypes" EntityType="dbTrainModel.tblType" />
           <EntitySet Name="tblUsers" EntityType="dbTrainModel.tblUser" />
           <EntitySet Name="ViewGetCurrentDates" EntityType="dbTrainModel.ViewGetCurrentDate" />
@@ -500,6 +489,7 @@
             <End Role="tblHandover" EntitySet="tblHandovers" />
           </AssociationSet>
           <EntitySet Name="ViewListHanoverReplies" EntityType="dbTrainModel.ViewListHanoverReply" />
+          <EntitySet Name="tblTrains" EntityType="dbTrainModel.tblTrain" />
           </EntityContainer>
         <EntityType Name="sysdiagram">
           <Key>
@@ -624,33 +614,6 @@
           <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Int64" />
           <NavigationProperty Name="tblToaTau" Relationship="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau" FromRole="tblToKhaiTauResource" ToRole="tblToaTau" />
           <NavigationProperty Name="tblToKhaiTau" Relationship="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau" FromRole="tblToKhaiTauResource" ToRole="tblToKhaiTau" />
-        </EntityType>
-        <EntityType Name="tblTrain">
-          <Key>
-            <PropertyRef Name="TrainID" />
-          </Key>
-          <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="TrainID" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Int64" />
-          <Property Name="Number" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="Type" Type="Int16" />
-          <Property Name="IsImport" Type="Boolean" />
-          <Property Name="DateImport" Type="DateTime" />
-          <Property Name="IsExport" Type="Boolean" />
-          <Property Name="DateExport" Type="DateTime" />
-          <Property Name="NumberHandover" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="DateHandover" Type="DateTime" />
-          <Property Name="CodeStation" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="CodeStationFromTo" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="StatusVehicle" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="StatusGoods" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="NumberPartTrain" MaxLength="10" FixedLength="true" Unicode="true" Type="String" />
-          <Property Name="Jounery" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="PassengerVN" Type="Int32" />
-          <Property Name="PassengerForegin" Type="Int32" />
-          <Property Name="Staff" Type="Int32" />
-          <Property Name="CreatedDate" Type="DateTime" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="ModifiedDate" Type="DateTime" />
-          <Property Name="ModifiedBy" Type="Int32" />
         </EntityType>
         <EntityType Name="tblType">
           <Key>
@@ -794,6 +757,23 @@
           <Property Type="Int32" Name="ModifiedBy" />
           <Property Type="String" Name="CustomsReceiverName" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="tblTrain">
+          <Key>
+            <PropertyRef Name="TrainID" />
+          </Key>
+          <Property Type="Int64" Name="TrainID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Number" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int16" Name="Type" />
+          <Property Type="DateTime" Name="DateImportExport" />
+          <Property Type="String" Name="Jounery" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PassengerVN" />
+          <Property Type="Int32" Name="PassengerForegin" />
+          <Property Type="Int32" Name="Staff" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Int32" Name="ModifiedBy" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -916,34 +896,6 @@
             <EntityTypeMapping TypeName="dbTrainModel.tblToKhaiTauResource">
               <MappingFragment StoreEntitySet="tblToKhaiTauResource">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblTrains">
-            <EntityTypeMapping TypeName="dbTrainModel.tblTrain">
-              <MappingFragment StoreEntitySet="tblTrain">
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="Staff" ColumnName="Staff" />
-                <ScalarProperty Name="PassengerForegin" ColumnName="PassengerForegin" />
-                <ScalarProperty Name="PassengerVN" ColumnName="PassengerVN" />
-                <ScalarProperty Name="Jounery" ColumnName="Jounery" />
-                <ScalarProperty Name="NumberPartTrain" ColumnName="NumberPartTrain" />
-                <ScalarProperty Name="StatusGoods" ColumnName="StatusGoods" />
-                <ScalarProperty Name="StatusVehicle" ColumnName="StatusVehicle" />
-                <ScalarProperty Name="CodeStationFromTo" ColumnName="CodeStationFromTo" />
-                <ScalarProperty Name="CodeStation" ColumnName="CodeStation" />
-                <ScalarProperty Name="DateHandover" ColumnName="DateHandover" />
-                <ScalarProperty Name="NumberHandover" ColumnName="NumberHandover" />
-                <ScalarProperty Name="DateExport" ColumnName="DateExport" />
-                <ScalarProperty Name="IsExport" ColumnName="IsExport" />
-                <ScalarProperty Name="DateImport" ColumnName="DateImport" />
-                <ScalarProperty Name="IsImport" ColumnName="IsImport" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="TrainID" ColumnName="TrainID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1129,6 +1081,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tblTrains">
+            <EntityTypeMapping TypeName="dbTrainModel.tblTrain">
+              <MappingFragment StoreEntitySet="tblTrain">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Staff" ColumnName="Staff" />
+                <ScalarProperty Name="PassengerForegin" ColumnName="PassengerForegin" />
+                <ScalarProperty Name="PassengerVN" ColumnName="PassengerVN" />
+                <ScalarProperty Name="Jounery" ColumnName="Jounery" />
+                <ScalarProperty Name="DateImportExport" ColumnName="DateImportExport" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1159,7 +1129,6 @@
         <EntityTypeShape EntityType="dbTrainModel.tblToaTau" PointX="3" PointY="9.625" Width="1.5" Height="5.0571093750000067" />
         <EntityTypeShape EntityType="dbTrainModel.tblToKhaiTau" PointX="3" PointY="15.5" Width="1.5" Height="3.5186979166666674" />
         <EntityTypeShape EntityType="dbTrainModel.tblToKhaiTauResource" PointX="5.25" PointY="13.5" Width="1.5" Height="1.5956835937500102" />
-        <EntityTypeShape EntityType="dbTrainModel.tblTrain" PointX="7.75" PointY="4.75" Width="1.5" Height="5.2494108072916674" />
         <EntityTypeShape EntityType="dbTrainModel.tblType" PointX="9.75" PointY="0.75" Width="1.5" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="dbTrainModel.tblUser" PointX="9.75" PointY="4.75" Width="1.5" Height="3.1340950520833246" />
         <EntityTypeShape EntityType="dbTrainModel.ViewGetCurrentDate" PointX="9.75" PointY="8.75" Width="1.5" Height="1.2110807291666674" />
@@ -1212,6 +1181,7 @@
           <ConnectorPoint PointX="9.875" PointY="12.759348958333334" />
         </AssociationConnector>
         <EntityTypeShape EntityType="dbTrainModel.ViewListHanoverReply" Width="1.5" PointX="0.75" PointY="0.75" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="dbTrainModel.tblTrain" Width="1.5" PointX="12.375" PointY="0.75" Height="3.3263964843750031" />
         </Diagram>
     </Diagrams>
   </Designer>

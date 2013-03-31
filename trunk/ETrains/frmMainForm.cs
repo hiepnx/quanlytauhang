@@ -164,70 +164,70 @@ namespace ETrains
 
         private void tàuHàngTrungQuốcNhậpCảnhToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new Train.frmTrainImport(_userInfo, 1);
-            frm.MdiParent = this;
-            frm.Show();
+            ///var frm = new Train.frmTrainImport(_userInfo, 1);
+            //frm.MdiParent = this;
+            //frm.Show();
         }
 
         private void tàuHàngTrungQuốcXuấtCảnhToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new Train.frmTrainImport(_userInfo, 0);
-            frm.MdiParent = this;
-            frm.Show();
+            //var frm = new Train.frmTrainImport(_userInfo, 0);
+            //frm.MdiParent = this;
+            //frm.Show();
         }
 
         private void khaiBáoToaTàuXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new Train.frmPartTrainExport(_userInfo);
-            frm.MdiParent = this;
-            frm.Show();
+            //var frm = new Train.frmPartTrainExport(_userInfo);
+            //frm.MdiParent = this;
+            //frm.Show();
         }
 
         private void tàuKháchXNKToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new Train.frmTrainPassengers(_userInfo);
+            var frm = new Train.frmTrainPassengers(null,_userInfo,null,0);
             frm.MdiParent = this;
             frm.Show();
         }
 
         private void quảnLýTàuHàngTrungQuốcXNCToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new Train.frmSearchTrain();
-            frm.MdiParent = this;
-            frm.Show();
+            //var frm = new Train.frmSearchTrain();
+            //frm.MdiParent = this;
+            //frm.Show();
         }
 
         private void quảnLýTàuKháchXNCToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new Train.frmSearchTrainPassenger();
+            var frm = new Train.frmSearchTrainPassenger(_userInfo);
             frm.MdiParent = this;
             frm.Show();
         }
 
         private void tsExport_Click(object sender, EventArgs e)
         {
-            var frm = new Train.frmTrainImport(_userInfo, 0);
-            frm.MdiParent = this;
-            frm.Show();
+            //var frm = new Train.frmTrainImport(_userInfo, 0);
+            //frm.MdiParent = this;
+            //frm.Show();
         }
 
         private void tsImport_Click(object sender, EventArgs e)
         {
-            var frm = new Train.frmTrainImport(_userInfo, 1);
-            frm.MdiParent = this;
-            frm.Show();
+            //var frm = new Train.frmTrainImport(_userInfo, 1);
+            //frm.MdiParent = this;
+            //frm.Show();
         }
 
         private void toolStripButtonSearch_Click(object sender, EventArgs e)
         {
-            var frm = new Train.frmSearchTrain();
-            frm.MdiParent = this;
-            frm.Show();
+            //var frm = new Train.frmSearchTrain();
+            //frm.MdiParent = this;
+            //frm.Show();
         }
 
         private void toolStripButtonListdeclarace_Click(object sender, EventArgs e)
         {
-            var frm = new Train.frmSearchTrainPassenger();
+            var frm = new Train.frmSearchTrainPassenger(_userInfo);
             frm.MdiParent = this;
             frm.Show();
         }
