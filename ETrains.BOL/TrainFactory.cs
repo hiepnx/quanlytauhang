@@ -54,24 +54,41 @@ namespace ETrains.BOL
 
         }
 
-        public static List<tblTrain> SearchTrain(string numberTrain, int type, DateTime date)
+        public static tblTrain FindTrainByID(Int64 ID)
+        {
+            var db = new dbTrainEntities(ConnectionController.GetConnection());
+            var originTrain = db.tblTrains.Where(g => g.TrainID == ID).FirstOrDefault();
+            return originTrain;
+        }
+
+        public static List<tblTrain> SearchTrain(string numberTrain, short type, bool seachDate, DateTime dateFrom, DateTime dateTo)
         {
             var db = new dbTrainEntities(ConnectionController.GetConnection());
 
-            IQueryable<tblTrain> lst = db.tblTrains;//.Where(x => (x.DateExport == date) || (x.DateImport == date));
-            if (!string.IsNullOrEmpty(numberTrain)) lst = lst.Where(x => x.Number.Contains(numberTrain));
-            if (type >= 0) lst = lst.Where(x => x.Type == type);
-            else if (type == -1) // search tau hang 
+            try
             {
-                lst = lst.Where(x => x.Type == (short)TrainType.TypeExportNormal || x.Type == (short)TrainType.TypeExportChange || x.Type == (short)TrainType.TypeImportNormal || x.Type == (short)TrainType.TypeImportChange);
-            }
-            else
-            {
-                //search tau khach
-                lst = lst.Where(x => x.Type == (short)TrainType.TypeExport || x.Type == (short)TrainType.TypeImport);
-            }
+                
+                IQueryable<tblTrain> lst = db.tblTrains;
+                if (!string.IsNullOrEmpty(numberTrain)) lst = lst.Where(x => x.Number.Contains(numberTrain));
+                if (type >= 0) lst = lst.Where(x => x.Type == type);
 
-            return lst.ToList();
+                if (seachDate == true)
+                {
+                    var fromDate = new DateTime(dateFrom.Year, dateFrom.Month, dateFrom.Day, 0, 0, 0);
+                    var toDate = new DateTime(dateTo.Year, dateTo.Month, dateTo.Day, 23, 59, 59);
+                    lst = lst.Where(x => x.DateImportExport.HasValue && x.DateImportExport.Value >= fromDate && x.DateImportExport.Value <= toDate);
+                }
+
+                return lst.ToList();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                db.Dispose();
+            }
 
         }
 

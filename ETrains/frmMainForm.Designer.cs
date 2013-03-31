@@ -53,6 +53,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.cậpNhậtBBBGHồiBáoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cậpNhậtBBBGChuyểnĐếnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAddHandoverReply = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.đăngKýTờKhaiXuấtCảnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngKýTờKhaiNhậpCảnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,7 +77,6 @@
             this.toolStripButtonListdeclarace = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.mnuAddHandoverReply = new System.Windows.Forms.ToolStripMenuItem();
             this.mnMain.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -188,7 +188,6 @@
             this.khaiBáoToaTàuXuấtToolStripMenuItem,
             this.tàuKháchXNKToolStripMenuItem,
             this.quảnLýTàuHàngTrungQuốcXNCToolStripMenuItem,
-            this.quảnLýTàuKháchXNCToolStripMenuItem,
             this.toolStripSeparator3,
             this.khaiBáoTàuHàngXuấtCảnhToolStripMenuItem,
             this.khaiBáoTàuHàngNhậpCảnhToolStripMenuItem,
@@ -201,6 +200,7 @@
             this.đăngKýTờKhaiNhậpCảnhToolStripMenuItem,
             this.toolStripSeparator5,
             this.quảnLýChuyếnTàuToolStripMenuItem,
+            this.quảnLýTàuKháchXNCToolStripMenuItem,
             this.quảnLýBiênBảnBànGiaoToolStripMenuItem,
             this.mnuListReplyManagement,
             this.quảnLýTờKhaiToolStripMenuItem});
@@ -237,7 +237,6 @@
             this.tàuKháchXNKToolStripMenuItem.Name = "tàuKháchXNKToolStripMenuItem";
             this.tàuKháchXNKToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.tàuKháchXNKToolStripMenuItem.Text = "Tàu khách XNC";
-            this.tàuKháchXNKToolStripMenuItem.Visible = false;
             this.tàuKháchXNKToolStripMenuItem.Click += new System.EventHandler(this.tàuKháchXNKToolStripMenuItem_Click);
             // 
             // quảnLýTàuHàngTrungQuốcXNCToolStripMenuItem
@@ -253,7 +252,6 @@
             this.quảnLýTàuKháchXNCToolStripMenuItem.Name = "quảnLýTàuKháchXNCToolStripMenuItem";
             this.quảnLýTàuKháchXNCToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.quảnLýTàuKháchXNCToolStripMenuItem.Text = "Quản lý tàu khách XNC";
-            this.quảnLýTàuKháchXNCToolStripMenuItem.Visible = false;
             this.quảnLýTàuKháchXNCToolStripMenuItem.Click += new System.EventHandler(this.quảnLýTàuKháchXNCToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
@@ -294,6 +292,13 @@
             this.cậpNhậtBBBGChuyểnĐếnToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.cậpNhậtBBBGChuyểnĐếnToolStripMenuItem.Text = "Tiếp nhận BBBG  chuyển đến";
             this.cậpNhậtBBBGChuyểnĐếnToolStripMenuItem.Click += new System.EventHandler(this.cậpNhậtBBBGChuyểnĐếnToolStripMenuItem_Click);
+            // 
+            // mnuAddHandoverReply
+            // 
+            this.mnuAddHandoverReply.Name = "mnuAddHandoverReply";
+            this.mnuAddHandoverReply.Size = new System.Drawing.Size(252, 22);
+            this.mnuAddHandoverReply.Text = "Tạo bảng kê hồi báo";
+            this.mnuAddHandoverReply.Click += new System.EventHandler(this.mnuAddHandoverReply_Click);
             // 
             // toolStripSeparator4
             // 
@@ -496,20 +501,13 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 41);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // mnuAddHandoverReply
-            // 
-            this.mnuAddHandoverReply.Name = "mnuAddHandoverReply";
-            this.mnuAddHandoverReply.Size = new System.Drawing.Size(252, 22);
-            this.mnuAddHandoverReply.Text = "Tạo bảng kê hồi báo";
-            this.mnuAddHandoverReply.Click += new System.EventHandler(this.mnuAddHandoverReply_Click);
-            // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ETrains.Properties.Resources.logoBackgound;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1140, 720);
+            this.ClientSize = new System.Drawing.Size(1140, 728);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.mnMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

@@ -44,7 +44,6 @@
             this.txtNumberTrain = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblNumber = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -149,6 +148,7 @@
             // 
             this.txtJourney.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtJourney.Location = new System.Drawing.Point(108, 55);
+            this.txtJourney.MaxLength = 200;
             this.txtJourney.Name = "txtJourney";
             this.txtJourney.Size = new System.Drawing.Size(605, 20);
             this.txtJourney.TabIndex = 4;
@@ -219,21 +219,6 @@
             this.lblNumber.TabIndex = 0;
             this.lblNumber.Text = "Số hiệu đoàn tàu";
             // 
-            // btnDelete
-            // 
-            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnDelete.Image = global::ETrains.Properties.Resources.delete;
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(173, 180);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(53, 28);
-            this.btnDelete.TabIndex = 10;
-            this.btnDelete.Text = "&Xóa";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
             // btnAddNew
             // 
             this.btnAddNew.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -258,7 +243,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnClose.Image = global::ETrains.Properties.Resources.Exit;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(232, 180);
+            this.btnClose.Location = new System.Drawing.Point(201, 180);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(63, 28);
             this.btnClose.TabIndex = 11;
@@ -276,11 +261,12 @@
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdate.Location = new System.Drawing.Point(110, 180);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(57, 28);
+            this.btnUpdate.Size = new System.Drawing.Size(85, 28);
             this.btnUpdate.TabIndex = 9;
-            this.btnUpdate.Text = "&Lưu";
+            this.btnUpdate.Text = "&Cập nhật";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // techlinkErrorProvider1
             // 
@@ -291,7 +277,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(751, 226);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnUpdate);
@@ -327,7 +312,6 @@
         public System.Windows.Forms.Label label6;
         private System.Windows.Forms.MaskedTextBox txtNumberPersonForegin;
         private System.Windows.Forms.MaskedTextBox txtNumberPersonVN;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnUpdate;
