@@ -126,13 +126,6 @@ namespace ETrains.DAL
         private string _typeCodeName;
         private string _companyName;
 
-        public string Ma_Chuyen_Tau
-        {
-            get
-            {
-                return this.tblChuyenTau.Ma_Chuyen_Tau;
-            }
-        }
         public string CreatedByName
         {
             get

@@ -267,6 +267,46 @@ namespace ETrains.BOL
             return train;
         }
 
+        public static List<tblToaTau> searchToaTauByToKhaiTauID(Int64 toKhaiTauID)
+        {
+            var db = Instance();
+            try
+            {
+                List<tblToKhaiTauResource> listTblToKhaiTauResource = db.tblToKhaiTauResources.Where(x => x.tblToKhaiTau.ID == toKhaiTauID).ToList();
+                List<tblToaTau> listToatau = new List<tblToaTau>();
+                foreach (tblToKhaiTauResource toKhaiResource in listTblToKhaiTauResource)
+                {
+                    if (toKhaiResource.tblToaTauReference.IsLoaded == false)
+                        toKhaiResource.tblToaTauReference.Load();
+                    listToatau.Add(toKhaiResource.tblToaTau);
+                }
+                return listToatau;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public static List<tblToaTau> searchToaTau(short type, string soVanDon, bool searchDate, DateTime dateFrom, DateTime dateTo)
+        {
+            var db = Instance();
+            IQueryable<tblToaTau> lst = db.tblToaTaus.Where(x => x.ToaTauID != null);
+            if (!string.IsNullOrEmpty(soVanDon)) lst = lst.Where(x => x.So_VanTai_Don.Contains(soVanDon));
+            if (type != -1)
+            {
+                lst = lst.Where(x => x.tblChuyenTau.Type == type);
+            }
+            if (searchDate == true)
+            {
+                var fromDate = new DateTime(dateFrom.Year, dateFrom.Month, dateFrom.Day, 0, 0, 0);
+                var toDate = new DateTime(dateTo.Year, dateTo.Month, dateTo.Day, 23, 59, 59);
+                lst = lst.Where(x => x.Ngay_VanTai_Don.HasValue && x.Ngay_VanTai_Don.Value >= fromDate && x.Ngay_VanTai_Don.Value <= toDate);
+            }
+           
+            return lst.ToList() ;
+        }
+
         public static tblChuyenTau GetById(long id)
         {
             var db = Instance();
@@ -387,10 +427,10 @@ namespace ETrains.BOL
             return lst.ToList();
         }
 
-        public static List<tblToKhaiTau> SearchToKhai(string number, int type, bool searchByDate, DateTime dateFrom, DateTime dateTo)
+        public static List<tblToKhaiTau> SearchToKhai(string number, short type, bool searchByDate, DateTime dateFrom, DateTime dateTo)
         {
             var db = Instance();
-            IQueryable<tblToKhaiTau> lst = db.tblToKhaiTaus.Include("tblChuyenTau").Where(h => h.IsDeleted == null || h.IsDeleted == false);
+            IQueryable<tblToKhaiTau> lst = db.tblToKhaiTaus.Where(h => h.IsDeleted == null || h.IsDeleted == false);
             if (searchByDate)
             {
                 var fromDate = new DateTime(dateFrom.Year, dateFrom.Month, dateFrom.Day, 0, 0, 0);
@@ -403,7 +443,11 @@ namespace ETrains.BOL
                 int.TryParse(number, out intNumber);
                 if (intNumber > 0) lst = lst.Where(x => x.Number == intNumber);
             }
-            if (type >= 0) lst = lst.Where(x => x.tblChuyenTau.Type == type);
+            if (type >= 0)
+            {
+                lst = lst.Where(x => x.Type == type);
+            }
+            
             return lst.ToList();
         }
 

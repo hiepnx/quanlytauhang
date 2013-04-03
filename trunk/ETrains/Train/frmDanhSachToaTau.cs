@@ -14,41 +14,42 @@ namespace ETrains.Train
     public partial class frmDanhSachToaTau : Form
     {
         private List<tblToaTau> _listToaTau;
-        private tblChuyenTau _train;
+        private string _soVanDon;
+        private short _type; //0: xuat canh, 1: nhap canh
 
         public frmDanhSachToaTau()
         {
             InitializeComponent();
         }
-        public frmDanhSachToaTau(tblChuyenTau train, ref List<tblToaTau> listToaTau)
+        public frmDanhSachToaTau(short type, string soVanDon, ref List<tblToaTau> listToaTau)
         {
             InitializeComponent();
             _listToaTau = listToaTau;
-            _train = train;
+            _soVanDon = soVanDon ;
+            _type = type;
         }
 
         private void frmDanhSachToaTau_Load(object sender, EventArgs e)
         {
             this.Text = "Tim kiem toa tau theo so hieu doan tau" + ConstantInfo.MESSAGE_TITLE + GlobalInfo.CompanyName;
+            txtSoVanTaiDon.Text = _soVanDon;
             Init();
         }
 
         private void Init()
-        {            
-            if (_train.Type == 0)
+        {
+            if (_type == 0)
             {
-                lblDateXNK.Text = "Ngày giờ xuất cảnh";
+                //lblDateXNK.Text = "Ngày giờ xuất cảnh";
                 grdToaTau.Columns["Ten_DoiTac"].HeaderText = "Tên người nhận";
                 grdToaTau.Columns["Ten_DoanhNghiep"].HeaderText = "Tên người gửi";
             }
-            else if (_train.Type == 1)
+            else if (_type == 1)
             {
-                lblDateXNK.Text = "Ngày giờ nhập cảnh";
+                //lblDateXNK.Text = "Ngày giờ nhập cảnh";
                 grdToaTau.Columns["Ten_DoiTac"].HeaderText = "Tên người gửi";
                 grdToaTau.Columns["Ten_DoanhNghiep"].HeaderText = "Tên người nhận";
             }
-            txtNumberTrain.Text = _train.Ma_Chuyen_Tau;
-            if (_train.Ngay_XNC != null) dtpDateXNC.Value = (DateTime) _train.Ngay_XNC;
 
             //custumize check box column
             var cusCheckbox = new DataGridViewDisableCheckBoxColumn();
@@ -61,18 +62,18 @@ namespace ETrains.Train
             grdToaTau.Columns.Insert(0, cusCheckbox);
             //grid Toa tau
             grdToaTau.AutoGenerateColumns = false;
-            _train.tblToaTaus.Load();
-            grdToaTau.DataSource = _train.tblToaTaus;
+            List<tblToaTau> listToaTau = TrainFactory.searchToaTau(_type, txtSoVanTaiDon.Text.Trim(), cbNgayVT.Checked, dtpFrom.Value, dtpTo.Value);
+            grdToaTau.DataSource = listToaTau;
             // Bind count column
             for (var i = 0; i < grdToaTau.Rows.Count; i++)
             {
                 // Add to count Column
                 grdToaTau.Rows[i].Cells["Count"].Value = (i + 1).ToString();
                 var toaTau = (tblToaTau) grdToaTau.Rows[i].DataBoundItem;
-                if (_listToaTau.Any(tau => tau.tblChuyenTau.TrainID == toaTau.tblChuyenTau.TrainID))
-                {
-                    grdToaTau.Rows[i].Cells["CusCheck"].Value = true;
-                }
+                //if (_listToaTau.Any(tau => tau.tblChuyenTau.TrainID == toaTau.tblChuyenTau.TrainID))
+                //{
+                //    grdToaTau.Rows[i].Cells["CusCheck"].Value = true;
+                //}
             }
 
         }
@@ -118,6 +119,28 @@ namespace ETrains.Train
             if (grdToaTau.Columns[e.ColumnIndex].Name != "CusCheck")
             {
                 grdToaTau.Columns[e.ColumnIndex].ReadOnly = true;
+            }
+        }
+
+        private void cbNgayVT_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpFrom.Enabled = dtpTo.Enabled = cbNgayVT.Checked;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            List<tblToaTau> listToaTau = TrainFactory.searchToaTau(_type, txtSoVanTaiDon.Text.Trim(), cbNgayVT.Checked, dtpFrom.Value, dtpTo.Value);
+            grdToaTau.DataSource = listToaTau;
+            // Bind count column
+            for (var i = 0; i < grdToaTau.Rows.Count; i++)
+            {
+                // Add to count Column
+                grdToaTau.Rows[i].Cells["Count"].Value = (i + 1).ToString();
+                var toaTau = (tblToaTau)grdToaTau.Rows[i].DataBoundItem;
+                //if (_listToaTau.Any(tau => tau.tblChuyenTau.TrainID == toaTau.tblChuyenTau.TrainID))
+                //{
+                //    grdToaTau.Rows[i].Cells["CusCheck"].Value = true;
+                //}
             }
         }
     }

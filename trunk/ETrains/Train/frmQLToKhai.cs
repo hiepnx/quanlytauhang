@@ -36,10 +36,14 @@ namespace ETrains.Train
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            search();
+        }
+        public void search()
+        {
             try
             {
                 listToKhai = TrainFactory.SearchToKhai(txtNumberTrain.Text.Trim(),
-                                                             Convert.ToInt32(((ComboBoxItem) ddlTypeName.SelectedItem).Value),
+                                                             Convert.ToInt16(((ComboBoxItem)ddlTypeName.SelectedItem).Value),
                                                              cbNgayDK.Checked, dtpFrom.Value, dtpTo.Value);
                 grdTrain.AutoGenerateColumns = false;
                 grdTrain.DataSource = listToKhai;
@@ -65,8 +69,12 @@ namespace ETrains.Train
         {
             if (e.RowIndex < 0) return;
             var toKhai = listToKhai[e.RowIndex];
-            var frm = new Train.frmThemChuyenTau(frmMainForm._userInfo, (short)toKhai.tblChuyenTau.Type, toKhai.tblChuyenTau);
-            frm.ShowDialog();
+            var frm = new Train.frmToKhai(frmMainForm._userInfo,toKhai,toKhai.Type.GetValueOrDefault(), 1);
+            if(frm.ShowDialog()== DialogResult.OK)
+            {
+                search();
+            }
+            
         }
     }
 }

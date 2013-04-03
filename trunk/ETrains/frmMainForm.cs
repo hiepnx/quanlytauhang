@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using ETrains.Utilities;
+using ETrains.Utilities.Enums;
 using ETrains.Train;
 
 namespace ETrains
@@ -262,14 +263,14 @@ namespace ETrains
 
         private void đăngKýTờKhaiXuấtCảnhToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new Train.frmToKhai(_userInfo, 0);
+            var frm = new Train.frmToKhai(_userInfo, null, (short)ChuyenTauType.TypeExport,0);
             frm.MdiParent = this;
             frm.Show();
         }
 
         private void đăngKýTờKhaiNhậpCảnhToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new Train.frmToKhai(_userInfo, 1);
+            var frm = new Train.frmToKhai(_userInfo, null, (short)ChuyenTauType.TypeImport, 0);
             frm.MdiParent = this;
             frm.Show();
         }
