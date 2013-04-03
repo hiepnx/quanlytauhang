@@ -15,18 +15,20 @@ namespace ETrains.Train
         private short _type; //0: xuat canh, 1 nhap canh
         private short _mode; //0: addnew, 1: edit
         private UserInfo _userInfo;
-        private List<tblToaTau> listToaTau = new List<tblToaTau>();
+        private List<tblToaTau> _listToaTau = new List<tblToaTau>();
+        private tblToKhaiTau _toKhaiTau;
 
         public frmToKhai()
         {
             InitializeComponent();
         }
-        public frmToKhai(UserInfo userInfo, short type, short mode = (short)0)
+        public frmToKhai(UserInfo userInfo, tblToKhaiTau toKhaiTau, short type, short mode = (short)0)
         {
             InitializeComponent();
             _userInfo = userInfo;
             _type = type;
             _mode = mode;
+            _toKhaiTau = toKhaiTau;
         }
 
         private void frmToKhai_Load(object sender, EventArgs e)
@@ -91,6 +93,27 @@ namespace ETrains.Train
             else
             {
                 btnAddNew.Enabled = false;
+                txtNumberToKhai.Text = _toKhaiTau.Number.ToString();
+                txtCustomsCode.Text = _toKhaiTau.CustomCode;
+                txtTypeCode.Text = _toKhaiTau.TypeCode;
+                ddlCustomsName.SelectedValue = _toKhaiTau.CustomCode;
+                ddlTypeName.SelectedValue = _toKhaiTau.TypeCode;
+                dtpDeclaration.Value = _toKhaiTau.DateDeclaration.GetValueOrDefault();
+                _listToaTau = TrainFactory.searchToaTauByToKhaiTauID(_toKhaiTau.ID);
+                if (_listToaTau == null)
+                    _listToaTau = new List<tblToaTau>();
+                grdToaTau.DataSource = null;
+                grdToaTau.AutoGenerateColumns = false;
+                var source = new List<tblToaTau>();
+                source.AddRange(_listToaTau);
+                grdToaTau.DataSource = source;
+                // Bind count column
+                for (var i = 0; i < grdToaTau.Rows.Count; i++)
+                {
+                    // Add to count Column
+                    grdToaTau.Rows[i].Cells[0].Value = (i + 1).ToString();
+                }
+
             }
         }
 
@@ -106,13 +129,13 @@ namespace ETrains.Train
 
         private void Reset()
         {
-            txtNumberToKhai.Text = txtCustomsCode.Text = txtTypeCode.Text = txtNumberTrain.Text = string.Empty;
+            txtNumberToKhai.Text = txtCustomsCode.Text = txtTypeCode.Text = txtSoVanDon.Text = string.Empty;
             dtpDeclaration.Value = DateTime.Now;
             ddlTypeName.SelectedIndex = ddlCustomsName.SelectedIndex = 0;
             grdToaTau.DataSource = null;
             btnUpdate.Enabled = btnDelete.Enabled = false;
             btnAddNew.Enabled = true;
-            listToaTau.Clear();
+            _listToaTau.Clear();
         }
         
         private void btnAddNew_Click(object sender, EventArgs e)
@@ -120,13 +143,13 @@ namespace ETrains.Train
             try
             {
                 if (!Validate()) return;
-                var train = TrainFactory.GetByCode(txtNumberTrain.Text.Trim());
-                if (train == null)
-                {
-                    MessageBox.Show("Số hiệu đoàn tàu không tồn tại!");
-                    txtNumberTrain.Focus();
-                    return;
-                }
+                //var train = TrainFactory.GetByCode(txtSoVanDon.Text.Trim());
+                //if (train == null)
+                //{
+                //    MessageBox.Show("Số hiệu đoàn tàu không tồn tại!");
+                //    txtSoVanDon.Focus();
+                //    return;
+                //}
                 if (grdToaTau.RowCount == 0)
                 {
                     MessageBox.Show("Bạn phải chọn ít nhất một toa tàu!");
@@ -134,7 +157,7 @@ namespace ETrains.Train
                 }
                 var declaration = new tblToKhaiTau
                                       {
-                                          tblChuyenTau = train,
+                                          Type=_type,
                                           Number = int.Parse(txtNumberToKhai.Text.Trim()),
                                           DateDeclaration = dtpDeclaration.Value,
                                           TypeCode = txtTypeCode.Text.Trim(),
@@ -142,7 +165,7 @@ namespace ETrains.Train
                                           CreatedBy = _userInfo.UserID,
                                           CreatedDate = CommonFactory.GetCurrentDate()
                                       };
-                foreach (var toaTau in listToaTau)
+                foreach (var toaTau in _listToaTau)
                 {
                     var declarationResource = new tblToKhaiTauResource
                                                   {
@@ -169,7 +192,7 @@ namespace ETrains.Train
             grdToaTau.DataSource = null;
             grdToaTau.AutoGenerateColumns = false;
             var source = new List<tblToaTau>();
-            source.AddRange(listToaTau);
+            source.AddRange(_listToaTau);
             grdToaTau.DataSource = source;
             // Bind count column
             for (var i = 0; i < grdToaTau.Rows.Count; i++)
@@ -181,14 +204,14 @@ namespace ETrains.Train
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var train = TrainFactory.GetByCode(txtNumberTrain.Text.Trim());
-            if (train == null)
-            {
-                MessageBox.Show("Số hiệu đoàn tàu không tồn tại!");
-                txtNumberTrain.Focus();
-                return;
-            }
-            var frm = new frmDanhSachToaTau(train, ref listToaTau);
+            //var train = TrainFactory.searchToaTau(txtSoVanDon.Text.Trim(), false, new DateTime(), new DateTime());
+            //if (train == null )
+            //{
+            //    MessageBox.Show("Số hiệu đoàn tàu không tồn tại!");
+            //    txtSoVanDon.Focus();
+            //    return;
+            //}
+            var frm = new frmDanhSachToaTau(_type, txtSoVanDon.Text.Trim(), ref _listToaTau);
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
                 BindToaTau();
@@ -234,25 +257,30 @@ namespace ETrains.Train
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    var dr = MessageBox.Show("Bạn có chắc là muốn xóa?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //    if (dr == DialogResult.Yes)
-            //    {
-            //        if (TrainFactory.DeleteHandoverByID(_handover.ID) > 0)
-            //        {
-            //            MessageBox.Show("Xóa xong");
-            //            this.DialogResult = DialogResult.OK;
-            //            this.Close();
-            //        }
-            //        else
-            //            MessageBox.Show("Xóa bị lỗi");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    if (GlobalInfo.IsDebug) MessageBox.Show(ex.ToString());
-            //}         
+            try
+            {
+                var dr = MessageBox.Show("Bạn có chắc là muốn xóa?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    if (TrainFactory.DeleteToKhaiByID(_toKhaiTau.ID) > 0)
+                    {
+                        MessageBox.Show("Xóa xong");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Xóa bị lỗi");
+                }
+            }
+            catch (Exception ex)
+            {
+                if (GlobalInfo.IsDebug) MessageBox.Show(ex.ToString());
+            }         
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

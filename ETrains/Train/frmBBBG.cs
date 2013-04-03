@@ -142,8 +142,8 @@ namespace ETrains.Train
             ddlGaDenDi.SelectedValue = _handover.CodeStationFromTo;
             txtStatusGood.Text = _handover.StatusGoods;
             txtStatusVehicle.Text = _handover.StatusVehicle;
-            txtNumberTrain.Text = _handover.Ma_Chuyen_Tau;
-            txtNumberTrain.ReadOnly = true;
+            //txtSoVanDon.Text = _handover.Ma_Chuyen_Tau;
+            //txtSoVanDon.ReadOnly = true;
             cbReply.Checked = _handover.IsReplied.Value;
             if (cbReply.Checked)
             {
@@ -198,7 +198,7 @@ namespace ETrains.Train
 
         private void Reset()
         {
-            txtNumberHandover.Text = txtCodeCuaKhau.Text = txtCodeGaDenDi.Text = txtStatusVehicle.Text = txtStatusGood.Text = txtNumberTrain.Text = string.Empty;
+            txtNumberHandover.Text = txtCodeCuaKhau.Text = txtCodeGaDenDi.Text = txtStatusVehicle.Text = txtStatusGood.Text = txtSoVanDon.Text = string.Empty;
             dtpHandover.Value = DateTime.Now;
             ddlCuaKhau.SelectedIndex = ddlGaDenDi.SelectedIndex = 0;
             grdToaTau.DataSource = null;
@@ -227,11 +227,11 @@ namespace ETrains.Train
             try
             {
                 if (!Validate()) return;
-                var train = TrainFactory.GetByCode(txtNumberTrain.Text.Trim());
+                var train = TrainFactory.GetByCode(txtSoVanDon.Text.Trim());
                 if (train == null)
                 {
                     MessageBox.Show("Số hiệu đoàn tàu không tồn tại!");
-                    txtNumberTrain.Focus();
+                    txtSoVanDon.Focus();
                     return;
                 }
                 if (grdToaTau.RowCount == 0)
@@ -349,14 +349,14 @@ namespace ETrains.Train
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var train = TrainFactory.GetByCode(txtNumberTrain.Text.Trim());
-            if (train == null)
-            {
-                MessageBox.Show("Số hiệu đoàn tàu không tồn tại!");
-                txtNumberTrain.Focus();
-                return;
-            }
-            var frm = new frmDanhSachToaTau(train,ref listToaTau);
+            //var train = TrainFactory.GetByCode(txtSoVanDon.Text.Trim());
+            //if (train == null)
+            //{
+            //    MessageBox.Show("Số hiệu đoàn tàu không tồn tại!");
+            //    txtSoVanDon.Focus();
+            //    return;
+            //}
+            var frm = new frmDanhSachToaTau(-1,txtSoVanDon.Text.Trim(),ref listToaTau);
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
                 BindToaTau();
