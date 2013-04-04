@@ -249,7 +249,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="int" />
+          <Property Name="Number" Type="bigint" />
           <Property Name="Type" Type="smallint" />
           <Property Name="DateDeclaration" Type="datetime" />
           <Property Name="TypeCode" Type="nvarchar" MaxLength="50" />
@@ -825,7 +825,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Int64" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="Int32" Name="Number" />
+          <Property Type="Int64" Name="Number" />
           <Property Type="Int16" Name="Type" />
           <Property Type="DateTime" Name="DateDeclaration" />
           <Property Type="String" Name="TypeCode" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -1186,7 +1186,7 @@
               <ScalarProperty Name="ID" ColumnName="ToKhaiTauID" />
             </EndProperty>
           </AssociationSetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

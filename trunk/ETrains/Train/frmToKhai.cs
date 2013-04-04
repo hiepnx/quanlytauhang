@@ -92,6 +92,7 @@ namespace ETrains.Train
             }
             else
             {
+                txtNumberToKhai.Enabled = false;
                 btnAddNew.Enabled = false;
                 txtNumberToKhai.Text = _toKhaiTau.Number.ToString();
                 txtCustomsCode.Text = _toKhaiTau.CustomCode;
@@ -143,22 +144,21 @@ namespace ETrains.Train
             try
             {
                 if (!Validate()) return;
-                //var train = TrainFactory.GetByCode(txtSoVanDon.Text.Trim());
-                //if (train == null)
-                //{
-                //    MessageBox.Show("Số hiệu đoàn tàu không tồn tại!");
-                //    txtSoVanDon.Focus();
-                //    return;
-                //}
                 if (grdToaTau.RowCount == 0)
                 {
                     MessageBox.Show("Bạn phải chọn ít nhất một toa tàu!");
                     return;    
                 }
+                //kiem tra su trung lap so to khai
+                if (TrainFactory.FindToKhaiTauByNumber(Int64.Parse(txtNumberToKhai.Text.Trim()))!=null)
+                {
+                    MessageBox.Show("Số tờ khai này đã tồn tại, xin nhập số khác!");
+                    return;   
+                }
                 var declaration = new tblToKhaiTau
                                       {
                                           Type=_type,
-                                          Number = int.Parse(txtNumberToKhai.Text.Trim()),
+                                          Number = Int64.Parse(txtNumberToKhai.Text.Trim()),
                                           DateDeclaration = dtpDeclaration.Value,
                                           TypeCode = txtTypeCode.Text.Trim(),
                                           CustomCode = txtCustomsCode.Text.Trim(),
@@ -280,7 +280,39 @@ namespace ETrains.Train
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (!Validate()) return;
+                
+                if (grdToaTau.RowCount == 0)
+                {
+                    MessageBox.Show("Bạn phải chọn ít nhất một toa tàu!");
+                    return;
+                }
+                
+                    
+                _toKhaiTau.Number = int.Parse(txtNumberToKhai.Text.Trim());
+                _toKhaiTau.DateDeclaration = dtpDeclaration.Value;
+                _toKhaiTau.TypeCode = txtTypeCode.Text.Trim();
+                _toKhaiTau.CustomCode = txtCustomsCode.Text.Trim();
+                _toKhaiTau.ModifiedBy = _userInfo.UserID;
+                _toKhaiTau.ModifiedDate = CommonFactory.GetCurrentDate();
 
+
+                var result = TrainFactory.UpdateToKhaiTau(_toKhaiTau, _listToaTau);
+
+                if (result > 0)
+                {
+                    MessageBox.Show(string.Format("Cập nhật Tờ khai {0} thành công!", _type == 0 ? "xuất cảnh" : "nhập cảnh"));
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else MessageBox.Show("Cập nhật Tờ khai không thành công!");
+            }
+            catch (Exception ex)
+            {
+                if (GlobalInfo.IsDebug) MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

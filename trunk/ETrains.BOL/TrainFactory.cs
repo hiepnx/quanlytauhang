@@ -209,55 +209,53 @@ namespace ETrains.BOL
         {
             try
             {
+                var db = Instance();
+                handover.ModifiedDate = CommonFactory.GetCurrentDate();
+                var originHandover = db.tblHandovers.Include("tblHandoverResources").Where(g => g.ID == handover.ID).FirstOrDefault();
 
-            
-            var db = Instance();
-            handover.ModifiedDate = CommonFactory.GetCurrentDate();
-            var originHandover = db.tblHandovers.Include("tblHandoverResources").Where(g => g.ID == handover.ID).FirstOrDefault();
-
-            foreach (var toaTau in listToaTau)
-            {
-                var originalResource = originHandover.tblHandoverResources
-                    .Where(c => c.tblToaTau.ToaTauID == toaTau.ToaTauID)
-                    .FirstOrDefault();
-                if (originalResource != null)
+                foreach (var toaTau in listToaTau)
                 {
-                    //db.Detach(originalToaTau);
-                    //if (originalToaTau.EntityState == EntityState.Detached)
-                    //{
-                    //    object original = null;
-                    //    if (db.TryGetObjectByKey(originalToaTau.EntityKey, out original))
-                    //        db.ApplyPropertyChanges(originalToaTau.EntityKey.EntitySetName, toaTau);
-                    //}
+                    var originalResource = originHandover.tblHandoverResources
+                        .Where(c => c.tblToaTau.ToaTauID == toaTau.ToaTauID)
+                        .FirstOrDefault();
+                    if (originalResource != null)
+                    {
+                        //db.Detach(originalToaTau);
+                        //if (originalToaTau.EntityState == EntityState.Detached)
+                        //{
+                        //    object original = null;
+                        //    if (db.TryGetObjectByKey(originalToaTau.EntityKey, out original))
+                        //        db.ApplyPropertyChanges(originalToaTau.EntityKey.EntitySetName, toaTau);
+                        //}
+                    }
+                    else
+                    {
+                        originalResource = new tblHandoverResource {tblToaTau = toaTau};
+                        db.AddTotblHandoverResources(originalResource);
+                    }
                 }
-                else
+
+                foreach (var originalResource in originHandover.tblHandoverResources.Where(c => c.ID != 0).ToList())
                 {
-                    originalResource = new tblHandoverResource {tblToaTau = toaTau};
-                    db.AddTotblHandoverResources(originalResource);
+                    if (!listToaTau.Any(c => c.ToaTauID == originalResource.tblToaTau.ToaTauID))
+                        db.DeleteObject(originalResource);
                 }
-            }
 
-            foreach (var originalResource in originHandover.tblHandoverResources.Where(c => c.ID != 0).ToList())
-            {
-                if (!listToaTau.Any(c => c.ToaTauID == originalResource.tblToaTau.ToaTauID))
-                    db.DeleteObject(originalResource);
-            }
+                db.Detach(originHandover);
+                if (originHandover.EntityState == EntityState.Detached)
+                {
+                    object original = null;
+                    if (db.TryGetObjectByKey(originHandover.EntityKey, out original))
+                        db.ApplyPropertyChanges(originHandover.EntityKey.EntitySetName, handover);
+                }
 
-            db.Detach(originHandover);
-            if (originHandover.EntityState == EntityState.Detached)
-            {
-                object original = null;
-                if (db.TryGetObjectByKey(originHandover.EntityKey, out original))
-                    db.ApplyPropertyChanges(originHandover.EntityKey.EntitySetName, handover);
-            }
-
-            return db.SaveChanges();
+                return db.SaveChanges();
             }
             catch (Exception)
             {
 
             }
-            return 1;
+            return 0;
         }
 
         public static tblChuyenTau GetByCode(string code)
@@ -339,6 +337,14 @@ namespace ETrains.BOL
 
         }
 
+
+        public static tblToKhaiTau FindToKhaiTauByNumber(long number)
+        {
+            var db = Instance();
+            return db.tblToKhaiTaus.Where(g => g.Number == number).FirstOrDefault();
+
+        }
+
         public static List<tblHandoverResource> FindHandoverResourceByHandoverID(long id)
         {
             var db = Instance();
@@ -359,6 +365,72 @@ namespace ETrains.BOL
             var db = Instance();
             db.AddTotblToKhaiTaus(toKhaiTau);
             return db.SaveChanges();
+        }
+        public static int deleteToKhaiTauResource(tblToKhaiTauResource toKhaiTauResource)
+        {
+            var db = Instance();
+
+            try
+            {
+                tblToKhaiTauResource originObj = db.tblToKhaiTauResources.Where(x => x.ID == toKhaiTauResource.ID).FirstOrDefault();
+                if (originObj != null)
+                {
+                    db.DeleteObject(originObj);
+                    return db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+            return 0;
+
+        }
+
+        public static int UpdateToKhaiTau(tblToKhaiTau toKhaiTau,List<tblToaTau> listToaTau)
+        {
+            try
+            {
+                var db = Instance(); 
+               
+                //xoa cac toa tau cu thuoc to khai
+                List<tblToKhaiTauResource> listReource = db.tblToKhaiTauResources.Where(x => x.tblToKhaiTau.ID == toKhaiTau.ID).ToList();
+                foreach (tblToKhaiTauResource resource in listReource)
+                {
+                    deleteToKhaiTauResource(resource);
+                }
+
+                //cap nhat thong tin to khai tau
+                tblToKhaiTau toKhaitauOrigin = db.tblToKhaiTaus.Where(x => x.ID == toKhaiTau.ID).FirstOrDefault();
+                if (toKhaitauOrigin != null)
+                {
+                    toKhaitauOrigin.Number = toKhaiTau.Number;
+                    toKhaitauOrigin.DateDeclaration = toKhaiTau.DateDeclaration;
+                    toKhaitauOrigin.TypeCode = toKhaiTau.TypeCode;
+                    toKhaitauOrigin.CustomCode = toKhaiTau.CustomCode;
+                    toKhaitauOrigin.ModifiedBy = toKhaiTau.ModifiedBy;
+                    toKhaitauOrigin.ModifiedDate = CommonFactory.GetCurrentDate();
+
+                    //them cac toa tau moi cho to khai
+                    foreach (var toaTau in listToaTau)
+                    {
+                        var declarationResource = new tblToKhaiTauResource
+                        {
+                            tblToaTau = toaTau
+                        };
+                        toKhaitauOrigin.tblToKhaiTauResources.Add(declarationResource);
+                    }
+
+                    db.SaveChanges();
+
+                }
+                return 1;
+            }
+            catch (Exception)
+            {
+
+            }
+            return 0;
         }
 
         public static int InsertToKhaiTauResource(tblToKhaiTauResource resource)
