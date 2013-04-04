@@ -82,13 +82,6 @@ namespace ETrains.DAL
         private string _createdByName;
         private string _modifiedByName;
 
-        public string Ma_Chuyen_Tau
-        {
-            get
-            {
-                return this.tblChuyenTau.Ma_Chuyen_Tau;
-            }
-        }
         public string CreatedByName
         {
             get

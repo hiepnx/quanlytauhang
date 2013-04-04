@@ -68,12 +68,7 @@ namespace ETrains
 
                 foreach (tblHandover obj in listHandover)
                 {
-                     if (obj.tblChuyenTauReference.IsLoaded == false)
-                        {
-                            obj.tblChuyenTauReference.Load();
-                        }
                      dt.Rows.Add(obj.ID,
-                         obj.tblChuyenTau.TrainID,
                          obj.NumberHandover,
                          obj.DateHandover,
                          obj.CodeStation,

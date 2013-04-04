@@ -134,8 +134,6 @@ namespace ETrains.Train
 
             foreach (tblHandover handover in _listHanover)
             {
-                if (handover.tblChuyenTauReference.IsLoaded == false)
-                    handover.tblChuyenTauReference.Load();
                 if (handover.Type == "0")
                 {
                     handover.Type = "BBBG Đến";
@@ -372,13 +370,7 @@ namespace ETrains.Train
                 {
                     if (obj.IsDeleted.GetValueOrDefault() != true)
                     {
-                        if (obj.tblChuyenTauReference.IsLoaded == false)
-                        {
-                            obj.tblChuyenTauReference.Load();
-                        }
-
                         dt.Rows.Add( obj.ID,
-                                     obj.tblChuyenTau.TrainID,
                                      obj.NumberHandover,
                                      obj.DateHandover,
                                      obj.CodeStation,

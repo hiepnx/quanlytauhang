@@ -30,7 +30,7 @@ namespace ETrains.Train
             cbReplyStatus.Items.Add(new ComboBoxItem(false, "Chưa hồi báo"));
             cbReplyStatus.SelectedIndex = 0;
 
-            search();
+            //search();
         }
 
         private void Init()
@@ -99,11 +99,8 @@ namespace ETrains.Train
         {
             if (e.RowIndex < 0) return;
             var handover = TrainFactory.FindHandoverByID(listHandOver[e.RowIndex].ID);
-            if (handover.tblChuyenTauReference.IsLoaded == false)
-            {
-                handover.tblChuyenTauReference.Load();
-            }
-            var frm = new Train.frmBBBG(frmMainForm._userInfo, (short)handover.tblChuyenTau.Type, handover);
+
+            var frm = new Train.frmBBBG(frmMainForm._userInfo, handover.Type, handover);
             frm.ShowDialog();
             if (frm.DialogResult == DialogResult.OK)
             {
@@ -113,7 +110,7 @@ namespace ETrains.Train
 
         private void grdHandover_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex != 2) return;
+            if (e.ColumnIndex != 1) return;
             var handover = TrainFactory.FindHandoverByID(listHandOver[e.RowIndex].ID);
             if (handover.IsReplied != true && handover.Type == "1") //neu chua duoc hoi bao, va la loai BBBG di
             {

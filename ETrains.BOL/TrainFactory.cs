@@ -205,6 +205,63 @@ namespace ETrains.BOL
             }
         }
 
+
+        public static int UpdateHandover(tblHandover handover, List<tblToaTau> listToaTau)
+        {
+            try
+            {
+                var db = Instance();
+
+                //xoa cac toa tau cu BBBG
+                List<tblHandoverResource> listReource = db.tblHandoverResources.Where(x => x.tblHandover.ID == handover.ID).ToList();
+                foreach (tblHandoverResource resource in listReource)
+                {
+                    db.DeleteObject(resource);
+                }
+
+                //cap nhat thong tin to BBBG
+                tblHandover handoverOrigin = db.tblHandovers.Where(x => x.ID == handover.ID).FirstOrDefault();
+                if (handoverOrigin != null)
+                {
+                    handoverOrigin.ModifiedBy = handover.ModifiedBy;
+                    handoverOrigin.NumberHandover = handover.NumberHandover;
+                    handoverOrigin.DateHandover = handover.DateHandover;
+                    handoverOrigin.CodeStation = handover.CodeStation;
+                    handoverOrigin.CodeStationFromTo = handover.CodeStationFromTo;
+                    handoverOrigin.StatusGoods = handover.StatusGoods;
+                    handoverOrigin.StatusVehicle = handover.StatusVehicle;
+                    handoverOrigin.ModifiedBy = handover.ModifiedBy;
+
+                    //thong tin hoi bao
+                    handoverOrigin.IsReplied = handover.IsReplied;
+                    handoverOrigin.NoteReply = handover.NoteReply;
+                    handoverOrigin.ReplyStatusGoods = handover.ReplyStatusGoods;
+                    handoverOrigin.DateReply = handover.DateReply;
+
+                    //them cac toa tau moi cho BBBG
+                    foreach (var toaTau in listToaTau)
+                    {
+                        var declarationResource = new tblHandoverResource
+                        {
+                            tblToaTau = toaTau
+                        };
+                        handoverOrigin.tblHandoverResources.Add(declarationResource);
+                    }
+
+                    db.SaveChanges();
+
+                }
+                return 1;
+            }
+            catch (Exception)
+            {
+
+            }
+            return 0;
+        }
+
+
+        /*
         public static int UpdateHandover(tblHandover handover, List<tblToaTau> listToaTau)
         {
             try
@@ -257,6 +314,7 @@ namespace ETrains.BOL
             }
             return 0;
         }
+         */
 
         public static tblChuyenTau GetByCode(string code)
         {
@@ -459,7 +517,7 @@ namespace ETrains.BOL
             var db = new dbTrainEntities(ConnectionController.GetConnection());
             try
             {
-                IQueryable<tblHandover> lst = db.tblHandovers.Include("tblChuyenTau").Where(h => h.IsDeleted == null || h.IsDeleted == false);
+                IQueryable<tblHandover> lst = db.tblHandovers.Where(h => h.IsDeleted == null || h.IsDeleted == false);
                 if (searchByDate)
                 {
                     var fromDate = new DateTime(dateFrom.Year, dateFrom.Month, dateFrom.Day, 0, 0, 0);
