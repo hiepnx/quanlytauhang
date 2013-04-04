@@ -861,8 +861,6 @@ namespace ETrains {
             
             private global::System.Data.DataColumn columnID;
             
-            private global::System.Data.DataColumn columnTrainID;
-            
             private global::System.Data.DataColumn columnNumberHandover;
             
             private global::System.Data.DataColumn columnDateHandover;
@@ -939,14 +937,6 @@ namespace ETrains {
             public global::System.Data.DataColumn IDColumn {
                 get {
                     return this.columnID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TrainIDColumn {
-                get {
-                    return this.columnTrainID;
                 }
             }
             
@@ -1140,7 +1130,6 @@ namespace ETrains {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public tblHandoverRow AddtblHandoverRow(
-                        long TrainID, 
                         string NumberHandover, 
                         System.DateTime DateHandover, 
                         string CodeStation, 
@@ -1163,7 +1152,6 @@ namespace ETrains {
                 tblHandoverRow rowtblHandoverRow = ((tblHandoverRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        TrainID,
                         NumberHandover,
                         DateHandover,
                         CodeStation,
@@ -1213,7 +1201,6 @@ namespace ETrains {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
-                this.columnTrainID = base.Columns["TrainID"];
                 this.columnNumberHandover = base.Columns["NumberHandover"];
                 this.columnDateHandover = base.Columns["DateHandover"];
                 this.columnCodeStation = base.Columns["CodeStation"];
@@ -1240,8 +1227,6 @@ namespace ETrains {
             private void InitClass() {
                 this.columnID = new global::System.Data.DataColumn("ID", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID);
-                this.columnTrainID = new global::System.Data.DataColumn("TrainID", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTrainID);
                 this.columnNumberHandover = new global::System.Data.DataColumn("NumberHandover", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNumberHandover);
                 this.columnDateHandover = new global::System.Data.DataColumn("DateHandover", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -1288,7 +1273,6 @@ namespace ETrains {
                 this.columnID.AllowDBNull = false;
                 this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
-                this.columnTrainID.AllowDBNull = false;
                 this.columnNumberHandover.MaxLength = 50;
                 this.columnCodeStation.MaxLength = 50;
                 this.columnCodeStationFromTo.MaxLength = 50;
@@ -1960,17 +1944,6 @@ namespace ETrains {
                 }
                 set {
                     this[this.tabletblHandover.IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long TrainID {
-                get {
-                    return ((long)(this[this.tabletblHandover.TrainIDColumn]));
-                }
-                set {
-                    this[this.tabletblHandover.TrainIDColumn] = value;
                 }
             }
             
@@ -3758,7 +3731,6 @@ SELECT ToaTauID, Ma_ToaTau, So_VanTai_Don, Ngay_VanTai_Don, Ten_DoiTac, Ma_Doanh
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "tblHandover";
             tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("TrainID", "TrainID");
             tableMapping.ColumnMappings.Add("NumberHandover", "NumberHandover");
             tableMapping.ColumnMappings.Add("DateHandover", "DateHandover");
             tableMapping.ColumnMappings.Add("CodeStation", "CodeStation");
@@ -3987,7 +3959,7 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        tblHandover.*\r\nFROM            tblHandover";
+            this._commandCollection[0].CommandText = @"SELECT ID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo, StatusGoods, StatusVehicle, CreatedDate, CreatedBy, ModifiedDate, ModifiedBy, IsReplied, NumberReply, DateReply, NoteReply, ReplyStatusGoods, Note, Type, IsDeleted, ListReplyID FROM tblHandover";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

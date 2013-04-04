@@ -14,7 +14,7 @@ namespace ETrains.Train
 {
     public partial class frmBBBG : Form
     {
-        private short _type; //0: BBBG chuyen den, 1 BBBG chuyen di
+        private string _type; //0: BBBG chuyen den, 1 BBBG chuyen di
         private short _mode; //0: addnew, 1: edit
         private UserInfo _userInfo;
         private List<tblToaTau> listToaTau = new List<tblToaTau>();
@@ -25,7 +25,7 @@ namespace ETrains.Train
         {
             InitializeComponent();
         }
-        public frmBBBG(UserInfo userInfo, short type, short mode = (short)0)
+        public frmBBBG(UserInfo userInfo, string type, short mode = (short)0)
         {
             InitializeComponent();
             _userInfo = userInfo;
@@ -33,7 +33,7 @@ namespace ETrains.Train
             _mode = mode;
         }
 
-        public frmBBBG(UserInfo userInfo, short type, tblHandover handover, short mode = (short)1)
+        public frmBBBG(UserInfo userInfo, string type, tblHandover handover, short mode = (short)1)
         {
             InitializeComponent();
             _userInfo = userInfo;
@@ -44,7 +44,7 @@ namespace ETrains.Train
 
         private void frmBBBG_Load(object sender, EventArgs e)
         {
-            this.Text = "Khai bao Bien ban ban giao " + (_type == 0 ? "chuyen den" : "chuyen di") + ConstantInfo.MESSAGE_TITLE + GlobalInfo.CompanyName;
+            this.Text = "Khai bao Bien ban ban giao " + (_type == "0" ? "chuyen den" : "chuyen di") + ConstantInfo.MESSAGE_TITLE + GlobalInfo.CompanyName;
             Init();
         }
 
@@ -54,7 +54,7 @@ namespace ETrains.Train
             {
                 txtNumberHandover.Enabled = false;
             }
-            if (_type == (short)HandoverType.HandoverComeIn) //BBBG chuyen den
+            if (_type == ((short)HandoverType.HandoverComeIn).ToString()) //BBBG chuyen den
             {
                 lblHeader.Text = "Cập nhật Biên bản bàn giao, chuyển đến";
                 if (_mode == 0)
@@ -65,7 +65,7 @@ namespace ETrains.Train
                 lblGaDenDi.Text = "Tên HQ ga đi";
                 
             }
-            else if (_type == (short)HandoverType.HandoverToGoOut) //BBBG chuyen di
+            else if (_type == ((short)HandoverType.HandoverToGoOut).ToString()) //BBBG chuyen di
             {
                 txtNumberHandover.Enabled = false;
                 lblHeader.Text = "Cập nhật Biên bản bàn giao, chuyển đi";
@@ -212,7 +212,7 @@ namespace ETrains.Train
             txtReplyStatusGoods.Enabled = false;
             txtReplyStatusGoods.Text = "";
 
-            if (_type == (short)HandoverType.HandoverToGoOut) //BBBG chuyen di
+            if (_type == ((short)HandoverType.HandoverToGoOut).ToString()) //BBBG chuyen di
             {
                 if (_mode == 0) //add mode
                 {
@@ -228,12 +228,7 @@ namespace ETrains.Train
             {
                 if (!Validate()) return;
                 var train = TrainFactory.GetByCode(txtSoVanDon.Text.Trim());
-                if (train == null)
-                {
-                    MessageBox.Show("Số hiệu đoàn tàu không tồn tại!");
-                    txtSoVanDon.Focus();
-                    return;
-                }
+
                 if (grdToaTau.RowCount == 0)
                 {
                     MessageBox.Show("Bạn phải chọn ít nhất một toa tàu!");
@@ -246,7 +241,6 @@ namespace ETrains.Train
                 }
                 var handOver = new tblHandover
                                    {
-                                       tblChuyenTau = train,
                                        NumberHandover = txtNumberHandover.Text.Trim(),
                                        DateHandover = dtpHandover.Value,
                                        CodeStation = txtCodeCuaKhau.Text.Trim(),
@@ -349,13 +343,7 @@ namespace ETrains.Train
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //var train = TrainFactory.GetByCode(txtSoVanDon.Text.Trim());
-            //if (train == null)
-            //{
-            //    MessageBox.Show("Số hiệu đoàn tàu không tồn tại!");
-            //    txtSoVanDon.Focus();
-            //    return;
-            //}
+
             var frm = new frmDanhSachToaTau(-1,txtSoVanDon.Text.Trim(),ref listToaTau);
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
