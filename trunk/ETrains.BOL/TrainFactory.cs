@@ -418,6 +418,24 @@ namespace ETrains.BOL
 
         }
 
+        public static tblToaTau GetToaTauBySealHaiQuan1(String seal1)
+        {
+            if (String.IsNullOrEmpty(seal1))
+                return null;
+            var db = Instance();
+            return db.tblToaTaus.Where(g => g.Seal_HaiQuan == seal1).FirstOrDefault();
+
+        }
+
+        public static tblToaTau GetToaTauBySealHaiQuan2(string seal2)
+        {
+            if(String.IsNullOrEmpty(seal2) )
+                return null;
+            var db = Instance();
+            return db.tblToaTaus.Where(g => g.Seal_HaiQuan2 == seal2).FirstOrDefault();
+
+        }
+
         public static int InsertToKhaiTau(tblToKhaiTau toKhaiTau)
         {
             var db = Instance();
