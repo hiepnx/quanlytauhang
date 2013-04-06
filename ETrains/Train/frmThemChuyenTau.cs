@@ -15,6 +15,7 @@ namespace ETrains.Train
         private short _mode; //0: addnew, 1: edit
         private tblChuyenTau _train;
         private UserInfo _userInfo;
+        private tblToaTau _currentToaTau;
         private List<tblToaTau> listToaTau = new List<tblToaTau>();
 
         public frmThemChuyenTau()
@@ -109,7 +110,122 @@ namespace ETrains.Train
         }
         private bool ValidateToaTau()
         {
-            return techlinkErrorProvider1.Validate(gbToaTau);
+            bool valid = true;
+            valid = techlinkErrorProvider1.Validate(gbToaTau);
+
+            if (valid == false)
+            {
+                return valid;
+            }
+
+            //kiem tra trung lap seal hai quan trong danh sach cach toa tau cua doan tau
+            tblToaTau existSeal1 = listToaTau.Where(x => x.Seal_HaiQuan == txtSealHQ.Text.Trim()).FirstOrDefault();
+            if (existSeal1!=null && _currentToaTau != null && _currentToaTau.Ma_ToaTau != existSeal1.Ma_ToaTau)
+            {
+                valid = false;
+                MessageBox.Show("Số Seal Hải quan này đã tồn tại trong danh sách các toa tàu thuộc đoàn tàu này, xin vui lòng kiểm tra lại");
+                txtSealHQ.Focus();
+                return valid;
+            }
+
+            else if (existSeal1 != null && _currentToaTau==null)
+            {
+                valid = false;
+                MessageBox.Show("Số Seal Hải quan này đã tồn tại trong danh sách các toa tàu thuộc đoàn tàu này, xin vui lòng kiểm tra lại");
+                txtSealHQ.Focus();
+                return valid;
+            }
+
+            tblToaTau existSeal2 = listToaTau.Where(x => x.Seal_HaiQuan2 == txtSealHQ2.Text.Trim()).FirstOrDefault();
+            if (existSeal2!=null  && _currentToaTau != null && _currentToaTau.Ma_ToaTau != existSeal2.Ma_ToaTau)
+            {
+                valid = false;
+                MessageBox.Show("Số Seal Hải quan 2 này đã tồn tại trong danh sách các toa tàu thuộc đoàn tàu này, xin vui lòng kiểm tra lại");
+                txtSealHQ2.Focus();
+                return valid;
+            }
+
+            else if (existSeal2!=null  && _currentToaTau==null)
+            {
+                valid = false;
+                MessageBox.Show("Số Seal Hải quan 2 này đã tồn tại trong danh sách các toa tàu thuộc đoàn tàu này, xin vui lòng kiểm tra lại");
+                txtSealHQ2.Focus();
+                return valid;
+            }
+
+
+            if (_mode == 0) ///kiem tra seal hai quan khi them moi toa tau
+            {
+                //seal hai quan 1 la duy nhat
+                
+                if (TrainFactory.GetToaTauBySealHaiQuan1(txtSealHQ.Text.Trim()) != null)
+                {
+                    valid = false;
+                    MessageBox.Show("Số Seal Hải quan này đã tồn tại, xin vui lòng kiểm tra lại");
+                    txtSealHQ.Focus();
+                    return valid;
+                }
+                //sel hai quan 2 la duy nhat
+
+                if (TrainFactory.GetToaTauBySealHaiQuan2(txtSealHQ2.Text.Trim()) != null)
+                {
+                    valid = false;
+                    MessageBox.Show("Số Seal Hải quan 2 này đã tồn tại, xin vui lòng kiểm tra lại");
+                    txtSealHQ2.Focus();
+                    return valid;
+                }
+            }
+
+
+            if (_mode == 1 && _currentToaTau == null) ///kiem tra seal hai quan khi them moi toa tau trong mode update chuyen tau
+            {
+                //seal hai quan 1 la duy nhat
+
+                if (TrainFactory.GetToaTauBySealHaiQuan1(txtSealHQ.Text.Trim()) != null)
+                {
+                    valid = false;
+                    MessageBox.Show("Số Seal Hải quan này đã tồn tại, xin vui lòng kiểm tra lại");
+                    txtSealHQ.Focus();
+                    return valid;
+                }
+                //sel hai quan 2 la duy nhat
+
+                if (TrainFactory.GetToaTauBySealHaiQuan2(txtSealHQ2.Text.Trim()) != null)
+                {
+                    valid = false;
+                    MessageBox.Show("Số Seal Hải quan 2 này đã tồn tại, xin vui lòng kiểm tra lại");
+                    txtSealHQ2.Focus();
+                    return valid;
+                }
+
+            }
+
+            if (_mode == 1 && _currentToaTau!=null) ///kiem tra seal hai quan khi update toa tau trong mode update chuyen tau
+            {
+                //seal hai quan 1 la duy nhat
+                tblToaTau toaTau1 = TrainFactory.GetToaTauBySealHaiQuan1(txtSealHQ.Text.Trim());
+                if (toaTau1 != null && _currentToaTau.ToaTauID !=null && toaTau1.ToaTauID!=_currentToaTau.ToaTauID)
+                {
+                    valid = false;
+                    MessageBox.Show("Số Seal Hải quan này đã tồn tại, xin vui lòng kiểm tra lại");
+                    txtSealHQ.Focus();
+                    return valid;
+                }
+                //sel hai quan 2 la duy nhat
+
+                tblToaTau toaTau2 = TrainFactory.GetToaTauBySealHaiQuan2(txtSealHQ2.Text.Trim());
+                if (toaTau2 != null && _currentToaTau.ToaTauID !=null && toaTau2.ToaTauID!=_currentToaTau.ToaTauID)
+                {
+                    valid = false;
+                    MessageBox.Show("Số Seal Hải quan 2 này đã tồn tại, xin vui lòng kiểm tra lại");
+                    txtSealHQ2.Focus();
+                    return valid;
+                }
+            
+            }
+
+
+            return valid;
         }
 
         private void ResetChuyenTau()
@@ -123,11 +239,14 @@ namespace ETrains.Train
         }
         private void ResetToaTau()
         {
+            txtNumberToaTau.ReadOnly = false;
+            txtNumberToaTau.Enabled = true;
             txtNumberToaTau.Text = txtSoVanDon.Text = txtPartner.Text = txtCompanyCode.Text = txtCompanyName.Text =
                 txtTenHang.Text = txtTrongLuong.Text = txtDVT.Text = txtSealVT.Text = txtSealVT2.Text = txtSealHQ2.Text = txtSealHQ.Text = txtNote.Text = string.Empty;
             dtpVanDon.Value = DateTime.Now;
             btnUpdateToaTau.Enabled = btnDeleteToaTau.Enabled = false;
             btnAddToaTau.Enabled = true;
+            _currentToaTau = null;
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
@@ -256,6 +375,7 @@ namespace ETrains.Train
             btnAddToaTau.Enabled = false;
             btnUpdateToaTau.Enabled = btnDeleteToaTau.Enabled = true;
             var toaTau = listToaTau[e.RowIndex];
+            _currentToaTau = toaTau;
             txtNumberToaTau.Text = toaTau.Ma_ToaTau;
             txtNumberToaTau.ReadOnly = true;
             txtSoVanDon.Text = toaTau.So_VanTai_Don;
@@ -276,6 +396,8 @@ namespace ETrains.Train
 
         private void btnUpdateToaTau_Click(object sender, EventArgs e)
         {
+            if (!ValidateToaTau()) return;
+
             var toaTau = listToaTau.Where(t => t.Ma_ToaTau == txtNumberToaTau.Text).FirstOrDefault();
 
             toaTau.So_VanTai_Don = txtSoVanDon.Text.Trim();
