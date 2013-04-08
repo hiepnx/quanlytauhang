@@ -39,4 +39,18 @@ namespace ETrains.Utilities.Enums
         //BBBG chuyen di
         HandoverToGoOut = 1
     }
+
+
+    public enum LoaiToaTau
+    {
+        ToaKin=1,
+        ToaTran=2,
+        ToaRong=3
+    }
+
+    public enum ToaTauImportType
+    {
+        ChuyenCang = 1,
+        TaiCho = 2
+    }
 }

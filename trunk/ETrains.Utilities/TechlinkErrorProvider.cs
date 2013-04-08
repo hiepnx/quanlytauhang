@@ -51,6 +51,11 @@ namespace ETrains.Utilities
                         }
                         else
                         {
+                            //fix de remove error khi switch sang che do khong bat buoc nhap
+                            this.SetError(control as Control, string.Empty);
+                            (control as Control).BackColor = System.Drawing.Color.White;
+                            //end fix
+
                             ValidateRequiredFields(control as Control, ref hasError);
                         }
                     }

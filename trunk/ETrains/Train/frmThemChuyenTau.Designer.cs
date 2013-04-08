@@ -30,10 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -44,6 +40,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblHeader = new System.Windows.Forms.Label();
             this.gbChuyenTau = new System.Windows.Forms.GroupBox();
             this.dtpDateXNC = new System.Windows.Forms.DateTimePicker();
@@ -51,28 +51,16 @@
             this.lblDateXNK = new System.Windows.Forms.Label();
             this.lblNumber = new System.Windows.Forms.Label();
             this.grdToaTau = new System.Windows.Forms.DataGridView();
-            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ToaTauID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ma_ToaTau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.So_VanTai_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ngay_VanTai_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten_DoiTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten_DoanhNghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ma_DoanhNghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten_Hang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Trong_Luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seal_VanTai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seal_VanTai2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seal_HaiQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seal_HaiQuan2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ghi_Chu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.techlinkErrorProvider1 = new ETrains.Utilities.TechlinkErrorProvider();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbToaTau = new System.Windows.Forms.GroupBox();
+            this.cbLoaiToa = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cbImportExportType = new System.Windows.Forms.ComboBox();
+            this.lblImportType = new System.Windows.Forms.Label();
             this.txtSealHQ2 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtSealVT2 = new System.Windows.Forms.TextBox();
@@ -104,6 +92,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtNumberToaTau = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.techlinkErrorProvider1 = new ETrains.Utilities.TechlinkErrorProvider();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,11 +107,27 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ToaTauID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ma_ToaTau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.So_VanTai_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ngay_VanTai_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten_DoiTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten_DoanhNghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ma_DoanhNghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten_Hang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Trong_Luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seal_VanTai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seal_VanTai2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seal_HaiQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seal_HaiQuan2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ghi_Chu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbChuyenTau.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdToaTau)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.techlinkErrorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gbToaTau.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.techlinkErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblHeader
@@ -231,6 +236,612 @@
             this.grdToaTau.Size = new System.Drawing.Size(845, 151);
             this.grdToaTau.TabIndex = 0;
             this.grdToaTau.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdToaTau_CellDoubleClick);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnClose.Image = global::ETrains.Properties.Resources.Exit;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(255, 560);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(63, 28);
+            this.btnClose.TabIndex = 23;
+            this.btnClose.Text = "Th&oát";
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnUpdate.Image = global::ETrains.Properties.Resources.save;
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdate.Location = new System.Drawing.Point(105, 560);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(85, 28);
+            this.btnUpdate.TabIndex = 21;
+            this.btnUpdate.Text = "&Cập nhật";
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnAddNew
+            // 
+            this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAddNew.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnAddNew.Image = global::ETrains.Properties.Resources.add;
+            this.btnAddNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddNew.Location = new System.Drawing.Point(16, 560);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(83, 28);
+            this.btnAddNew.TabIndex = 20;
+            this.btnAddNew.Text = "&Thêm mới";
+            this.btnAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnDelete.Image = global::ETrains.Properties.Resources.delete;
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.Location = new System.Drawing.Point(196, 560);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(53, 28);
+            this.btnDelete.TabIndex = 22;
+            this.btnDelete.Text = "&Xóa";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.grdToaTau);
+            this.groupBox1.Location = new System.Drawing.Point(12, 375);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(851, 176);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Danh sách toa tàu";
+            // 
+            // gbToaTau
+            // 
+            this.gbToaTau.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbToaTau.Controls.Add(this.cbLoaiToa);
+            this.gbToaTau.Controls.Add(this.label14);
+            this.gbToaTau.Controls.Add(this.cbImportExportType);
+            this.gbToaTau.Controls.Add(this.lblImportType);
+            this.gbToaTau.Controls.Add(this.txtSealHQ2);
+            this.gbToaTau.Controls.Add(this.label8);
+            this.gbToaTau.Controls.Add(this.txtSealVT2);
+            this.gbToaTau.Controls.Add(this.label1);
+            this.gbToaTau.Controls.Add(this.btnDeleteToaTau);
+            this.gbToaTau.Controls.Add(this.btnAddToaTau);
+            this.gbToaTau.Controls.Add(this.btnUpdateToaTau);
+            this.gbToaTau.Controls.Add(this.txtNote);
+            this.gbToaTau.Controls.Add(this.label10);
+            this.gbToaTau.Controls.Add(this.txtDVT);
+            this.gbToaTau.Controls.Add(this.label2);
+            this.gbToaTau.Controls.Add(this.txtCompanyCode);
+            this.gbToaTau.Controls.Add(this.label9);
+            this.gbToaTau.Controls.Add(this.lblCompanyName);
+            this.gbToaTau.Controls.Add(this.txtCompanyName);
+            this.gbToaTau.Controls.Add(this.txtPartner);
+            this.gbToaTau.Controls.Add(this.lblPartner);
+            this.gbToaTau.Controls.Add(this.dtpVanDon);
+            this.gbToaTau.Controls.Add(this.label7);
+            this.gbToaTau.Controls.Add(this.label6);
+            this.gbToaTau.Controls.Add(this.txtSoVanDon);
+            this.gbToaTau.Controls.Add(this.txtSealHQ);
+            this.gbToaTau.Controls.Add(this.label5);
+            this.gbToaTau.Controls.Add(this.txtSealVT);
+            this.gbToaTau.Controls.Add(this.label4);
+            this.gbToaTau.Controls.Add(this.txtTrongLuong);
+            this.gbToaTau.Controls.Add(this.label3);
+            this.gbToaTau.Controls.Add(this.txtTenHang);
+            this.gbToaTau.Controls.Add(this.label11);
+            this.gbToaTau.Controls.Add(this.txtNumberToaTau);
+            this.gbToaTau.Controls.Add(this.label12);
+            this.gbToaTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.gbToaTau.Location = new System.Drawing.Point(12, 102);
+            this.gbToaTau.Name = "gbToaTau";
+            this.gbToaTau.Size = new System.Drawing.Size(851, 267);
+            this.gbToaTau.TabIndex = 1;
+            this.gbToaTau.TabStop = false;
+            this.gbToaTau.Text = "Thông tin toa tàu";
+            // 
+            // cbLoaiToa
+            // 
+            this.cbLoaiToa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLoaiToa.FormattingEnabled = true;
+            this.cbLoaiToa.Location = new System.Drawing.Point(461, 21);
+            this.cbLoaiToa.Name = "cbLoaiToa";
+            this.cbLoaiToa.Size = new System.Drawing.Size(122, 21);
+            this.cbLoaiToa.TabIndex = 3;
+            this.cbLoaiToa.SelectedIndexChanged += new System.EventHandler(this.cbLoaiToa_SelectedIndexChanged);
+            this.cbLoaiToa.SelectedValueChanged += new System.EventHandler(this.cbLoaiToa_SelectedValueChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(348, 26);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(45, 13);
+            this.label14.TabIndex = 71;
+            this.label14.Text = "Loại toa";
+            // 
+            // cbImportExportType
+            // 
+            this.cbImportExportType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbImportExportType.FormattingEnabled = true;
+            this.cbImportExportType.Location = new System.Drawing.Point(702, 22);
+            this.cbImportExportType.Name = "cbImportExportType";
+            this.cbImportExportType.Size = new System.Drawing.Size(130, 21);
+            this.cbImportExportType.TabIndex = 4;
+            this.cbImportExportType.SelectedIndexChanged += new System.EventHandler(this.cbImportType_SelectedIndexChanged);
+            this.cbImportExportType.SelectedValueChanged += new System.EventHandler(this.cbImportType_SelectedValueChanged);
+            // 
+            // lblImportType
+            // 
+            this.lblImportType.AutoSize = true;
+            this.lblImportType.Location = new System.Drawing.Point(603, 26);
+            this.lblImportType.Name = "lblImportType";
+            this.lblImportType.Size = new System.Drawing.Size(77, 13);
+            this.lblImportType.TabIndex = 69;
+            this.lblImportType.Text = "Loại hình nhập";
+            // 
+            // txtSealHQ2
+            // 
+            this.txtSealHQ2.Location = new System.Drawing.Point(762, 156);
+            this.txtSealHQ2.Name = "txtSealHQ2";
+            this.txtSealHQ2.Size = new System.Drawing.Size(70, 20);
+            this.txtSealHQ2.TabIndex = 15;
+            this.txtSealHQ2.Tag = "required";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(654, 159);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(99, 13);
+            this.label8.TabIndex = 67;
+            this.label8.Text = "Số Seal Hải quan 2";
+            // 
+            // txtSealVT2
+            // 
+            this.txtSealVT2.Location = new System.Drawing.Point(366, 156);
+            this.txtSealVT2.Name = "txtSealVT2";
+            this.txtSealVT2.Size = new System.Drawing.Size(70, 20);
+            this.txtSealVT2.TabIndex = 13;
+            this.txtSealVT2.Tag = "required";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(245, 159);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(115, 13);
+            this.label1.TabIndex = 65;
+            this.label1.Text = "Số Seal hãng vận tải 2";
+            // 
+            // btnDeleteToaTau
+            // 
+            this.btnDeleteToaTau.Enabled = false;
+            this.btnDeleteToaTau.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnDeleteToaTau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteToaTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnDeleteToaTau.Image = global::ETrains.Properties.Resources.delete;
+            this.btnDeleteToaTau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteToaTau.Location = new System.Drawing.Point(406, 229);
+            this.btnDeleteToaTau.Name = "btnDeleteToaTau";
+            this.btnDeleteToaTau.Size = new System.Drawing.Size(101, 28);
+            this.btnDeleteToaTau.TabIndex = 19;
+            this.btnDeleteToaTau.Text = "Xóa toa tàu";
+            this.btnDeleteToaTau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeleteToaTau.UseVisualStyleBackColor = true;
+            this.btnDeleteToaTau.Click += new System.EventHandler(this.btnDeleteToaTau_Click);
+            // 
+            // btnAddToaTau
+            // 
+            this.btnAddToaTau.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnAddToaTau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddToaTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnAddToaTau.Image = global::ETrains.Properties.Resources.add;
+            this.btnAddToaTau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddToaTau.Location = new System.Drawing.Point(154, 229);
+            this.btnAddToaTau.Name = "btnAddToaTau";
+            this.btnAddToaTau.Size = new System.Drawing.Size(119, 28);
+            this.btnAddToaTau.TabIndex = 17;
+            this.btnAddToaTau.Text = "Thêm mới toa tàu";
+            this.btnAddToaTau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddToaTau.UseVisualStyleBackColor = true;
+            this.btnAddToaTau.Click += new System.EventHandler(this.btnAddToaTau_Click);
+            // 
+            // btnUpdateToaTau
+            // 
+            this.btnUpdateToaTau.Enabled = false;
+            this.btnUpdateToaTau.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnUpdateToaTau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateToaTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnUpdateToaTau.Image = global::ETrains.Properties.Resources.save;
+            this.btnUpdateToaTau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdateToaTau.Location = new System.Drawing.Point(279, 229);
+            this.btnUpdateToaTau.Name = "btnUpdateToaTau";
+            this.btnUpdateToaTau.Size = new System.Drawing.Size(121, 28);
+            this.btnUpdateToaTau.TabIndex = 18;
+            this.btnUpdateToaTau.Text = " Cập nhật toa tàu";
+            this.btnUpdateToaTau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdateToaTau.UseVisualStyleBackColor = true;
+            this.btnUpdateToaTau.Click += new System.EventHandler(this.btnUpdateToaTau_Click);
+            // 
+            // txtNote
+            // 
+            this.txtNote.Location = new System.Drawing.Point(154, 182);
+            this.txtNote.MaxLength = 4000;
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Size = new System.Drawing.Size(678, 20);
+            this.txtNote.TabIndex = 16;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 185);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.TabIndex = 63;
+            this.label10.Text = "Ghi chú";
+            // 
+            // txtDVT
+            // 
+            this.txtDVT.Location = new System.Drawing.Point(762, 130);
+            this.txtDVT.Name = "txtDVT";
+            this.txtDVT.Size = new System.Drawing.Size(70, 20);
+            this.txtDVT.TabIndex = 11;
+            this.txtDVT.Tag = "required";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(696, 133);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.TabIndex = 60;
+            this.label2.Text = "Đơn vị tính";
+            // 
+            // txtCompanyCode
+            // 
+            this.txtCompanyCode.Location = new System.Drawing.Point(154, 104);
+            this.txtCompanyCode.Multiline = true;
+            this.txtCompanyCode.Name = "txtCompanyCode";
+            this.txtCompanyCode.Size = new System.Drawing.Size(142, 20);
+            this.txtCompanyCode.TabIndex = 8;
+            this.txtCompanyCode.Tag = "required";
+            this.txtCompanyCode.Leave += new System.EventHandler(this.txtCompanyCode_Leave);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 107);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(110, 13);
+            this.label9.TabIndex = 59;
+            this.label9.Text = "Mã Doanh nghiệp VN";
+            // 
+            // lblCompanyName
+            // 
+            this.lblCompanyName.AutoSize = true;
+            this.lblCompanyName.Location = new System.Drawing.Point(348, 107);
+            this.lblCompanyName.Name = "lblCompanyName";
+            this.lblCompanyName.Size = new System.Drawing.Size(96, 13);
+            this.lblCompanyName.TabIndex = 56;
+            this.lblCompanyName.Text = "Tên Doanh nghiệp";
+            // 
+            // txtCompanyName
+            // 
+            this.txtCompanyName.AcceptsReturn = true;
+            this.txtCompanyName.Location = new System.Drawing.Point(457, 104);
+            this.txtCompanyName.Multiline = true;
+            this.txtCompanyName.Name = "txtCompanyName";
+            this.txtCompanyName.ReadOnly = true;
+            this.txtCompanyName.Size = new System.Drawing.Size(375, 20);
+            this.txtCompanyName.TabIndex = 7;
+            this.txtCompanyName.TabStop = false;
+            // 
+            // txtPartner
+            // 
+            this.txtPartner.Location = new System.Drawing.Point(154, 78);
+            this.txtPartner.Name = "txtPartner";
+            this.txtPartner.Size = new System.Drawing.Size(678, 20);
+            this.txtPartner.TabIndex = 7;
+            this.txtPartner.Tag = "required";
+            // 
+            // lblPartner
+            // 
+            this.lblPartner.AutoSize = true;
+            this.lblPartner.Location = new System.Drawing.Point(6, 81);
+            this.lblPartner.Name = "lblPartner";
+            this.lblPartner.Size = new System.Drawing.Size(142, 13);
+            this.lblPartner.TabIndex = 54;
+            this.lblPartner.Text = "Tên người nhận (đối tác TQ)";
+            // 
+            // dtpVanDon
+            // 
+            this.dtpVanDon.CustomFormat = "dd/MM/yyyy";
+            this.dtpVanDon.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpVanDon.Location = new System.Drawing.Point(461, 50);
+            this.dtpVanDon.Name = "dtpVanDon";
+            this.dtpVanDon.Size = new System.Drawing.Size(83, 20);
+            this.dtpVanDon.TabIndex = 6;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(348, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 13);
+            this.label7.TabIndex = 53;
+            this.label7.Text = "Ngày vận tải đơn";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 133);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.TabIndex = 51;
+            this.label6.Text = "Tên hàng";
+            // 
+            // txtSoVanDon
+            // 
+            this.txtSoVanDon.Location = new System.Drawing.Point(154, 52);
+            this.txtSoVanDon.Name = "txtSoVanDon";
+            this.txtSoVanDon.Size = new System.Drawing.Size(142, 20);
+            this.txtSoVanDon.TabIndex = 5;
+            this.txtSoVanDon.Tag = "required";
+            // 
+            // txtSealHQ
+            // 
+            this.txtSealHQ.Location = new System.Drawing.Point(550, 156);
+            this.txtSealHQ.Name = "txtSealHQ";
+            this.txtSealHQ.Size = new System.Drawing.Size(78, 20);
+            this.txtSealHQ.TabIndex = 14;
+            this.txtSealHQ.Tag = "required";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(454, 159);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(90, 13);
+            this.label5.TabIndex = 48;
+            this.label5.Text = "Số Seal Hải quan";
+            // 
+            // txtSealVT
+            // 
+            this.txtSealVT.Location = new System.Drawing.Point(154, 156);
+            this.txtSealVT.Name = "txtSealVT";
+            this.txtSealVT.Size = new System.Drawing.Size(70, 20);
+            this.txtSealVT.TabIndex = 12;
+            this.txtSealVT.Tag = "required";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 159);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(106, 13);
+            this.label4.TabIndex = 46;
+            this.label4.Text = "Số Seal hãng vận tải";
+            // 
+            // txtTrongLuong
+            // 
+            this.txtTrongLuong.Location = new System.Drawing.Point(589, 130);
+            this.txtTrongLuong.Name = "txtTrongLuong";
+            this.txtTrongLuong.Size = new System.Drawing.Size(80, 20);
+            this.txtTrongLuong.TabIndex = 10;
+            this.txtTrongLuong.Tag = "required";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(519, 133);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "Trọng lượng";
+            // 
+            // txtTenHang
+            // 
+            this.txtTenHang.Location = new System.Drawing.Point(154, 130);
+            this.txtTenHang.Name = "txtTenHang";
+            this.txtTenHang.Size = new System.Drawing.Size(342, 20);
+            this.txtTenHang.TabIndex = 9;
+            this.txtTenHang.Tag = "required";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(8, 56);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(77, 13);
+            this.label11.TabIndex = 42;
+            this.label11.Text = "Số vận tải đơn";
+            // 
+            // txtNumberToaTau
+            // 
+            this.txtNumberToaTau.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNumberToaTau.Location = new System.Drawing.Point(154, 26);
+            this.txtNumberToaTau.Name = "txtNumberToaTau";
+            this.txtNumberToaTau.Size = new System.Drawing.Size(142, 20);
+            this.txtNumberToaTau.TabIndex = 2;
+            this.txtNumberToaTau.Tag = "required";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 29);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(79, 13);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Số hiệu toa tàu";
+            // 
+            // techlinkErrorProvider1
+            // 
+            this.techlinkErrorProvider1.ContainerControl = this;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ToaTauID";
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn2.HeaderText = "SH Toa tàu";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Ma_ToaTau";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Số Vận đơn";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Note";
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Số Seal hãng vận tải";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Ngay_VanTai_Don";
+            dataGridViewCellStyle11.Format = "dd/MM/yyyy";
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Số Seal Hải quan";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Ten_DoiTac";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Số Seal hãng vận tải";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Visible = false;
+            this.dataGridViewTextBoxColumn6.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Ma_DoanhNghiep";
+            dataGridViewCellStyle12.Format = "dd/MM/yyyy";
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Số Seal Hải quan";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Visible = false;
+            this.dataGridViewTextBoxColumn7.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Note";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Ghi chú";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Visible = false;
+            this.dataGridViewTextBoxColumn8.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Trong_Luong";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridViewTextBoxColumn9.HeaderText = "Số Vận đơn";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Seal_VanTai";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Tên hàng";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Seal_HaiQuan";
+            dataGridViewCellStyle14.Format = "dd/MM/yyyy";
+            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dataGridViewTextBoxColumn11.HeaderText = "Trọng lượng";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Ghi_Chu";
+            dataGridViewCellStyle15.Format = "dd/MM/yyyy";
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle15;
+            this.dataGridViewTextBoxColumn12.HeaderText = "Số Seal hãng vận tải";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Ghi_Chu";
+            dataGridViewCellStyle16.Format = "dd/MM/yyyy";
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dataGridViewTextBoxColumn13.HeaderText = "Số Seal Hải quan";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Note";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Ghi chú";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Ghi_Chu";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Ghi chú";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 150;
             // 
             // Count
             // 
@@ -354,552 +965,11 @@
             this.Ghi_Chu.ReadOnly = true;
             this.Ghi_Chu.Width = 150;
             // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnClose.Image = global::ETrains.Properties.Resources.Exit;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(255, 508);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(63, 28);
-            this.btnClose.TabIndex = 22;
-            this.btnClose.Text = "Th&oát";
-            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnUpdate.Image = global::ETrains.Properties.Resources.save;
-            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(105, 508);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(85, 28);
-            this.btnUpdate.TabIndex = 20;
-            this.btnUpdate.Text = "&Cập nhật";
-            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnAddNew
-            // 
-            this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAddNew.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnAddNew.Image = global::ETrains.Properties.Resources.add;
-            this.btnAddNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddNew.Location = new System.Drawing.Point(16, 508);
-            this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(83, 28);
-            this.btnAddNew.TabIndex = 19;
-            this.btnAddNew.Text = "&Thêm mới";
-            this.btnAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddNew.UseVisualStyleBackColor = true;
-            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnDelete.Image = global::ETrains.Properties.Resources.delete;
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(196, 508);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(53, 28);
-            this.btnDelete.TabIndex = 21;
-            this.btnDelete.Text = "&Xóa";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // techlinkErrorProvider1
-            // 
-            this.techlinkErrorProvider1.ContainerControl = this;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.grdToaTau);
-            this.groupBox1.Location = new System.Drawing.Point(12, 326);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(851, 176);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Danh sách toa tàu";
-            // 
-            // gbToaTau
-            // 
-            this.gbToaTau.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbToaTau.Controls.Add(this.txtSealHQ2);
-            this.gbToaTau.Controls.Add(this.label8);
-            this.gbToaTau.Controls.Add(this.txtSealVT2);
-            this.gbToaTau.Controls.Add(this.label1);
-            this.gbToaTau.Controls.Add(this.btnDeleteToaTau);
-            this.gbToaTau.Controls.Add(this.btnAddToaTau);
-            this.gbToaTau.Controls.Add(this.btnUpdateToaTau);
-            this.gbToaTau.Controls.Add(this.txtNote);
-            this.gbToaTau.Controls.Add(this.label10);
-            this.gbToaTau.Controls.Add(this.txtDVT);
-            this.gbToaTau.Controls.Add(this.label2);
-            this.gbToaTau.Controls.Add(this.txtCompanyCode);
-            this.gbToaTau.Controls.Add(this.label9);
-            this.gbToaTau.Controls.Add(this.lblCompanyName);
-            this.gbToaTau.Controls.Add(this.txtCompanyName);
-            this.gbToaTau.Controls.Add(this.txtPartner);
-            this.gbToaTau.Controls.Add(this.lblPartner);
-            this.gbToaTau.Controls.Add(this.dtpVanDon);
-            this.gbToaTau.Controls.Add(this.label7);
-            this.gbToaTau.Controls.Add(this.label6);
-            this.gbToaTau.Controls.Add(this.txtSoVanDon);
-            this.gbToaTau.Controls.Add(this.txtSealHQ);
-            this.gbToaTau.Controls.Add(this.label5);
-            this.gbToaTau.Controls.Add(this.txtSealVT);
-            this.gbToaTau.Controls.Add(this.label4);
-            this.gbToaTau.Controls.Add(this.txtTrongLuong);
-            this.gbToaTau.Controls.Add(this.label3);
-            this.gbToaTau.Controls.Add(this.txtTenHang);
-            this.gbToaTau.Controls.Add(this.label11);
-            this.gbToaTau.Controls.Add(this.txtNumberToaTau);
-            this.gbToaTau.Controls.Add(this.label12);
-            this.gbToaTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.gbToaTau.Location = new System.Drawing.Point(12, 102);
-            this.gbToaTau.Name = "gbToaTau";
-            this.gbToaTau.Size = new System.Drawing.Size(851, 218);
-            this.gbToaTau.TabIndex = 1;
-            this.gbToaTau.TabStop = false;
-            this.gbToaTau.Text = "Thông tin toa tàu";
-            // 
-            // txtSealHQ2
-            // 
-            this.txtSealHQ2.Location = new System.Drawing.Point(762, 130);
-            this.txtSealHQ2.Name = "txtSealHQ2";
-            this.txtSealHQ2.Size = new System.Drawing.Size(70, 20);
-            this.txtSealHQ2.TabIndex = 14;
-            this.txtSealHQ2.Tag = "required";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(654, 133);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(99, 13);
-            this.label8.TabIndex = 67;
-            this.label8.Text = "Số Seal Hải quan 2";
-            // 
-            // txtSealVT2
-            // 
-            this.txtSealVT2.Location = new System.Drawing.Point(366, 130);
-            this.txtSealVT2.Name = "txtSealVT2";
-            this.txtSealVT2.Size = new System.Drawing.Size(70, 20);
-            this.txtSealVT2.TabIndex = 12;
-            this.txtSealVT2.Tag = "required";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(245, 133);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 13);
-            this.label1.TabIndex = 65;
-            this.label1.Text = "Số Seal hãng vận tải 2";
-            // 
-            // btnDeleteToaTau
-            // 
-            this.btnDeleteToaTau.Enabled = false;
-            this.btnDeleteToaTau.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnDeleteToaTau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteToaTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnDeleteToaTau.Image = global::ETrains.Properties.Resources.delete;
-            this.btnDeleteToaTau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteToaTau.Location = new System.Drawing.Point(406, 182);
-            this.btnDeleteToaTau.Name = "btnDeleteToaTau";
-            this.btnDeleteToaTau.Size = new System.Drawing.Size(101, 28);
-            this.btnDeleteToaTau.TabIndex = 18;
-            this.btnDeleteToaTau.Text = "Xóa toa tàu";
-            this.btnDeleteToaTau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDeleteToaTau.UseVisualStyleBackColor = true;
-            this.btnDeleteToaTau.Click += new System.EventHandler(this.btnDeleteToaTau_Click);
-            // 
-            // btnAddToaTau
-            // 
-            this.btnAddToaTau.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnAddToaTau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddToaTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnAddToaTau.Image = global::ETrains.Properties.Resources.add;
-            this.btnAddToaTau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddToaTau.Location = new System.Drawing.Point(154, 182);
-            this.btnAddToaTau.Name = "btnAddToaTau";
-            this.btnAddToaTau.Size = new System.Drawing.Size(119, 28);
-            this.btnAddToaTau.TabIndex = 16;
-            this.btnAddToaTau.Text = "Thêm mới toa tàu";
-            this.btnAddToaTau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddToaTau.UseVisualStyleBackColor = true;
-            this.btnAddToaTau.Click += new System.EventHandler(this.btnAddToaTau_Click);
-            // 
-            // btnUpdateToaTau
-            // 
-            this.btnUpdateToaTau.Enabled = false;
-            this.btnUpdateToaTau.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnUpdateToaTau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateToaTau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnUpdateToaTau.Image = global::ETrains.Properties.Resources.save;
-            this.btnUpdateToaTau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateToaTau.Location = new System.Drawing.Point(279, 182);
-            this.btnUpdateToaTau.Name = "btnUpdateToaTau";
-            this.btnUpdateToaTau.Size = new System.Drawing.Size(121, 28);
-            this.btnUpdateToaTau.TabIndex = 17;
-            this.btnUpdateToaTau.Text = " Cập nhật toa tàu";
-            this.btnUpdateToaTau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdateToaTau.UseVisualStyleBackColor = true;
-            this.btnUpdateToaTau.Click += new System.EventHandler(this.btnUpdateToaTau_Click);
-            // 
-            // txtNote
-            // 
-            this.txtNote.Location = new System.Drawing.Point(154, 156);
-            this.txtNote.MaxLength = 4000;
-            this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(678, 20);
-            this.txtNote.TabIndex = 15;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 159);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
-            this.label10.TabIndex = 63;
-            this.label10.Text = "Ghi chú";
-            // 
-            // txtDVT
-            // 
-            this.txtDVT.Location = new System.Drawing.Point(762, 104);
-            this.txtDVT.Name = "txtDVT";
-            this.txtDVT.Size = new System.Drawing.Size(70, 20);
-            this.txtDVT.TabIndex = 10;
-            this.txtDVT.Tag = "required";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(696, 107);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
-            this.label2.TabIndex = 60;
-            this.label2.Text = "Đơn vị tính";
-            // 
-            // txtCompanyCode
-            // 
-            this.txtCompanyCode.Location = new System.Drawing.Point(154, 78);
-            this.txtCompanyCode.Multiline = true;
-            this.txtCompanyCode.Name = "txtCompanyCode";
-            this.txtCompanyCode.Size = new System.Drawing.Size(142, 20);
-            this.txtCompanyCode.TabIndex = 6;
-            this.txtCompanyCode.Tag = "required";
-            this.txtCompanyCode.Leave += new System.EventHandler(this.txtCompanyCode_Leave);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 81);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(110, 13);
-            this.label9.TabIndex = 59;
-            this.label9.Text = "Mã Doanh nghiệp VN";
-            // 
-            // lblCompanyName
-            // 
-            this.lblCompanyName.AutoSize = true;
-            this.lblCompanyName.Location = new System.Drawing.Point(348, 81);
-            this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(96, 13);
-            this.lblCompanyName.TabIndex = 56;
-            this.lblCompanyName.Text = "Tên Doanh nghiệp";
-            // 
-            // txtCompanyName
-            // 
-            this.txtCompanyName.AcceptsReturn = true;
-            this.txtCompanyName.Location = new System.Drawing.Point(457, 78);
-            this.txtCompanyName.Multiline = true;
-            this.txtCompanyName.Name = "txtCompanyName";
-            this.txtCompanyName.ReadOnly = true;
-            this.txtCompanyName.Size = new System.Drawing.Size(375, 20);
-            this.txtCompanyName.TabIndex = 7;
-            this.txtCompanyName.TabStop = false;
-            // 
-            // txtPartner
-            // 
-            this.txtPartner.Location = new System.Drawing.Point(154, 52);
-            this.txtPartner.Name = "txtPartner";
-            this.txtPartner.Size = new System.Drawing.Size(678, 20);
-            this.txtPartner.TabIndex = 5;
-            this.txtPartner.Tag = "required";
-            // 
-            // lblPartner
-            // 
-            this.lblPartner.AutoSize = true;
-            this.lblPartner.Location = new System.Drawing.Point(6, 55);
-            this.lblPartner.Name = "lblPartner";
-            this.lblPartner.Size = new System.Drawing.Size(142, 13);
-            this.lblPartner.TabIndex = 54;
-            this.lblPartner.Text = "Tên người nhận (đối tác TQ)";
-            // 
-            // dtpVanDon
-            // 
-            this.dtpVanDon.CustomFormat = "dd/MM/yyyy";
-            this.dtpVanDon.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpVanDon.Location = new System.Drawing.Point(749, 26);
-            this.dtpVanDon.Name = "dtpVanDon";
-            this.dtpVanDon.Size = new System.Drawing.Size(83, 20);
-            this.dtpVanDon.TabIndex = 4;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(654, 29);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 13);
-            this.label7.TabIndex = 53;
-            this.label7.Text = "Ngày vận tải đơn";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 107);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 13);
-            this.label6.TabIndex = 51;
-            this.label6.Text = "Tên hàng";
-            // 
-            // txtSoVanDon
-            // 
-            this.txtSoVanDon.Location = new System.Drawing.Point(457, 26);
-            this.txtSoVanDon.Name = "txtSoVanDon";
-            this.txtSoVanDon.Size = new System.Drawing.Size(152, 20);
-            this.txtSoVanDon.TabIndex = 3;
-            this.txtSoVanDon.Tag = "required";
-            // 
-            // txtSealHQ
-            // 
-            this.txtSealHQ.Location = new System.Drawing.Point(550, 130);
-            this.txtSealHQ.Name = "txtSealHQ";
-            this.txtSealHQ.Size = new System.Drawing.Size(78, 20);
-            this.txtSealHQ.TabIndex = 13;
-            this.txtSealHQ.Tag = "required";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(454, 133);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 13);
-            this.label5.TabIndex = 48;
-            this.label5.Text = "Số Seal Hải quan";
-            // 
-            // txtSealVT
-            // 
-            this.txtSealVT.Location = new System.Drawing.Point(154, 130);
-            this.txtSealVT.Name = "txtSealVT";
-            this.txtSealVT.Size = new System.Drawing.Size(70, 20);
-            this.txtSealVT.TabIndex = 11;
-            this.txtSealVT.Tag = "required";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 133);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 13);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "Số Seal hãng vận tải";
-            // 
-            // txtTrongLuong
-            // 
-            this.txtTrongLuong.Location = new System.Drawing.Point(589, 104);
-            this.txtTrongLuong.Name = "txtTrongLuong";
-            this.txtTrongLuong.Size = new System.Drawing.Size(80, 20);
-            this.txtTrongLuong.TabIndex = 9;
-            this.txtTrongLuong.Tag = "required";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(519, 107);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "Trọng lượng";
-            // 
-            // txtTenHang
-            // 
-            this.txtTenHang.Location = new System.Drawing.Point(154, 104);
-            this.txtTenHang.Name = "txtTenHang";
-            this.txtTenHang.Size = new System.Drawing.Size(342, 20);
-            this.txtTenHang.TabIndex = 8;
-            this.txtTenHang.Tag = "required";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(348, 29);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(77, 13);
-            this.label11.TabIndex = 42;
-            this.label11.Text = "Số vận tải đơn";
-            // 
-            // txtNumberToaTau
-            // 
-            this.txtNumberToaTau.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNumberToaTau.Location = new System.Drawing.Point(154, 26);
-            this.txtNumberToaTau.Name = "txtNumberToaTau";
-            this.txtNumberToaTau.Size = new System.Drawing.Size(142, 20);
-            this.txtNumberToaTau.TabIndex = 2;
-            this.txtNumberToaTau.Tag = "required";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 29);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 13);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Số hiệu toa tàu";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ToaTauID";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn2.HeaderText = "SH Toa tàu";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Ma_ToaTau";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Số Vận đơn";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Note";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Số Seal hãng vận tải";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Ngay_VanTai_Don";
-            dataGridViewCellStyle11.Format = "dd/MM/yyyy";
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Số Seal Hải quan";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Ten_DoiTac";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Số Seal hãng vận tải";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Visible = false;
-            this.dataGridViewTextBoxColumn6.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Ma_DoanhNghiep";
-            dataGridViewCellStyle12.Format = "dd/MM/yyyy";
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dataGridViewTextBoxColumn7.HeaderText = "Số Seal Hải quan";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Visible = false;
-            this.dataGridViewTextBoxColumn7.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Note";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Ghi chú";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Visible = false;
-            this.dataGridViewTextBoxColumn8.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Trong_Luong";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle13;
-            this.dataGridViewTextBoxColumn9.HeaderText = "Số Vận đơn";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Seal_VanTai";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Tên hàng";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Seal_HaiQuan";
-            dataGridViewCellStyle14.Format = "dd/MM/yyyy";
-            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle14;
-            this.dataGridViewTextBoxColumn11.HeaderText = "Trọng lượng";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Ghi_Chu";
-            dataGridViewCellStyle15.Format = "dd/MM/yyyy";
-            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle15;
-            this.dataGridViewTextBoxColumn12.HeaderText = "Số Seal hãng vận tải";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Ghi_Chu";
-            dataGridViewCellStyle16.Format = "dd/MM/yyyy";
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle16;
-            this.dataGridViewTextBoxColumn13.HeaderText = "Số Seal Hải quan";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Note";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Ghi chú";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Width = 150;
-            // 
             // frmThemChuyenTau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 548);
+            this.ClientSize = new System.Drawing.Size(875, 600);
             this.Controls.Add(this.gbToaTau);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnDelete);
@@ -915,10 +985,10 @@
             this.gbChuyenTau.ResumeLayout(false);
             this.gbChuyenTau.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdToaTau)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.techlinkErrorProvider1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.gbToaTau.ResumeLayout(false);
             this.gbToaTau.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.techlinkErrorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -999,5 +1069,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Seal_HaiQuan;
         private System.Windows.Forms.DataGridViewTextBoxColumn Seal_HaiQuan2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ghi_Chu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.ComboBox cbLoaiToa;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox cbImportExportType;
+        private System.Windows.Forms.Label lblImportType;
     }
 }
