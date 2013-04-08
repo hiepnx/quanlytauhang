@@ -54,8 +54,26 @@ namespace ETrains.Train
 
         private void Init()
         {
+
+            cbImportExportType.Items.Add(new ComboBoxItem(1, "Chuyển cảng"));
+            cbImportExportType.Items.Add(new ComboBoxItem(2, "Tại chỗ"));
+            cbImportExportType.SelectedValue = 1;
+            cbImportExportType.SelectedIndex = 0;
+
+
+
+            cbLoaiToa.Items.Add(new ComboBoxItem(1, "Toa kín"));
+            cbLoaiToa.Items.Add(new ComboBoxItem(2, "Toa trần"));
+            cbLoaiToa.Items.Add(new ComboBoxItem(3, "Toa rỗng"));
+            cbLoaiToa.SelectedValue = 1;
+            cbLoaiToa.SelectedIndex = 0;
+
+
             if (_type == 0)
             {
+
+                lblImportType.Text = "Loại hình xuất";
+
                 lblHeader.Text = "Khai báo tàu hàng xuất cảnh";
                 lblDateXNK.Text = "Ngày giờ xuất cảnh";
                 gbChuyenTau.Text = "Thông tin tàu hàng xuất cảnh";
@@ -65,6 +83,8 @@ namespace ETrains.Train
             }
             else if (_type == 1)
             {
+
+
                 lblHeader.Text = "Khai báo tàu hàng nhập cảnh";
                 lblDateXNK.Text = "Ngày giờ nhập cảnh";
                 gbChuyenTau.Text = "Thông tin tàu hàng nhập cảnh";
@@ -111,6 +131,7 @@ namespace ETrains.Train
         private bool ValidateToaTau()
         {
             bool valid = true;
+            
             valid = techlinkErrorProvider1.Validate(gbToaTau);
 
             if (valid == false)
@@ -119,7 +140,7 @@ namespace ETrains.Train
             }
 
             //kiem tra trung lap seal hai quan trong danh sach cach toa tau cua doan tau
-            tblToaTau existSeal1 = listToaTau.Where(x => x.Seal_HaiQuan == txtSealHQ.Text.Trim()).FirstOrDefault();
+            tblToaTau existSeal1 = listToaTau.Where(x => x.Seal_HaiQuan == txtSealHQ.Text.Trim() && string.IsNullOrEmpty(x.Seal_HaiQuan)==false).FirstOrDefault();
             if (existSeal1!=null && _currentToaTau != null && _currentToaTau.Ma_ToaTau != existSeal1.Ma_ToaTau)
             {
                 valid = false;
@@ -136,7 +157,7 @@ namespace ETrains.Train
                 return valid;
             }
 
-            tblToaTau existSeal2 = listToaTau.Where(x => x.Seal_HaiQuan2 == txtSealHQ2.Text.Trim()).FirstOrDefault();
+            tblToaTau existSeal2 = listToaTau.Where(x => x.Seal_HaiQuan2 == txtSealHQ2.Text.Trim() && string.IsNullOrEmpty(x.Seal_HaiQuan2) == false).FirstOrDefault();
             if (existSeal2!=null  && _currentToaTau != null && _currentToaTau.Ma_ToaTau != existSeal2.Ma_ToaTau)
             {
                 valid = false;
@@ -288,6 +309,8 @@ namespace ETrains.Train
                 if (!ValidateToaTau()) return;
                 var toaTau = new tblToaTau
                 {
+                    ImportExportType=Int16.Parse(((ComboBoxItem)cbImportExportType.SelectedItem).Value.ToString()),
+                    LoaiToaTau = Int16.Parse(((ComboBoxItem)cbLoaiToa.SelectedItem).Value.ToString()),
                     Ma_ToaTau = txtNumberToaTau.Text.Trim(),
                     So_VanTai_Don = txtSoVanDon.Text.Trim(),
                     Ngay_VanTai_Don = dtpVanDon.Value,
@@ -392,6 +415,11 @@ namespace ETrains.Train
             txtSealHQ.Text = toaTau.Seal_HaiQuan;
             txtSealHQ2.Text = toaTau.Seal_HaiQuan2;
             txtNote.Text = toaTau.Ghi_Chu;
+
+            if(toaTau.LoaiToaTau!=null)
+                cbLoaiToa.SelectedIndex = toaTau.LoaiToaTau.GetValueOrDefault()-1;
+            if (toaTau.ImportExportType!=null)
+                cbImportExportType.SelectedIndex = toaTau.ImportExportType.GetValueOrDefault() -1;
         }
 
         private void btnUpdateToaTau_Click(object sender, EventArgs e)
@@ -414,6 +442,8 @@ namespace ETrains.Train
             toaTau.Seal_HaiQuan2 = txtSealHQ2.Text.Trim();
             toaTau.Ghi_Chu = txtNote.Text.Trim();
             toaTau.ModifiedBy = _userInfo.UserID;
+            toaTau.ImportExportType=Int16.Parse(((ComboBoxItem)cbImportExportType.SelectedItem).Value.ToString());
+            toaTau.LoaiToaTau = Int16.Parse(((ComboBoxItem)cbLoaiToa.SelectedItem).Value.ToString());
 
             BindToaTau();
             MessageBox.Show("Cập nhật toa tàu thành công!");
@@ -450,6 +480,99 @@ namespace ETrains.Train
             {
                 if (GlobalInfo.IsDebug) MessageBox.Show(ex.ToString());
             }         
+        }
+
+        private void cbLoaiToa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cbImportType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cbLoaiToa_SelectedValueChanged(object sender, EventArgs e)
+        {
+            short loaiToaTau = 0;
+            if (cbLoaiToa.SelectedItem != null)
+                loaiToaTau = Int16.Parse(((ComboBoxItem)cbLoaiToa.SelectedItem).Value.ToString());
+
+            short loatHinhNhap = 1;
+            if (cbImportExportType.SelectedItem != null)
+                loatHinhNhap = Int16.Parse(((ComboBoxItem)cbImportExportType.SelectedItem).Value.ToString());
+            
+            if (loaiToaTau == (short)LoaiToaTau.ToaKin)
+            {
+                txtSealHQ.Tag = "required";
+                txtSealHQ2.Tag = "required";
+
+                txtSoVanDon.Tag = "required";
+                txtPartner.Tag = "required";
+                txtCompanyCode.Tag = "required";
+                txtTenHang.Tag = "required";
+                txtTrongLuong.Tag = "required";
+                txtDVT.Tag = "required";
+                txtSealVT.Tag = "required";
+                txtSealVT2.Tag = "required";
+            }
+            //neu la toa tran hoa loai hinh nhap la "tai cho" thi k bat buoc nhap seal hai quan
+            if (loaiToaTau == (short)LoaiToaTau.ToaTran || (loatHinhNhap == (short)ToaTauImportType.TaiCho))
+            {
+                txtSealHQ.Tag = null;
+                txtSealHQ2.Tag = null;
+
+                txtSoVanDon.Tag = "required";
+                txtPartner.Tag = "required";
+                txtCompanyCode.Tag = "required";
+                txtTenHang.Tag = "required";
+                txtTrongLuong.Tag = "required";
+                txtDVT.Tag = "required";
+                txtSealVT.Tag = "required";
+                txtSealVT2.Tag = "required";
+
+            }
+            if (loaiToaTau == (short)LoaiToaTau.ToaRong)
+            {
+                txtSealHQ.Tag = null;
+                txtSealHQ2.Tag = null;
+
+                txtSoVanDon.Tag = null;
+                txtPartner.Tag = null;
+                txtCompanyCode.Tag = null;
+                txtTenHang.Tag = null;
+                txtTrongLuong.Tag = null;
+                txtDVT.Tag = null;
+                txtSealVT.Tag = null;
+                txtSealVT2.Tag = null;
+
+            }
+        }
+
+        private void cbImportType_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //cbLoaiToa.SelectedValue = ((ComboBoxItem)cbLoaiToa.SelectedItem).Value;
+            //cbImportType.SelectedValue = ((ComboBoxItem)cbImportType.SelectedItem).Value;
+
+            short loaiToaTau = 0;
+            if (cbLoaiToa.SelectedItem != null)
+                loaiToaTau = Int16.Parse(((ComboBoxItem)cbLoaiToa.SelectedItem).Value.ToString());
+
+            short loatHinhNhap = 1;
+            if (cbImportExportType.SelectedItem!=null)
+                loatHinhNhap= Int16.Parse(((ComboBoxItem)cbImportExportType.SelectedItem).Value.ToString());
+            
+            //neu la toa tran hoa loai hinh nhap la "tai cho" thi k bat buoc nhap seal hai quan
+            if (loaiToaTau == (short)LoaiToaTau.ToaRong || loaiToaTau == (short)LoaiToaTau.ToaTran || (loatHinhNhap == (short)ToaTauImportType.TaiCho))
+            {
+                txtSealHQ.Tag = null;
+                txtSealHQ2.Tag = null;
+            }
+            else
+            {
+                txtSealHQ.Tag = "required";
+                txtSealHQ2.Tag = "required";
+            }
         }
     }
 }

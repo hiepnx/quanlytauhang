@@ -231,6 +231,8 @@
           <Property Name="Seal_VanTai2" Type="nvarchar" MaxLength="50" />
           <Property Name="Seal_HaiQuan" Type="nvarchar" MaxLength="50" />
           <Property Name="Seal_HaiQuan2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImportExportType" Type="smallint" />
+          <Property Name="LoaiToaTau" Type="smallint" />
           <Property Name="Ghi_Chu" Type="nvarchar" MaxLength="500" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="CreatedBy" Type="int" />
@@ -475,7 +477,6 @@
           <EntitySet Name="tblListHandoverReplies" EntityType="dbTrainModel.tblListHandoverReply" />
           <EntitySet Name="tblNumberGenerates" EntityType="dbTrainModel.tblNumberGenerate" />
           <EntitySet Name="tblTauKhachDetails" EntityType="dbTrainModel.tblTauKhachDetail" />
-          <EntitySet Name="tblToaTaus" EntityType="dbTrainModel.tblToaTau" />
           <EntitySet Name="tblToKhaiTaus" EntityType="dbTrainModel.tblToKhaiTau" />
           <EntitySet Name="tblToKhaiTauResources" EntityType="dbTrainModel.tblToKhaiTauResource" />
           <EntitySet Name="tblTrains" EntityType="dbTrainModel.tblTrain" />
@@ -488,10 +489,6 @@
             <End Role="tblChuyenTau" EntitySet="tblChuyenTaus" />
             <End Role="tblTauKhachDetail" EntitySet="tblTauKhachDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_tblToaTau_tblChuyenTau" Association="dbTrainModel.FK_tblToaTau_tblChuyenTau">
-            <End Role="tblChuyenTau" EntitySet="tblChuyenTaus" />
-            <End Role="tblToaTau" EntitySet="tblToaTaus" />
-          </AssociationSet>
           <AssociationSet Name="FK__tblHandov__ListR__06CD04F7" Association="dbTrainModel.FK__tblHandov__ListR__06CD04F7">
             <End Role="tblListHandoverReply" EntitySet="tblListHandoverReplies" />
             <End Role="tblHandover" EntitySet="tblHandovers" />
@@ -500,16 +497,21 @@
             <End Role="tblHandover" EntitySet="tblHandovers" />
             <End Role="tblHandoverResource" EntitySet="tblHandoverResources" />
           </AssociationSet>
+          <AssociationSet Name="FK_tblToKhaiTauResource_tblToKhaiTau" Association="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau">
+            <End Role="tblToKhaiTau" EntitySet="tblToKhaiTaus" />
+            <End Role="tblToKhaiTauResource" EntitySet="tblToKhaiTauResources" />
+          </AssociationSet>
+          <EntitySet Name="tblToaTaus" EntityType="dbTrainModel.tblToaTau" />
+          <AssociationSet Name="FK_tblToaTau_tblChuyenTau" Association="dbTrainModel.FK_tblToaTau_tblChuyenTau">
+            <End Role="tblChuyenTau" EntitySet="tblChuyenTaus" />
+            <End Role="tblToaTau" EntitySet="tblToaTaus" />
+          </AssociationSet>
           <AssociationSet Name="FK_tblHandoverResource_tblToaTau" Association="dbTrainModel.FK_tblHandoverResource_tblToaTau">
             <End Role="tblToaTau" EntitySet="tblToaTaus" />
             <End Role="tblHandoverResource" EntitySet="tblHandoverResources" />
           </AssociationSet>
           <AssociationSet Name="FK_tblToKhaiTauResource_tblToaTau" Association="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau">
             <End Role="tblToaTau" EntitySet="tblToaTaus" />
-            <End Role="tblToKhaiTauResource" EntitySet="tblToKhaiTauResources" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblToKhaiTauResource_tblToKhaiTau" Association="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau">
-            <End Role="tblToKhaiTau" EntitySet="tblToKhaiTaus" />
             <End Role="tblToKhaiTauResource" EntitySet="tblToKhaiTauResources" />
           </AssociationSet>
         </EntityContainer>
@@ -626,32 +628,6 @@
           <Property Type="Int32" Name="Staff" />
           <NavigationProperty Name="tblChuyenTau" Relationship="dbTrainModel.FK_tblTauKhachDetail_tblChuyenTau" FromRole="tblTauKhachDetail" ToRole="tblChuyenTau" />
         </EntityType>
-        <EntityType Name="tblToaTau">
-          <Key>
-            <PropertyRef Name="ToaTauID" />
-          </Key>
-          <Property Type="Int64" Name="ToaTauID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="String" Name="Ma_ToaTau" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="So_VanTai_Don" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Ngay_VanTai_Don" />
-          <Property Type="String" Name="Ten_DoiTac" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ma_DoanhNghiep" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ten_Hang" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Trong_Luong" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Don_Vi_Tinh" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Seal_VanTai" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Seal_VanTai2" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Seal_HaiQuan" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Seal_HaiQuan2" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ghi_Chu" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="CreatedDate" />
-          <Property Type="Int32" Name="CreatedBy" />
-          <Property Type="DateTime" Name="ModifiedDate" />
-          <Property Type="Int32" Name="ModifiedBy" />
-          <NavigationProperty Name="tblChuyenTau" Relationship="dbTrainModel.FK_tblToaTau_tblChuyenTau" FromRole="tblToaTau" ToRole="tblChuyenTau" />
-          <NavigationProperty Name="tblHandoverResources" Relationship="dbTrainModel.FK_tblHandoverResource_tblToaTau" FromRole="tblToaTau" ToRole="tblHandoverResource" />
-          <NavigationProperty Name="tblToKhaiTauResources" Relationship="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau" FromRole="tblToaTau" ToRole="tblToKhaiTauResource" />
-        </EntityType>
         <EntityType Name="tblToKhaiTau">
           <Key>
             <PropertyRef Name="ID" />
@@ -675,8 +651,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Int64" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <NavigationProperty Name="tblToaTau" Relationship="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau" FromRole="tblToKhaiTauResource" ToRole="tblToaTau" />
           <NavigationProperty Name="tblToKhaiTau" Relationship="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau" FromRole="tblToKhaiTauResource" ToRole="tblToKhaiTau" />
+          <NavigationProperty Name="tblToaTau" Relationship="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau" FromRole="tblToKhaiTauResource" ToRole="tblToaTau" />
         </EntityType>
         <EntityType Name="tblTrain">
           <Key>
@@ -788,10 +764,6 @@
           <End Type="dbTrainModel.tblChuyenTau" Role="tblChuyenTau" Multiplicity="1" />
           <End Type="dbTrainModel.tblTauKhachDetail" Role="tblTauKhachDetail" Multiplicity="*" />
         </Association>
-        <Association Name="FK_tblToaTau_tblChuyenTau">
-          <End Type="dbTrainModel.tblChuyenTau" Role="tblChuyenTau" Multiplicity="1" />
-          <End Type="dbTrainModel.tblToaTau" Role="tblToaTau" Multiplicity="*" />
-        </Association>
         <Association Name="FK__tblHandov__ListR__06CD04F7">
           <End Type="dbTrainModel.tblListHandoverReply" Role="tblListHandoverReply" Multiplicity="0..1" />
           <End Type="dbTrainModel.tblHandover" Role="tblHandover" Multiplicity="*" />
@@ -800,16 +772,48 @@
           <End Type="dbTrainModel.tblHandover" Role="tblHandover" Multiplicity="1" />
           <End Type="dbTrainModel.tblHandoverResource" Role="tblHandoverResource" Multiplicity="*" />
         </Association>
+        <Association Name="FK_tblToKhaiTauResource_tblToKhaiTau">
+          <End Type="dbTrainModel.tblToKhaiTau" Role="tblToKhaiTau" Multiplicity="1" />
+          <End Type="dbTrainModel.tblToKhaiTauResource" Role="tblToKhaiTauResource" Multiplicity="*" />
+        </Association>
+        <EntityType Name="tblToaTau">
+          <Key>
+            <PropertyRef Name="ToaTauID" />
+          </Key>
+          <Property Type="Int64" Name="ToaTauID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Ma_ToaTau" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="So_VanTai_Don" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Ngay_VanTai_Don" />
+          <Property Type="String" Name="Ten_DoiTac" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ma_DoanhNghiep" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ten_Hang" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Trong_Luong" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Don_Vi_Tinh" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Seal_VanTai" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Seal_VanTai2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Seal_HaiQuan" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Seal_HaiQuan2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int16" Name="ImportExportType" />
+          <Property Type="Int16" Name="LoaiToaTau" />
+          <Property Type="String" Name="Ghi_Chu" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <NavigationProperty Name="tblChuyenTau" Relationship="dbTrainModel.FK_tblToaTau_tblChuyenTau" FromRole="tblToaTau" ToRole="tblChuyenTau" />
+          <NavigationProperty Name="tblHandoverResources" Relationship="dbTrainModel.FK_tblHandoverResource_tblToaTau" FromRole="tblToaTau" ToRole="tblHandoverResource" />
+          <NavigationProperty Name="tblToKhaiTauResources" Relationship="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau" FromRole="tblToaTau" ToRole="tblToKhaiTauResource" />
+        </EntityType>
+        <Association Name="FK_tblToaTau_tblChuyenTau">
+          <End Type="dbTrainModel.tblChuyenTau" Role="tblChuyenTau" Multiplicity="1" />
+          <End Type="dbTrainModel.tblToaTau" Role="tblToaTau" Multiplicity="*" />
+        </Association>
         <Association Name="FK_tblHandoverResource_tblToaTau">
           <End Type="dbTrainModel.tblToaTau" Role="tblToaTau" Multiplicity="1" />
           <End Type="dbTrainModel.tblHandoverResource" Role="tblHandoverResource" Multiplicity="*" />
         </Association>
         <Association Name="FK_tblToKhaiTauResource_tblToaTau">
           <End Type="dbTrainModel.tblToaTau" Role="tblToaTau" Multiplicity="1" />
-          <End Type="dbTrainModel.tblToKhaiTauResource" Role="tblToKhaiTauResource" Multiplicity="*" />
-        </Association>
-        <Association Name="FK_tblToKhaiTauResource_tblToKhaiTau">
-          <End Type="dbTrainModel.tblToKhaiTau" Role="tblToKhaiTau" Multiplicity="1" />
           <End Type="dbTrainModel.tblToKhaiTauResource" Role="tblToKhaiTauResource" Multiplicity="*" />
         </Association>
         </Schema>
@@ -928,30 +932,6 @@
                 <ScalarProperty Name="PassengerVN" ColumnName="PassengerVN" />
                 <ScalarProperty Name="Jounery" ColumnName="Jounery" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblToaTaus">
-            <EntityTypeMapping TypeName="dbTrainModel.tblToaTau">
-              <MappingFragment StoreEntitySet="tblToaTau">
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="Ghi_Chu" ColumnName="Ghi_Chu" />
-                <ScalarProperty Name="Seal_HaiQuan2" ColumnName="Seal_HaiQuan2" />
-                <ScalarProperty Name="Seal_HaiQuan" ColumnName="Seal_HaiQuan" />
-                <ScalarProperty Name="Seal_VanTai2" ColumnName="Seal_VanTai2" />
-                <ScalarProperty Name="Seal_VanTai" ColumnName="Seal_VanTai" />
-                <ScalarProperty Name="Don_Vi_Tinh" ColumnName="Don_Vi_Tinh" />
-                <ScalarProperty Name="Trong_Luong" ColumnName="Trong_Luong" />
-                <ScalarProperty Name="Ten_Hang" ColumnName="Ten_Hang" />
-                <ScalarProperty Name="Ma_DoanhNghiep" ColumnName="Ma_DoanhNghiep" />
-                <ScalarProperty Name="Ten_DoiTac" ColumnName="Ten_DoiTac" />
-                <ScalarProperty Name="Ngay_VanTai_Don" ColumnName="Ngay_VanTai_Don" />
-                <ScalarProperty Name="So_VanTai_Don" ColumnName="So_VanTai_Don" />
-                <ScalarProperty Name="Ma_ToaTau" ColumnName="Ma_ToaTau" />
-                <ScalarProperty Name="ToaTauID" ColumnName="ToaTauID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1098,14 +1078,6 @@
               <ScalarProperty Name="TrainID" ColumnName="TrainID" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_tblToaTau_tblChuyenTau" TypeName="dbTrainModel.FK_tblToaTau_tblChuyenTau" StoreEntitySet="tblToaTau">
-            <EndProperty Name="tblToaTau">
-              <ScalarProperty Name="ToaTauID" ColumnName="ToaTauID" />
-            </EndProperty>
-            <EndProperty Name="tblChuyenTau">
-              <ScalarProperty Name="TrainID" ColumnName="TrainID" />
-            </EndProperty>
-          </AssociationSetMapping>
           <AssociationSetMapping Name="FK__tblHandov__ListR__06CD04F7" TypeName="dbTrainModel.FK__tblHandov__ListR__06CD04F7" StoreEntitySet="tblHandover">
             <EndProperty Name="tblHandover">
               <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1123,6 +1095,48 @@
               <ScalarProperty Name="ID" ColumnName="HandoverID" />
             </EndProperty>
           </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_tblToKhaiTauResource_tblToKhaiTau" TypeName="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau" StoreEntitySet="tblToKhaiTauResource">
+            <EndProperty Name="tblToKhaiTauResource">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <EndProperty Name="tblToKhaiTau">
+              <ScalarProperty Name="ID" ColumnName="ToKhaiTauID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="tblToaTaus">
+            <EntityTypeMapping TypeName="dbTrainModel.tblToaTau">
+              <MappingFragment StoreEntitySet="tblToaTau">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Ghi_Chu" ColumnName="Ghi_Chu" />
+                <ScalarProperty Name="LoaiToaTau" ColumnName="LoaiToaTau" />
+                <ScalarProperty Name="ImportExportType" ColumnName="ImportExportType" />
+                <ScalarProperty Name="Seal_HaiQuan2" ColumnName="Seal_HaiQuan2" />
+                <ScalarProperty Name="Seal_HaiQuan" ColumnName="Seal_HaiQuan" />
+                <ScalarProperty Name="Seal_VanTai2" ColumnName="Seal_VanTai2" />
+                <ScalarProperty Name="Seal_VanTai" ColumnName="Seal_VanTai" />
+                <ScalarProperty Name="Don_Vi_Tinh" ColumnName="Don_Vi_Tinh" />
+                <ScalarProperty Name="Trong_Luong" ColumnName="Trong_Luong" />
+                <ScalarProperty Name="Ten_Hang" ColumnName="Ten_Hang" />
+                <ScalarProperty Name="Ma_DoanhNghiep" ColumnName="Ma_DoanhNghiep" />
+                <ScalarProperty Name="Ten_DoiTac" ColumnName="Ten_DoiTac" />
+                <ScalarProperty Name="Ngay_VanTai_Don" ColumnName="Ngay_VanTai_Don" />
+                <ScalarProperty Name="So_VanTai_Don" ColumnName="So_VanTai_Don" />
+                <ScalarProperty Name="Ma_ToaTau" ColumnName="Ma_ToaTau" />
+                <ScalarProperty Name="ToaTauID" ColumnName="ToaTauID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_tblToaTau_tblChuyenTau" TypeName="dbTrainModel.FK_tblToaTau_tblChuyenTau" StoreEntitySet="tblToaTau">
+            <EndProperty Name="tblToaTau">
+              <ScalarProperty Name="ToaTauID" ColumnName="ToaTauID" />
+            </EndProperty>
+            <EndProperty Name="tblChuyenTau">
+              <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+            </EndProperty>
+          </AssociationSetMapping>
           <AssociationSetMapping Name="FK_tblHandoverResource_tblToaTau" TypeName="dbTrainModel.FK_tblHandoverResource_tblToaTau" StoreEntitySet="tblHandoverResource">
             <EndProperty Name="tblHandoverResource">
               <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1137,14 +1151,6 @@
             </EndProperty>
             <EndProperty Name="tblToaTau">
               <ScalarProperty Name="ToaTauID" ColumnName="ToaTauID" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_tblToKhaiTauResource_tblToKhaiTau" TypeName="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau" StoreEntitySet="tblToKhaiTauResource">
-            <EndProperty Name="tblToKhaiTauResource">
-              <ScalarProperty Name="ID" ColumnName="ID" />
-            </EndProperty>
-            <EndProperty Name="tblToKhaiTau">
-              <ScalarProperty Name="ID" ColumnName="ToKhaiTauID" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>
@@ -1176,7 +1182,6 @@
         <EntityTypeShape EntityType="dbTrainModel.tblListHandoverReply" Width="1.5" PointX="0.75" PointY="16.875" Height="3.5186979166666674" />
         <EntityTypeShape EntityType="dbTrainModel.tblNumberGenerate" Width="1.5" PointX="5.75" PointY="8.75" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="dbTrainModel.tblTauKhachDetail" Width="1.5" PointX="3" PointY="1.25" Height="2.1725878906250102" />
-        <EntityTypeShape EntityType="dbTrainModel.tblToaTau" Width="1.5" PointX="3" PointY="4.125" Height="5.0571093750000111" />
         <EntityTypeShape EntityType="dbTrainModel.tblToKhaiTau" Width="1.5" PointX="3" PointY="10.875" Height="3.5186979166666674" />
         <EntityTypeShape EntityType="dbTrainModel.tblToKhaiTauResource" Width="1.5" PointX="5.25" PointY="2.875" Height="1.5956835937499818" />
         <EntityTypeShape EntityType="dbTrainModel.tblTrain" Width="1.5" PointX="7.75" PointY="8.75" Height="3.3263964843749818" />
@@ -1190,10 +1195,6 @@
           <ConnectorPoint PointX="1.5" PointY="2.3362939453125051" />
           <ConnectorPoint PointX="3" PointY="2.3362939453125051" />
         </AssociationConnector>
-        <AssociationConnector Association="dbTrainModel.FK_tblToaTau_tblChuyenTau" >
-          <ConnectorPoint PointX="2.25" PointY="5.4756982421875051" />
-          <ConnectorPoint PointX="3" PointY="5.4756982421875051" />
-        </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK__tblHandov__ListR__06CD04F7" >
           <ConnectorPoint PointX="2.25" PointY="18.634348958333334" />
           <ConnectorPoint PointX="3" PointY="18.634348958333334" />
@@ -1201,25 +1202,32 @@
         <AssociationConnector Association="dbTrainModel.FK_tblHandoverResource_tblHandover" >
           <ConnectorPoint PointX="4.5" PointY="18.653554687500005" />
           <ConnectorPoint PointX="5.46875" PointY="18.653554687500005" />
-          <ConnectorPoint PointX="5.46875" PointY="7.47068359375001" />
-        </AssociationConnector>
-        <AssociationConnector Association="dbTrainModel.FK_tblHandoverResource_tblToaTau" >
-          <ConnectorPoint PointX="4.5" PointY="6.6728417968750051" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="6.6728417968750042" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="6.6728417968750051" />
-          <ConnectorPoint PointX="5.25" PointY="6.6728417968750051" />
-        </AssociationConnector>
-        <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau" >
-          <ConnectorPoint PointX="4.5" PointY="4.2978417968749909" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="4.29784179687499" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="4.2978417968749909" />
-          <ConnectorPoint PointX="5.25" PointY="4.2978417968749909" />
+          <ConnectorPoint PointX="5.46875" PointY="7.47068359375" />
         </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau" >
           <ConnectorPoint PointX="4.5" PointY="10.876152846153847" />
           <ConnectorPoint PointX="4.875" PointY="10.501152846153847" />
-          <ConnectorPoint PointX="4.875" PointY="3.5551688984375018" />
-          <ConnectorPoint PointX="5.25" PointY="3.5551688984375018" />
+          <ConnectorPoint PointX="4.875" PointY="3.672841796875" />
+          <ConnectorPoint PointX="5.25" PointY="3.672841796875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="dbTrainModel.tblToaTau" Width="1.5" PointX="3" PointY="4.5" Height="5.4417122395833388" />
+        <AssociationConnector Association="dbTrainModel.FK_tblToaTau_tblChuyenTau" >
+          <ConnectorPoint PointX="2.25" PointY="5.6631982421875" />
+          <ConnectorPoint PointX="3" PointY="5.6631982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="dbTrainModel.FK_tblHandoverResource_tblToaTau" >
+          <ConnectorPoint PointX="4.5" PointY="6.672841796875" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="6.6728417968749989" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="6.672841796875" />
+          <ConnectorPoint PointX="5.25" PointY="6.672841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTauResource_tblToaTau" >
+          <ConnectorPoint PointX="4.5" PointY="4.5623066923076925" />
+          <ConnectorPoint PointX="4.8160744349011209" PointY="4.2462322574065725" />
+          <ConnectorPoint PointX="4.9339255650988791" PointY="4.1283811272088151" />
+          <ConnectorPoint PointX="5.0625" PointY="3.9998066923076934" />
+          <ConnectorPoint PointX="5.0625" PointY="4.65818359375" />
+          <ConnectorPoint PointX="5.25" PointY="4.47068359375" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
