@@ -16,17 +16,19 @@ namespace ETrains.Train
         private List<tblToaTau> _listToaTau;
         private string _soVanDon;
         private short _type; //0: xuat canh, 1: nhap canh
+        private string _handoverType; //0: BBBG chuyen den, 1 BBBG chuyen di
 
         public frmDanhSachToaTau()
         {
             InitializeComponent();
         }
-        public frmDanhSachToaTau(short type, string soVanDon, ref List<tblToaTau> listToaTau)
+        public frmDanhSachToaTau(short importExportType, string handoverType, string soVanDon, ref List<tblToaTau> listToaTau)
         {
             InitializeComponent();
             _listToaTau = listToaTau;
             _soVanDon = soVanDon ;
-            _type = type;
+            _type = importExportType;
+            _handoverType = handoverType;
         }
 
         private void frmDanhSachToaTau_Load(object sender, EventArgs e)
@@ -62,7 +64,7 @@ namespace ETrains.Train
             grdToaTau.Columns.Insert(0, cusCheckbox);
             //grid Toa tau
             grdToaTau.AutoGenerateColumns = false;
-            List<tblToaTau> listToaTau = TrainFactory.searchToaTau(_type, txtSoVanTaiDon.Text.Trim(), cbNgayVT.Checked, dtpFrom.Value, dtpTo.Value);
+            List<tblToaTau> listToaTau = TrainFactory.searchToaTau(_type, _handoverType, txtSoVanTaiDon.Text.Trim(), cbNgayVT.Checked, dtpFrom.Value, dtpTo.Value);
             grdToaTau.DataSource = listToaTau;
             // Bind count column
             for (var i = 0; i < grdToaTau.Rows.Count; i++)
@@ -129,7 +131,7 @@ namespace ETrains.Train
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            List<tblToaTau> listToaTau = TrainFactory.searchToaTau(_type, txtSoVanTaiDon.Text.Trim(), cbNgayVT.Checked, dtpFrom.Value, dtpTo.Value);
+            List<tblToaTau> listToaTau = TrainFactory.searchToaTau(_type,_handoverType, txtSoVanTaiDon.Text.Trim(), cbNgayVT.Checked, dtpFrom.Value, dtpTo.Value);
             grdToaTau.DataSource = listToaTau;
             // Bind count column
             for (var i = 0; i < grdToaTau.Rows.Count; i++)

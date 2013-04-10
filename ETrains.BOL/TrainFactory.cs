@@ -344,14 +344,33 @@ namespace ETrains.BOL
             }
         }
 
-        public static List<tblToaTau> searchToaTau(short type, string soVanDon, bool searchDate, DateTime dateFrom, DateTime dateTo)
+        public static List<tblToaTau> searchToaTau(short importExportType, string handoverType, string soVanDon, bool searchDate, DateTime dateFrom, DateTime dateTo)
         {
             var db = Instance();
             IQueryable<tblToaTau> lst = db.tblToaTaus.Where(x => x.ToaTauID != null);
             if (!string.IsNullOrEmpty(soVanDon)) lst = lst.Where(x => x.So_VanTai_Don.Contains(soVanDon));
-            if (type != -1)
+            if (importExportType != -1)
             {
-                lst = lst.Where(x => x.tblChuyenTau.Type == type);
+                lst = lst.Where(x => x.tblChuyenTau.Type == importExportType);
+            }
+            if (string.IsNullOrEmpty(handoverType) == false)
+            {
+                //BBBG chuyen di:
+                if (handoverType == (short)HandoverType.HandoverToGoOut +"")
+                {
+                    // - Chi tim kiem cac toa tau Nhap voi loai hinh (chuyen cang).
+                    // - Cac toa tau da duoc cap nhat BBBG chuyen di se k hien thi trong tim kiem nay nua.
+                    lst = lst.Where(x => x.tblChuyenTau.Type == (short)ChuyenTauType.TypeImport && x.ImportExportType == (short)ToaTauImportType.ChuyenCang);
+                   
+                }
+                 //BBBG chuyen den:
+                if (handoverType == (short)HandoverType.HandoverComeIn + "")
+                {
+                   //- Chi tim kiem cac toa tau Xuat voi loai hinh (chuyen cang).
+                   //- Cac toa tau da duoc cap nhat BBBG chuyen den se k hien thi trong tim kiem nay nua.
+                    lst = lst.Where(x => x.tblChuyenTau.Type == (short)ChuyenTauType.TypeExport && x.ImportExportType == (short)ToaTauImportType.ChuyenCang);
+
+                }
             }
             if (searchDate == true)
             {
@@ -359,8 +378,23 @@ namespace ETrains.BOL
                 var toDate = new DateTime(dateTo.Year, dateTo.Month, dateTo.Day, 23, 59, 59);
                 lst = lst.Where(x => x.Ngay_VanTai_Don.HasValue && x.Ngay_VanTai_Don.Value >= fromDate && x.Ngay_VanTai_Don.Value <= toDate);
             }
-           
-            return lst.ToList() ;
+            List<tblToaTau> result = new List<tblToaTau>();
+
+            //tim toa tau cho BBBG, neu toa tau nao da duoc ban giao roi thi khong ban nao nua
+            if (string.IsNullOrEmpty(handoverType) == false)
+            {
+                foreach (tblToaTau toatau in lst.ToList())
+                {
+                    if (toatau.tblHandoverResources.IsLoaded == false)
+                        toatau.tblHandoverResources.Load();
+                    if(toatau.tblHandoverResources.ToList()==null || toatau.tblHandoverResources.ToList().Count==0)
+                        result.Add(toatau);
+                }
+                return result;
+            }
+            else
+                return lst.ToList();
+
         }
 
         public static tblChuyenTau GetById(long id)
