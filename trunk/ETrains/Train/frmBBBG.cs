@@ -344,7 +344,7 @@ namespace ETrains.Train
         private void btnSearch_Click(object sender, EventArgs e)
         {
 
-            var frm = new frmDanhSachToaTau(-1,txtSoVanDon.Text.Trim(),ref listToaTau);
+            var frm = new frmDanhSachToaTau(-1, _type, txtSoVanDon.Text.Trim(), ref listToaTau);
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
                 BindToaTau();

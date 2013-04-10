@@ -303,6 +303,7 @@
             // 
             // txtNumberHandover
             // 
+            this.txtNumberHandover.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNumberHandover.Location = new System.Drawing.Point(109, 22);
             this.txtNumberHandover.Name = "txtNumberHandover";
             this.txtNumberHandover.Size = new System.Drawing.Size(176, 20);

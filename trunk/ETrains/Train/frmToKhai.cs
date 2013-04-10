@@ -211,7 +211,7 @@ namespace ETrains.Train
             //    txtSoVanDon.Focus();
             //    return;
             //}
-            var frm = new frmDanhSachToaTau(_type, txtSoVanDon.Text.Trim(), ref _listToaTau);
+            var frm = new frmDanhSachToaTau(_type,"", txtSoVanDon.Text.Trim(), ref _listToaTau);
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
                 BindToaTau();
