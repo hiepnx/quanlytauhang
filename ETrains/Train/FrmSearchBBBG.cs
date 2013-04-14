@@ -43,7 +43,8 @@ namespace ETrains.Train
             cbType.Items.Add(new ComboBoxItem("-1", "Tất cả"));
             cbType.Items.Add(new ComboBoxItem("0", "BBBG đến"));
             cbType.Items.Add(new ComboBoxItem("1", "BBBG đi"));
-            cbType.SelectedIndex = 0;
+            cbType.SelectedIndex = 1;
+            cbType.Enabled = false;
 
             cbReplyStatus.Items.Add(new ComboBoxItem(null, "Tất cả"));
             cbReplyStatus.Items.Add(new ComboBoxItem(true, "Đã hồi báo"));
@@ -80,7 +81,7 @@ namespace ETrains.Train
                     replyStatus = (Boolean)(((ComboBoxItem)cbReplyStatus.SelectedItem).Value);
                 }
                 List<tblHandover> listHandOver = TrainFactory.SearchBBBG(txtNumberBBBG.Text.Trim(),
-                                                             cbNgayXNC.Checked, dtpFrom.Value, dtpTo.Value, replyStatus, replyType);
+                                                             cbNgayXNC.Checked, dtpFrom.Value, dtpTo.Value, replyStatus, replyType, cbChuaTaoBangKe.Checked);
                 foreach (tblHandover handover in listHandOver)
                 {
                     if (handover.Type == "0")
