@@ -564,7 +564,7 @@ namespace ETrains.BOL
             return lst.ToList();
         }
 
-        public static List<tblHandover> SearchBBBG(string number, bool searchByDate, DateTime dateFrom, DateTime dateTo,Nullable<Boolean> replyStatus, String replyType)
+        public static List<tblHandover> SearchBBBG(string number, bool searchByDate, DateTime dateFrom, DateTime dateTo, Nullable<Boolean> replyStatus, String replyType, Nullable<Boolean> chuaTaoBangKe)
         {
             var db = new dbTrainEntities(ConnectionController.GetConnection());
             try
@@ -578,6 +578,10 @@ namespace ETrains.BOL
                 }
                 if (!string.IsNullOrEmpty(number)) lst = lst.Where(x => x.NumberHandover.Contains(number));
                 if (replyStatus != null) lst = lst.Where(x => x.IsReplied == replyStatus);
+                if (chuaTaoBangKe == true)
+                {
+                    lst = lst.Where(x => x.tblListHandoverReply == null);
+                }
 
                 if (replyType != "-1") lst = lst.Where(x => x.Type == replyType);
                 //if (type >= 0) lst = lst.Where(x => x.Type == type);

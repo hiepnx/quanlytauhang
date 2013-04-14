@@ -62,7 +62,7 @@ namespace ETrains.Train
                     replyStatus = (Boolean)(((ComboBoxItem)cbReplyStatus.SelectedItem).Value);
                 }
                 listHandOver = TrainFactory.SearchBBBG(txtNumberBBBG.Text.Trim(),
-                                                             cbNgayXNC.Checked, dtpFrom.Value, dtpTo.Value, replyStatus, replyType);
+                                                             cbNgayXNC.Checked, dtpFrom.Value, dtpTo.Value, replyStatus, replyType, false);
                 foreach (tblHandover handover in listHandOver)
                 {
                     if (handover.Type == "0")
