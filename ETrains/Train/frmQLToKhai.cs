@@ -44,7 +44,7 @@ namespace ETrains.Train
             {
                 listToKhai = TrainFactory.SearchToKhai(txtNumberTrain.Text.Trim(),
                                                              Convert.ToInt16(((ComboBoxItem)ddlTypeName.SelectedItem).Value),
-                                                             cbNgayDK.Checked, dtpFrom.Value, dtpTo.Value);
+                                                             cbNgayDK.Checked, dtpFrom.Value, dtpTo.Value, txtSoHieuToaTau.Text.Trim());
                 grdTrain.AutoGenerateColumns = false;
                 grdTrain.DataSource = listToKhai;
 

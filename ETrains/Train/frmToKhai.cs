@@ -144,11 +144,11 @@ namespace ETrains.Train
             try
             {
                 if (!Validate()) return;
-                if (grdToaTau.RowCount == 0)
-                {
-                    MessageBox.Show("Bạn phải chọn ít nhất một toa tàu!");
-                    return;    
-                }
+                //if (grdToaTau.RowCount == 0)
+                //{
+                //    MessageBox.Show("Bạn phải chọn ít nhất một toa tàu!");
+                //    return;    
+                //}
                 //kiem tra su trung lap so to khai
                 if (TrainFactory.FindToKhaiTauByNumber(Int64.Parse(txtNumberToKhai.Text.Trim()))!=null)
                 {
@@ -284,11 +284,11 @@ namespace ETrains.Train
             {
                 if (!Validate()) return;
                 
-                if (grdToaTau.RowCount == 0)
-                {
-                    MessageBox.Show("Bạn phải chọn ít nhất một toa tàu!");
-                    return;
-                }
+                //if (grdToaTau.RowCount == 0)
+                //{
+                //    MessageBox.Show("Bạn phải chọn ít nhất một toa tàu!");
+                //    return;
+                //}
                 
                     
                 _toKhaiTau.Number = int.Parse(txtNumberToKhai.Text.Trim());
