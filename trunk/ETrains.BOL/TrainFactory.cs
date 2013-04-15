@@ -349,10 +349,32 @@ namespace ETrains.BOL
             var db = Instance();
             IQueryable<tblToaTau> lst = db.tblToaTaus.Where(x => x.ToaTauID != null);
             if (!string.IsNullOrEmpty(soVanDon)) lst = lst.Where(x => x.So_VanTai_Don.Contains(soVanDon));
+
+            if (searchDate == true)
+            {
+                var fromDate = new DateTime(dateFrom.Year, dateFrom.Month, dateFrom.Day, 0, 0, 0);
+                var toDate = new DateTime(dateTo.Year, dateTo.Month, dateTo.Day, 23, 59, 59);
+                lst = lst.Where(x => x.Ngay_VanTai_Don.HasValue && x.Ngay_VanTai_Don.Value >= fromDate && x.Ngay_VanTai_Don.Value <= toDate);
+            }
+
+            //tim toa tau cho to khai
             if (importExportType != -1)
             {
-                lst = lst.Where(x => x.tblChuyenTau.Type == importExportType);
+                //chi tim kiem cac toa tau xuat/nhap voi loai hinh "tai cho"
+                lst = lst.Where(x => x.tblChuyenTau.Type == importExportType && x.ImportExportType == (short)ToaTauImportType.TaiCho);
+                
+                //Chi tim kiem cac toa tau chua co to khai
+                List<tblToaTau> result = new List<tblToaTau>();
+                foreach (tblToaTau toatau in lst.ToList())
+                {
+                    if (toatau.tblToKhaiTauResources.IsLoaded == false)
+                        toatau.tblToKhaiTauResources.Load();
+                    if (toatau.tblToKhaiTauResources.ToList() == null || toatau.tblToKhaiTauResources.ToList().Count == 0)
+                        result.Add(toatau);
+                }
+                return result;
             }
+            //tim toa tau cho BBBG
             if (string.IsNullOrEmpty(handoverType) == false)
             {
                 //BBBG chuyen di:
@@ -371,29 +393,23 @@ namespace ETrains.BOL
                     lst = lst.Where(x => x.tblChuyenTau.Type == (short)ChuyenTauType.TypeExport && x.ImportExportType == (short)ToaTauImportType.ChuyenCang);
 
                 }
-            }
-            if (searchDate == true)
-            {
-                var fromDate = new DateTime(dateFrom.Year, dateFrom.Month, dateFrom.Day, 0, 0, 0);
-                var toDate = new DateTime(dateTo.Year, dateTo.Month, dateTo.Day, 23, 59, 59);
-                lst = lst.Where(x => x.Ngay_VanTai_Don.HasValue && x.Ngay_VanTai_Don.Value >= fromDate && x.Ngay_VanTai_Don.Value <= toDate);
-            }
-            List<tblToaTau> result = new List<tblToaTau>();
 
-            //tim toa tau cho BBBG, neu toa tau nao da duoc ban giao roi thi khong ban nao nua
-            if (string.IsNullOrEmpty(handoverType) == false)
-            {
+                List<tblToaTau> result = new List<tblToaTau>();
+
+                //tim toa tau cho BBBG, neu toa tau nao da duoc ban giao roi thi khong ban nao nua
+                
                 foreach (tblToaTau toatau in lst.ToList())
                 {
                     if (toatau.tblHandoverResources.IsLoaded == false)
                         toatau.tblHandoverResources.Load();
-                    if(toatau.tblHandoverResources.ToList()==null || toatau.tblHandoverResources.ToList().Count==0)
+                    if (toatau.tblHandoverResources.ToList() == null || toatau.tblHandoverResources.ToList().Count == 0)
                         result.Add(toatau);
                 }
                 return result;
+                
             }
-            else
-                return lst.ToList();
+
+             return lst.ToList();
 
         }
 
@@ -613,7 +629,7 @@ namespace ETrains.BOL
             return lst.ToList();
         }
 
-        public static List<tblToKhaiTau> SearchToKhai(string number, short type, bool searchByDate, DateTime dateFrom, DateTime dateTo)
+        public static List<tblToKhaiTau> SearchToKhai(string number, short type, bool searchByDate, DateTime dateFrom, DateTime dateTo, String soHieuToaTau)
         {
             var db = Instance();
             IQueryable<tblToKhaiTau> lst = db.tblToKhaiTaus.Where(h => h.IsDeleted == null || h.IsDeleted == false);
@@ -632,6 +648,27 @@ namespace ETrains.BOL
             if (type >= 0)
             {
                 lst = lst.Where(x => x.Type == type);
+            }
+
+            //Tim kiem to khai theo so hieu toa tau
+            if (!string.IsNullOrEmpty(soHieuToaTau))
+            {
+                List<tblToKhaiTau> listToKhaiTau = new List<tblToKhaiTau>();
+                foreach (tblToKhaiTau tokhai in lst.ToList())
+                {
+                    if (tokhai.tblToKhaiTauResources.IsLoaded == false)
+                        tokhai.tblToKhaiTauResources.Load();
+                    List<tblToKhaiTauResource> listResource = tokhai.tblToKhaiTauResources.ToList();
+                    foreach (tblToKhaiTauResource resource in listResource)
+                    {
+                        if (resource.tblToaTauReference.IsLoaded == false)
+                            resource.tblToaTauReference.Load();
+                        if (resource.tblToaTau.Ma_ToaTau.ToUpper().Contains(soHieuToaTau.ToUpper()))
+                            listToKhaiTau.Add(tokhai);
+                    }
+                }
+                return listToKhaiTau;
+                //lst = lst.Where(x => x.tblToKhaiTauResources.ToList().Where(y => y.tblToaTau.Ma_ToaTau.Contains(soHieuToaTau)) !=null);
             }
             
             return lst.ToList();

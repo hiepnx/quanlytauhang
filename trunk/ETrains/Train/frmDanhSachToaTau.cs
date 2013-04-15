@@ -62,10 +62,12 @@ namespace ETrains.Train
             cusCheckbox.HeaderCell = cbCusHeader;
             cusCheckbox.HeaderText = "";
             grdToaTau.Columns.Insert(0, cusCheckbox);
+
             //grid Toa tau
             grdToaTau.AutoGenerateColumns = false;
             List<tblToaTau> listToaTau = TrainFactory.searchToaTau(_type, _handoverType, txtSoVanTaiDon.Text.Trim(), cbNgayVT.Checked, dtpFrom.Value, dtpTo.Value);
             grdToaTau.DataSource = listToaTau;
+
             // Bind count column
             for (var i = 0; i < grdToaTau.Rows.Count; i++)
             {
