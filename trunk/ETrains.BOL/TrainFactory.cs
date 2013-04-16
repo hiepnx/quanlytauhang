@@ -169,7 +169,24 @@ namespace ETrains.BOL
             foreach (var originalToaTau in originChuyenTau.tblToaTaus.Where(c => c.ToaTauID != 0).ToList())
             {
                 if (!listToaTau.Any(c => c.ToaTauID == originalToaTau.ToaTauID))
+                {
+                    //xoa lien ket cua toa tau cu voi  BBBG
+                    List<tblHandoverResource> listHandoverResource = db.tblHandoverResources.Where(x => x.tblToaTau.ToaTauID == originalToaTau.ToaTauID).ToList();
+                    foreach (tblHandoverResource obj in listHandoverResource)
+                    {
+                        db.DeleteObject(obj);
+                    }
+
+                    //xoa lien ket cua toa tau cu voi to khai
+                    List<tblToKhaiTauResource> listToKhaiTauResource = db.tblToKhaiTauResources.Where(x => x.tblToaTau.ToaTauID == originalToaTau.ToaTauID).ToList();
+                    foreach (tblToKhaiTauResource obj in listToKhaiTauResource)
+                    {
+                        db.DeleteObject(obj);
+                    }
+
+                    //xoa toa tau
                     db.DeleteObject(originalToaTau);
+                }
             }
 
             db.Detach(originChuyenTau);
@@ -686,9 +703,31 @@ namespace ETrains.BOL
         {
             var db = Instance();
             var train = db.tblChuyenTaus.Where(t => t.TrainID == trainID).FirstOrDefault();
-            train.IsDeleted = true;
+            if (!train.tblToaTaus.IsLoaded) train.tblToaTaus.Load();
+            foreach(tblToaTau toaTau in train.tblToaTaus.ToList())
+            {
+                //xoa lien ket cua toa tau cu voi  BBBG
+                List<tblHandoverResource> listHandoverResource = db.tblHandoverResources.Where(x => x.tblToaTau.ToaTauID == toaTau.ToaTauID).ToList();
+                foreach (tblHandoverResource obj in listHandoverResource)
+                {
+                    db.DeleteObject(obj);
+                }
+
+                //xoa lien ket cua toa tau cu voi to khai
+                List<tblToKhaiTauResource> listToKhaiTauResource = db.tblToKhaiTauResources.Where(x => x.tblToaTau.ToaTauID == toaTau.ToaTauID).ToList();
+                foreach (tblToKhaiTauResource obj in listToKhaiTauResource)
+                {
+                    db.DeleteObject(obj);
+                }
+
+                //xoa toa tau
+                db.DeleteObject(toaTau);
+            }
+            //xoa chuyen tau
+            db.DeleteObject(train);
             return db.SaveChanges();
         }
+
 
         public static int DeleteToKhaiByID(long toKhaiID)
         {

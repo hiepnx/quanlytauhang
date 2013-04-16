@@ -364,25 +364,29 @@ namespace ETrains.Train
         {
             try
             {
-                if (!ValidateChuyenTau()) return;
-                _train.ModifiedBy = _userInfo.UserID;
-                _train.Ma_Chuyen_Tau = txtNumberTrain.Text.Trim();
-                _train.Ngay_XNC = dtpDateXNC.Value;
-                //_train.tblToaTaus.Clear();
-                //foreach (var toaTau in listToaTau)
-                //{
-                //    _train.tblToaTaus.Add(toaTau);
-                //}
-                var result = TrainFactory.UpdateChuyenTau(_train, listToaTau);
-                if (result > 0)
+                var dr = MessageBox.Show("Trong trường hợp bạn xóa toa tàu của đoàn tàu: Các toa tàu cũ của đoàn tàu có thể liên kết với BBBG và Tờ khai hải quan. Các dữ liệu liên kết này sẽ bị xóa cùng với toa tàu. Bạn có muốn tiếp tục ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
                 {
-                    MessageBox.Show("Cập nhật chuyến tàu thành công!");
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Cập nhật chuyến tàu không thành công!");
+                    if (!ValidateChuyenTau()) return;
+                    _train.ModifiedBy = _userInfo.UserID;
+                    _train.Ma_Chuyen_Tau = txtNumberTrain.Text.Trim();
+                    _train.Ngay_XNC = dtpDateXNC.Value;
+                    //_train.tblToaTaus.Clear();
+                    //foreach (var toaTau in listToaTau)
+                    //{
+                    //    _train.tblToaTaus.Add(toaTau);
+                    //}
+                    var result = TrainFactory.UpdateChuyenTau(_train, listToaTau);
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Cập nhật chuyến tàu thành công!");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập nhật chuyến tàu không thành công!");
+                    }
                 }
 
             }
@@ -391,6 +395,17 @@ namespace ETrains.Train
                 if (GlobalInfo.IsDebug) MessageBox.Show(ex.ToString());
             }
         }
+
+        //private bool checkDeleteToaTau()
+        //{
+        //    if (!_train.tblToaTaus.IsLoaded) _train.tblToaTaus.Load();
+        //    List<tblToaTau> listToaTauOrigin = _train.tblToaTaus.ToList();
+        //    foreach (tblToaTau toaTau in listToaTauOrigin)
+        //    {
+                
+        //    }
+        //    return false;
+        //}
 
         private void grdToaTau_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -463,7 +478,7 @@ namespace ETrains.Train
         {
             try
             {
-                var dr = MessageBox.Show("Bạn có chắc là muốn xóa?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var dr = MessageBox.Show("Các toa tàu của đoàn tàu sẽ bị xóa cùng với đoàn tàu. Các toa tàu này có thể liên kết với BBBG và Tờ khai hải quan. Các dữ liệu liên kết này sẽ bị xóa cùng với toa tàu. Bạn có muốn tiếp tục ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
                     if (TrainFactory.DeleteChuyenTauByID(_train.TrainID) > 0)
