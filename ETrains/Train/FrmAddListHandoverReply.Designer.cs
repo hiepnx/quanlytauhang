@@ -301,6 +301,7 @@
             // 
             // txtNumberHandoverReply
             // 
+            this.txtNumberHandoverReply.Enabled = false;
             this.txtNumberHandoverReply.Location = new System.Drawing.Point(121, 22);
             this.txtNumberHandoverReply.MaxLength = 100;
             this.txtNumberHandoverReply.Name = "txtNumberHandoverReply";

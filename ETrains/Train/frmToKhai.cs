@@ -187,8 +187,30 @@ namespace ETrains.Train
             }
         }
 
-        public void BindToaTau()
+        public void BindToaTau(List<tblToaTau> listAddMoreToaTau)
         {
+
+            if (listAddMoreToaTau != null)
+            {
+                var dataToaTau = new Dictionary<Int64, tblToaTau>();
+                foreach (tblToaTau toatau in _listToaTau)
+                {
+                    dataToaTau.Add(toatau.ToaTauID, toatau);
+
+                }
+                _listToaTau.Clear();
+                foreach (tblToaTau toatau in listAddMoreToaTau)
+                {
+                    if (dataToaTau.ContainsKey(toatau.ToaTauID) == false)
+                    {
+                        dataToaTau.Add(toatau.ToaTauID, toatau);
+                    }
+
+                }
+                listAddMoreToaTau.Clear();
+                _listToaTau = dataToaTau.Values.ToList();
+            }
+
             grdToaTau.DataSource = null;
             grdToaTau.AutoGenerateColumns = false;
             var source = new List<tblToaTau>();
@@ -211,10 +233,12 @@ namespace ETrains.Train
             //    txtSoVanDon.Focus();
             //    return;
             //}
-            var frm = new frmDanhSachToaTau(_type,"", txtSoVanDon.Text.Trim(), ref _listToaTau);
+
+            List<tblToaTau> listAddMoreToaTau = new List<tblToaTau>();
+            var frm = new frmDanhSachToaTau(_type, "", txtSoVanDon.Text.Trim(), ref listAddMoreToaTau);
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
-                BindToaTau();
+                BindToaTau(listAddMoreToaTau);
             }
         }
 
@@ -312,6 +336,30 @@ namespace ETrains.Train
             catch (Exception ex)
             {
                 if (GlobalInfo.IsDebug) MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void grdToaTau_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex != 0) return;
+
+            var dataToatau = new Dictionary<Int64, tblToaTau>();
+            foreach (tblToaTau toatau in _listToaTau)
+            {
+                dataToatau.Add(toatau.ToaTauID, toatau);
+
+            }
+            dataToatau.Remove(_listToaTau[e.RowIndex].ToaTauID);
+            _listToaTau.Clear();
+            _listToaTau = dataToatau.Values.ToList();
+
+            grdToaTau.DataSource = _listToaTau;
+
+            // Bind count column
+            for (var i = 0; i < grdToaTau.Rows.Count; i++)
+            {
+                // Add to count Column
+                grdToaTau.Rows[i].Cells[1].Value = (i + 1).ToString();
             }
         }
     }

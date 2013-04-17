@@ -81,6 +81,8 @@
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ToaTauID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ma_ToaTau = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,7 +96,6 @@
             this.Seal_VanTai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seal_HaiQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ghi_Chu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbToKhai.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdToaTau)).BeginInit();
             this.gbToaTau.SuspendLayout();
@@ -268,6 +269,7 @@
             this.grdToaTau.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grdToaTau.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdToaTau.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Delete,
             this.Count,
             this.ToaTauID,
             this.Ma_ToaTau,
@@ -289,6 +291,7 @@
             this.grdToaTau.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdToaTau.Size = new System.Drawing.Size(845, 289);
             this.grdToaTau.TabIndex = 2;
+            this.grdToaTau.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdToaTau_CellClick);
             // 
             // gbToaTau
             // 
@@ -528,6 +531,22 @@
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.Width = 130;
             // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Note";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Ghi chú";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 150;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Xóa";
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Xóa";
+            this.Delete.ToolTipText = "Xóa Toa tàu ra khỏi tờ khai";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 50;
+            // 
             // Count
             // 
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -625,13 +644,6 @@
             this.Ghi_Chu.Name = "Ghi_Chu";
             this.Ghi_Chu.Width = 150;
             // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Note";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Ghi chú";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Width = 150;
-            // 
             // frmToKhai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -686,6 +698,19 @@
         private System.Windows.Forms.TextBox txtSoVanDon;
         public System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.DateTimePicker dtpDeclaration;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox ddlCustomsName;
+        private System.Windows.Forms.ComboBox ddlTypeName;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtCustomsCode;
+        private System.Windows.Forms.Label label14;
+        public System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtTypeCode;
+        public System.Windows.Forms.Label label17;
+        public System.Windows.Forms.Label label18;
+        private System.Windows.Forms.MaskedTextBox txtNumberToKhai;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn Count;
         private System.Windows.Forms.DataGridViewTextBoxColumn ToaTauID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ma_ToaTau;
@@ -699,17 +724,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Seal_VanTai;
         private System.Windows.Forms.DataGridViewTextBoxColumn Seal_HaiQuan;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ghi_Chu;
-        private System.Windows.Forms.DateTimePicker dtpDeclaration;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.ComboBox ddlCustomsName;
-        private System.Windows.Forms.ComboBox ddlTypeName;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtCustomsCode;
-        private System.Windows.Forms.Label label14;
-        public System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtTypeCode;
-        public System.Windows.Forms.Label label17;
-        public System.Windows.Forms.Label label18;
-        private System.Windows.Forms.MaskedTextBox txtNumberToKhai;
     }
 }
