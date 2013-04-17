@@ -81,6 +81,7 @@
             this.dtpReplyDate = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.techlinkErrorProvider1 = new ETrains.Utilities.TechlinkErrorProvider();
+            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,6 +97,7 @@
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ToaTauID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ma_ToaTau = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -328,6 +330,7 @@
             this.grdToaTau.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grdToaTau.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdToaTau.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.delete,
             this.Count,
             this.ToaTauID,
             this.Ma_ToaTau,
@@ -351,6 +354,7 @@
             this.grdToaTau.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdToaTau.Size = new System.Drawing.Size(845, 267);
             this.grdToaTau.TabIndex = 2;
+            this.grdToaTau.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdToaTau_CellClick);
             // 
             // gbToaTau
             // 
@@ -589,6 +593,14 @@
             // 
             this.techlinkErrorProvider1.ContainerControl = this;
             // 
+            // dataGridViewButtonColumn1
+            // 
+            this.dataGridViewButtonColumn1.HeaderText = "Xóa";
+            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            this.dataGridViewButtonColumn1.Text = "Xóa";
+            this.dataGridViewButtonColumn1.ToolTipText = "Xóa khỏi danh sách các toa tàu của BBBG";
+            this.dataGridViewButtonColumn1.Width = 50;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -714,6 +726,15 @@
             this.dataGridViewTextBoxColumn15.HeaderText = "Ghi chú";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.Width = 150;
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "Xóa";
+            this.delete.Name = "delete";
+            this.delete.Text = "Xóa";
+            this.delete.ToolTipText = "Xóa khỏi danh sách các toa tàu của BBBG";
+            this.delete.UseColumnTextForButtonValue = true;
+            this.delete.Width = 50;
             // 
             // Count
             // 
@@ -904,6 +925,17 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnPrintBBBG;
         private System.Windows.Forms.CheckBox cbPrint;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox cbReply;
+        private System.Windows.Forms.TextBox txtReplyNote;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtpReplyDate;
+        public System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtReplyStatusGoods;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private System.Windows.Forms.DataGridViewButtonColumn delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn Count;
         private System.Windows.Forms.DataGridViewTextBoxColumn ToaTauID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ma_ToaTau;
@@ -919,14 +951,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Seal_HaiQuan;
         private System.Windows.Forms.DataGridViewTextBoxColumn Seal_HaiQuan2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ghi_Chu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox cbReply;
-        private System.Windows.Forms.TextBox txtReplyNote;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dtpReplyDate;
-        public System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtReplyStatusGoods;
-        private System.Windows.Forms.Label label2;
     }
 }

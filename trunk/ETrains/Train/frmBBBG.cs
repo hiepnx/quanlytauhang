@@ -169,7 +169,7 @@ namespace ETrains.Train
                 resource.tblToaTauReference.Load();
                 listToaTau.Add(resource.tblToaTau);
             }
-            BindToaTau();
+            BindToaTau(null);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -288,8 +288,29 @@ namespace ETrains.Train
             }
         }
 
-        public void BindToaTau()
+        public void BindToaTau(List<tblToaTau> listAddMoreToaTau)
         {
+            if (listAddMoreToaTau != null)
+            {
+                var dataToaTau = new Dictionary<Int64, tblToaTau>();
+                foreach (tblToaTau toatau in listToaTau)
+                {
+                    dataToaTau.Add(toatau.ToaTauID, toatau);
+
+                }
+                listToaTau.Clear();
+                foreach (tblToaTau toatau in listAddMoreToaTau)
+                {
+                    if (dataToaTau.ContainsKey(toatau.ToaTauID) == false)
+                    {
+                        dataToaTau.Add(toatau.ToaTauID, toatau);
+                    }
+
+                }
+                listAddMoreToaTau.Clear();
+                listToaTau = dataToaTau.Values.ToList();
+            }
+
             grdToaTau.DataSource = null;
             grdToaTau.AutoGenerateColumns = false;
             var source = new List<tblToaTau>();
@@ -299,7 +320,7 @@ namespace ETrains.Train
             for (var i = 0; i < grdToaTau.Rows.Count; i++)
             {
                 // Add to count Column
-                grdToaTau.Rows[i].Cells[0].Value = (i + 1).ToString();
+                grdToaTau.Rows[i].Cells[1].Value = (i + 1).ToString();
             }
         }
 
@@ -343,11 +364,11 @@ namespace ETrains.Train
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
-            var frm = new frmDanhSachToaTau(-1, _type, txtSoVanDon.Text.Trim(), ref listToaTau);
+            List<tblToaTau> listAddMoreToaTau = new List<tblToaTau>();
+            var frm = new frmDanhSachToaTau(-1, _type, txtSoVanDon.Text.Trim(), ref listAddMoreToaTau);
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
-                BindToaTau();
+                BindToaTau(listAddMoreToaTau);
             }
         }
 
@@ -552,6 +573,30 @@ namespace ETrains.Train
         {
             //do nothing
            
+        }
+
+        private void grdToaTau_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex != 0) return;
+
+            var dataToatau = new Dictionary<Int64, tblToaTau>();
+            foreach (tblToaTau toatau in listToaTau)
+            {
+                dataToatau.Add(toatau.ToaTauID, toatau);
+
+            }
+            dataToatau.Remove(listToaTau[e.RowIndex].ToaTauID);
+            listToaTau.Clear();
+            listToaTau = dataToatau.Values.ToList();
+
+            grdToaTau.DataSource = listToaTau;
+
+            // Bind count column
+            for (var i = 0; i < grdToaTau.Rows.Count; i++)
+            {
+                // Add to count Column
+                grdToaTau.Rows[i].Cells[1].Value = (i + 1).ToString();
+            }
         }
     }
 }
