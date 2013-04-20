@@ -695,7 +695,16 @@ namespace ETrains.BOL
         {
             var db = Instance();
             var handover = db.tblHandovers.Where(h => h.ID == handoverId).FirstOrDefault();
-            handover.IsDeleted = true;
+            if (handover == null)
+                return 0;
+            //xoa handoverResource
+            List<tblHandoverResource> listResource = db.tblHandoverResources.Where(x => x.tblHandover.ID == handoverId).ToList();
+            foreach (tblHandoverResource resource in listResource)
+            {
+                db.DeleteObject(resource);
+            }
+            //delete handover
+            db.DeleteObject(handover);
             return db.SaveChanges();
         }
 

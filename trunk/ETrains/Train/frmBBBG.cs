@@ -73,7 +73,7 @@ namespace ETrains.Train
                 {
                     lblHeader.Text = "Thêm mới Biên bản bàn giao, chuyển đi";
                     _NumberGenerate = NumberGenerateFactory.AutoGenerate(NumberGenerateFactory.NUMBER_TYPE_HANDOVER);
-                    txtNumberHandover.Text = _NumberGenerate.HandoverNumber + "/BBBG-HQGA";
+                    txtNumberHandover.Text = _NumberGenerate.Year + "-" + _NumberGenerate.HandoverNumber + "/BBBG-HQGA";
                 }
                 lblCodeGaDenDi.Text = "Mã HQ ga đến";
                 lblGaDenDi.Text = "Tên HQ ga đến";
@@ -217,7 +217,7 @@ namespace ETrains.Train
                 if (_mode == 0) //add mode
                 {
                     _NumberGenerate = NumberGenerateFactory.AutoGenerate(NumberGenerateFactory.NUMBER_TYPE_HANDOVER);
-                    txtNumberHandover.Text = _NumberGenerate.HandoverNumber + "/BBBG-HQGA";
+                    txtNumberHandover.Text =_NumberGenerate.Year + "-" + _NumberGenerate.HandoverNumber + "/BBBG-HQGA";
                 }
             }
         }

@@ -202,6 +202,7 @@
           <Property Name="HandoverNumber" Type="bigint" Nullable="false" />
           <Property Name="ReplyReportNumber" Type="bigint" Nullable="false" />
           <Property Name="NumberType" Type="int" Nullable="false" />
+          <Property Name="Year" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tblTauKhachDetail">
           <Key>
@@ -475,7 +476,6 @@
           <EntitySet Name="tblHandovers" EntityType="dbTrainModel.tblHandover" />
           <EntitySet Name="tblHandoverResources" EntityType="dbTrainModel.tblHandoverResource" />
           <EntitySet Name="tblListHandoverReplies" EntityType="dbTrainModel.tblListHandoverReply" />
-          <EntitySet Name="tblNumberGenerates" EntityType="dbTrainModel.tblNumberGenerate" />
           <EntitySet Name="tblTauKhachDetails" EntityType="dbTrainModel.tblTauKhachDetail" />
           <EntitySet Name="tblToKhaiTaus" EntityType="dbTrainModel.tblToKhaiTau" />
           <EntitySet Name="tblToKhaiTauResources" EntityType="dbTrainModel.tblToKhaiTauResource" />
@@ -514,6 +514,7 @@
             <End Role="tblToaTau" EntitySet="tblToaTaus" />
             <End Role="tblToKhaiTauResource" EntitySet="tblToKhaiTauResources" />
           </AssociationSet>
+          <EntitySet Name="tblNumberGenerates" EntityType="dbTrainModel.tblNumberGenerate" />
         </EntityContainer>
         <EntityType Name="tblChuyenTau">
           <Key>
@@ -607,15 +608,6 @@
           <Property Type="DateTime" Name="ModifiedDate" />
           <Property Type="Int32" Name="ModifiedBy" />
           <NavigationProperty Name="tblHandovers" Relationship="dbTrainModel.FK__tblHandov__ListR__06CD04F7" FromRole="tblListHandoverReply" ToRole="tblHandover" />
-        </EntityType>
-        <EntityType Name="tblNumberGenerate">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="Int64" Name="HandoverNumber" Nullable="false" />
-          <Property Type="Int64" Name="ReplyReportNumber" Nullable="false" />
-          <Property Type="Int32" Name="NumberType" Nullable="false" />
         </EntityType>
         <EntityType Name="tblTauKhachDetail">
           <Key>
@@ -816,6 +808,16 @@
           <End Type="dbTrainModel.tblToaTau" Role="tblToaTau" Multiplicity="1" />
           <End Type="dbTrainModel.tblToKhaiTauResource" Role="tblToKhaiTauResource" Multiplicity="*" />
         </Association>
+        <EntityType Name="tblNumberGenerate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="HandoverNumber" Nullable="false" />
+          <Property Type="Int64" Name="ReplyReportNumber" Nullable="false" />
+          <Property Type="Int32" Name="NumberType" Nullable="false" />
+          <Property Type="String" Name="Year" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -910,16 +912,6 @@
                 <ScalarProperty Name="ListReplyDate" ColumnName="ListReplyDate" />
                 <ScalarProperty Name="ReplyStatusGoods" ColumnName="ReplyStatusGoods" />
                 <ScalarProperty Name="ListReplyNumber" ColumnName="ListReplyNumber" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblNumberGenerates">
-            <EntityTypeMapping TypeName="dbTrainModel.tblNumberGenerate">
-              <MappingFragment StoreEntitySet="tblNumberGenerate">
-                <ScalarProperty Name="NumberType" ColumnName="NumberType" />
-                <ScalarProperty Name="ReplyReportNumber" ColumnName="ReplyReportNumber" />
-                <ScalarProperty Name="HandoverNumber" ColumnName="HandoverNumber" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1153,6 +1145,17 @@
               <ScalarProperty Name="ToaTauID" ColumnName="ToaTauID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="tblNumberGenerates">
+            <EntityTypeMapping TypeName="dbTrainModel.tblNumberGenerate">
+              <MappingFragment StoreEntitySet="tblNumberGenerate">
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="NumberType" ColumnName="NumberType" />
+                <ScalarProperty Name="ReplyReportNumber" ColumnName="ReplyReportNumber" />
+                <ScalarProperty Name="HandoverNumber" ColumnName="HandoverNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1180,7 +1183,6 @@
         <EntityTypeShape EntityType="dbTrainModel.tblHandover" Width="1.5" PointX="3" PointY="16.125" Height="5.05710937500001" />
         <EntityTypeShape EntityType="dbTrainModel.tblHandoverResource" Width="1.5" PointX="5.25" PointY="5.875" Height="1.5956835937500102" />
         <EntityTypeShape EntityType="dbTrainModel.tblListHandoverReply" Width="1.5" PointX="0.75" PointY="16.875" Height="3.5186979166666674" />
-        <EntityTypeShape EntityType="dbTrainModel.tblNumberGenerate" Width="1.5" PointX="5.75" PointY="8.75" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="dbTrainModel.tblTauKhachDetail" Width="1.5" PointX="3" PointY="1.25" Height="2.1725878906250102" />
         <EntityTypeShape EntityType="dbTrainModel.tblToKhaiTau" Width="1.5" PointX="3" PointY="10.875" Height="3.5186979166666674" />
         <EntityTypeShape EntityType="dbTrainModel.tblToKhaiTauResource" Width="1.5" PointX="5.25" PointY="2.875" Height="1.5956835937499818" />
@@ -1201,8 +1203,8 @@
         </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblHandoverResource_tblHandover" >
           <ConnectorPoint PointX="4.5" PointY="18.653554687500005" />
-          <ConnectorPoint PointX="5.46875" PointY="18.653554687500005" />
-          <ConnectorPoint PointX="5.46875" PointY="7.47068359375" />
+          <ConnectorPoint PointX="6" PointY="18.653554687500005" />
+          <ConnectorPoint PointX="6" PointY="7.47068359375001" />
         </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau" >
           <ConnectorPoint PointX="4.5" PointY="10.876152846153847" />
@@ -1229,6 +1231,7 @@
           <ConnectorPoint PointX="5.0625" PointY="4.65818359375" />
           <ConnectorPoint PointX="5.25" PointY="4.47068359375" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="dbTrainModel.tblNumberGenerate" Width="1.5" PointX="12.375" PointY="5.75" Height="1.9802864583333388" />
       </Diagram>
     </Diagrams>
   </Designer>
