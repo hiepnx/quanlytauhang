@@ -18,7 +18,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("dbTrainModel", "FK_tblToKhaiTauResource_tblToaTau", "tblToaTau", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblToaTau), "tblToKhaiTauResource", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblToKhaiTauResource))]
 
 // Original file name:
-// Generation date: 4/8/2013 10:49:52 PM
+// Generation date: 4/20/2013 10:01:54 PM
 namespace ETrains.DAL
 {
     
@@ -154,23 +154,6 @@ namespace ETrains.DAL
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         private global::System.Data.Objects.ObjectQuery<tblListHandoverReply> _tblListHandoverReplies;
-        /// <summary>
-        /// There are no comments for tblNumberGenerates in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Data.Objects.ObjectQuery<tblNumberGenerate> tblNumberGenerates
-        {
-            get
-            {
-                if ((this._tblNumberGenerates == null))
-                {
-                    this._tblNumberGenerates = base.CreateQuery<tblNumberGenerate>("[tblNumberGenerates]");
-                }
-                return this._tblNumberGenerates;
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Data.Objects.ObjectQuery<tblNumberGenerate> _tblNumberGenerates;
         /// <summary>
         /// There are no comments for tblTauKhachDetails in the schema.
         /// </summary>
@@ -342,6 +325,23 @@ namespace ETrains.DAL
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         private global::System.Data.Objects.ObjectQuery<tblToaTau> _tblToaTaus;
         /// <summary>
+        /// There are no comments for tblNumberGenerates in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Data.Objects.ObjectQuery<tblNumberGenerate> tblNumberGenerates
+        {
+            get
+            {
+                if ((this._tblNumberGenerates == null))
+                {
+                    this._tblNumberGenerates = base.CreateQuery<tblNumberGenerate>("[tblNumberGenerates]");
+                }
+                return this._tblNumberGenerates;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Data.Objects.ObjectQuery<tblNumberGenerate> _tblNumberGenerates;
+        /// <summary>
         /// There are no comments for tblChuyenTaus in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
@@ -388,14 +388,6 @@ namespace ETrains.DAL
         public void AddTotblListHandoverReplies(tblListHandoverReply tblListHandoverReply)
         {
             base.AddObject("tblListHandoverReplies", tblListHandoverReply);
-        }
-        /// <summary>
-        /// There are no comments for tblNumberGenerates in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public void AddTotblNumberGenerates(tblNumberGenerate tblNumberGenerate)
-        {
-            base.AddObject("tblNumberGenerates", tblNumberGenerate);
         }
         /// <summary>
         /// There are no comments for tblTauKhachDetails in the schema.
@@ -476,6 +468,14 @@ namespace ETrains.DAL
         public void AddTotblToaTaus(tblToaTau tblToaTau)
         {
             base.AddObject("tblToaTaus", tblToaTau);
+        }
+        /// <summary>
+        /// There are no comments for tblNumberGenerates in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public void AddTotblNumberGenerates(tblNumberGenerate tblNumberGenerate)
+        {
+            base.AddObject("tblNumberGenerates", tblNumberGenerate);
         }
     }
     /// <summary>
@@ -2332,143 +2332,6 @@ namespace ETrains.DAL
                 }
             }
         }
-    }
-    /// <summary>
-    /// There are no comments for dbTrainModel.tblNumberGenerate in the schema.
-    /// </summary>
-    /// <KeyProperties>
-    /// ID
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="dbTrainModel", Name="tblNumberGenerate")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class tblNumberGenerate : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// Create a new tblNumberGenerate object.
-        /// </summary>
-        /// <param name="id">Initial value of ID.</param>
-        /// <param name="handoverNumber">Initial value of HandoverNumber.</param>
-        /// <param name="replyReportNumber">Initial value of ReplyReportNumber.</param>
-        /// <param name="numberType">Initial value of NumberType.</param>
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public static tblNumberGenerate CreatetblNumberGenerate(long id, long handoverNumber, long replyReportNumber, int numberType)
-        {
-            tblNumberGenerate tblNumberGenerate = new tblNumberGenerate();
-            tblNumberGenerate.ID = id;
-            tblNumberGenerate.HandoverNumber = handoverNumber;
-            tblNumberGenerate.ReplyReportNumber = replyReportNumber;
-            tblNumberGenerate.NumberType = numberType;
-            return tblNumberGenerate;
-        }
-        /// <summary>
-        /// There are no comments for property ID in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public long ID
-        {
-            get
-            {
-                return this._ID;
-            }
-            set
-            {
-                this.OnIDChanging(value);
-                this.ReportPropertyChanging("ID");
-                this._ID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("ID");
-                this.OnIDChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private long _ID;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnIDChanging(long value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnIDChanged();
-        /// <summary>
-        /// There are no comments for property HandoverNumber in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public long HandoverNumber
-        {
-            get
-            {
-                return this._HandoverNumber;
-            }
-            set
-            {
-                this.OnHandoverNumberChanging(value);
-                this.ReportPropertyChanging("HandoverNumber");
-                this._HandoverNumber = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("HandoverNumber");
-                this.OnHandoverNumberChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private long _HandoverNumber;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnHandoverNumberChanging(long value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnHandoverNumberChanged();
-        /// <summary>
-        /// There are no comments for property ReplyReportNumber in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public long ReplyReportNumber
-        {
-            get
-            {
-                return this._ReplyReportNumber;
-            }
-            set
-            {
-                this.OnReplyReportNumberChanging(value);
-                this.ReportPropertyChanging("ReplyReportNumber");
-                this._ReplyReportNumber = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("ReplyReportNumber");
-                this.OnReplyReportNumberChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private long _ReplyReportNumber;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnReplyReportNumberChanging(long value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnReplyReportNumberChanged();
-        /// <summary>
-        /// There are no comments for property NumberType in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public int NumberType
-        {
-            get
-            {
-                return this._NumberType;
-            }
-            set
-            {
-                this.OnNumberTypeChanging(value);
-                this.ReportPropertyChanging("NumberType");
-                this._NumberType = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("NumberType");
-                this.OnNumberTypeChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private int _NumberType;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnNumberTypeChanging(int value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnNumberTypeChanged();
     }
     /// <summary>
     /// There are no comments for dbTrainModel.tblTauKhachDetail in the schema.
@@ -5951,5 +5814,169 @@ namespace ETrains.DAL
                 }
             }
         }
+    }
+    /// <summary>
+    /// There are no comments for dbTrainModel.tblNumberGenerate in the schema.
+    /// </summary>
+    /// <KeyProperties>
+    /// ID
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="dbTrainModel", Name="tblNumberGenerate")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class tblNumberGenerate : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// Create a new tblNumberGenerate object.
+        /// </summary>
+        /// <param name="id">Initial value of ID.</param>
+        /// <param name="handoverNumber">Initial value of HandoverNumber.</param>
+        /// <param name="replyReportNumber">Initial value of ReplyReportNumber.</param>
+        /// <param name="numberType">Initial value of NumberType.</param>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public static tblNumberGenerate CreatetblNumberGenerate(long id, long handoverNumber, long replyReportNumber, int numberType)
+        {
+            tblNumberGenerate tblNumberGenerate = new tblNumberGenerate();
+            tblNumberGenerate.ID = id;
+            tblNumberGenerate.HandoverNumber = handoverNumber;
+            tblNumberGenerate.ReplyReportNumber = replyReportNumber;
+            tblNumberGenerate.NumberType = numberType;
+            return tblNumberGenerate;
+        }
+        /// <summary>
+        /// There are no comments for property ID in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public long ID
+        {
+            get
+            {
+                return this._ID;
+            }
+            set
+            {
+                this.OnIDChanging(value);
+                this.ReportPropertyChanging("ID");
+                this._ID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("ID");
+                this.OnIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private long _ID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnIDChanging(long value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnIDChanged();
+        /// <summary>
+        /// There are no comments for property HandoverNumber in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public long HandoverNumber
+        {
+            get
+            {
+                return this._HandoverNumber;
+            }
+            set
+            {
+                this.OnHandoverNumberChanging(value);
+                this.ReportPropertyChanging("HandoverNumber");
+                this._HandoverNumber = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("HandoverNumber");
+                this.OnHandoverNumberChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private long _HandoverNumber;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnHandoverNumberChanging(long value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnHandoverNumberChanged();
+        /// <summary>
+        /// There are no comments for property ReplyReportNumber in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public long ReplyReportNumber
+        {
+            get
+            {
+                return this._ReplyReportNumber;
+            }
+            set
+            {
+                this.OnReplyReportNumberChanging(value);
+                this.ReportPropertyChanging("ReplyReportNumber");
+                this._ReplyReportNumber = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("ReplyReportNumber");
+                this.OnReplyReportNumberChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private long _ReplyReportNumber;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnReplyReportNumberChanging(long value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnReplyReportNumberChanged();
+        /// <summary>
+        /// There are no comments for property NumberType in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public int NumberType
+        {
+            get
+            {
+                return this._NumberType;
+            }
+            set
+            {
+                this.OnNumberTypeChanging(value);
+                this.ReportPropertyChanging("NumberType");
+                this._NumberType = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("NumberType");
+                this.OnNumberTypeChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private int _NumberType;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnNumberTypeChanging(int value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnNumberTypeChanged();
+        /// <summary>
+        /// There are no comments for property Year in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string Year
+        {
+            get
+            {
+                return this._Year;
+            }
+            set
+            {
+                this.OnYearChanging(value);
+                this.ReportPropertyChanging("Year");
+                this._Year = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("Year");
+                this.OnYearChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _Year;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnYearChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnYearChanged();
     }
 }

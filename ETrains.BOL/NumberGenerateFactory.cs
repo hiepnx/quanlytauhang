@@ -15,6 +15,7 @@ namespace ETrains.BOL
         {
             var db = new dbTrainEntities(ConnectionController.GetConnection());
             tblNumberGenerate number= new tblNumberGenerate();
+            number.Year = CommonFactory.GetCurrentDate().Year + "";
             number.NumberType = type;
             tblNumberGenerate max = getMaxValueByType(type);
             if (max == null)
@@ -22,7 +23,8 @@ namespace ETrains.BOL
                 max = new tblNumberGenerate
                 {
                     HandoverNumber = 0,
-                    ReplyReportNumber = 0
+                    ReplyReportNumber = 0,
+                    Year=CommonFactory.GetCurrentDate().Year+""
                 };
             }
             if (type == NUMBER_TYPE_HANDOVER)
@@ -50,8 +52,9 @@ namespace ETrains.BOL
         public static tblNumberGenerate getMaxValueByType(int type)
         {
             var db = new dbTrainEntities(ConnectionController.GetConnection());
+            String year = CommonFactory.GetCurrentDate().Year + "";
             return db.tblNumberGenerates.
-                Where(x => x.NumberType == type).
+                Where(x => x.NumberType == type && x.Year==year).
                 OrderByDescending(x => x.ID).FirstOrDefault(); 
         }
     }

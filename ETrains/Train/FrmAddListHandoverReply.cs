@@ -112,7 +112,7 @@ namespace ETrains.Train
                 btnUpdate.Enabled = false;
                 lblHeader.Text = "Thêm mới bảng kê hồi báo";
                 _NumberGenerate = NumberGenerateFactory.AutoGenerate(NumberGenerateFactory.NUMBER_TYPE_REPLY);
-                txtNumberHandoverReply.Text = _NumberGenerate.ReplyReportNumber + "/BK-HQGA";
+                txtNumberHandoverReply.Text = _NumberGenerate.Year + "-" + _NumberGenerate.ReplyReportNumber + "/BK-HQGA";
                 txtStatusGood.Text = "Hàng hóa về ga Đồng Đăng đủ, đúng số toa, nguyên chì TQ và chì của ";
                 txtNote.Text = "Chi cục Hải quan ga ĐSQT Đồng Đăng đề nghị chi cục sau khi nhận được bảng kê này, xác nhận và Fax lại cho chúng tôi theo số: (04)8781450-8781019";
             }
@@ -238,7 +238,7 @@ namespace ETrains.Train
             _listHanover = new List<tblHandover>();
             grdHandover.DataSource = _listHanover;
             _NumberGenerate = NumberGenerateFactory.AutoGenerate(NumberGenerateFactory.NUMBER_TYPE_REPLY);
-            txtNumberHandoverReply.Text = _NumberGenerate.ReplyReportNumber + "/BK-HQGA";
+            txtNumberHandoverReply.Text = _NumberGenerate.Year + "-" + _NumberGenerate.ReplyReportNumber + "/BK-HQGA";
         }
 
 
