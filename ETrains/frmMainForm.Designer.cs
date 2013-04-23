@@ -65,8 +65,7 @@
             this.quảnLýThôngTinChungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCompany = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuReport = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFeedbackReport = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHandoverReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTauKhachXNC = new System.Windows.Forms.ToolStripMenuItem();
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hướngDẫnSửDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -370,24 +369,17 @@
             // mnuReport
             // 
             this.mnuReport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuFeedbackReport,
-            this.mnuHandoverReport});
+            this.mnuTauKhachXNC});
             this.mnuReport.Name = "mnuReport";
             this.mnuReport.Size = new System.Drawing.Size(60, 20);
             this.mnuReport.Text = "Báo cáo";
             // 
-            // mnuFeedbackReport
+            // mnuTauKhachXNC
             // 
-            this.mnuFeedbackReport.Name = "mnuFeedbackReport";
-            this.mnuFeedbackReport.Size = new System.Drawing.Size(169, 22);
-            this.mnuFeedbackReport.Text = "Biên bản hồi báo";
-            this.mnuFeedbackReport.Click += new System.EventHandler(this.mnuFeedbackReport_Click);
-            // 
-            // mnuHandoverReport
-            // 
-            this.mnuHandoverReport.Name = "mnuHandoverReport";
-            this.mnuHandoverReport.Size = new System.Drawing.Size(169, 22);
-            this.mnuHandoverReport.Text = "Biên bản bàn giao";
+            this.mnuTauKhachXNC.Name = "mnuTauKhachXNC";
+            this.mnuTauKhachXNC.Size = new System.Drawing.Size(212, 22);
+            this.mnuTauKhachXNC.Text = "Sổ theo dõi tàu khách XNC";
+            this.mnuTauKhachXNC.Click += new System.EventHandler(this.mnuTauKhachXNC_Click);
             // 
             // trợGiúpToolStripMenuItem
             // 
@@ -507,7 +499,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ETrains.Properties.Resources.logoBackgound;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1140, 738);
+            this.ClientSize = new System.Drawing.Size(1140, 746);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.mnMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -572,9 +564,8 @@
         private System.Windows.Forms.ToolStripMenuItem quảnLýThôngTinChungToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuCompany;
         private System.Windows.Forms.ToolStripMenuItem mnuReport;
-        private System.Windows.Forms.ToolStripMenuItem mnuFeedbackReport;
-        private System.Windows.Forms.ToolStripMenuItem mnuHandoverReport;
         private System.Windows.Forms.ToolStripMenuItem mnuListReplyManagement;
         private System.Windows.Forms.ToolStripMenuItem mnuAddHandoverReply;
+        private System.Windows.Forms.ToolStripMenuItem mnuTauKhachXNC;
     }
 }

@@ -185,11 +185,11 @@
             // 
             // dtpRegisterDate
             // 
-            this.dtpRegisterDate.CustomFormat = "dd/MM/yyyy";
+            this.dtpRegisterDate.CustomFormat = "dd/MM/yyyy hh:mm";
             this.dtpRegisterDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpRegisterDate.Location = new System.Drawing.Point(371, 26);
+            this.dtpRegisterDate.Location = new System.Drawing.Point(336, 26);
             this.dtpRegisterDate.Name = "dtpRegisterDate";
-            this.dtpRegisterDate.Size = new System.Drawing.Size(83, 20);
+            this.dtpRegisterDate.Size = new System.Drawing.Size(118, 20);
             this.dtpRegisterDate.TabIndex = 2;
             // 
             // txtNumberTrain
@@ -204,7 +204,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(308, 29);
+            this.label1.Location = new System.Drawing.Point(273, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 10;
