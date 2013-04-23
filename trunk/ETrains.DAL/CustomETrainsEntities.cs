@@ -12,6 +12,41 @@ namespace ETrains.DAL
         }
     }
 
+    public partial class tblTrain : EntityObject
+    {
+        private string _createdByName;
+        private string _modifiedByName;
+        public string CreatedByName
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_createdByName))
+                {
+                    var db = DataAccess.Instance();
+                    _createdByName = db.tblUsers.Where(x => x.UserID == CreatedBy).FirstOrDefault().Name;
+                }
+                return _createdByName;
+            }
+        }
+        public string ModifiedByName
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_modifiedByName))
+                {
+                    if (ModifiedBy == null) _modifiedByName = string.Empty;
+                    else
+                    {
+                        var db = DataAccess.Instance();
+                        _modifiedByName = db.tblUsers.Where(x => x.UserID == ModifiedBy).FirstOrDefault().Name;
+                    }
+                }
+                return _modifiedByName;
+            }
+        }
+
+    }
+
     public partial class tblToaTau : EntityObject
     {
         private string _ten_DoanhNghiep;

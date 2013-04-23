@@ -324,5 +324,12 @@ namespace ETrains
             form.Show();
         }
 
+        private void mnuTauKhachXNC_Click(object sender, EventArgs e)
+        {
+            FrmReportPassengerTrain form = new FrmReportPassengerTrain();
+            form.MdiParent = this;
+            form.Show();
+        }
+
     }
 }
