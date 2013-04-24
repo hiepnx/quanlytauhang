@@ -262,9 +262,11 @@ namespace ETrains.Train
         {
             txtNumberToaTau.ReadOnly = false;
             txtNumberToaTau.Enabled = true;
-            txtNumberToaTau.Text = txtSoVanDon.Text = txtPartner.Text = txtCompanyCode.Text = txtCompanyName.Text =
-                txtTenHang.Text = txtTrongLuong.Text = txtDVT.Text = txtSealVT.Text = txtSealVT2.Text = txtSealHQ2.Text = txtSealHQ.Text = txtNote.Text = string.Empty;
-            dtpVanDon.Value = DateTime.Now;
+            //txtNumberToaTau.Text = txtSoVanDon.Text = txtPartner.Text = txtCompanyCode.Text = txtCompanyName.Text =
+            //    txtTenHang.Text = txtTrongLuong.Text = txtDVT.Text = txtSealVT.Text = txtSealVT2.Text = txtSealHQ2.Text = txtSealHQ.Text = txtNote.Text = string.Empty;
+            //dtpVanDon.Value = DateTime.Now;
+
+            txtNumberToaTau.Text = txtSoVanDon.Text = string.Empty;
             btnUpdateToaTau.Enabled = btnDeleteToaTau.Enabled = false;
             btnAddToaTau.Enabled = true;
             _currentToaTau = null;
