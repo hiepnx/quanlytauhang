@@ -146,9 +146,10 @@ namespace ETrains.BOL
           
             foreach (var toaTau in listToaTau)
             {
-                var originalToaTau = originChuyenTau.tblToaTaus
-                    .Where(c => c.ToaTauID == toaTau.ToaTauID)
-                    .FirstOrDefault();
+                //var originalToaTau =  originChuyenTau.tblToaTaus
+                //    .Where(c => c.ToaTauID == toaTau.ToaTauID)
+                //    .FirstOrDefault();
+                var originalToaTau = db.tblToaTaus.Where(c => c.ToaTauID == toaTau.ToaTauID).FirstOrDefault();
                 if (originalToaTau != null)
                 {
                     toaTau.ModifiedDate = train.ModifiedDate;

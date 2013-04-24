@@ -269,6 +269,7 @@ namespace ETrains.Train
             txtNumberToaTau.Text = txtSoVanDon.Text = string.Empty;
             btnUpdateToaTau.Enabled = btnDeleteToaTau.Enabled = false;
             btnAddToaTau.Enabled = true;
+            txtNumberToaTau.Focus();
             _currentToaTau = null;
         }
 
