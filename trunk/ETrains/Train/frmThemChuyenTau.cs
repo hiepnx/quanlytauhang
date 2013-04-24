@@ -534,7 +534,7 @@ namespace ETrains.Train
                 txtSealVT.Tag = "required";
                 txtSealVT2.Tag = "required";
             }
-            //neu la toa tran hoa loai hinh nhap la "tai cho" thi k bat buoc nhap seal hai quan
+            //neu la toa tran hoac loai hinh nhap la "tai cho" thi k bat buoc nhap seal hai quan
             if (loaiToaTau == (short)LoaiToaTau.ToaTran || (loatHinhNhap == (short)ToaTauImportType.TaiCho))
             {
                 txtSealHQ.Tag = null;
@@ -548,6 +548,15 @@ namespace ETrains.Train
                 txtDVT.Tag = "required";
                 txtSealVT.Tag = "required";
                 txtSealVT2.Tag = "required";
+
+            }
+
+            //Doi voi truong hop "toa tran", "chuyen cang" thi k can go seal van tai
+            if (loaiToaTau == (short)LoaiToaTau.ToaTran || (loatHinhNhap == (short)ToaTauImportType.ChuyenCang))
+            {
+
+                txtSealVT.Tag = null;
+                txtSealVT2.Tag = null;
 
             }
             if (loaiToaTau == (short)LoaiToaTau.ToaRong)
@@ -590,6 +599,37 @@ namespace ETrains.Train
             {
                 txtSealHQ.Tag = "required";
                 txtSealHQ2.Tag = "required";
+            }
+
+            //Doi voi truong hop "toa tran", "chuyen cang" thi k can go seal van tai
+            if (loaiToaTau == (short)LoaiToaTau.ToaTran || (loatHinhNhap == (short)ToaTauImportType.ChuyenCang))
+            {
+
+                txtSealVT.Tag = null;
+                txtSealVT2.Tag = null;
+
+            }
+            else
+            {
+                txtSealVT.Tag = "required";
+                txtSealVT2.Tag = "required";
+            }
+
+
+            if (loaiToaTau == (short)LoaiToaTau.ToaRong)
+            {
+                txtSealHQ.Tag = null;
+                txtSealHQ2.Tag = null;
+
+                txtSoVanDon.Tag = null;
+                txtPartner.Tag = null;
+                txtCompanyCode.Tag = null;
+                txtTenHang.Tag = null;
+                txtTrongLuong.Tag = null;
+                txtDVT.Tag = null;
+                txtSealVT.Tag = null;
+                txtSealVT2.Tag = null;
+
             }
         }
     }
