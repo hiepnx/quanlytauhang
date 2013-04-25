@@ -471,6 +471,10 @@ namespace ETrains.Train
 
                 }
 
+                reportHandOver.Section3.SectionFormat.EnableUnderlaySection = true;
+                reportHandOver.Section3.SectionFormat.EnableKeepTogether = true;
+                
+
                 FrmPreviewReport frmReport = new FrmPreviewReport(reportHandOver);
                 frmReport.MdiParent = this.MdiParent;
                 frmReport.Show();
