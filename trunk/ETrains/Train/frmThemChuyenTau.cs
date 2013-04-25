@@ -367,8 +367,27 @@ namespace ETrains.Train
         {
             try
             {
-                var dr = MessageBox.Show("Trong trường hợp bạn xóa toa tàu của đoàn tàu: Các toa tàu cũ của đoàn tàu có thể liên kết với BBBG và Tờ khai hải quan. Các dữ liệu liên kết này sẽ bị xóa cùng với toa tàu. Bạn có muốn tiếp tục ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dr == DialogResult.Yes)
+                bool hasDeleteToaTau = false;
+                List<tblToaTau> listOriginToaTau = TrainFactory.GetToaTauByChuyenTauID(_train.TrainID);
+                foreach (tblToaTau originalToaTau in listOriginToaTau)
+                {
+                    if (listToaTau.Any(c => c.ToaTauID == originalToaTau.ToaTauID) == false)
+                    {
+                        hasDeleteToaTau = true;
+                        break;
+                    }
+                }
+                var dr = DialogResult.No;
+                if (hasDeleteToaTau)
+                {
+                    dr = MessageBox.Show("Trong trường hợp bạn xóa toa tàu của đoàn tàu: Các toa tàu cũ của đoàn tàu có thể liên kết với BBBG và Tờ khai hải quan. Các dữ liệu liên kết này sẽ bị xóa cùng với toa tàu. Bạn có muốn tiếp tục ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                }
+                else
+                {
+                    dr = DialogResult.Yes;
+                }
+                if (dr==DialogResult.Yes)
                 {
                     if (!ValidateChuyenTau()) return;
                     _train.ModifiedBy = _userInfo.UserID;
