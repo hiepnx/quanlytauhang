@@ -486,6 +486,13 @@ namespace ETrains.BOL
 
         }
 
+        public static List<tblToaTau> GetToaTauByChuyenTauID(long id)
+        {
+            var db = Instance();
+            return db.tblToaTaus.Where(g => g.tblChuyenTau.TrainID == id).ToList();
+
+        }
+
         public static tblToaTau GetToaTauBySealHaiQuan1(String seal1)
         {
             if (String.IsNullOrEmpty(seal1))
