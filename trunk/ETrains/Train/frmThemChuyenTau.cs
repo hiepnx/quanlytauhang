@@ -138,6 +138,15 @@ namespace ETrains.Train
             {
                 return valid;
             }
+            
+            //kiem tra trung lap so hieu toa tau
+            if ((_mode == 0 || (_mode == 1 && _currentToaTau == null)) && listToaTau.Any(c => c.Ma_ToaTau == txtNumberToaTau.Text.Trim()))
+            {
+                valid = false;
+                MessageBox.Show("Số hiệu toa tàu " + txtNumberToaTau.Text.Trim() + " đã tồn tại, xin vui lòng kiểm tra lại");
+                txtNumberToaTau.Focus();
+                return valid;
+            }
 
             //kiem tra trung lap seal hai quan trong danh sach cach toa tau cua doan tau
             tblToaTau existSeal1 = listToaTau.Where(x => x.Seal_HaiQuan == txtSealHQ.Text.Trim() && string.IsNullOrEmpty(x.Seal_HaiQuan)==false).FirstOrDefault();
