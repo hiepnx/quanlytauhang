@@ -696,6 +696,29 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ViewToaTau" msprop:Generator_TableClassName="ViewToaTauDataTable" msprop:Generator_TableVarName="tableViewToaTau" msprop:Generator_TablePropName="ViewToaTau" msprop:Generator_RowDeletingName="ViewToaTauRowDeleting" msprop:Generator_UserTableName="ViewToaTau" msprop:Generator_RowChangingName="ViewToaTauRowChanging" msprop:Generator_RowEvHandlerName="ViewToaTauRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewToaTauRowDeleted" msprop:Generator_RowEvArgName="ViewToaTauRowChangeEvent" msprop:Generator_RowChangedName="ViewToaTauRowChanged" msprop:Generator_RowClassName="ViewToaTauRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ToaTauID" msprop:Generator_ColumnVarNameInTable="columnToaTauID" msprop:Generator_ColumnPropNameInRow="ToaTauID" msprop:Generator_ColumnPropNameInTable="ToaTauIDColumn" msprop:Generator_UserColumnName="ToaTauID" type="xs:long" />
+              <xs:element name="TrainNumber" msprop:Generator_ColumnVarNameInTable="columnTrainNumber" msprop:Generator_ColumnPropNameInRow="TrainNumber" msprop:Generator_ColumnPropNameInTable="TrainNumberColumn" msprop:Generator_UserColumnName="TrainNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="TrainDate" msprop:Generator_ColumnVarNameInTable="columnTrainDate" msprop:Generator_ColumnPropNameInRow="TrainDate" msprop:Generator_ColumnPropNameInTable="TrainDateColumn" msprop:Generator_UserColumnName="TrainDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="MaToaTau" msprop:Generator_ColumnVarNameInTable="columnMaToaTau" msprop:Generator_ColumnPropNameInRow="MaToaTau" msprop:Generator_ColumnPropNameInTable="MaToaTauColumn" msprop:Generator_UserColumnName="MaToaTau" type="xs:string" minOccurs="0" />
+              <xs:element name="SoVanDon" msprop:Generator_ColumnVarNameInTable="columnSoVanDon" msprop:Generator_ColumnPropNameInRow="SoVanDon" msprop:Generator_ColumnPropNameInTable="SoVanDonColumn" msprop:Generator_UserColumnName="SoVanDon" type="xs:string" minOccurs="0" />
+              <xs:element name="TenNguoiGui" msprop:Generator_ColumnVarNameInTable="columnTenNguoiGui" msprop:Generator_ColumnPropNameInRow="TenNguoiGui" msprop:Generator_ColumnPropNameInTable="TenNguoiGuiColumn" msprop:Generator_UserColumnName="TenNguoiGui" type="xs:string" minOccurs="0" />
+              <xs:element name="TenNguoiNhan" msprop:Generator_ColumnVarNameInTable="columnTenNguoiNhan" msprop:Generator_ColumnPropNameInRow="TenNguoiNhan" msprop:Generator_ColumnPropNameInTable="TenNguoiNhanColumn" msprop:Generator_UserColumnName="TenNguoiNhan" type="xs:string" minOccurs="0" />
+              <xs:element name="TenHang" msprop:Generator_ColumnVarNameInTable="columnTenHang" msprop:Generator_ColumnPropNameInRow="TenHang" msprop:Generator_ColumnPropNameInTable="TenHangColumn" msprop:Generator_UserColumnName="TenHang" type="xs:string" minOccurs="0" />
+              <xs:element name="DonViTinh" msprop:Generator_ColumnVarNameInTable="columnDonViTinh" msprop:Generator_ColumnPropNameInRow="DonViTinh" msprop:Generator_ColumnPropNameInTable="DonViTinhColumn" msprop:Generator_UserColumnName="DonViTinh" type="xs:string" minOccurs="0" />
+              <xs:element name="TrongLuong" msprop:Generator_ColumnVarNameInTable="columnTrongLuong" msprop:Generator_ColumnPropNameInRow="TrongLuong" msprop:Generator_ColumnPropNameInTable="TrongLuongColumn" msprop:Generator_UserColumnName="TrongLuong" type="xs:string" minOccurs="0" />
+              <xs:element name="SoSealVT1" msprop:Generator_ColumnVarNameInTable="columnSoSealVT1" msprop:Generator_ColumnPropNameInRow="SoSealVT1" msprop:Generator_ColumnPropNameInTable="SoSealVT1Column" msprop:Generator_UserColumnName="SoSealVT1" type="xs:string" minOccurs="0" />
+              <xs:element name="SoSealVT2" msprop:Generator_ColumnVarNameInTable="columnSoSealVT2" msprop:Generator_ColumnPropNameInRow="SoSealVT2" msprop:Generator_ColumnPropNameInTable="SoSealVT2Column" msprop:Generator_UserColumnName="SoSealVT2" type="xs:string" minOccurs="0" />
+              <xs:element name="SoSealHQ1" msprop:Generator_ColumnVarNameInTable="columnSoSealHQ1" msprop:Generator_ColumnPropNameInRow="SoSealHQ1" msprop:Generator_ColumnPropNameInTable="SoSealHQ1Column" msprop:Generator_UserColumnName="SoSealHQ1" type="xs:string" minOccurs="0" />
+              <xs:element name="SoSealHQ2" msprop:Generator_ColumnVarNameInTable="columnSoSealHQ2" msprop:Generator_ColumnPropNameInRow="SoSealHQ2" msprop:Generator_ColumnPropNameInTable="SoSealHQ2Column" msprop:Generator_UserColumnName="SoSealHQ2" type="xs:string" minOccurs="0" />
+              <xs:element name="LoaiToa" msprop:Generator_ColumnVarNameInTable="columnLoaiToa" msprop:Generator_ColumnPropNameInRow="LoaiToa" msprop:Generator_ColumnPropNameInTable="LoaiToaColumn" msprop:Generator_UserColumnName="LoaiToa" type="xs:string" minOccurs="0" />
+              <xs:element name="LoaiHinh" msprop:Generator_ColumnVarNameInTable="columnLoaiHinh" msprop:Generator_ColumnPropNameInRow="LoaiHinh" msprop:Generator_ColumnPropNameInTable="LoaiHinhColumn" msprop:Generator_UserColumnName="LoaiHinh" type="xs:string" minOccurs="0" />
+              <xs:element name="GhiChu" msprop:Generator_ColumnVarNameInTable="columnGhiChu" msprop:Generator_ColumnPropNameInRow="GhiChu" msprop:Generator_ColumnPropNameInTable="GhiChuColumn" msprop:Generator_UserColumnName="GhiChu" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -709,6 +732,10 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
     <xs:unique name="tblTrain_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:tblTrain" />
       <xs:field xpath="mstns:TrainID" />
+    </xs:unique>
+    <xs:unique name="ViewToaTau_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ViewToaTau" />
+      <xs:field xpath="mstns:ToaTauID" />
     </xs:unique>
   </xs:element>
 </xs:schema>
