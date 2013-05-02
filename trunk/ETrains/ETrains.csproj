@@ -101,6 +101,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -157,6 +161,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReportPassengerTrain.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportTrainImportExport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportTrainImportExport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Train\FrmAddListHandoverReply.cs">
@@ -275,6 +285,12 @@
     <Compile Include="Train\FrmReportPassengerTrain.Designer.cs">
       <DependentUpon>FrmReportPassengerTrain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Train\FrmReportTrain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\FrmReportTrain.Designer.cs">
+      <DependentUpon>FrmReportTrain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Train\FrmSearchBBBG.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +353,10 @@
     <EmbeddedResource Include="ReportPassengerTrain.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportPassengerTrain.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportTrainImportExport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportTrainImportExport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Train\FrmAddListHandoverReply.resx">
       <DependentUpon>FrmAddListHandoverReply.cs</DependentUpon>
@@ -401,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Train\FrmReportPassengerTrain.resx">
       <DependentUpon>FrmReportPassengerTrain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\FrmReportTrain.resx">
+      <DependentUpon>FrmReportTrain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Train\FrmSearchBBBG.resx">
       <DependentUpon>FrmSearchBBBG.cs</DependentUpon>

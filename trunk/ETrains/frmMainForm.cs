@@ -331,5 +331,12 @@ namespace ETrains
             form.Show();
         }
 
+        private void mnuTauHangXNK_Click(object sender, EventArgs e)
+        {
+            FrmReportTrain form = new FrmReportTrain();
+            form.MdiParent = this;
+            form.Show();
+        }
+
     }
 }

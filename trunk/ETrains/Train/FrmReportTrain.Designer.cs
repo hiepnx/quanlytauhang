@@ -1,6 +1,6 @@
 ﻿namespace ETrains.Train
 {
-    partial class FrmReportPassengerTrain
+    partial class FrmReportTrain
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblHeader = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -35,10 +36,21 @@
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.ddlTypeName = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblHeader = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // lblHeader
+            // 
+            this.lblHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.lblHeader.Location = new System.Drawing.Point(17, 9);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(498, 24);
+            this.lblHeader.TabIndex = 4;
+            this.lblHeader.Text = "Báo cáo tàu hàng xuất nhập khẩu";
+            this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox1
             // 
@@ -51,10 +63,10 @@
             this.groupBox1.Controls.Add(this.dtpFrom);
             this.groupBox1.Controls.Add(this.ddlTypeName);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(7, 55);
+            this.groupBox1.Location = new System.Drawing.Point(12, 55);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(507, 106);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.Size = new System.Drawing.Size(503, 106);
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Điều kiện tìm kiếm";
             // 
@@ -114,18 +126,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Loại hình xuất nhập";
             // 
-            // lblHeader
-            // 
-            this.lblHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.lblHeader.Location = new System.Drawing.Point(7, 9);
-            this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(502, 24);
-            this.lblHeader.TabIndex = 2;
-            this.lblHeader.Text = "Báo cáo tàu khách xuất nhập cảnh";
-            this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // button1
             // 
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -142,16 +142,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // FrmReportPassengerTrain
+            // FrmReportTrain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 181);
+            this.ClientSize = new System.Drawing.Size(527, 178);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.groupBox1);
-            this.Name = "FrmReportPassengerTrain";
-            this.Text = "FrmReportPassengerTrain";
-            this.Load += new System.EventHandler(this.FrmReportPassengerTrain_Load);
+            this.Name = "FrmReportTrain";
+            this.Text = "FrmReportTrain";
+            this.Load += new System.EventHandler(this.FrmReportTrain_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -160,14 +160,14 @@
 
         #endregion
 
+        private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtpTo;
         private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.ComboBox ddlTypeName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblHeader;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
     }
 }
