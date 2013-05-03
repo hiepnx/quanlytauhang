@@ -73,7 +73,17 @@ namespace ETrains.Train
 
             if (replyType == "0") //BBBG den
             {
-                //txtType.Text = ("SỔ THEO DÕI BBBG HÀNG CHUYỂN CẢNG ĐẾN").ToUpper();
+                var report = new ReportHandoverComeIn();
+                var txtType = (TextObject)report.Section1.ReportObjects["txtType"];
+                var txtFrom = (TextObject)report.Section1.ReportObjects["txtFrom"];
+                var txtTo = (TextObject)report.Section1.ReportObjects["txtTo"];
+                txtFrom.Text = txtFrom.Text + " " + dtpFrom.Text;
+                txtTo.Text = txtTo.Text + " " + dtpTo.Text;
+                txtType.Text = ("SỔ THEO DÕI BBBG HÀNG CHUYỂN CẢNG ĐẾN").ToUpper();
+                report.SetDataSource(dataset);
+                FrmPreviewReport frmReport = new FrmPreviewReport(report);
+                frmReport.MdiParent = this.MdiParent;
+                frmReport.Show();
             }
             else if (replyType == "1") //BBBG di
             {
@@ -97,7 +107,8 @@ namespace ETrains.Train
         {
             String replyType = ((ComboBoxItem)cbType.SelectedItem).Value.ToString();
             if (replyType == "0") //BBBG den
-            {  
+            {
+  
                 cbReplyStatus.Enabled = false;
             }
             else //BBBG di
