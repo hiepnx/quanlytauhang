@@ -719,6 +719,21 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="BBBG" msprop:Generator_TableClassName="BBBGDataTable" msprop:Generator_TableVarName="tableBBBG" msprop:Generator_TablePropName="BBBG" msprop:Generator_RowDeletingName="BBBGRowDeleting" msprop:Generator_UserTableName="BBBG" msprop:Generator_RowChangingName="BBBGRowChanging" msprop:Generator_RowEvHandlerName="BBBGRowChangeEventHandler" msprop:Generator_RowDeletedName="BBBGRowDeleted" msprop:Generator_RowEvArgName="BBBGRowChangeEvent" msprop:Generator_RowChangedName="BBBGRowChanged" msprop:Generator_RowClassName="BBBGRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:long" />
+              <xs:element name="NumberHandover" msprop:Generator_ColumnVarNameInTable="columnNumberHandover" msprop:Generator_ColumnPropNameInRow="NumberHandover" msprop:Generator_ColumnPropNameInTable="NumberHandoverColumn" msprop:Generator_UserColumnName="NumberHandover" type="xs:string" minOccurs="0" />
+              <xs:element name="DateHandover" msprop:Generator_ColumnVarNameInTable="columnDateHandover" msprop:Generator_ColumnPropNameInRow="DateHandover" msprop:Generator_ColumnPropNameInTable="DateHandoverColumn" msprop:Generator_UserColumnName="DateHandover" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TenHaiQuanChuyenDi" msprop:Generator_ColumnVarNameInTable="columnTenHaiQuanChuyenDi" msprop:Generator_ColumnPropNameInRow="TenHaiQuanChuyenDi" msprop:Generator_ColumnPropNameInTable="TenHaiQuanChuyenDiColumn" msprop:Generator_UserColumnName="TenHaiQuanChuyenDi" type="xs:string" minOccurs="0" />
+              <xs:element name="TenHaiQuanChuyenDen" msprop:Generator_ColumnVarNameInTable="columnTenHaiQuanChuyenDen" msprop:Generator_ColumnPropNameInRow="TenHaiQuanChuyenDen" msprop:Generator_ColumnPropNameInTable="TenHaiQuanChuyenDenColumn" msprop:Generator_UserColumnName="TenHaiQuanChuyenDen" type="xs:string" minOccurs="0" />
+              <xs:element name="VehicleStatus" msprop:Generator_ColumnVarNameInTable="columnVehicleStatus" msprop:Generator_ColumnPropNameInRow="VehicleStatus" msprop:Generator_ColumnPropNameInTable="VehicleStatusColumn" msprop:Generator_UserColumnName="VehicleStatus" type="xs:string" minOccurs="0" />
+              <xs:element name="GoodsStatus" msprop:Generator_ColumnVarNameInTable="columnGoodsStatus" msprop:Generator_ColumnPropNameInRow="GoodsStatus" msprop:Generator_ColumnPropNameInTable="GoodsStatusColumn" msprop:Generator_UserColumnName="GoodsStatus" type="xs:string" minOccurs="0" />
+              <xs:element name="ReplyDate" msprop:Generator_ColumnVarNameInTable="columnReplyDate" msprop:Generator_ColumnPropNameInRow="ReplyDate" msprop:Generator_ColumnPropNameInTable="ReplyDateColumn" msprop:Generator_UserColumnName="ReplyDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Note" msprop:Generator_ColumnVarNameInTable="columnNote" msprop:Generator_ColumnPropNameInRow="Note" msprop:Generator_ColumnPropNameInTable="NoteColumn" msprop:Generator_UserColumnName="Note" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -736,6 +751,10 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
     <xs:unique name="ViewToaTau_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:ViewToaTau" />
       <xs:field xpath="mstns:ToaTauID" />
+    </xs:unique>
+    <xs:unique name="BBBG_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BBBG" />
+      <xs:field xpath="mstns:ID" />
     </xs:unique>
   </xs:element>
 </xs:schema>

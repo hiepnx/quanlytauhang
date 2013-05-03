@@ -338,5 +338,13 @@ namespace ETrains
             form.Show();
         }
 
+        private void mnuBBBG_Click(object sender, EventArgs e)
+        {
+            FrmReportHandover form = new FrmReportHandover();
+            form.MdiParent = this;
+            form.Show();
+
+        }
+
     }
 }
