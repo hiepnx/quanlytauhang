@@ -22,6 +22,12 @@ namespace ETrains
             crystalReportViewer1.ReportSource = report;
         }
 
+        public FrmPreviewReport(ReportHandoverOut report)
+        {
+            InitializeComponent();
+            crystalReportViewer1.ReportSource = report;
+        }
+
         public FrmPreviewReport(ReportTrainImportExport report)
         {
             InitializeComponent();

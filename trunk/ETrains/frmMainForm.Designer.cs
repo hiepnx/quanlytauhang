@@ -77,6 +77,7 @@
             this.toolStripButtonListdeclarace = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.mnuBBBG = new System.Windows.Forms.ToolStripMenuItem();
             this.mnMain.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -371,7 +372,8 @@
             // 
             this.mnuReport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuTauKhachXNC,
-            this.mnuTauHangXNK});
+            this.mnuTauHangXNK,
+            this.mnuBBBG});
             this.mnuReport.Name = "mnuReport";
             this.mnuReport.Size = new System.Drawing.Size(60, 20);
             this.mnuReport.Text = "Báo cáo";
@@ -502,13 +504,20 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 41);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
+            // mnuBBBG
+            // 
+            this.mnuBBBG.Name = "mnuBBBG";
+            this.mnuBBBG.Size = new System.Drawing.Size(212, 22);
+            this.mnuBBBG.Text = "Sổ theo dõi BBBG";
+            this.mnuBBBG.Click += new System.EventHandler(this.mnuBBBG_Click);
+            // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ETrains.Properties.Resources.logoBackgound;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1140, 754);
+            this.ClientSize = new System.Drawing.Size(1140, 758);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.mnMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -577,5 +586,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuAddHandoverReply;
         private System.Windows.Forms.ToolStripMenuItem mnuTauKhachXNC;
         private System.Windows.Forms.ToolStripMenuItem mnuTauHangXNK;
+        private System.Windows.Forms.ToolStripMenuItem mnuBBBG;
     }
 }
