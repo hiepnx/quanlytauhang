@@ -734,6 +734,17 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="BangKeHoiBao" msprop:Generator_TableClassName="BangKeHoiBaoDataTable" msprop:Generator_TableVarName="tableBangKeHoiBao" msprop:Generator_TablePropName="BangKeHoiBao" msprop:Generator_RowDeletingName="BangKeHoiBaoRowDeleting" msprop:Generator_UserTableName="BangKeHoiBao" msprop:Generator_RowChangingName="BangKeHoiBaoRowChanging" msprop:Generator_RowEvHandlerName="BangKeHoiBaoRowChangeEventHandler" msprop:Generator_RowDeletedName="BangKeHoiBaoRowDeleted" msprop:Generator_RowEvArgName="BangKeHoiBaoRowChangeEvent" msprop:Generator_RowChangedName="BangKeHoiBaoRowChanged" msprop:Generator_RowClassName="BangKeHoiBaoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:long" />
+              <xs:element name="ListReplyNumber" msprop:Generator_ColumnVarNameInTable="columnListReplyNumber" msprop:Generator_ColumnPropNameInRow="ListReplyNumber" msprop:Generator_ColumnPropNameInTable="ListReplyNumberColumn" msprop:Generator_UserColumnName="ListReplyNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="ListReplyDate" msprop:Generator_ColumnVarNameInTable="columnListReplyDate" msprop:Generator_ColumnPropNameInRow="ListReplyDate" msprop:Generator_ColumnPropNameInTable="ListReplyDateColumn" msprop:Generator_UserColumnName="ListReplyDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CustomsCodeReceiver" msprop:Generator_ColumnVarNameInTable="columnCustomsCodeReceiver" msprop:Generator_ColumnPropNameInRow="CustomsCodeReceiver" msprop:Generator_ColumnPropNameInTable="CustomsCodeReceiverColumn" msprop:Generator_UserColumnName="CustomsCodeReceiver" type="xs:string" minOccurs="0" />
+              <xs:element name="Note" msprop:Generator_ColumnVarNameInTable="columnNote" msprop:Generator_ColumnPropNameInRow="Note" msprop:Generator_ColumnPropNameInTable="NoteColumn" msprop:Generator_UserColumnName="Note" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -754,6 +765,10 @@ SELECT ID, TrainID, NumberHandover, DateHandover, CodeStation, CodeStationFromTo
     </xs:unique>
     <xs:unique name="BBBG_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:BBBG" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="BangKeHoiBao_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BangKeHoiBao" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
   </xs:element>

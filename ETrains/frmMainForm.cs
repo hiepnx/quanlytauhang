@@ -346,5 +346,12 @@ namespace ETrains
 
         }
 
+        private void mnuReportBangKeHoiBao_Click(object sender, EventArgs e)
+        {
+            FrmReportListHanoverReply form = new FrmReportListHanoverReply();
+            form.MdiParent = this;
+            form.Show();
+        }
+
     }
 }
