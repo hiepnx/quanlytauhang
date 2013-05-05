@@ -67,6 +67,7 @@
             this.mnuReport = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTauKhachXNC = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTauHangXNK = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBBBG = new System.Windows.Forms.ToolStripMenuItem();
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hướngDẫnSửDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -77,7 +78,7 @@
             this.toolStripButtonListdeclarace = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.mnuBBBG = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuReportBangKeHoiBao = new System.Windows.Forms.ToolStripMenuItem();
             this.mnMain.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -373,7 +374,8 @@
             this.mnuReport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuTauKhachXNC,
             this.mnuTauHangXNK,
-            this.mnuBBBG});
+            this.mnuBBBG,
+            this.mnuReportBangKeHoiBao});
             this.mnuReport.Name = "mnuReport";
             this.mnuReport.Size = new System.Drawing.Size(60, 20);
             this.mnuReport.Text = "Báo cáo";
@@ -381,16 +383,23 @@
             // mnuTauKhachXNC
             // 
             this.mnuTauKhachXNC.Name = "mnuTauKhachXNC";
-            this.mnuTauKhachXNC.Size = new System.Drawing.Size(212, 22);
+            this.mnuTauKhachXNC.Size = new System.Drawing.Size(254, 22);
             this.mnuTauKhachXNC.Text = "Sổ theo dõi tàu khách XNC";
             this.mnuTauKhachXNC.Click += new System.EventHandler(this.mnuTauKhachXNC_Click);
             // 
             // mnuTauHangXNK
             // 
             this.mnuTauHangXNK.Name = "mnuTauHangXNK";
-            this.mnuTauHangXNK.Size = new System.Drawing.Size(212, 22);
+            this.mnuTauHangXNK.Size = new System.Drawing.Size(254, 22);
             this.mnuTauHangXNK.Text = "Sổ theo dõi tàu hàng XNK";
             this.mnuTauHangXNK.Click += new System.EventHandler(this.mnuTauHangXNK_Click);
+            // 
+            // mnuBBBG
+            // 
+            this.mnuBBBG.Name = "mnuBBBG";
+            this.mnuBBBG.Size = new System.Drawing.Size(254, 22);
+            this.mnuBBBG.Text = "Sổ theo dõi BBBG";
+            this.mnuBBBG.Click += new System.EventHandler(this.mnuBBBG_Click);
             // 
             // trợGiúpToolStripMenuItem
             // 
@@ -504,12 +513,12 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 41);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // mnuBBBG
+            // mnuReportBangKeHoiBao
             // 
-            this.mnuBBBG.Name = "mnuBBBG";
-            this.mnuBBBG.Size = new System.Drawing.Size(212, 22);
-            this.mnuBBBG.Text = "Sổ theo dõi BBBG";
-            this.mnuBBBG.Click += new System.EventHandler(this.mnuBBBG_Click);
+            this.mnuReportBangKeHoiBao.Name = "mnuReportBangKeHoiBao";
+            this.mnuReportBangKeHoiBao.Size = new System.Drawing.Size(254, 22);
+            this.mnuReportBangKeHoiBao.Text = "Sổ theo dõi bàng kê hồi báo BBBG";
+            this.mnuReportBangKeHoiBao.Click += new System.EventHandler(this.mnuReportBangKeHoiBao_Click);
             // 
             // frmMainForm
             // 
@@ -517,7 +526,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ETrains.Properties.Resources.logoBackgound;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1140, 758);
+            this.ClientSize = new System.Drawing.Size(1140, 762);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.mnMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -587,5 +596,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuTauKhachXNC;
         private System.Windows.Forms.ToolStripMenuItem mnuTauHangXNK;
         private System.Windows.Forms.ToolStripMenuItem mnuBBBG;
+        private System.Windows.Forms.ToolStripMenuItem mnuReportBangKeHoiBao;
     }
 }

@@ -163,6 +163,12 @@
       <DependentUpon>ReportListFeedback.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ReportSoTheoDoiBangKeHoiBao.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportSoTheoDoiBangKeHoiBao.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ReportListHanoverReply.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -297,6 +303,12 @@
     <Compile Include="Train\FrmReportHandover.Designer.cs">
       <DependentUpon>FrmReportHandover.cs</DependentUpon>
     </Compile>
+    <Compile Include="Train\FrmReportListHanoverReply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train\FrmReportListHanoverReply.Designer.cs">
+      <DependentUpon>FrmReportListHanoverReply.cs</DependentUpon>
+    </Compile>
     <Compile Include="Train\FrmReportPassengerTrain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -371,6 +383,10 @@
     <EmbeddedResource Include="ReportListFeedback.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportListFeedback1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportSoTheoDoiBangKeHoiBao.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportSoTheoDoiBangKeHoiBao.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportListHanoverReply.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -447,6 +463,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Train\FrmReportHandover.resx">
       <DependentUpon>FrmReportHandover.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train\FrmReportListHanoverReply.resx">
+      <DependentUpon>FrmReportListHanoverReply.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Train\FrmReportPassengerTrain.resx">
       <DependentUpon>FrmReportPassengerTrain.cs</DependentUpon>
