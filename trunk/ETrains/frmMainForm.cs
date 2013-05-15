@@ -353,5 +353,12 @@ namespace ETrains
             form.Show();
         }
 
+        private void mnGroup_Click(object sender, EventArgs e)
+        {
+            var frmListGroup = new frmListGroup(_userInfo);
+            frmListGroup.MdiParent = this;
+            frmListGroup.Show();
+        }
+
     }
 }

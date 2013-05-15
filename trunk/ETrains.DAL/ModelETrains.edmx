@@ -9,10 +9,12 @@
           <EntitySet Name="tblChuyenTau" EntityType="dbTrainModel.Store.tblChuyenTau" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblCompany" EntityType="dbTrainModel.Store.tblCompany" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblCustoms" EntityType="dbTrainModel.Store.tblCustoms" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblGroup" EntityType="dbTrainModel.Store.tblGroup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblHandover" EntityType="dbTrainModel.Store.tblHandover" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblHandoverResource" EntityType="dbTrainModel.Store.tblHandoverResource" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblListHandoverReply" EntityType="dbTrainModel.Store.tblListHandoverReply" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblNumberGenerate" EntityType="dbTrainModel.Store.tblNumberGenerate" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblPermission" EntityType="dbTrainModel.Store.tblPermission" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblTauKhachDetail" EntityType="dbTrainModel.Store.tblTauKhachDetail" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblToaTau" EntityType="dbTrainModel.Store.tblToaTau" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblToKhaiTau" EntityType="dbTrainModel.Store.tblToKhaiTau" store:Type="Tables" Schema="dbo" />
@@ -20,6 +22,8 @@
           <EntitySet Name="tblTrain" EntityType="dbTrainModel.Store.tblTrain" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblType" EntityType="dbTrainModel.Store.tblType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblUser" EntityType="dbTrainModel.Store.tblUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblUserGroupPermission" EntityType="dbTrainModel.Store.tblUserGroupPermission" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblUserInGroup" EntityType="dbTrainModel.Store.tblUserInGroup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ViewGetCurrentDate" EntityType="dbTrainModel.Store.ViewGetCurrentDate" store:Type="Views" store:Schema="dbo" store:Name="ViewGetCurrentDate">
             <DefiningQuery>SELECT 
       [ViewGetCurrentDate].[CurrentDateTime] AS [CurrentDateTime]
@@ -75,6 +79,18 @@
       [ViewListHanoverReply].[ModifiedBy] AS [ModifiedBy], 
       [ViewListHanoverReply].[CustomsReceiverName] AS [CustomsReceiverName]
       FROM [dbo].[ViewListHanoverReply] AS [ViewListHanoverReply]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewUserGroup" EntityType="dbTrainModel.Store.ViewUserGroup" store:Type="Views" store:Schema="dbo" store:Name="ViewUserGroup">
+            <DefiningQuery>SELECT 
+      [ViewUserGroup].[UserID] AS [UserID], 
+      [ViewUserGroup].[UserFullName] AS [UserFullName], 
+      [ViewUserGroup].[UserName] AS [UserName], 
+      [ViewUserGroup].[Address] AS [Address], 
+      [ViewUserGroup].[Email] AS [Email], 
+      [ViewUserGroup].[PhoneNumber] AS [PhoneNumber], 
+      [ViewUserGroup].[GroupID] AS [GroupID], 
+      [ViewUserGroup].[GroupName] AS [GroupName]
+      FROM [dbo].[ViewUserGroup] AS [ViewUserGroup]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__tblHandov__ListR__06CD04F7" Association="dbTrainModel.Store.FK__tblHandov__ListR__06CD04F7">
             <End Role="tblListHandoverReply" EntitySet="tblListHandoverReply" />
@@ -144,6 +160,17 @@
           <Property Name="ModifiedDate" Type="datetime" />
           <Property Name="ModifiedBy" Type="int" />
         </EntityType>
+        <EntityType Name="tblGroup">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifedBy" Type="int" />
+        </EntityType>
         <EntityType Name="tblHandover">
           <Key>
             <PropertyRef Name="ID" />
@@ -203,6 +230,13 @@
           <Property Name="ReplyReportNumber" Type="bigint" Nullable="false" />
           <Property Name="NumberType" Type="int" Nullable="false" />
           <Property Name="Year" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblPermission">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PermissionID" Type="int" Nullable="false" />
+          <Property Name="Permission" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="tblTauKhachDetail">
           <Key>
@@ -311,6 +345,28 @@
           <Property Name="PermissionID" Type="int" />
           <Property Name="IsActive" Type="int" />
         </EntityType>
+        <EntityType Name="tblUserGroupPermission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="PermissionType" Type="int" />
+          <Property Name="PermissionID" Type="int" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="date" />
+          <Property Name="ModifiedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="tblUserInGroup">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="GroupID" Type="int" Nullable="false" />
+        </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'dbTrain.dbo.ViewGetCurrentDate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
@@ -380,6 +436,24 @@
           <Property Name="ModifiedDate" Type="datetime" />
           <Property Name="ModifiedBy" Type="int" />
           <Property Name="CustomsReceiverName" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'dbTrain.dbo.ViewUserGroup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ViewUserGroup">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="GroupName" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserFullName" Type="nvarchar" MaxLength="500" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="300" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" Nullable="false" MaxLength="200" />
         </EntityType>
         <Association Name="FK__tblHandov__ListR__06CD04F7">
           <End Role="tblListHandoverReply" Type="dbTrainModel.Store.tblListHandoverReply" Multiplicity="0..1" />
@@ -515,6 +589,11 @@
             <End Role="tblToKhaiTauResource" EntitySet="tblToKhaiTauResources" />
           </AssociationSet>
           <EntitySet Name="tblNumberGenerates" EntityType="dbTrainModel.tblNumberGenerate" />
+          <EntitySet Name="tblGroups" EntityType="dbTrainModel.tblGroup" />
+          <EntitySet Name="tblPermissions" EntityType="dbTrainModel.tblPermission" />
+          <EntitySet Name="tblUserGroupPermissions" EntityType="dbTrainModel.tblUserGroupPermission" />
+          <EntitySet Name="tblUserInGroups" EntityType="dbTrainModel.tblUserInGroup" />
+          <EntitySet Name="ViewUserGroups" EntityType="dbTrainModel.ViewUserGroup" />
         </EntityContainer>
         <EntityType Name="tblChuyenTau">
           <Key>
@@ -817,6 +896,61 @@
           <Property Type="Int64" Name="ReplyReportNumber" Nullable="false" />
           <Property Type="Int32" Name="NumberType" Nullable="false" />
           <Property Type="String" Name="Year" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblGroup">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Type="Int32" Name="GroupID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="GroupName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Int32" Name="ModifedBy" />
+        </EntityType>
+        <EntityType Name="tblPermission">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Type="Int32" Name="PermissionID" Nullable="false" />
+          <Property Type="String" Name="Permission" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblUserGroupPermission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="UserID" />
+          <Property Type="Int32" Name="GroupID" />
+          <Property Type="Int32" Name="PermissionType" />
+          <Property Type="Int32" Name="PermissionID" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Int32" Name="ModifiedBy" />
+        </EntityType>
+        <EntityType Name="tblUserInGroup">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="Int32" Name="GroupID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ViewUserGroup">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="GroupName" />
+          </Key>
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="UserFullName" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumber" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="GroupID" Nullable="false" />
+          <Property Type="String" Name="GroupName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1156,6 +1290,63 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tblGroups">
+            <EntityTypeMapping TypeName="dbTrainModel.tblGroup">
+              <MappingFragment StoreEntitySet="tblGroup">
+                <ScalarProperty Name="ModifedBy" ColumnName="ModifedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPermissions">
+            <EntityTypeMapping TypeName="dbTrainModel.tblPermission">
+              <MappingFragment StoreEntitySet="tblPermission">
+                <ScalarProperty Name="Permission" ColumnName="Permission" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserGroupPermissions">
+            <EntityTypeMapping TypeName="dbTrainModel.tblUserGroupPermission">
+              <MappingFragment StoreEntitySet="tblUserGroupPermission">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="PermissionType" ColumnName="PermissionType" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserInGroups">
+            <EntityTypeMapping TypeName="dbTrainModel.tblUserInGroup">
+              <MappingFragment StoreEntitySet="tblUserInGroup">
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewUserGroups">
+            <EntityTypeMapping TypeName="dbTrainModel.ViewUserGroup">
+              <MappingFragment StoreEntitySet="ViewUserGroup">
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1202,9 +1393,9 @@
           <ConnectorPoint PointX="3" PointY="18.634348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblHandoverResource_tblHandover" >
-          <ConnectorPoint PointX="4.5" PointY="18.653554687500005" />
-          <ConnectorPoint PointX="6" PointY="18.653554687500005" />
-          <ConnectorPoint PointX="6" PointY="7.47068359375001" />
+          <ConnectorPoint PointX="4.5" PointY="18.872050781250007" />
+          <ConnectorPoint PointX="5.28125" PointY="18.872050781250007" />
+          <ConnectorPoint PointX="5.28125" PointY="7.47068359375001" />
         </AssociationConnector>
         <AssociationConnector Association="dbTrainModel.FK_tblToKhaiTauResource_tblToKhaiTau" >
           <ConnectorPoint PointX="4.5" PointY="10.876152846153847" />
@@ -1232,6 +1423,11 @@
           <ConnectorPoint PointX="5.25" PointY="4.47068359375" />
         </AssociationConnector>
         <EntityTypeShape EntityType="dbTrainModel.tblNumberGenerate" Width="1.5" PointX="12.375" PointY="5.75" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="dbTrainModel.tblGroup" Width="1.5" PointX="12.375" PointY="8.75" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="dbTrainModel.tblPermission" Width="1.5" PointX="12.375" PointY="11.75" Height="1.4033821614583388" />
+        <EntityTypeShape EntityType="dbTrainModel.tblUserGroupPermission" Width="1.5" PointX="5.375" PointY="13.75" Height="2.7494921875000031" />
+        <EntityTypeShape EntityType="dbTrainModel.tblUserInGroup" Width="1.5" PointX="14.375" PointY="0.75" Height="1.4033821614583388" />
+        <EntityTypeShape EntityType="dbTrainModel.ViewUserGroup" Width="1.5" PointX="14.375" PointY="3.75" Height="2.5571907552083282" />
       </Diagram>
     </Diagrams>
   </Designer>

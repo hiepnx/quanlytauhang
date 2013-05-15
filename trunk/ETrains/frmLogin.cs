@@ -44,11 +44,11 @@ namespace ETrains
                         userInfo.UserID = userInfoNew.UserID;
 
                         //get all User's permission
-                        //userInfo.UserPermission = UserGroupPermissionFactory.GetAllPermissionOfUser(userInfo.UserID);
+                        userInfo.UserPermission = UserGroupPermissionFactory.GetAllPermissionOfUser(userInfo.UserID);
                         //if user is admin, set all permission for admin
                         if (userInfo.UserName == "admin")
                         {
-                            //userInfo.UserPermission = UserGroupPermissionFactory.GetAllPermissionForAdmin();
+                            userInfo.UserPermission = UserGroupPermissionFactory.GetAllPermissionForAdmin();
                         }
                         // Redirect to the main form
                         var mainForm = new frmMainForm(userInfo);

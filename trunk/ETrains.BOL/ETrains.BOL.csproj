@@ -51,12 +51,16 @@
     <Compile Include="CompanyFactory.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="CustomsFacory.cs" />
+    <Compile Include="GroupFactory.cs" />
     <Compile Include="HandoverReplyFactory.cs" />
     <Compile Include="NumberGenerateFactory.cs" />
+    <Compile Include="PermissionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrainFactory.cs" />
     <Compile Include="TypeFactory.cs" />
     <Compile Include="UserFactory.cs" />
+    <Compile Include="UserGroupPermissionFactory.cs" />
+    <Compile Include="UserInGroupFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ETrains.DAL\ETrains.DAL.csproj">

@@ -101,6 +101,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAddGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddGroup.designer.cs">
+      <DependentUpon>frmAddGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListGroup.designer.cs">
+      <DependentUpon>frmListGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListUserToAddInGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListUserToAddInGroup.designer.cs">
+      <DependentUpon>frmListUserToAddInGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportHandoverComeIn.cs">
       <DependentUpon>ReportHandoverComeIn.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -357,6 +375,15 @@
     <Compile Include="Train\frmTrainPassengers.Designer.cs">
       <DependentUpon>frmTrainPassengers.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAddGroup.resx">
+      <DependentUpon>frmAddGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListGroup.resx">
+      <DependentUpon>frmListGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListUserToAddInGroup.resx">
+      <DependentUpon>frmListUserToAddInGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportHandoverComeIn.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportHandoverComeIn.cs</LastGenOutput>
