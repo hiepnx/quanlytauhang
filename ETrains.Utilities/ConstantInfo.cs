@@ -31,6 +31,13 @@
         #endregion
 
         #region Message
+
+        public const string MESSAGE_INSERT_SUCESSFULLY = "Tạo mới xong.";
+        public const string MESSAGE_INSERT_NOT_SUCESSFULLY = "Tạo mới lỗi (Trạng thái dữ liệu đã thay đổi bởi hành động khác, hoặc mất kết nối với server)";
+        public const string MESSAGE_UPDATE_SUCESSFULLY = "Cập nhật xong ";
+        public const string MESSAGE_UPDATE_FAIL = "Cập nhật lỗi (Trạng thái dữ liệu đã thay đổi bởi hành động khác, hoặc mất kết nối với server)";
+        public const string MESSAGE_SAVE_UNSUCESSFULLY = "Lưu không không thành công (Trạng thái dữ liệu đã thay đổi bởi hành động khác, hoặc mất kết nối với server)";
+
         public const string MESSAGE_LOGIN_FAIL = "Tên truy cập hoặc mật khẩu không đúng.";
         public const string MESSAGE_WELCOME = "Xin chào {0}";
         public const string MESSAGE_USERNAME_EXISTING = "Tên truy cập đã tồn tại.";        
@@ -40,9 +47,6 @@
         public const string MESSAGE_BLANK_EMAIL = "Bạn cần nhập Email.";
         public const string MESSAGE_WRONG_EMAIL = "Địa chỉ Email không dúng.";
         public const string MESSAGE_BLANK_DRIVER = "Tên lái xe không được trống.";
-        public const string MESSAGE_INSERT_SUCESSFULLY = "Tạo mới xong.";
-        public const string MESSAGE_UPDATE_SUCESSFULLY = "Cập nhật xong.";
-        public const string MESSAGE_UPDATE_FAIL = "Cập nhật lỗi.";
         public const string MESSAGE_INSERT_FAIL = "Tạo mới lỗi";
         public const string MESSAGE_ADD_MORE = "Bạn có muốn thêm tiếp?";
         public const string MESSAGE_ADD_DONE = "Thêm xong.";

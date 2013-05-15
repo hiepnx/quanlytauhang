@@ -68,6 +68,7 @@
             this.mnuTauKhachXNC = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTauHangXNK = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBBBG = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuReportBangKeHoiBao = new System.Windows.Forms.ToolStripMenuItem();
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hướngDẫnSửDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -78,7 +79,6 @@
             this.toolStripButtonListdeclarace = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.mnuReportBangKeHoiBao = new System.Windows.Forms.ToolStripMenuItem();
             this.mnMain.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -129,6 +129,7 @@
             this.mnGroup.Name = "mnGroup";
             this.mnGroup.Size = new System.Drawing.Size(239, 22);
             this.mnGroup.Text = "Quản lý nhóm";
+            this.mnGroup.Click += new System.EventHandler(this.mnGroup_Click);
             // 
             // mnuSettings
             // 
@@ -401,6 +402,13 @@
             this.mnuBBBG.Text = "Sổ theo dõi BBBG";
             this.mnuBBBG.Click += new System.EventHandler(this.mnuBBBG_Click);
             // 
+            // mnuReportBangKeHoiBao
+            // 
+            this.mnuReportBangKeHoiBao.Name = "mnuReportBangKeHoiBao";
+            this.mnuReportBangKeHoiBao.Size = new System.Drawing.Size(254, 22);
+            this.mnuReportBangKeHoiBao.Text = "Sổ theo dõi bàng kê hồi báo BBBG";
+            this.mnuReportBangKeHoiBao.Click += new System.EventHandler(this.mnuReportBangKeHoiBao_Click);
+            // 
             // trợGiúpToolStripMenuItem
             // 
             this.trợGiúpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -513,20 +521,13 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 41);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // mnuReportBangKeHoiBao
-            // 
-            this.mnuReportBangKeHoiBao.Name = "mnuReportBangKeHoiBao";
-            this.mnuReportBangKeHoiBao.Size = new System.Drawing.Size(254, 22);
-            this.mnuReportBangKeHoiBao.Text = "Sổ theo dõi bàng kê hồi báo BBBG";
-            this.mnuReportBangKeHoiBao.Click += new System.EventHandler(this.mnuReportBangKeHoiBao_Click);
-            // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ETrains.Properties.Resources.logoBackgound;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1140, 762);
+            this.ClientSize = new System.Drawing.Size(1140, 766);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.mnMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
