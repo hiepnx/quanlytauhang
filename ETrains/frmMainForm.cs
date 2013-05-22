@@ -63,6 +63,34 @@ namespace ETrains
             toolstripLabelWelcome.Text = string.Format(ConstantInfo.MESSAGE_WELCOME, _userInfo.Name);
 
             //show/hide menu by user permission 
+
+            menuitemUser.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_NGUOI_DUNG);
+            mnGroup.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_NGUOI_DUNG);
+
+            tàuKháchXNKToolStripMenuItem.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_TAU_KHACH_XNC);
+            quảnLýTàuKháchXNCToolStripMenuItem.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_TAU_KHACH_XNC);
+
+            khaiBáoTàuHàngXuấtCảnhToolStripMenuItem.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_TAU_HANG_XNC);
+            khaiBáoTàuHàngNhậpCảnhToolStripMenuItem.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_TAU_HANG_XNC);
+            quảnLýChuyếnTàuToolStripMenuItem.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_TAU_HANG_XNC);
+            
+            cậpNhậtBBBGHồiBáoToolStripMenuItem.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_BBBG_VA_HOI_BAO);
+            cậpNhậtBBBGChuyểnĐếnToolStripMenuItem.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_BBBG_VA_HOI_BAO);
+            mnuAddHandoverReply.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_BBBG_VA_HOI_BAO);
+            quảnLýBiênBảnBànGiaoToolStripMenuItem.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_BBBG_VA_HOI_BAO);
+            mnuListReplyManagement.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_BBBG_VA_HOI_BAO);
+
+            đăngKýTờKhaiXuấtCảnhToolStripMenuItem.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_TO_KHAI);
+            đăngKýTờKhaiNhậpCảnhToolStripMenuItem.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_TO_KHAI);
+            quảnLýTờKhaiToolStripMenuItem.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_TO_KHAI);
+
+            mnuCompany.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_THONG_TIN_DOANH_NGHIEP) || _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_TRA_CUU_THONG_TIN_DOANH_NGHIEP);
+
+            mnuTauKhachXNC.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_TAO_SO_THEO_DOI_TAU_KHACH_XNC);
+            mnuTauHangXNK.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_TAO_SO_THEO_DOI_TAU_HANG_XNC);
+            mnuBBBG.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_TAO_SO_THEO_DOI_BBBG);
+            mnuReportBangKeHoiBao.Enabled = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_TAO_SO_THEO_DOI_BANG_KE_HOI_BAO_BBBG);
+
             //menuitemUser.Visible = (_userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_TAO_MOI_NGUOI_DUNG) ||
             //  _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_CAP_NHAT_NGUOI_DUNG) ||
             //  _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_XOA_NGUOI_DUNG));

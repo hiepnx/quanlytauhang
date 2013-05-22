@@ -36,6 +36,9 @@ namespace ETrains
 
         public void init()
         {
+            //set permission for user
+            btnAdd.Visible = btnUpdate.Visible = btnDelete.Visible = _userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_THONG_TIN_DOANH_NGHIEP);
+            
             List<tblCompany> list = CompanyFactory.getTopCompany();
             grvCompany.AutoGenerateColumns = false;
             grvCompany.DataSource = list;
@@ -152,6 +155,9 @@ namespace ETrains
 
         private void grvCompany_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (_userInfo.UserPermission.Contains(ConstantInfo.PERMISSON_QUAN_LY_THONG_TIN_DOANH_NGHIEP) == false)
+                return;
+
             try
             {
                 if (this.grvCompany.SelectedRows.Count > 0)
