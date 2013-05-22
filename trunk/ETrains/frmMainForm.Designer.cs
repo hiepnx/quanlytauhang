@@ -137,6 +137,7 @@
             this.mnuSettings.Name = "mnuSettings";
             this.mnuSettings.Size = new System.Drawing.Size(239, 22);
             this.mnuSettings.Text = "Cấu hình hệ thống";
+            this.mnuSettings.Visible = false;
             // 
             // mnuConfigSQL2DbEcus
             // 
@@ -527,7 +528,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ETrains.Properties.Resources.logoBackgound;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1140, 766);
+            this.ClientSize = new System.Drawing.Size(1140, 770);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.mnMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
