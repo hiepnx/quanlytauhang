@@ -1994,6 +1994,8 @@ namespace ETrains {
             
             private global::System.Data.DataColumn columnTrongLuong;
             
+            private global::System.Data.DataColumn _columnSoBBBG_TK;
+            
             private global::System.Data.DataColumn columnSoSealVT1;
             
             private global::System.Data.DataColumn columnSoSealVT2;
@@ -2123,6 +2125,14 @@ namespace ETrains {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn _SoBBBG_TKColumn {
+                get {
+                    return this._columnSoBBBG_TK;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn SoSealVT1Column {
                 get {
                     return this.columnSoSealVT1;
@@ -2225,6 +2235,7 @@ namespace ETrains {
                         string TenHang, 
                         string DonViTinh, 
                         string TrongLuong, 
+                        string _SoBBBG_TK, 
                         string SoSealVT1, 
                         string SoSealVT2, 
                         string SoSealHQ1, 
@@ -2244,6 +2255,7 @@ namespace ETrains {
                         TenHang,
                         DonViTinh,
                         TrongLuong,
+                        _SoBBBG_TK,
                         SoSealVT1,
                         SoSealVT2,
                         SoSealHQ1,
@@ -2290,6 +2302,7 @@ namespace ETrains {
                 this.columnTenHang = base.Columns["TenHang"];
                 this.columnDonViTinh = base.Columns["DonViTinh"];
                 this.columnTrongLuong = base.Columns["TrongLuong"];
+                this._columnSoBBBG_TK = base.Columns["SoBBBG-TK"];
                 this.columnSoSealVT1 = base.Columns["SoSealVT1"];
                 this.columnSoSealVT2 = base.Columns["SoSealVT2"];
                 this.columnSoSealHQ1 = base.Columns["SoSealHQ1"];
@@ -2322,6 +2335,10 @@ namespace ETrains {
                 base.Columns.Add(this.columnDonViTinh);
                 this.columnTrongLuong = new global::System.Data.DataColumn("TrongLuong", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTrongLuong);
+                this._columnSoBBBG_TK = new global::System.Data.DataColumn("SoBBBG-TK", typeof(string), null, global::System.Data.MappingType.Element);
+                this._columnSoBBBG_TK.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnSoBBBG_TK");
+                this._columnSoBBBG_TK.ExtendedProperties.Add("Generator_UserColumnName", "SoBBBG-TK");
+                base.Columns.Add(this._columnSoBBBG_TK);
                 this.columnSoSealVT1 = new global::System.Data.DataColumn("SoSealVT1", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSoSealVT1);
                 this.columnSoSealVT2 = new global::System.Data.DataColumn("SoSealVT2", typeof(string), null, global::System.Data.MappingType.Element);
@@ -4726,6 +4743,22 @@ namespace ETrains {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string _SoBBBG_TK {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewToaTau._SoBBBG_TKColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SoBBBG-TK\' in table \'ViewToaTau\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewToaTau._SoBBBG_TKColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string SoSealVT1 {
                 get {
                     try {
@@ -4942,6 +4975,18 @@ namespace ETrains {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTrongLuongNull() {
                 this[this.tableViewToaTau.TrongLuongColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is_SoBBBG_TKNull() {
+                return this.IsNull(this.tableViewToaTau._SoBBBG_TKColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set_SoBBBG_TKNull() {
+                this[this.tableViewToaTau._SoBBBG_TKColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
