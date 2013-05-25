@@ -57,6 +57,7 @@ namespace ETrains.Train
 
             cbImportExportType.Items.Add(new ComboBoxItem(1, "Chuyển cảng"));
             cbImportExportType.Items.Add(new ComboBoxItem(2, "Tại chỗ"));
+            //cbImportExportType.Items.Add(new ComboBoxItem(3, "-----"));
             cbImportExportType.SelectedValue = 1;
             cbImportExportType.SelectedIndex = 0;
 
@@ -340,6 +341,8 @@ namespace ETrains.Train
                     CreatedBy = _userInfo.UserID,
                     CreatedDate = CommonFactory.GetCurrentDate()
                 };
+                if (toaTau.LoaiToaTau == (short)LoaiToaTau.ToaRong)
+                    toaTau.ImportExportType = null;
 
                 listToaTau.Add(toaTau);
                 BindToaTau();
@@ -464,8 +467,22 @@ namespace ETrains.Train
 
             if(toaTau.LoaiToaTau!=null)
                 cbLoaiToa.SelectedIndex = toaTau.LoaiToaTau.GetValueOrDefault()-1;
-            if (toaTau.ImportExportType!=null)
-                cbImportExportType.SelectedIndex = toaTau.ImportExportType.GetValueOrDefault() -1;
+            if (toaTau.LoaiToaTau != (short)LoaiToaTau.ToaRong)
+            {
+                lblImportType.Visible = true;
+                cbImportExportType.Visible = true;
+            }
+            else
+            {
+                lblImportType.Visible = false;
+                cbImportExportType.Visible = false;
+            }
+            if (toaTau.ImportExportType != null)
+            {
+                cbImportExportType.SelectedIndex = toaTau.ImportExportType.GetValueOrDefault() - 1;
+                //cbImportExportType.SelectedValue = toaTau.ImportExportType.GetValueOrDefault();
+            }
+            
         }
 
         private void btnUpdateToaTau_Click(object sender, EventArgs e)
@@ -490,6 +507,9 @@ namespace ETrains.Train
             toaTau.ModifiedBy = _userInfo.UserID;
             toaTau.ImportExportType=Int16.Parse(((ComboBoxItem)cbImportExportType.SelectedItem).Value.ToString());
             toaTau.LoaiToaTau = Int16.Parse(((ComboBoxItem)cbLoaiToa.SelectedItem).Value.ToString());
+
+            if (toaTau.LoaiToaTau == (short)LoaiToaTau.ToaRong)
+                toaTau.ImportExportType = null;
 
             BindToaTau();
             MessageBox.Show("Cập nhật toa tàu thành công!");
@@ -601,6 +621,17 @@ namespace ETrains.Train
                 txtSealVT.Tag = null;
                 txtSealVT2.Tag = null;
 
+                //cbImportExportType.SelectedIndex = 2;
+                //cbImportExportType.SelectedValue = 3;
+                //cbImportExportType.Enabled = false;
+                lblImportType.Visible = false;
+                cbImportExportType.Visible = false;
+            }
+            else
+            {
+                //cbImportExportType.Enabled = true;
+                lblImportType.Visible = true;
+                cbImportExportType.Visible = true;
             }
         }
 
