@@ -63,6 +63,7 @@ namespace ETrains.Train
 
                         string loaiToa = "";
                         string loaiHinh = "";
+                        string soBBBG = "";
                         string tenNguoiGui = "";
                         string tenNguoiNhan = "";
 
@@ -86,10 +87,44 @@ namespace ETrains.Train
                         {
                             case (short)ToaTauImportType.ChuyenCang:
                                 loaiHinh = "Chuyển cảng";
+                                try
+                                {
+                                    if (toaTau.tblHandoverResources.IsLoaded == false)
+                                        toaTau.tblHandoverResources.Load();
+                                    tblHandoverResource handoverResource = toaTau.tblHandoverResources.FirstOrDefault();
+                                    if (handoverResource != null)
+                                    {
+                                        if (handoverResource.tblHandoverReference.IsLoaded == false)
+                                            handoverResource.tblHandoverReference.Load();
+                                        soBBBG = handoverResource.tblHandover.NumberHandover;
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    soBBBG = "";
+                                }
                                 countHandoder++;
                                 break;
                             case (short)ToaTauImportType.TaiCho:
                                 loaiHinh = "Tại chỗ";
+                                try
+                                {
+                                    if (toaTau.tblToKhaiTauResources.IsLoaded == false)
+                                        toaTau.tblToKhaiTauResources.Load();
+                                    tblToKhaiTauResource toKhaiTauResources = toaTau.tblToKhaiTauResources.FirstOrDefault();
+                                    if (toKhaiTauResources != null)
+                                    {
+                                        if (toKhaiTauResources.tblToKhaiTauReference.IsLoaded == false)
+                                            toKhaiTauResources.tblToKhaiTauReference.Load();
+
+                                        soBBBG = toKhaiTauResources.tblToKhaiTau.Number + "";
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    soBBBG = "";
+                                }
+
                                 countDeclaration++;
                                 break;
                             default:
@@ -107,7 +142,7 @@ namespace ETrains.Train
                         }
 
 
-                        dt.Rows.Add(toaTau.ToaTauID, train.Ma_Chuyen_Tau, train.Ngay_XNC, toaTau.Ma_ToaTau, toaTau.So_VanTai_Don, tenNguoiGui, tenNguoiNhan, toaTau.Ten_Hang, toaTau.Don_Vi_Tinh, toaTau.Trong_Luong,
+                        dt.Rows.Add(toaTau.ToaTauID, train.Ma_Chuyen_Tau, train.Ngay_XNC, toaTau.Ma_ToaTau, toaTau.So_VanTai_Don, tenNguoiGui, tenNguoiNhan, toaTau.Ten_Hang, toaTau.Don_Vi_Tinh, toaTau.Trong_Luong,soBBBG,
                                    toaTau.Seal_VanTai, toaTau.Seal_VanTai2, toaTau.Seal_HaiQuan, toaTau.Seal_HaiQuan2, loaiToa, loaiHinh, toaTau.Ghi_Chu);
                     }
                 }
