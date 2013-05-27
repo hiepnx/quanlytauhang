@@ -286,6 +286,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmTrainPassengers";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTrainPassengers_FormClosing);
             this.Load += new System.EventHandler(this.frmTrainPassengers_Load);
             this.gbInfoTrain.ResumeLayout(false);
             this.gbInfoTrain.PerformLayout();

@@ -136,5 +136,10 @@ namespace ETrains
             TopMost = top;
         }
         #endregion
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

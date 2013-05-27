@@ -122,6 +122,7 @@ namespace ETrains.Train
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+
             this.Close();
         }
 
@@ -141,7 +142,8 @@ namespace ETrains.Train
             }
             
             //kiem tra trung lap so hieu toa tau
-            if ((_mode == 0 || (_mode == 1 && _currentToaTau == null)) && listToaTau.Any(c => c.Ma_ToaTau == txtNumberToaTau.Text.Trim()))
+            //if ((_mode == 0 || (_mode == 1 && _currentToaTau == null) || (_mode == 1 && _currentToaTau != null && (_currentToaTau.Ma_ToaTau != txtNumberToaTau.Text.Trim()) )) && listToaTau.Any(c => c.Ma_ToaTau == txtNumberToaTau.Text.Trim()))
+            if ((_currentToaTau==null || (_currentToaTau != null && (_currentToaTau.Ma_ToaTau != txtNumberToaTau.Text.Trim()))) && listToaTau.Any(c => c.Ma_ToaTau == txtNumberToaTau.Text.Trim()))
             {
                 valid = false;
                 MessageBox.Show("Số hiệu toa tàu " + txtNumberToaTau.Text.Trim() + " đã tồn tại, xin vui lòng kiểm tra lại");
@@ -285,6 +287,12 @@ namespace ETrains.Train
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
+            var dr = MessageBox.Show(ConstantInfo.CONFIRM_ADD_NEW, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr != DialogResult.Yes)
+            {
+                return;
+            }
+
             try
             {
                 if (!ValidateChuyenTau()) return;
@@ -377,6 +385,12 @@ namespace ETrains.Train
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            var confirm = MessageBox.Show(ConstantInfo.CONFIRM_UPDATE, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm != DialogResult.Yes)
+            {
+                return;
+            }
+
             try
             {
                 bool hasDeleteToaTau = false;
@@ -449,7 +463,7 @@ namespace ETrains.Train
             var toaTau = listToaTau[e.RowIndex];
             _currentToaTau = toaTau;
             txtNumberToaTau.Text = toaTau.Ma_ToaTau;
-            txtNumberToaTau.ReadOnly = true;
+            //txtNumberToaTau.ReadOnly = true;
             txtSoVanDon.Text = toaTau.So_VanTai_Don;
             if (toaTau.Ngay_VanTai_Don != null) dtpVanDon.Value = (DateTime)toaTau.Ngay_VanTai_Don;
             txtPartner.Text = toaTau.Ten_DoiTac;
@@ -489,7 +503,9 @@ namespace ETrains.Train
         {
             if (!ValidateToaTau()) return;
 
-            var toaTau = listToaTau.Where(t => t.Ma_ToaTau == txtNumberToaTau.Text).FirstOrDefault();
+            var toaTau = listToaTau.Where(t => t.Ma_ToaTau == _currentToaTau.Ma_ToaTau).FirstOrDefault();
+
+            toaTau.Ma_ToaTau = txtNumberToaTau.Text.Trim();
 
             toaTau.So_VanTai_Don = txtSoVanDon.Text.Trim();
             toaTau.Ngay_VanTai_Don = dtpVanDon.Value;
@@ -518,7 +534,7 @@ namespace ETrains.Train
 
         private void btnDeleteToaTau_Click(object sender, EventArgs e)
         {
-            var toaTau = listToaTau.Where(t => t.Ma_ToaTau == txtNumberToaTau.Text).FirstOrDefault();
+            var toaTau = listToaTau.Where(t => t.Ma_ToaTau == _currentToaTau.Ma_ToaTau).FirstOrDefault();
             listToaTau.Remove(toaTau);
             BindToaTau();
             MessageBox.Show("Xóa toa tàu thành công!");
@@ -689,6 +705,15 @@ namespace ETrains.Train
                 txtSealVT.Tag = null;
                 txtSealVT2.Tag = null;
 
+            }
+        }
+
+        private void frmThemChuyenTau_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var dr = MessageBox.Show(ConstantInfo.CONFIRM_EXIT, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr != DialogResult.Yes)
+            {
+                e.Cancel=true;
             }
         }
     }

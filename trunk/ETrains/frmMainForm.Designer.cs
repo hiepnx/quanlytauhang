@@ -528,13 +528,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ETrains.Properties.Resources.logoBackgound;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1140, 770);
+            this.ClientSize = new System.Drawing.Size(1140, 774);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.mnMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnMain;
             this.Name = "frmMainForm";
             this.Text = "Quản lý phương tiện xuất nhập biên";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMainForm_FormClosing);
             this.Load += new System.EventHandler(this.frmMainForm_Load);
             this.Controls.SetChildIndex(this.mnMain, 0);
             this.Controls.SetChildIndex(this.toolStrip1, 0);
