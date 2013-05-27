@@ -140,7 +140,12 @@ namespace ETrains
 
     private void btnSave_Click(object sender, EventArgs e)
     {
-      
+        var dr = MessageBox.Show("Bạn có muốn lưu", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        if (dr != DialogResult.Yes)
+        {
+            return;
+        }
+
       try
       {
         // Validate
@@ -368,6 +373,15 @@ namespace ETrains
         grvPermission[0, i].Value = chbCheckAllPermission.Checked;
       }
       grvPermission.EndEdit();
+    }
+
+    private void frmAddGroup_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        var dr = MessageBox.Show(ConstantInfo.CONFIRM_EXIT, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        if (dr != DialogResult.Yes)
+        {
+            e.Cancel=true;
+        }
     }
   }
 }

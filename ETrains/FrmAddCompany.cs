@@ -36,6 +36,12 @@ namespace ETrains
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            var dr = MessageBox.Show(ConstantInfo.CONFIRM_ADD_NEW, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr != DialogResult.Yes)
+            {
+                return;
+            }
+
             if (_mode == 0)
             {
                 //validate
@@ -120,6 +126,12 @@ namespace ETrains
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            var dr = MessageBox.Show(ConstantInfo.CONFIRM_UPDATE, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr != DialogResult.Yes)
+            {
+                return;
+            }
+
             if (_mode == 1)
             {
                 if (validate())
@@ -203,6 +215,15 @@ namespace ETrains
             if (e.KeyValue == 13) // Enter key
             {
                 txtDescription.Focus();
+            }
+        }
+
+        private void FrmAddCompany_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var dr = MessageBox.Show(ConstantInfo.CONFIRM_EXIT, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr != DialogResult.Yes)
+            {
+                e.Cancel=true;
             }
         }
     }

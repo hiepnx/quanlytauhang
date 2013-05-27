@@ -174,6 +174,7 @@ namespace ETrains.Train
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+
             this.Close();
         }
 
@@ -224,6 +225,13 @@ namespace ETrains.Train
         
         private void btnAddNew_Click(object sender, EventArgs e)
         {
+
+            var dr = MessageBox.Show(ConstantInfo.CONFIRM_ADD_NEW, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr != DialogResult.Yes)
+            {
+                return;
+            }
+
             try
             {
                 if (!Validate()) return;
@@ -487,6 +495,12 @@ namespace ETrains.Train
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            var dr = MessageBox.Show(ConstantInfo.CONFIRM_UPDATE, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr != DialogResult.Yes)
+            {
+                return;
+            }
+
             try
             {
                 if (!Validate()) return;
@@ -600,6 +614,15 @@ namespace ETrains.Train
             {
                 // Add to count Column
                 grdToaTau.Rows[i].Cells[1].Value = (i + 1).ToString();
+            }
+        }
+
+        private void frmBBBG_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var dr = MessageBox.Show(ConstantInfo.CONFIRM_EXIT, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr != DialogResult.Yes)
+            {
+                e.Cancel=true;
             }
         }
     }

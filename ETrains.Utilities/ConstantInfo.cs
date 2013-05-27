@@ -31,6 +31,9 @@
         #endregion
 
         #region Message
+        public const string CONFIRM_ADD_NEW = "Bạn có chắc là muốn thêm mới ?";
+        public const string CONFIRM_UPDATE = "Bạn có chắc là muốn cập nhật ?";
+        public const string CONFIRM_EXIT = "Bạn có chắc là muốn thoát ?";
 
         public const string MESSAGE_INSERT_SUCESSFULLY = "Tạo mới xong.";
         public const string MESSAGE_INSERT_NOT_SUCESSFULLY = "Tạo mới lỗi (Trạng thái dữ liệu đã thay đổi bởi hành động khác, hoặc mất kết nối với server)";

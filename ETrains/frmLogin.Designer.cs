@@ -49,7 +49,7 @@
             this.lblUsername.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.Location = new System.Drawing.Point(78, 146);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(83, 14);
+            this.lblUsername.Size = new System.Drawing.Size(86, 14);
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Tên truy nhập";
             // 
@@ -59,7 +59,7 @@
             this.lbPassword.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPassword.Location = new System.Drawing.Point(78, 182);
             this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(78, 14);
+            this.lbPassword.Size = new System.Drawing.Size(79, 14);
             this.lbPassword.TabIndex = 2;
             this.lbPassword.Text = "Mã truy nhập";
             // 
@@ -158,6 +158,7 @@
             this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.Text = "Đăng nhập";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
             this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.techlinkErrorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -60,6 +60,12 @@ namespace ETrains
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
+        var dr = MessageBox.Show(ConstantInfo.CONFIRM_ADD_NEW, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        if (dr != DialogResult.Yes)
+        {
+            return;
+        }
+
       try
       {
         // Validate
@@ -281,6 +287,12 @@ namespace ETrains
 
       private void btnUpdate_Click(object sender, EventArgs e)
       {
+          var dr = MessageBox.Show(ConstantInfo.CONFIRM_UPDATE, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+          if (dr != DialogResult.Yes)
+          {
+              return;
+          }
+
         try
         {
           if (Validate())
@@ -305,6 +317,12 @@ namespace ETrains
 
       private void btnUpdateListGroup_Click(object sender, EventArgs e)
       {
+          var confirm = MessageBox.Show(ConstantInfo.CONFIRM_UPDATE, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+          if (confirm != DialogResult.Yes)
+          {
+              return;
+          }
+
         //check is user exist
         tblUser user = UserFactory.GetByID(_userID);
         if (user == null)
@@ -355,6 +373,12 @@ namespace ETrains
 
       private void btnUpdatePermission_Click(object sender, EventArgs e)
       {
+          var confirm = MessageBox.Show(ConstantInfo.CONFIRM_UPDATE, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+          if (confirm != DialogResult.Yes)
+          {
+              return;
+          }
+
         //check is user exist
         tblUser user = UserFactory.GetByID(_userID);
         if (user == null)
@@ -429,6 +453,15 @@ namespace ETrains
       private void cbActive_CheckedChanged(object sender, EventArgs e)
       {
 
+      }
+
+      private void frmAddUser_FormClosing(object sender, FormClosingEventArgs e)
+      {
+          var dr = MessageBox.Show(ConstantInfo.CONFIRM_EXIT, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+          if (dr != DialogResult.Yes)
+          {
+              e.Cancel=true;
+          }
       }
   }
 }

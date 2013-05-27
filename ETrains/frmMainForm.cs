@@ -121,6 +121,12 @@ namespace ETrains
 
         private void menuitemLogout_Click(object sender, EventArgs e)
         {
+            var confirm = MessageBox.Show("Bạn có muốn đăng xuất ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm != DialogResult.Yes)
+            {
+                return;
+            }
+
             frmLogin frmLogin = new frmLogin();            
             frmLogin.Show();
             this.Hide();
@@ -386,6 +392,15 @@ namespace ETrains
             var frmListGroup = new frmListGroup(_userInfo);
             frmListGroup.MdiParent = this;
             frmListGroup.Show();
+        }
+
+        private void frmMainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var confirm = MessageBox.Show(ConstantInfo.CONFIRM_EXIT, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm != DialogResult.Yes)
+            {
+                e.Cancel = true;
+            }
         }
 
     }

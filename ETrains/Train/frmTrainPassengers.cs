@@ -97,6 +97,12 @@ namespace ETrains.Train
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
+            var confirm = MessageBox.Show(ConstantInfo.CONFIRM_ADD_NEW, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm != DialogResult.Yes)
+            {
+                return;
+            }
+
             try
             {
                 if (!Validate()) return;
@@ -124,6 +130,11 @@ namespace ETrains.Train
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            var confirm = MessageBox.Show(ConstantInfo.CONFIRM_UPDATE, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm != DialogResult.Yes)
+            {
+                return;
+            }
             try
             {
                 if (!Validate()) return;
@@ -152,6 +163,15 @@ namespace ETrains.Train
             catch (Exception ex)
             {
                 if (GlobalInfo.IsDebug) MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void frmTrainPassengers_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var confirm = MessageBox.Show(ConstantInfo.CONFIRM_EXIT, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm != DialogResult.Yes)
+            {
+                e.Cancel=true;
             }
         }
     }

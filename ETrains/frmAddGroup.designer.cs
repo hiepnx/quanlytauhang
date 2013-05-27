@@ -37,13 +37,22 @@
         this.btnAdd = new System.Windows.Forms.Button();
         this.button1 = new System.Windows.Forms.Button();
         this.grvUser = new System.Windows.Forms.DataGridView();
+        this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.tabPageRights = new System.Windows.Forms.TabPage();
         this.chbCheckAllPermission = new System.Windows.Forms.CheckBox();
         this.btnReset = new System.Windows.Forms.Button();
         this.grvPermission = new System.Windows.Forms.DataGridView();
+        this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+        this.GroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.btnUpdatePermission = new System.Windows.Forms.Button();
         this.btnClose = new System.Windows.Forms.Button();
         this.btnSave = new System.Windows.Forms.Button();
-        this.btnUpdatePermission = new System.Windows.Forms.Button();
         this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,15 +62,6 @@
         this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
         this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-        this.GroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.grbUser.SuspendLayout();
         this.tabControlGroup.SuspendLayout();
         this.tabPageGroup.SuspendLayout();
@@ -188,6 +188,55 @@
         this.grvUser.Size = new System.Drawing.Size(693, 294);
         this.grvUser.TabIndex = 1;
         // 
+        // UserID
+        // 
+        this.UserID.DataPropertyName = "UserID";
+        this.UserID.HeaderText = "UserID";
+        this.UserID.Name = "UserID";
+        this.UserID.ReadOnly = true;
+        this.UserID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+        this.UserID.Visible = false;
+        // 
+        // UserName
+        // 
+        this.UserName.DataPropertyName = "UserName";
+        this.UserName.HeaderText = "Tên truy cập";
+        this.UserName.Name = "UserName";
+        this.UserName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+        this.UserName.Width = 150;
+        // 
+        // FirstName
+        // 
+        this.FirstName.DataPropertyName = "UserFullName";
+        this.FirstName.HeaderText = "Họ và tên";
+        this.FirstName.Name = "FirstName";
+        this.FirstName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+        this.FirstName.Width = 150;
+        // 
+        // Email
+        // 
+        this.Email.DataPropertyName = "Email";
+        this.Email.HeaderText = "Email";
+        this.Email.Name = "Email";
+        this.Email.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+        // 
+        // Address
+        // 
+        this.Address.DataPropertyName = "Address";
+        this.Address.HeaderText = "Địa chỉ";
+        this.Address.Name = "Address";
+        this.Address.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+        this.Address.Width = 150;
+        // 
+        // PhoneNumber
+        // 
+        this.PhoneNumber.DataPropertyName = "PhoneNumber";
+        this.PhoneNumber.HeaderText = "Điện thoại";
+        this.PhoneNumber.Name = "PhoneNumber";
+        this.PhoneNumber.ReadOnly = true;
+        this.PhoneNumber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+        this.PhoneNumber.Width = 150;
+        // 
         // tabPageRights
         // 
         this.tabPageRights.BackColor = System.Drawing.SystemColors.Control;
@@ -243,6 +292,44 @@
         this.grvPermission.Size = new System.Drawing.Size(693, 296);
         this.grvPermission.TabIndex = 2;
         // 
+        // Check
+        // 
+        this.Check.DataPropertyName = "Check";
+        this.Check.HeaderText = "Chọn";
+        this.Check.Name = "Check";
+        // 
+        // GroupID
+        // 
+        this.GroupID.DataPropertyName = "PermissionID";
+        this.GroupID.HeaderText = "PermissonID";
+        this.GroupID.Name = "GroupID";
+        this.GroupID.ReadOnly = true;
+        this.GroupID.Visible = false;
+        // 
+        // GroupName
+        // 
+        this.GroupName.DataPropertyName = "Permission";
+        this.GroupName.HeaderText = "Quyền truy cập";
+        this.GroupName.Name = "GroupName";
+        this.GroupName.ReadOnly = true;
+        this.GroupName.Width = 500;
+        // 
+        // btnUpdatePermission
+        // 
+        this.btnUpdatePermission.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+        this.btnUpdatePermission.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        this.btnUpdatePermission.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        this.btnUpdatePermission.Image = global::ETrains.Properties.Resources.accept;
+        this.btnUpdatePermission.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+        this.btnUpdatePermission.Location = new System.Drawing.Point(6, 308);
+        this.btnUpdatePermission.Name = "btnUpdatePermission";
+        this.btnUpdatePermission.Size = new System.Drawing.Size(126, 33);
+        this.btnUpdatePermission.TabIndex = 5;
+        this.btnUpdatePermission.Text = "Cập nhật quyền";
+        this.btnUpdatePermission.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+        this.btnUpdatePermission.UseVisualStyleBackColor = true;
+        this.btnUpdatePermission.Click += new System.EventHandler(this.btnUpdatePermission_Click);
+        // 
         // btnClose
         // 
         this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -274,22 +361,6 @@
         this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
         this.btnSave.UseVisualStyleBackColor = true;
         this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-        // 
-        // btnUpdatePermission
-        // 
-        this.btnUpdatePermission.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-        this.btnUpdatePermission.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        this.btnUpdatePermission.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        this.btnUpdatePermission.Image = global::ETrains.Properties.Resources.accept;
-        this.btnUpdatePermission.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        this.btnUpdatePermission.Location = new System.Drawing.Point(6, 308);
-        this.btnUpdatePermission.Name = "btnUpdatePermission";
-        this.btnUpdatePermission.Size = new System.Drawing.Size(126, 33);
-        this.btnUpdatePermission.TabIndex = 5;
-        this.btnUpdatePermission.Text = "Cập nhật quyền";
-        this.btnUpdatePermission.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-        this.btnUpdatePermission.UseVisualStyleBackColor = true;
-        this.btnUpdatePermission.Click += new System.EventHandler(this.btnUpdatePermission_Click);
         // 
         // dataGridViewTextBoxColumn1
         // 
@@ -362,77 +433,6 @@
         this.dataGridViewTextBoxColumn8.ReadOnly = true;
         this.dataGridViewTextBoxColumn8.Width = 500;
         // 
-        // UserID
-        // 
-        this.UserID.DataPropertyName = "UserID";
-        this.UserID.HeaderText = "UserID";
-        this.UserID.Name = "UserID";
-        this.UserID.ReadOnly = true;
-        this.UserID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-        this.UserID.Visible = false;
-        // 
-        // UserName
-        // 
-        this.UserName.DataPropertyName = "UserName";
-        this.UserName.HeaderText = "Tên truy cập";
-        this.UserName.Name = "UserName";
-        this.UserName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-        this.UserName.Width = 150;
-        // 
-        // FirstName
-        // 
-        this.FirstName.DataPropertyName = "UserFullName";
-        this.FirstName.HeaderText = "Họ và tên";
-        this.FirstName.Name = "FirstName";
-        this.FirstName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-        this.FirstName.Width = 150;
-        // 
-        // Email
-        // 
-        this.Email.DataPropertyName = "Email";
-        this.Email.HeaderText = "Email";
-        this.Email.Name = "Email";
-        this.Email.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-        // 
-        // Address
-        // 
-        this.Address.DataPropertyName = "Address";
-        this.Address.HeaderText = "Địa chỉ";
-        this.Address.Name = "Address";
-        this.Address.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-        this.Address.Width = 150;
-        // 
-        // PhoneNumber
-        // 
-        this.PhoneNumber.DataPropertyName = "PhoneNumber";
-        this.PhoneNumber.HeaderText = "Điện thoại";
-        this.PhoneNumber.Name = "PhoneNumber";
-        this.PhoneNumber.ReadOnly = true;
-        this.PhoneNumber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-        this.PhoneNumber.Width = 150;
-        // 
-        // Check
-        // 
-        this.Check.DataPropertyName = "Check";
-        this.Check.HeaderText = "Chọn";
-        this.Check.Name = "Check";
-        // 
-        // GroupID
-        // 
-        this.GroupID.DataPropertyName = "PermissionID";
-        this.GroupID.HeaderText = "PermissonID";
-        this.GroupID.Name = "GroupID";
-        this.GroupID.ReadOnly = true;
-        this.GroupID.Visible = false;
-        // 
-        // GroupName
-        // 
-        this.GroupName.DataPropertyName = "Permission";
-        this.GroupName.HeaderText = "Quyền truy cập";
-        this.GroupName.Name = "GroupName";
-        this.GroupName.ReadOnly = true;
-        this.GroupName.Width = 500;
-        // 
         // frmAddGroup
         // 
         this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,6 +443,7 @@
         this.Controls.Add(this.grbUser);
         this.Name = "frmAddGroup";
         this.Text = "Quản lý nhóm người dùng";
+        this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddGroup_FormClosing);
         this.Load += new System.EventHandler(this.frmAddGroup_Load);
         this.grbUser.ResumeLayout(false);
         this.tabControlGroup.ResumeLayout(false);

@@ -981,6 +981,7 @@
             this.Name = "frmThemChuyenTau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmThemChuyenTau";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmThemChuyenTau_FormClosing);
             this.Load += new System.EventHandler(this.frmThemChuyenTau_Load);
             this.gbChuyenTau.ResumeLayout(false);
             this.gbChuyenTau.PerformLayout();

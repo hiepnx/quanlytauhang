@@ -54,21 +54,21 @@
         this.tbnResetListGroup = new System.Windows.Forms.Button();
         this.chbCheckAllGroup = new System.Windows.Forms.CheckBox();
         this.grvGroup = new System.Windows.Forms.DataGridView();
+        this.checkGroup = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+        this.GroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.tabPermission = new System.Windows.Forms.TabPage();
         this.btnUpdatePermission = new System.Windows.Forms.Button();
         this.btnResetPermission = new System.Windows.Forms.Button();
         this.chbCheckAllPermission = new System.Windows.Forms.CheckBox();
         this.grvPermission = new System.Windows.Forms.DataGridView();
-        this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+        this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
         this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
         this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
         this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.checkGroup = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-        this.GroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
         this.tabControl1.SuspendLayout();
         this.tabUser.SuspendLayout();
         this.tabGroup.SuspendLayout();
@@ -399,6 +399,27 @@
         this.grvGroup.Size = new System.Drawing.Size(617, 412);
         this.grvGroup.TabIndex = 2;
         // 
+        // checkGroup
+        // 
+        this.checkGroup.HeaderText = "Chọn";
+        this.checkGroup.Name = "checkGroup";
+        // 
+        // GroupID
+        // 
+        this.GroupID.DataPropertyName = "GroupID";
+        this.GroupID.HeaderText = "GroupID";
+        this.GroupID.Name = "GroupID";
+        this.GroupID.ReadOnly = true;
+        this.GroupID.Visible = false;
+        // 
+        // GroupName
+        // 
+        this.GroupName.DataPropertyName = "GroupName";
+        this.GroupName.HeaderText = "Tên nhóm";
+        this.GroupName.Name = "GroupName";
+        this.GroupName.ReadOnly = true;
+        this.GroupName.Width = 475;
+        // 
         // tabPermission
         // 
         this.tabPermission.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -469,10 +490,11 @@
         this.grvPermission.Size = new System.Drawing.Size(620, 412);
         this.grvPermission.TabIndex = 13;
         // 
-        // dataGridViewCheckBoxColumn1
+        // Check
         // 
-        this.dataGridViewCheckBoxColumn1.HeaderText = "Chọn";
-        this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+        this.Check.DataPropertyName = "Check";
+        this.Check.HeaderText = "Chọn";
+        this.Check.Name = "Check";
         // 
         // dataGridViewTextBoxColumn1
         // 
@@ -489,6 +511,11 @@
         this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
         this.dataGridViewTextBoxColumn2.ReadOnly = true;
         this.dataGridViewTextBoxColumn2.Width = 475;
+        // 
+        // dataGridViewCheckBoxColumn1
+        // 
+        this.dataGridViewCheckBoxColumn1.HeaderText = "Chọn";
+        this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
         // 
         // dataGridViewCheckBoxColumn2
         // 
@@ -512,33 +539,6 @@
         this.dataGridViewTextBoxColumn4.ReadOnly = true;
         this.dataGridViewTextBoxColumn4.Width = 475;
         // 
-        // checkGroup
-        // 
-        this.checkGroup.HeaderText = "Chọn";
-        this.checkGroup.Name = "checkGroup";
-        // 
-        // GroupID
-        // 
-        this.GroupID.DataPropertyName = "GroupID";
-        this.GroupID.HeaderText = "GroupID";
-        this.GroupID.Name = "GroupID";
-        this.GroupID.ReadOnly = true;
-        this.GroupID.Visible = false;
-        // 
-        // GroupName
-        // 
-        this.GroupName.DataPropertyName = "GroupName";
-        this.GroupName.HeaderText = "Tên nhóm";
-        this.GroupName.Name = "GroupName";
-        this.GroupName.ReadOnly = true;
-        this.GroupName.Width = 475;
-        // 
-        // Check
-        // 
-        this.Check.DataPropertyName = "Check";
-        this.Check.HeaderText = "Chọn";
-        this.Check.Name = "Check";
-        // 
         // frmAddUser
         // 
         this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -547,6 +547,7 @@
         this.Controls.Add(this.tabControl1);
         this.Name = "frmAddUser";
         this.Text = "frmAddUser";
+        this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddUser_FormClosing);
         this.Load += new System.EventHandler(this.frmAddUser_Load);
         this.tabControl1.ResumeLayout(false);
         this.tabUser.ResumeLayout(false);
