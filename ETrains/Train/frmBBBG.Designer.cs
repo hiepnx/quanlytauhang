@@ -30,10 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -43,6 +39,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblHeader = new System.Windows.Forms.Label();
             this.gbBBBG = new System.Windows.Forms.GroupBox();
             this.ddlGaDenDi = new System.Windows.Forms.ComboBox();
@@ -62,22 +62,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtNumberHandover = new System.Windows.Forms.TextBox();
             this.grdToaTau = new System.Windows.Forms.DataGridView();
-            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ToaTauID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ma_ToaTau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.So_VanTai_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ngay_VanTai_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten_DoiTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten_DoanhNghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ma_DoanhNghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten_Hang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Trong_Luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seal_VanTai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seal_VanTai2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seal_HaiQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seal_HaiQuan2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ghi_Chu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbToaTau = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSoVanDon = new System.Windows.Forms.TextBox();
@@ -113,6 +97,22 @@
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ToaTauID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ma_ToaTau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.So_VanTai_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ngay_VanTai_Don = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten_DoiTac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten_DoanhNghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ma_DoanhNghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten_Hang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Trong_Luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seal_VanTai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seal_VanTai2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seal_HaiQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seal_HaiQuan2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ghi_Chu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbBBBG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdToaTau)).BeginInit();
             this.gbToaTau.SuspendLayout();
@@ -356,129 +356,10 @@
             this.grdToaTau.TabIndex = 2;
             this.grdToaTau.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdToaTau_CellClick);
             // 
-            // delete
-            // 
-            this.delete.HeaderText = "Xóa";
-            this.delete.Name = "delete";
-            this.delete.Text = "Xóa";
-            this.delete.ToolTipText = "Xóa khỏi danh sách các toa tàu của BBBG";
-            this.delete.UseColumnTextForButtonValue = true;
-            this.delete.Width = 50;
-            // 
-            // Count
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Count.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Count.HeaderText = "STT";
-            this.Count.Name = "Count";
-            this.Count.ReadOnly = true;
-            this.Count.Width = 50;
-            // 
-            // ToaTauID
-            // 
-            this.ToaTauID.DataPropertyName = "ToaTauID";
-            this.ToaTauID.HeaderText = "ToaTauID";
-            this.ToaTauID.Name = "ToaTauID";
-            this.ToaTauID.Visible = false;
-            // 
-            // Ma_ToaTau
-            // 
-            this.Ma_ToaTau.DataPropertyName = "Ma_ToaTau";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ma_ToaTau.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Ma_ToaTau.HeaderText = "SH Toa tàu";
-            this.Ma_ToaTau.Name = "Ma_ToaTau";
-            // 
-            // So_VanTai_Don
-            // 
-            this.So_VanTai_Don.DataPropertyName = "So_VanTai_Don";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.So_VanTai_Don.DefaultCellStyle = dataGridViewCellStyle4;
-            this.So_VanTai_Don.HeaderText = "Số Vận đơn";
-            this.So_VanTai_Don.Name = "So_VanTai_Don";
-            // 
-            // Ngay_VanTai_Don
-            // 
-            this.Ngay_VanTai_Don.DataPropertyName = "Ngay_VanTai_Don";
-            this.Ngay_VanTai_Don.HeaderText = "Ngày vận đơn";
-            this.Ngay_VanTai_Don.Name = "Ngay_VanTai_Don";
-            this.Ngay_VanTai_Don.Visible = false;
-            // 
-            // Ten_DoiTac
-            // 
-            this.Ten_DoiTac.DataPropertyName = "Ten_DoiTac";
-            this.Ten_DoiTac.HeaderText = "Tên người gửi";
-            this.Ten_DoiTac.Name = "Ten_DoiTac";
-            this.Ten_DoiTac.Visible = false;
-            // 
-            // Ten_DoanhNghiep
-            // 
-            this.Ten_DoanhNghiep.DataPropertyName = "Ten_DoanhNghiep";
-            this.Ten_DoanhNghiep.HeaderText = "Tên người nhận";
-            this.Ten_DoanhNghiep.Name = "Ten_DoanhNghiep";
-            this.Ten_DoanhNghiep.Visible = false;
-            this.Ten_DoanhNghiep.Width = 120;
-            // 
-            // Ma_DoanhNghiep
-            // 
-            this.Ma_DoanhNghiep.DataPropertyName = "Ma_DoanhNghiep";
-            this.Ma_DoanhNghiep.HeaderText = "Ma_DoanhNghiep";
-            this.Ma_DoanhNghiep.Name = "Ma_DoanhNghiep";
-            this.Ma_DoanhNghiep.Visible = false;
-            // 
-            // Ten_Hang
-            // 
-            this.Ten_Hang.DataPropertyName = "Ten_Hang";
-            this.Ten_Hang.HeaderText = "Tên hàng";
-            this.Ten_Hang.Name = "Ten_Hang";
-            this.Ten_Hang.Width = 200;
-            // 
-            // Trong_Luong
-            // 
-            this.Trong_Luong.DataPropertyName = "Trong_Luong";
-            this.Trong_Luong.HeaderText = "Trọng lượng";
-            this.Trong_Luong.Name = "Trong_Luong";
-            // 
-            // Seal_VanTai
-            // 
-            this.Seal_VanTai.DataPropertyName = "Seal_VanTai";
-            this.Seal_VanTai.HeaderText = "Số Seal hãng vận tải 1";
-            this.Seal_VanTai.Name = "Seal_VanTai";
-            this.Seal_VanTai.Width = 130;
-            // 
-            // Seal_VanTai2
-            // 
-            this.Seal_VanTai2.DataPropertyName = "Seal_VanTai2";
-            this.Seal_VanTai2.HeaderText = "Số Seal hãng vận tải 2";
-            this.Seal_VanTai2.Name = "Seal_VanTai2";
-            this.Seal_VanTai2.Width = 130;
-            // 
-            // Seal_HaiQuan
-            // 
-            this.Seal_HaiQuan.DataPropertyName = "Seal_HaiQuan";
-            dataGridViewCellStyle5.Format = "dd/MM/yyyy";
-            this.Seal_HaiQuan.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Seal_HaiQuan.HeaderText = "Số Seal Hải quan 1";
-            this.Seal_HaiQuan.Name = "Seal_HaiQuan";
-            this.Seal_HaiQuan.Width = 130;
-            // 
-            // Seal_HaiQuan2
-            // 
-            this.Seal_HaiQuan2.DataPropertyName = "Seal_HaiQuan2";
-            this.Seal_HaiQuan2.HeaderText = "Số Seal Hải quan 2";
-            this.Seal_HaiQuan2.Name = "Seal_HaiQuan2";
-            this.Seal_HaiQuan2.Width = 130;
-            // 
-            // Ghi_Chu
-            // 
-            this.Ghi_Chu.DataPropertyName = "Ghi_Chu";
-            this.Ghi_Chu.HeaderText = "Ghi chú";
-            this.Ghi_Chu.Name = "Ghi_Chu";
-            this.Ghi_Chu.Width = 150;
-            // 
             // gbToaTau
             // 
-            this.gbToaTau.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.gbToaTau.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.gbToaTau.Controls.Add(this.btnSearch);
             this.gbToaTau.Controls.Add(this.grdToaTau);
@@ -494,7 +375,6 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -529,7 +409,7 @@
             // 
             // btnPrintBBBG
             // 
-            this.btnPrintBBBG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPrintBBBG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrintBBBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnPrintBBBG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrintBBBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -615,6 +495,7 @@
             // 
             // cbPrint
             // 
+            this.cbPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbPrint.AutoSize = true;
             this.cbPrint.Location = new System.Drawing.Point(385, 612);
             this.cbPrint.Name = "cbPrint";
@@ -719,6 +600,7 @@
             this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
             this.dataGridViewButtonColumn1.Text = "Xóa";
             this.dataGridViewButtonColumn1.ToolTipText = "Xóa khỏi danh sách các toa tàu của BBBG";
+            this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
             this.dataGridViewButtonColumn1.Width = 50;
             // 
             // dataGridViewTextBoxColumn1
@@ -846,6 +728,126 @@
             this.dataGridViewTextBoxColumn15.HeaderText = "Ghi chú";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.Width = 150;
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "Xóa";
+            this.delete.Name = "delete";
+            this.delete.Text = "Xóa";
+            this.delete.ToolTipText = "Xóa khỏi danh sách các toa tàu của BBBG";
+            this.delete.UseColumnTextForButtonValue = true;
+            this.delete.Width = 50;
+            // 
+            // Count
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Count.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Count.HeaderText = "STT";
+            this.Count.Name = "Count";
+            this.Count.ReadOnly = true;
+            this.Count.Width = 50;
+            // 
+            // ToaTauID
+            // 
+            this.ToaTauID.DataPropertyName = "ToaTauID";
+            this.ToaTauID.HeaderText = "ToaTauID";
+            this.ToaTauID.Name = "ToaTauID";
+            this.ToaTauID.Visible = false;
+            // 
+            // Ma_ToaTau
+            // 
+            this.Ma_ToaTau.DataPropertyName = "Ma_ToaTau";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ma_ToaTau.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Ma_ToaTau.HeaderText = "SH Toa tàu";
+            this.Ma_ToaTau.Name = "Ma_ToaTau";
+            // 
+            // So_VanTai_Don
+            // 
+            this.So_VanTai_Don.DataPropertyName = "So_VanTai_Don";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.So_VanTai_Don.DefaultCellStyle = dataGridViewCellStyle4;
+            this.So_VanTai_Don.HeaderText = "Số Vận đơn";
+            this.So_VanTai_Don.Name = "So_VanTai_Don";
+            // 
+            // Ngay_VanTai_Don
+            // 
+            this.Ngay_VanTai_Don.DataPropertyName = "Ngay_VanTai_Don";
+            this.Ngay_VanTai_Don.HeaderText = "Ngày vận đơn";
+            this.Ngay_VanTai_Don.Name = "Ngay_VanTai_Don";
+            this.Ngay_VanTai_Don.Visible = false;
+            // 
+            // Ten_DoiTac
+            // 
+            this.Ten_DoiTac.DataPropertyName = "Ten_DoiTac";
+            this.Ten_DoiTac.HeaderText = "Tên người gửi";
+            this.Ten_DoiTac.Name = "Ten_DoiTac";
+            this.Ten_DoiTac.Visible = false;
+            // 
+            // Ten_DoanhNghiep
+            // 
+            this.Ten_DoanhNghiep.DataPropertyName = "Ten_DoanhNghiep";
+            this.Ten_DoanhNghiep.HeaderText = "Tên người nhận";
+            this.Ten_DoanhNghiep.Name = "Ten_DoanhNghiep";
+            this.Ten_DoanhNghiep.Visible = false;
+            this.Ten_DoanhNghiep.Width = 120;
+            // 
+            // Ma_DoanhNghiep
+            // 
+            this.Ma_DoanhNghiep.DataPropertyName = "Ma_DoanhNghiep";
+            this.Ma_DoanhNghiep.HeaderText = "Ma_DoanhNghiep";
+            this.Ma_DoanhNghiep.Name = "Ma_DoanhNghiep";
+            this.Ma_DoanhNghiep.Visible = false;
+            // 
+            // Ten_Hang
+            // 
+            this.Ten_Hang.DataPropertyName = "Ten_Hang";
+            this.Ten_Hang.HeaderText = "Tên hàng";
+            this.Ten_Hang.Name = "Ten_Hang";
+            this.Ten_Hang.Width = 200;
+            // 
+            // Trong_Luong
+            // 
+            this.Trong_Luong.DataPropertyName = "Trong_Luong";
+            this.Trong_Luong.HeaderText = "Trọng lượng";
+            this.Trong_Luong.Name = "Trong_Luong";
+            // 
+            // Seal_VanTai
+            // 
+            this.Seal_VanTai.DataPropertyName = "Seal_VanTai";
+            this.Seal_VanTai.HeaderText = "Số Seal hãng vận tải 1";
+            this.Seal_VanTai.Name = "Seal_VanTai";
+            this.Seal_VanTai.Width = 130;
+            // 
+            // Seal_VanTai2
+            // 
+            this.Seal_VanTai2.DataPropertyName = "Seal_VanTai2";
+            this.Seal_VanTai2.HeaderText = "Số Seal hãng vận tải 2";
+            this.Seal_VanTai2.Name = "Seal_VanTai2";
+            this.Seal_VanTai2.Width = 130;
+            // 
+            // Seal_HaiQuan
+            // 
+            this.Seal_HaiQuan.DataPropertyName = "Seal_HaiQuan";
+            dataGridViewCellStyle5.Format = "dd/MM/yyyy";
+            this.Seal_HaiQuan.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Seal_HaiQuan.HeaderText = "Số Seal Hải quan 1";
+            this.Seal_HaiQuan.Name = "Seal_HaiQuan";
+            this.Seal_HaiQuan.Width = 130;
+            // 
+            // Seal_HaiQuan2
+            // 
+            this.Seal_HaiQuan2.DataPropertyName = "Seal_HaiQuan2";
+            this.Seal_HaiQuan2.HeaderText = "Số Seal Hải quan 2";
+            this.Seal_HaiQuan2.Name = "Seal_HaiQuan2";
+            this.Seal_HaiQuan2.Width = 130;
+            // 
+            // Ghi_Chu
+            // 
+            this.Ghi_Chu.DataPropertyName = "Ghi_Chu";
+            this.Ghi_Chu.HeaderText = "Ghi chú";
+            this.Ghi_Chu.Name = "Ghi_Chu";
+            this.Ghi_Chu.Width = 150;
             // 
             // frmBBBG
             // 

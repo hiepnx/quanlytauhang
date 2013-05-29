@@ -54,21 +54,21 @@
         this.tbnResetListGroup = new System.Windows.Forms.Button();
         this.chbCheckAllGroup = new System.Windows.Forms.CheckBox();
         this.grvGroup = new System.Windows.Forms.DataGridView();
-        this.checkGroup = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-        this.GroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.tabPermission = new System.Windows.Forms.TabPage();
         this.btnUpdatePermission = new System.Windows.Forms.Button();
         this.btnResetPermission = new System.Windows.Forms.Button();
         this.chbCheckAllPermission = new System.Windows.Forms.CheckBox();
         this.grvPermission = new System.Windows.Forms.DataGridView();
-        this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+        this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
         this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
         this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
         this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.checkGroup = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+        this.GroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
         this.tabControl1.SuspendLayout();
         this.tabUser.SuspendLayout();
         this.tabGroup.SuspendLayout();
@@ -79,6 +79,9 @@
         // 
         // tabControl1
         // 
+        this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                    | System.Windows.Forms.AnchorStyles.Left)
+                    | System.Windows.Forms.AnchorStyles.Right)));
         this.tabControl1.Controls.Add(this.tabUser);
         this.tabControl1.Controls.Add(this.tabGroup);
         this.tabControl1.Controls.Add(this.tabPermission);
@@ -344,6 +347,7 @@
         // 
         // btnUpdateListGroup
         // 
+        this.btnUpdateListGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
         this.btnUpdateListGroup.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
         this.btnUpdateListGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         this.btnUpdateListGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -360,6 +364,7 @@
         // 
         // tbnResetListGroup
         // 
+        this.tbnResetListGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
         this.tbnResetListGroup.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
         this.tbnResetListGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         this.tbnResetListGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -388,6 +393,9 @@
         // 
         this.grvGroup.AllowUserToAddRows = false;
         this.grvGroup.AllowUserToDeleteRows = false;
+        this.grvGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                    | System.Windows.Forms.AnchorStyles.Left)
+                    | System.Windows.Forms.AnchorStyles.Right)));
         this.grvGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         this.grvGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.checkGroup,
@@ -398,27 +406,6 @@
         this.grvGroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
         this.grvGroup.Size = new System.Drawing.Size(617, 412);
         this.grvGroup.TabIndex = 2;
-        // 
-        // checkGroup
-        // 
-        this.checkGroup.HeaderText = "Chọn";
-        this.checkGroup.Name = "checkGroup";
-        // 
-        // GroupID
-        // 
-        this.GroupID.DataPropertyName = "GroupID";
-        this.GroupID.HeaderText = "GroupID";
-        this.GroupID.Name = "GroupID";
-        this.GroupID.ReadOnly = true;
-        this.GroupID.Visible = false;
-        // 
-        // GroupName
-        // 
-        this.GroupName.DataPropertyName = "GroupName";
-        this.GroupName.HeaderText = "Tên nhóm";
-        this.GroupName.Name = "GroupName";
-        this.GroupName.ReadOnly = true;
-        this.GroupName.Width = 475;
         // 
         // tabPermission
         // 
@@ -435,6 +422,7 @@
         // 
         // btnUpdatePermission
         // 
+        this.btnUpdatePermission.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
         this.btnUpdatePermission.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
         this.btnUpdatePermission.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         this.btnUpdatePermission.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -451,6 +439,7 @@
         // 
         // btnResetPermission
         // 
+        this.btnResetPermission.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
         this.btnResetPermission.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
         this.btnResetPermission.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         this.btnResetPermission.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -479,6 +468,9 @@
         // 
         this.grvPermission.AllowUserToAddRows = false;
         this.grvPermission.AllowUserToDeleteRows = false;
+        this.grvPermission.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                    | System.Windows.Forms.AnchorStyles.Left)
+                    | System.Windows.Forms.AnchorStyles.Right)));
         this.grvPermission.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         this.grvPermission.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Check,
@@ -490,11 +482,10 @@
         this.grvPermission.Size = new System.Drawing.Size(620, 412);
         this.grvPermission.TabIndex = 13;
         // 
-        // Check
+        // dataGridViewCheckBoxColumn1
         // 
-        this.Check.DataPropertyName = "Check";
-        this.Check.HeaderText = "Chọn";
-        this.Check.Name = "Check";
+        this.dataGridViewCheckBoxColumn1.HeaderText = "Chọn";
+        this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
         // 
         // dataGridViewTextBoxColumn1
         // 
@@ -511,11 +502,6 @@
         this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
         this.dataGridViewTextBoxColumn2.ReadOnly = true;
         this.dataGridViewTextBoxColumn2.Width = 475;
-        // 
-        // dataGridViewCheckBoxColumn1
-        // 
-        this.dataGridViewCheckBoxColumn1.HeaderText = "Chọn";
-        this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
         // 
         // dataGridViewCheckBoxColumn2
         // 
@@ -538,6 +524,33 @@
         this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
         this.dataGridViewTextBoxColumn4.ReadOnly = true;
         this.dataGridViewTextBoxColumn4.Width = 475;
+        // 
+        // checkGroup
+        // 
+        this.checkGroup.HeaderText = "Chọn";
+        this.checkGroup.Name = "checkGroup";
+        // 
+        // GroupID
+        // 
+        this.GroupID.DataPropertyName = "GroupID";
+        this.GroupID.HeaderText = "GroupID";
+        this.GroupID.Name = "GroupID";
+        this.GroupID.ReadOnly = true;
+        this.GroupID.Visible = false;
+        // 
+        // GroupName
+        // 
+        this.GroupName.DataPropertyName = "GroupName";
+        this.GroupName.HeaderText = "Tên nhóm";
+        this.GroupName.Name = "GroupName";
+        this.GroupName.ReadOnly = true;
+        this.GroupName.Width = 475;
+        // 
+        // Check
+        // 
+        this.Check.DataPropertyName = "Check";
+        this.Check.HeaderText = "Chọn";
+        this.Check.Name = "Check";
         // 
         // frmAddUser
         // 
