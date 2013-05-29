@@ -144,6 +144,11 @@ namespace ETrains
       }
 
     }
+
+    private void grvUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    {
+
+    }
            
            
   }

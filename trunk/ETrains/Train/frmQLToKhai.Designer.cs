@@ -39,6 +39,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSoHieuToaTau = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.cbNgayDK = new System.Windows.Forms.CheckBox();
@@ -50,8 +52,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.grdTrain = new System.Windows.Forms.DataGridView();
-            this.txtSoHieuToaTau = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -112,6 +112,23 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Điều kiện tìm kiếm";
+            // 
+            // txtSoHieuToaTau
+            // 
+            this.txtSoHieuToaTau.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSoHieuToaTau.Location = new System.Drawing.Point(514, 56);
+            this.txtSoHieuToaTau.Name = "txtSoHieuToaTau";
+            this.txtSoHieuToaTau.Size = new System.Drawing.Size(142, 20);
+            this.txtSoHieuToaTau.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(429, 57);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 13);
+            this.label4.TabIndex = 45;
+            this.label4.Text = "Số hiệu toa tàu";
             // 
             // label2
             // 
@@ -207,6 +224,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.grdTrain);
             this.groupBox2.Location = new System.Drawing.Point(12, 100);
             this.groupBox2.Name = "groupBox2";
@@ -256,23 +276,6 @@
             this.grdTrain.Size = new System.Drawing.Size(788, 270);
             this.grdTrain.TabIndex = 60;
             this.grdTrain.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTrain_CellDoubleClick);
-            // 
-            // txtSoHieuToaTau
-            // 
-            this.txtSoHieuToaTau.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSoHieuToaTau.Location = new System.Drawing.Point(514, 56);
-            this.txtSoHieuToaTau.Name = "txtSoHieuToaTau";
-            this.txtSoHieuToaTau.Size = new System.Drawing.Size(142, 20);
-            this.txtSoHieuToaTau.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(429, 57);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 13);
-            this.label4.TabIndex = 45;
-            this.label4.Text = "Số hiệu toa tàu";
             // 
             // dataGridViewTextBoxColumn1
             // 

@@ -30,6 +30,17 @@
     {
         this.grbUser = new System.Windows.Forms.GroupBox();
         this.grvUser = new System.Windows.Forms.DataGridView();
+        this.btnClose = new System.Windows.Forms.Button();
+        this.btnDelete = new System.Windows.Forms.Button();
+        this.btnAdd = new System.Windows.Forms.Button();
+        this.btnUpdate = new System.Windows.Forms.Button();
+        this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+        this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,16 +48,15 @@
         this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.IsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
         this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.btnClose = new System.Windows.Forms.Button();
-        this.btnDelete = new System.Windows.Forms.Button();
-        this.btnAdd = new System.Windows.Forms.Button();
-        this.btnUpdate = new System.Windows.Forms.Button();
         this.grbUser.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)(this.grvUser)).BeginInit();
         this.SuspendLayout();
         // 
         // grbUser
         // 
+        this.grbUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                    | System.Windows.Forms.AnchorStyles.Left)
+                    | System.Windows.Forms.AnchorStyles.Right)));
         this.grbUser.Controls.Add(this.grvUser);
         this.grbUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         this.grbUser.Location = new System.Drawing.Point(12, 12);
@@ -60,6 +70,9 @@
         // 
         this.grvUser.AllowUserToAddRows = false;
         this.grvUser.AllowUserToDeleteRows = false;
+        this.grvUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                    | System.Windows.Forms.AnchorStyles.Left)
+                    | System.Windows.Forms.AnchorStyles.Right)));
         this.grvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         this.grvUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserName,
@@ -75,7 +88,126 @@
         this.grvUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
         this.grvUser.Size = new System.Drawing.Size(894, 417);
         this.grvUser.TabIndex = 0;
+        this.grvUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvUser_CellContentClick);
         this.grvUser.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvUser_CellDoubleClick);
+        // 
+        // btnClose
+        // 
+        this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+        this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+        this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        this.btnClose.Image = global::ETrains.Properties.Resources.Exit;
+        this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+        this.btnClose.Location = new System.Drawing.Point(266, 475);
+        this.btnClose.Name = "btnClose";
+        this.btnClose.Size = new System.Drawing.Size(63, 33);
+        this.btnClose.TabIndex = 20;
+        this.btnClose.Text = "Đóng";
+        this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+        this.btnClose.UseVisualStyleBackColor = true;
+        this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+        // 
+        // btnDelete
+        // 
+        this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+        this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+        this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        this.btnDelete.Image = global::ETrains.Properties.Resources.delete;
+        this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+        this.btnDelete.Location = new System.Drawing.Point(197, 475);
+        this.btnDelete.Name = "btnDelete";
+        this.btnDelete.Size = new System.Drawing.Size(63, 33);
+        this.btnDelete.TabIndex = 19;
+        this.btnDelete.Text = "Xóa";
+        this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+        this.btnDelete.UseVisualStyleBackColor = true;
+        this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
+        // 
+        // btnAdd
+        // 
+        this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+        this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+        this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        this.btnAdd.Image = global::ETrains.Properties.Resources.add;
+        this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+        this.btnAdd.Location = new System.Drawing.Point(12, 475);
+        this.btnAdd.Name = "btnAdd";
+        this.btnAdd.Size = new System.Drawing.Size(81, 33);
+        this.btnAdd.TabIndex = 17;
+        this.btnAdd.Text = "Tạo mới";
+        this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+        this.btnAdd.UseVisualStyleBackColor = true;
+        this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+        // 
+        // btnUpdate
+        // 
+        this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+        this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+        this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        this.btnUpdate.Image = global::ETrains.Properties.Resources.edit;
+        this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+        this.btnUpdate.Location = new System.Drawing.Point(99, 475);
+        this.btnUpdate.Name = "btnUpdate";
+        this.btnUpdate.Size = new System.Drawing.Size(89, 33);
+        this.btnUpdate.TabIndex = 18;
+        this.btnUpdate.Text = "Cập nhật";
+        this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+        this.btnUpdate.UseVisualStyleBackColor = true;
+        this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+        // 
+        // dataGridViewTextBoxColumn1
+        // 
+        this.dataGridViewTextBoxColumn1.DataPropertyName = "UserName";
+        this.dataGridViewTextBoxColumn1.HeaderText = "Tên truy cập";
+        this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+        this.dataGridViewTextBoxColumn1.Width = 150;
+        // 
+        // dataGridViewTextBoxColumn2
+        // 
+        this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+        this.dataGridViewTextBoxColumn2.HeaderText = "Họ và tên";
+        this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+        this.dataGridViewTextBoxColumn2.Width = 150;
+        // 
+        // dataGridViewTextBoxColumn3
+        // 
+        this.dataGridViewTextBoxColumn3.DataPropertyName = "Email";
+        this.dataGridViewTextBoxColumn3.HeaderText = "Email";
+        this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+        // 
+        // dataGridViewTextBoxColumn4
+        // 
+        this.dataGridViewTextBoxColumn4.DataPropertyName = "Address";
+        this.dataGridViewTextBoxColumn4.HeaderText = "Địa chỉ";
+        this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+        this.dataGridViewTextBoxColumn4.Width = 150;
+        // 
+        // dataGridViewTextBoxColumn5
+        // 
+        this.dataGridViewTextBoxColumn5.DataPropertyName = "PhoneNumber";
+        this.dataGridViewTextBoxColumn5.HeaderText = "Điện thoại";
+        this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+        this.dataGridViewTextBoxColumn5.Width = 150;
+        // 
+        // dataGridViewCheckBoxColumn1
+        // 
+        this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsActive";
+        this.dataGridViewCheckBoxColumn1.HeaderText = "Trạng thái";
+        this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+        this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+        this.dataGridViewCheckBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+        this.dataGridViewCheckBoxColumn1.Width = 150;
+        // 
+        // dataGridViewTextBoxColumn6
+        // 
+        this.dataGridViewTextBoxColumn6.DataPropertyName = "UserID";
+        this.dataGridViewTextBoxColumn6.HeaderText = "UserID";
+        this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+        this.dataGridViewTextBoxColumn6.Visible = false;
         // 
         // UserName
         // 
@@ -134,70 +266,6 @@
         this.UserID.ReadOnly = true;
         this.UserID.Visible = false;
         // 
-        // btnClose
-        // 
-        this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-        this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        this.btnClose.Image = global::ETrains.Properties.Resources.Exit;
-        this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        this.btnClose.Location = new System.Drawing.Point(266, 475);
-        this.btnClose.Name = "btnClose";
-        this.btnClose.Size = new System.Drawing.Size(63, 33);
-        this.btnClose.TabIndex = 20;
-        this.btnClose.Text = "Đóng";
-        this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-        this.btnClose.UseVisualStyleBackColor = true;
-        this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-        // 
-        // btnDelete
-        // 
-        this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-        this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        this.btnDelete.Image = global::ETrains.Properties.Resources.delete;
-        this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        this.btnDelete.Location = new System.Drawing.Point(197, 475);
-        this.btnDelete.Name = "btnDelete";
-        this.btnDelete.Size = new System.Drawing.Size(63, 33);
-        this.btnDelete.TabIndex = 19;
-        this.btnDelete.Text = "Xóa";
-        this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-        this.btnDelete.UseVisualStyleBackColor = true;
-        this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
-        // 
-        // btnAdd
-        // 
-        this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-        this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        this.btnAdd.Image = global::ETrains.Properties.Resources.add;
-        this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        this.btnAdd.Location = new System.Drawing.Point(12, 475);
-        this.btnAdd.Name = "btnAdd";
-        this.btnAdd.Size = new System.Drawing.Size(81, 33);
-        this.btnAdd.TabIndex = 17;
-        this.btnAdd.Text = "Tạo mới";
-        this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-        this.btnAdd.UseVisualStyleBackColor = true;
-        this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-        // 
-        // btnUpdate
-        // 
-        this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-        this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        this.btnUpdate.Image = global::ETrains.Properties.Resources.edit;
-        this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        this.btnUpdate.Location = new System.Drawing.Point(99, 475);
-        this.btnUpdate.Name = "btnUpdate";
-        this.btnUpdate.Size = new System.Drawing.Size(89, 33);
-        this.btnUpdate.TabIndex = 18;
-        this.btnUpdate.Text = "Cập nhật";
-        this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-        this.btnUpdate.UseVisualStyleBackColor = true;
-        this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-        // 
         // frmUser
         // 
         this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,5 +300,12 @@
     private System.Windows.Forms.Button btnDelete;
     private System.Windows.Forms.Button btnAdd;
     private System.Windows.Forms.Button btnUpdate;
+    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+    private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
   }
 }

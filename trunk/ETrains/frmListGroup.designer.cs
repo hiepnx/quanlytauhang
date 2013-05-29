@@ -30,20 +30,23 @@
     {
         this.grbUser = new System.Windows.Forms.GroupBox();
         this.grvGroup = new System.Windows.Forms.DataGridView();
+        this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.GroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.btnDelete = new System.Windows.Forms.Button();
         this.btnAdd = new System.Windows.Forms.Button();
         this.btnUpdate = new System.Windows.Forms.Button();
         this.btnClose = new System.Windows.Forms.Button();
         this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.GroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.grbUser.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)(this.grvGroup)).BeginInit();
         this.SuspendLayout();
         // 
         // grbUser
         // 
+        this.grbUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                    | System.Windows.Forms.AnchorStyles.Left)
+                    | System.Windows.Forms.AnchorStyles.Right)));
         this.grbUser.Controls.Add(this.grvGroup);
         this.grbUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         this.grbUser.Location = new System.Drawing.Point(12, 12);
@@ -57,6 +60,9 @@
         // 
         this.grvGroup.AllowUserToAddRows = false;
         this.grvGroup.AllowUserToDeleteRows = false;
+        this.grvGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                    | System.Windows.Forms.AnchorStyles.Left)
+                    | System.Windows.Forms.AnchorStyles.Right)));
         this.grvGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         this.grvGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupName,
@@ -70,8 +76,25 @@
         this.grvGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvGroup_CellClick);
         this.grvGroup.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvGroup_CellDoubleClick);
         // 
+        // GroupName
+        // 
+        this.GroupName.DataPropertyName = "GroupName";
+        this.GroupName.HeaderText = "Tên nhóm";
+        this.GroupName.Name = "GroupName";
+        this.GroupName.ReadOnly = true;
+        this.GroupName.Width = 500;
+        // 
+        // GroupID
+        // 
+        this.GroupID.DataPropertyName = "GroupID";
+        this.GroupID.HeaderText = "GroupID";
+        this.GroupID.Name = "GroupID";
+        this.GroupID.ReadOnly = true;
+        this.GroupID.Visible = false;
+        // 
         // btnDelete
         // 
+        this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
         this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
         this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -88,6 +111,7 @@
         // 
         // btnAdd
         // 
+        this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
         this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
         this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -104,6 +128,7 @@
         // 
         // btnUpdate
         // 
+        this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
         this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
         this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,6 +145,7 @@
         // 
         // btnClose
         // 
+        this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
         this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
         this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -149,22 +175,6 @@
         this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
         this.dataGridViewTextBoxColumn2.ReadOnly = true;
         this.dataGridViewTextBoxColumn2.Visible = false;
-        // 
-        // GroupName
-        // 
-        this.GroupName.DataPropertyName = "GroupName";
-        this.GroupName.HeaderText = "Tên nhóm";
-        this.GroupName.Name = "GroupName";
-        this.GroupName.ReadOnly = true;
-        this.GroupName.Width = 500;
-        // 
-        // GroupID
-        // 
-        this.GroupID.DataPropertyName = "GroupID";
-        this.GroupID.HeaderText = "GroupID";
-        this.GroupID.Name = "GroupID";
-        this.GroupID.ReadOnly = true;
-        this.GroupID.Visible = false;
         // 
         // frmListGroup
         // 

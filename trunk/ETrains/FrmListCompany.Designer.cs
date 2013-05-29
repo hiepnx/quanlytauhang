@@ -37,13 +37,16 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.grbUser = new System.Windows.Forms.GroupBox();
             this.grvCompany = new System.Windows.Forms.DataGridView();
-            this.CompanyCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CompanyCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grbConditionSearch.SuspendLayout();
             this.grbUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvCompany)).BeginInit();
@@ -51,7 +54,8 @@
             // 
             // grbConditionSearch
             // 
-            this.grbConditionSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grbConditionSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.grbConditionSearch.Controls.Add(this.txtCompanyName);
             this.grbConditionSearch.Controls.Add(this.label1);
             this.grbConditionSearch.Controls.Add(this.txtCompanyCode);
@@ -67,6 +71,7 @@
             // 
             // txtCompanyName
             // 
+            this.txtCompanyName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtCompanyName.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.txtCompanyName.Location = new System.Drawing.Point(321, 25);
             this.txtCompanyName.Name = "txtCompanyName";
@@ -75,6 +80,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(221, 29);
             this.label1.Name = "label1";
@@ -84,6 +90,7 @@
             // 
             // txtCompanyCode
             // 
+            this.txtCompanyCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtCompanyCode.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.txtCompanyCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCompanyCode.Location = new System.Drawing.Point(109, 25);
@@ -93,6 +100,7 @@
             // 
             // lblPlateNumber
             // 
+            this.lblPlateNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblPlateNumber.AutoSize = true;
             this.lblPlateNumber.Location = new System.Drawing.Point(13, 29);
             this.lblPlateNumber.Name = "lblPlateNumber";
@@ -102,7 +110,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -135,7 +143,9 @@
             // 
             this.grvCompany.AllowUserToAddRows = false;
             this.grvCompany.AllowUserToDeleteRows = false;
-            this.grvCompany.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grvCompany.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.grvCompany.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grvCompany.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CompanyCode,
@@ -149,27 +159,6 @@
             this.grvCompany.Size = new System.Drawing.Size(600, 221);
             this.grvCompany.TabIndex = 1;
             this.grvCompany.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvCompany_CellDoubleClick);
-            // 
-            // CompanyCode
-            // 
-            this.CompanyCode.DataPropertyName = "CompanyCode";
-            this.CompanyCode.HeaderText = "Mã công ty";
-            this.CompanyCode.Name = "CompanyCode";
-            this.CompanyCode.ReadOnly = true;
-            // 
-            // CompanyName
-            // 
-            this.CompanyName.DataPropertyName = "CompanyName";
-            this.CompanyName.HeaderText = "Tên công ty";
-            this.CompanyName.Name = "CompanyName";
-            this.CompanyName.ReadOnly = true;
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "Description";
-            this.Description.HeaderText = "Mô tả";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
             // 
             // btnClose
             // 
@@ -239,6 +228,48 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CompanyCode";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Mã công ty";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 186;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "CompanyName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Tên công ty";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 185;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Description";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Mô tả";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 186;
+            // 
+            // CompanyCode
+            // 
+            this.CompanyCode.DataPropertyName = "CompanyCode";
+            this.CompanyCode.HeaderText = "Mã công ty";
+            this.CompanyCode.Name = "CompanyCode";
+            this.CompanyCode.ReadOnly = true;
+            // 
+            // CompanyName
+            // 
+            this.CompanyName.DataPropertyName = "CompanyName";
+            this.CompanyName.HeaderText = "Tên công ty";
+            this.CompanyName.Name = "CompanyName";
+            this.CompanyName.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "Mô tả";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
             // FrmListCompany
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,6 +310,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
 
     }
 }

@@ -383,5 +383,10 @@ namespace ETrains.Train
                 e.Cancel=true;
             }
         }
+
+        private void gbToaTau_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -34,6 +34,13 @@
         this.btnReset = new System.Windows.Forms.Button();
         this.btnSearch = new System.Windows.Forms.Button();
         this.grvUser = new System.Windows.Forms.DataGridView();
+        this.IsSelected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+        this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.label1 = new System.Windows.Forms.Label();
         this.txtKeyWord = new System.Windows.Forms.TextBox();
         this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -43,19 +50,15 @@
         this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.IsSelected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-        this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
         this.groupBox1.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)(this.grvUser)).BeginInit();
         this.SuspendLayout();
         // 
         // groupBox1
         // 
+        this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                    | System.Windows.Forms.AnchorStyles.Left)
+                    | System.Windows.Forms.AnchorStyles.Right)));
         this.groupBox1.Controls.Add(this.btnSave);
         this.groupBox1.Controls.Add(this.btnClose);
         this.groupBox1.Controls.Add(this.btnReset);
@@ -73,6 +76,7 @@
         // 
         // btnSave
         // 
+        this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
         this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
         this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -89,6 +93,7 @@
         // 
         // btnClose
         // 
+        this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
         this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
         this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -105,6 +110,7 @@
         // 
         // btnReset
         // 
+        this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
         this.btnReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
         this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -121,6 +127,7 @@
         // 
         // btnSearch
         // 
+        this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
         this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
         this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         this.btnSearch.Image = global::ETrains.Properties.Resources.search;
@@ -139,6 +146,9 @@
         this.grvUser.AllowUserToAddRows = false;
         this.grvUser.AllowUserToDeleteRows = false;
         this.grvUser.AllowUserToOrderColumns = true;
+        this.grvUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                    | System.Windows.Forms.AnchorStyles.Left)
+                    | System.Windows.Forms.AnchorStyles.Right)));
         this.grvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         this.grvUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IsSelected,
@@ -155,8 +165,68 @@
         this.grvUser.Size = new System.Drawing.Size(836, 365);
         this.grvUser.TabIndex = 7;
         // 
+        // IsSelected
+        // 
+        this.IsSelected.HeaderText = "Chọn";
+        this.IsSelected.Name = "IsSelected";
+        this.IsSelected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+        this.IsSelected.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+        this.IsSelected.Width = 50;
+        // 
+        // UserID
+        // 
+        this.UserID.DataPropertyName = "UserID";
+        this.UserID.HeaderText = "UserID";
+        this.UserID.Name = "UserID";
+        this.UserID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+        // 
+        // UserName
+        // 
+        this.UserName.DataPropertyName = "UserName";
+        this.UserName.HeaderText = "Tên truy cập";
+        this.UserName.Name = "UserName";
+        this.UserName.ReadOnly = true;
+        this.UserName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+        this.UserName.Width = 150;
+        // 
+        // FirstName
+        // 
+        this.FirstName.DataPropertyName = "Name";
+        this.FirstName.HeaderText = "Họ và tên";
+        this.FirstName.Name = "FirstName";
+        this.FirstName.ReadOnly = true;
+        this.FirstName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+        this.FirstName.Width = 150;
+        // 
+        // Email
+        // 
+        this.Email.DataPropertyName = "Email";
+        this.Email.HeaderText = "Email";
+        this.Email.Name = "Email";
+        this.Email.ReadOnly = true;
+        this.Email.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+        // 
+        // Address
+        // 
+        this.Address.DataPropertyName = "Address";
+        this.Address.HeaderText = "Địa chỉ";
+        this.Address.Name = "Address";
+        this.Address.ReadOnly = true;
+        this.Address.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+        this.Address.Width = 150;
+        // 
+        // PhoneNumber
+        // 
+        this.PhoneNumber.DataPropertyName = "PhoneNumber";
+        this.PhoneNumber.HeaderText = "Điện thoại";
+        this.PhoneNumber.Name = "PhoneNumber";
+        this.PhoneNumber.ReadOnly = true;
+        this.PhoneNumber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+        this.PhoneNumber.Width = 150;
+        // 
         // label1
         // 
+        this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
         this.label1.AutoSize = true;
         this.label1.Location = new System.Drawing.Point(7, 30);
         this.label1.Name = "label1";
@@ -166,6 +236,7 @@
         // 
         // txtKeyWord
         // 
+        this.txtKeyWord.Anchor = System.Windows.Forms.AnchorStyles.Left;
         this.txtKeyWord.Location = new System.Drawing.Point(153, 27);
         this.txtKeyWord.Name = "txtKeyWord";
         this.txtKeyWord.Size = new System.Drawing.Size(308, 21);
@@ -229,65 +300,6 @@
         this.dataGridViewTextBoxColumn6.ReadOnly = true;
         this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
         this.dataGridViewTextBoxColumn6.Width = 150;
-        // 
-        // IsSelected
-        // 
-        this.IsSelected.HeaderText = "Chọn";
-        this.IsSelected.Name = "IsSelected";
-        this.IsSelected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-        this.IsSelected.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-        this.IsSelected.Width = 50;
-        // 
-        // UserID
-        // 
-        this.UserID.DataPropertyName = "UserID";
-        this.UserID.HeaderText = "UserID";
-        this.UserID.Name = "UserID";
-        this.UserID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-        // 
-        // UserName
-        // 
-        this.UserName.DataPropertyName = "UserName";
-        this.UserName.HeaderText = "Tên truy cập";
-        this.UserName.Name = "UserName";
-        this.UserName.ReadOnly = true;
-        this.UserName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-        this.UserName.Width = 150;
-        // 
-        // FirstName
-        // 
-        this.FirstName.DataPropertyName = "Name";
-        this.FirstName.HeaderText = "Họ và tên";
-        this.FirstName.Name = "FirstName";
-        this.FirstName.ReadOnly = true;
-        this.FirstName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-        this.FirstName.Width = 150;
-        // 
-        // Email
-        // 
-        this.Email.DataPropertyName = "Email";
-        this.Email.HeaderText = "Email";
-        this.Email.Name = "Email";
-        this.Email.ReadOnly = true;
-        this.Email.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-        // 
-        // Address
-        // 
-        this.Address.DataPropertyName = "Address";
-        this.Address.HeaderText = "Địa chỉ";
-        this.Address.Name = "Address";
-        this.Address.ReadOnly = true;
-        this.Address.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-        this.Address.Width = 150;
-        // 
-        // PhoneNumber
-        // 
-        this.PhoneNumber.DataPropertyName = "PhoneNumber";
-        this.PhoneNumber.HeaderText = "Điện thoại";
-        this.PhoneNumber.Name = "PhoneNumber";
-        this.PhoneNumber.ReadOnly = true;
-        this.PhoneNumber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-        this.PhoneNumber.Width = 150;
         // 
         // frmListUserToAddInGroup
         // 

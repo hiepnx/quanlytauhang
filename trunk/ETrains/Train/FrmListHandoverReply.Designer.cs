@@ -30,20 +30,14 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListHandoverReply));
             this.lblHeader = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.grdHandover = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ListReplyNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ListReplyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomsCodeReceiver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomsReceiverName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbCustoms = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -64,6 +58,12 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ListReplyNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ListReplyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomsCodeReceiver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomsReceiverName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdHandover)).BeginInit();
@@ -84,6 +84,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.grdHandover);
             this.groupBox2.Location = new System.Drawing.Point(12, 138);
             this.groupBox2.Name = "groupBox2";
@@ -125,57 +128,6 @@
             this.grdHandover.Size = new System.Drawing.Size(782, 276);
             this.grdHandover.TabIndex = 60;
             this.grdHandover.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdHandover_CellDoubleClick);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // ListReplyNumber
-            // 
-            this.ListReplyNumber.DataPropertyName = "ListReplyNumber";
-            this.ListReplyNumber.HeaderText = "Số bảng kê hồi báo";
-            this.ListReplyNumber.Name = "ListReplyNumber";
-            this.ListReplyNumber.ReadOnly = true;
-            this.ListReplyNumber.Width = 170;
-            // 
-            // ListReplyDate
-            // 
-            this.ListReplyDate.DataPropertyName = "ListReplyDate";
-            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle2.NullValue = null;
-            this.ListReplyDate.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ListReplyDate.HeaderText = "Ngày tạo bảng kê";
-            this.ListReplyDate.Name = "ListReplyDate";
-            this.ListReplyDate.ReadOnly = true;
-            this.ListReplyDate.Width = 170;
-            // 
-            // CustomsCodeReceiver
-            // 
-            this.CustomsCodeReceiver.DataPropertyName = "CustomsCodeReceiver";
-            this.CustomsCodeReceiver.HeaderText = "Mã đơn vị tiếp nhận";
-            this.CustomsCodeReceiver.Name = "CustomsCodeReceiver";
-            this.CustomsCodeReceiver.ReadOnly = true;
-            this.CustomsCodeReceiver.Width = 170;
-            // 
-            // CustomsReceiverName
-            // 
-            this.CustomsReceiverName.DataPropertyName = "CustomsReceiverName";
-            this.CustomsReceiverName.HeaderText = "Tên đơn vị tiếp nhận";
-            this.CustomsReceiverName.Name = "CustomsReceiverName";
-            this.CustomsReceiverName.ReadOnly = true;
-            this.CustomsReceiverName.Width = 250;
-            // 
-            // Note
-            // 
-            this.Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Note.DataPropertyName = "Note";
-            this.Note.HeaderText = "Ghi chú";
-            this.Note.Name = "Note";
-            this.Note.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -411,6 +363,57 @@
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Visible = false;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // ListReplyNumber
+            // 
+            this.ListReplyNumber.DataPropertyName = "ListReplyNumber";
+            this.ListReplyNumber.HeaderText = "Số bảng kê hồi báo";
+            this.ListReplyNumber.Name = "ListReplyNumber";
+            this.ListReplyNumber.ReadOnly = true;
+            this.ListReplyNumber.Width = 170;
+            // 
+            // ListReplyDate
+            // 
+            this.ListReplyDate.DataPropertyName = "ListReplyDate";
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle2.NullValue = null;
+            this.ListReplyDate.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ListReplyDate.HeaderText = "Ngày tạo bảng kê";
+            this.ListReplyDate.Name = "ListReplyDate";
+            this.ListReplyDate.ReadOnly = true;
+            this.ListReplyDate.Width = 170;
+            // 
+            // CustomsCodeReceiver
+            // 
+            this.CustomsCodeReceiver.DataPropertyName = "CustomsCodeReceiver";
+            this.CustomsCodeReceiver.HeaderText = "Mã đơn vị tiếp nhận";
+            this.CustomsCodeReceiver.Name = "CustomsCodeReceiver";
+            this.CustomsCodeReceiver.ReadOnly = true;
+            this.CustomsCodeReceiver.Width = 170;
+            // 
+            // CustomsReceiverName
+            // 
+            this.CustomsReceiverName.DataPropertyName = "CustomsReceiverName";
+            this.CustomsReceiverName.HeaderText = "Tên đơn vị tiếp nhận";
+            this.CustomsReceiverName.Name = "CustomsReceiverName";
+            this.CustomsReceiverName.ReadOnly = true;
+            this.CustomsReceiverName.Width = 250;
+            // 
+            // Note
+            // 
+            this.Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Note.DataPropertyName = "Note";
+            this.Note.HeaderText = "Ghi chú";
+            this.Note.Name = "Note";
+            this.Note.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn7
             // 
