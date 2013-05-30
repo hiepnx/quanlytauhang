@@ -51,6 +51,7 @@
     <Compile Include="CompanyFactory.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="CustomsFacory.cs" />
+    <Compile Include="DonViTinhFactory.cs" />
     <Compile Include="GroupFactory.cs" />
     <Compile Include="HandoverReplyFactory.cs" />
     <Compile Include="NumberGenerateFactory.cs" />

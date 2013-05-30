@@ -9,6 +9,7 @@
           <EntitySet Name="tblChuyenTau" EntityType="dbTrainModel.Store.tblChuyenTau" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblCompany" EntityType="dbTrainModel.Store.tblCompany" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblCustoms" EntityType="dbTrainModel.Store.tblCustoms" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblDonViTinh" EntityType="dbTrainModel.Store.tblDonViTinh" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblGroup" EntityType="dbTrainModel.Store.tblGroup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblHandover" EntityType="dbTrainModel.Store.tblHandover" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblHandoverResource" EntityType="dbTrainModel.Store.tblHandoverResource" store:Type="Tables" Schema="dbo" />
@@ -159,6 +160,15 @@
           <Property Name="CreatedBy" Type="int" />
           <Property Name="ModifiedDate" Type="datetime" />
           <Property Name="ModifiedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="tblDonViTinh">
+          <Key>
+            <PropertyRef Name="Ma_DVT" />
+          </Key>
+          <Property Name="Ma_DVT" Type="nvarchar" Nullable="false" MaxLength="3" />
+          <Property Name="Ten_DVT" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Ma_Std" Type="nvarchar" MaxLength="3" />
+          <Property Name="TL_QuyDoi" Type="decimal" Precision="15" Scale="6" />
         </EntityType>
         <EntityType Name="tblGroup">
           <Key>
@@ -594,6 +604,7 @@
           <EntitySet Name="tblUserGroupPermissions" EntityType="dbTrainModel.tblUserGroupPermission" />
           <EntitySet Name="tblUserInGroups" EntityType="dbTrainModel.tblUserInGroup" />
           <EntitySet Name="ViewUserGroups" EntityType="dbTrainModel.ViewUserGroup" />
+          <EntitySet Name="tblDonViTinhs" EntityType="dbTrainModel.tblDonViTinh" />
         </EntityContainer>
         <EntityType Name="tblChuyenTau">
           <Key>
@@ -951,6 +962,15 @@
           <Property Type="String" Name="PhoneNumber" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="GroupID" Nullable="false" />
           <Property Type="String" Name="GroupName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblDonViTinh">
+          <Key>
+            <PropertyRef Name="Ma_DVT" />
+          </Key>
+          <Property Type="String" Name="Ma_DVT" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ten_DVT" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ma_Std" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="TL_QuyDoi" Precision="15" Scale="6" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1347,6 +1367,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tblDonViTinhs">
+            <EntityTypeMapping TypeName="dbTrainModel.tblDonViTinh">
+              <MappingFragment StoreEntitySet="tblDonViTinh">
+                <ScalarProperty Name="TL_QuyDoi" ColumnName="TL_QuyDoi" />
+                <ScalarProperty Name="Ma_Std" ColumnName="Ma_Std" />
+                <ScalarProperty Name="Ten_DVT" ColumnName="Ten_DVT" />
+                <ScalarProperty Name="Ma_DVT" ColumnName="Ma_DVT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1428,6 +1458,7 @@
         <EntityTypeShape EntityType="dbTrainModel.tblUserGroupPermission" Width="1.5" PointX="5.375" PointY="13.75" Height="2.7494921875000031" />
         <EntityTypeShape EntityType="dbTrainModel.tblUserInGroup" Width="1.5" PointX="14.375" PointY="0.75" Height="1.4033821614583388" />
         <EntityTypeShape EntityType="dbTrainModel.ViewUserGroup" Width="1.5" PointX="14.375" PointY="3.75" Height="2.5571907552083282" />
+        <EntityTypeShape EntityType="dbTrainModel.tblDonViTinh" Width="1.5" PointX="14.375" PointY="7.75" Height="1.7879850260416674" />
       </Diagram>
     </Diagrams>
   </Designer>
