@@ -54,6 +54,11 @@ namespace ETrains.Train
 
         private void Init()
         {
+            List<tblDonViTinh> listDVT = DonViTinhFactory.getAll();
+            cbDVT.DataSource = listDVT;
+            cbDVT.ValueMember = "Ma_DVT";
+            cbDVT.DisplayMember = "Ten_DVT";
+            cbDVT.SelectedIndex = 0;
 
             cbImportExportType.Items.Add(new ComboBoxItem(1, "Chuyển cảng"));
             cbImportExportType.Items.Add(new ComboBoxItem(2, "Tại chỗ"));
@@ -340,7 +345,7 @@ namespace ETrains.Train
                     Ten_DoanhNghiep = txtCompanyName.Text.Trim(),
                     Ten_Hang = txtTenHang.Text.Trim(),
                     Trong_Luong = txtTrongLuong.Text.Trim(),
-                    Don_Vi_Tinh = txtDVT.Text.Trim(),
+                    Don_Vi_Tinh = cbDVT.Text.Trim(),
                     Seal_VanTai = txtSealVT.Text.Trim(),
                     Seal_VanTai2 = txtSealVT2.Text.Trim(),
                     Seal_HaiQuan = txtSealHQ.Text.Trim(),
@@ -472,7 +477,7 @@ namespace ETrains.Train
             txtTenHang.Text = toaTau.Ten_Hang;
 
             txtTrongLuong.Text = toaTau.Trong_Luong;
-            txtDVT.Text = toaTau.Don_Vi_Tinh;
+            cbDVT.Text = toaTau.Don_Vi_Tinh;
             txtSealVT.Text = toaTau.Seal_VanTai;
             txtSealVT2.Text = toaTau.Seal_VanTai2;
             txtSealHQ.Text = toaTau.Seal_HaiQuan;
@@ -514,7 +519,7 @@ namespace ETrains.Train
             toaTau.Ten_DoanhNghiep = txtCompanyName.Text.Trim();
             toaTau.Ten_Hang = txtTenHang.Text.Trim();
             toaTau.Trong_Luong = txtTrongLuong.Text.Trim();
-            toaTau.Don_Vi_Tinh = txtDVT.Text.Trim();
+            toaTau.Don_Vi_Tinh = cbDVT.Text.Trim();
             toaTau.Seal_VanTai = txtSealVT.Text.Trim();
             toaTau.Seal_VanTai2 = txtSealVT2.Text.Trim();
             toaTau.Seal_HaiQuan = txtSealHQ.Text.Trim();
@@ -594,7 +599,7 @@ namespace ETrains.Train
                 txtCompanyCode.Tag = "required";
                 txtTenHang.Tag = "required";
                 txtTrongLuong.Tag = "required";
-                txtDVT.Tag = "required";
+                cbDVT.Tag = "required";
                 txtSealVT.Tag = "required";
                 txtSealVT2.Tag = "required";
             }
@@ -609,7 +614,7 @@ namespace ETrains.Train
                 txtCompanyCode.Tag = "required";
                 txtTenHang.Tag = "required";
                 txtTrongLuong.Tag = "required";
-                txtDVT.Tag = "required";
+                cbDVT.Tag = "required";
                 txtSealVT.Tag = "required";
                 txtSealVT2.Tag = "required";
 
@@ -633,7 +638,7 @@ namespace ETrains.Train
                 txtCompanyCode.Tag = null;
                 txtTenHang.Tag = null;
                 txtTrongLuong.Tag = null;
-                txtDVT.Tag = null;
+                cbDVT.Tag = null;
                 txtSealVT.Tag = null;
                 txtSealVT2.Tag = null;
 
@@ -701,7 +706,7 @@ namespace ETrains.Train
                 txtCompanyCode.Tag = null;
                 txtTenHang.Tag = null;
                 txtTrongLuong.Tag = null;
-                txtDVT.Tag = null;
+                cbDVT.Tag = null;
                 txtSealVT.Tag = null;
                 txtSealVT2.Tag = null;
 

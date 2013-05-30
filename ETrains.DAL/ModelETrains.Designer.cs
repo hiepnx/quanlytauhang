@@ -18,7 +18,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("dbTrainModel", "FK_tblToKhaiTauResource_tblToaTau", "tblToaTau", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ETrains.DAL.tblToaTau), "tblToKhaiTauResource", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ETrains.DAL.tblToKhaiTauResource))]
 
 // Original file name:
-// Generation date: 5/15/2013 11:30:54 PM
+// Generation date: 5/30/2013 10:02:10 PM
 namespace ETrains.DAL
 {
     
@@ -427,6 +427,23 @@ namespace ETrains.DAL
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         private global::System.Data.Objects.ObjectQuery<ViewUserGroup> _ViewUserGroups;
         /// <summary>
+        /// There are no comments for tblDonViTinhs in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Data.Objects.ObjectQuery<tblDonViTinh> tblDonViTinhs
+        {
+            get
+            {
+                if ((this._tblDonViTinhs == null))
+                {
+                    this._tblDonViTinhs = base.CreateQuery<tblDonViTinh>("[tblDonViTinhs]");
+                }
+                return this._tblDonViTinhs;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Data.Objects.ObjectQuery<tblDonViTinh> _tblDonViTinhs;
+        /// <summary>
         /// There are no comments for tblChuyenTaus in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
@@ -601,6 +618,14 @@ namespace ETrains.DAL
         public void AddToViewUserGroups(ViewUserGroup viewUserGroup)
         {
             base.AddObject("ViewUserGroups", viewUserGroup);
+        }
+        /// <summary>
+        /// There are no comments for tblDonViTinhs in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public void AddTotblDonViTinhs(tblDonViTinh tblDonViTinh)
+        {
+            base.AddObject("tblDonViTinhs", tblDonViTinh);
         }
     }
     /// <summary>
@@ -6958,5 +6983,138 @@ namespace ETrains.DAL
         partial void OnGroupNameChanging(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnGroupNameChanged();
+    }
+    /// <summary>
+    /// There are no comments for dbTrainModel.tblDonViTinh in the schema.
+    /// </summary>
+    /// <KeyProperties>
+    /// Ma_DVT
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="dbTrainModel", Name="tblDonViTinh")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class tblDonViTinh : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// Create a new tblDonViTinh object.
+        /// </summary>
+        /// <param name="ma_DVT">Initial value of Ma_DVT.</param>
+        /// <param name="ten_DVT">Initial value of Ten_DVT.</param>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public static tblDonViTinh CreatetblDonViTinh(string ma_DVT, string ten_DVT)
+        {
+            tblDonViTinh tblDonViTinh = new tblDonViTinh();
+            tblDonViTinh.Ma_DVT = ma_DVT;
+            tblDonViTinh.Ten_DVT = ten_DVT;
+            return tblDonViTinh;
+        }
+        /// <summary>
+        /// There are no comments for property Ma_DVT in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string Ma_DVT
+        {
+            get
+            {
+                return this._Ma_DVT;
+            }
+            set
+            {
+                this.OnMa_DVTChanging(value);
+                this.ReportPropertyChanging("Ma_DVT");
+                this._Ma_DVT = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("Ma_DVT");
+                this.OnMa_DVTChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _Ma_DVT;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnMa_DVTChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnMa_DVTChanged();
+        /// <summary>
+        /// There are no comments for property Ten_DVT in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string Ten_DVT
+        {
+            get
+            {
+                return this._Ten_DVT;
+            }
+            set
+            {
+                this.OnTen_DVTChanging(value);
+                this.ReportPropertyChanging("Ten_DVT");
+                this._Ten_DVT = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("Ten_DVT");
+                this.OnTen_DVTChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _Ten_DVT;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTen_DVTChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTen_DVTChanged();
+        /// <summary>
+        /// There are no comments for property Ma_Std in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string Ma_Std
+        {
+            get
+            {
+                return this._Ma_Std;
+            }
+            set
+            {
+                this.OnMa_StdChanging(value);
+                this.ReportPropertyChanging("Ma_Std");
+                this._Ma_Std = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("Ma_Std");
+                this.OnMa_StdChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _Ma_Std;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnMa_StdChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnMa_StdChanged();
+        /// <summary>
+        /// There are no comments for property TL_QuyDoi in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<decimal> TL_QuyDoi
+        {
+            get
+            {
+                return this._TL_QuyDoi;
+            }
+            set
+            {
+                this.OnTL_QuyDoiChanging(value);
+                this.ReportPropertyChanging("TL_QuyDoi");
+                this._TL_QuyDoi = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("TL_QuyDoi");
+                this.OnTL_QuyDoiChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<decimal> _TL_QuyDoi;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTL_QuyDoiChanging(global::System.Nullable<decimal> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTL_QuyDoiChanged();
     }
 }
