@@ -36,6 +36,18 @@ namespace ETrains.Train
 
             ddlTypeName.Items.AddRange(listType.ToArray());
             ddlTypeName.SelectedIndex = 0;
+
+            //init data for ImportExportType
+
+            var listImportExportType = new List<ComboBoxItem>();
+            listImportExportType.Add(new ComboBoxItem(-1, "Tất cả"));
+            listImportExportType.Add(new ComboBoxItem((short)ToaTauImportType.ChuyenCang, "Chuyển cảng"));
+            listImportExportType.Add(new ComboBoxItem((short)ToaTauImportType.TaiCho, "Tại chỗ"));
+            listImportExportType.Add(new ComboBoxItem(0, "Rỗng"));
+
+            ddlImportExportType.Items.AddRange(listImportExportType.ToArray());
+            ddlImportExportType.SelectedIndex = 0; 
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,8 +56,16 @@ namespace ETrains.Train
             {
                 Int32 countTrain = 0, countToaTau = 0, countHandoder = 0, countDeclaration = 0, countEmpty = 0;
 
+                int importExportTypeSearch = Convert.ToInt32(((ComboBoxItem)ddlImportExportType.SelectedItem).Value);
+
                 List<tblChuyenTau> listTrain = TrainFactory.SearchChuyenTau("", Convert.ToInt32(((ComboBoxItem)ddlTypeName.SelectedItem).Value),
                                                                  true, dtpFrom.Value, dtpTo.Value);
+
+                //if(importExportTypeSearch == 0) //chi list ke toa rong
+                //{
+                //   listTrain = listTrain.Where(x => x.tblToaTaus.Where( y => y.LoaiToaTau == (short)LoaiToaTau.ToaRong)).ToList();
+                //}
+                
 
                 DataSet1 dataset = new DataSet1();
                 DataTable dt = dataset.ViewToaTau;
@@ -66,6 +86,33 @@ namespace ETrains.Train
                         string soBBBG = "";
                         string tenNguoiGui = "";
                         string tenNguoiNhan = "";
+
+                        if(importExportTypeSearch == 0) //chi list ke toa rong
+                        {
+                          if(toaTau.LoaiToaTau != (short)LoaiToaTau.ToaRong)
+                          {
+                              continue;
+                          }
+
+                        }
+
+                        if(importExportTypeSearch == (int)ToaTauImportType.TaiCho) //chi list ke toa co loai hinh "tai cho"
+                        {
+                          if(toaTau.ImportExportType != (short)ToaTauImportType.TaiCho)
+                          {
+                              continue;
+                          }
+
+                        }
+
+                        if(importExportTypeSearch == (int)ToaTauImportType.ChuyenCang) //chi list ke toa co loai hinh "chuyen cang"
+                        {
+                          if(toaTau.ImportExportType != (short)ToaTauImportType.ChuyenCang)
+                          {
+                              continue;
+                          }
+
+                        }
 
                         switch(toaTau.LoaiToaTau)
                         {
