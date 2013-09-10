@@ -37,6 +37,8 @@
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.ddlTypeName = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.ddlImportExportType = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +49,7 @@
             this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.lblHeader.Location = new System.Drawing.Point(17, 9);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(498, 24);
+            this.lblHeader.Size = new System.Drawing.Size(502, 24);
             this.lblHeader.TabIndex = 4;
             this.lblHeader.Text = "Sổ theo dõi tàu hàng xuất nhập khẩu";
             this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -56,6 +58,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.ddlImportExportType);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label2);
@@ -65,7 +69,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(12, 55);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(503, 106);
+            this.groupBox1.Size = new System.Drawing.Size(507, 106);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Điều kiện tìm kiếm";
@@ -86,7 +90,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.button1.Image = global::ETrains.Properties.Resources.print_icon;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(388, 19);
+            this.button1.Location = new System.Drawing.Point(397, 54);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(95, 36);
             this.button1.TabIndex = 49;
@@ -142,11 +146,31 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Loại hình xuất nhập";
             // 
+            // ddlImportExportType
+            // 
+            this.ddlImportExportType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ddlImportExportType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.ddlImportExportType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlImportExportType.FormattingEnabled = true;
+            this.ddlImportExportType.Location = new System.Drawing.Point(350, 27);
+            this.ddlImportExportType.Name = "ddlImportExportType";
+            this.ddlImportExportType.Size = new System.Drawing.Size(142, 21);
+            this.ddlImportExportType.TabIndex = 51;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(294, 30);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.TabIndex = 52;
+            this.label4.Text = "Loại hình";
+            // 
             // FrmReportTrain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 178);
+            this.ClientSize = new System.Drawing.Size(531, 178);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmReportTrain";
@@ -169,5 +193,7 @@
         private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.ComboBox ddlTypeName;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox ddlImportExportType;
+        private System.Windows.Forms.Label label4;
     }
 }
