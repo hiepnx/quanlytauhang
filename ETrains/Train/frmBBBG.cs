@@ -392,12 +392,16 @@ namespace ETrains.Train
                 var reportHandOver = new ReportHandOver();
 
                 var txtNumberHandover = (TextObject)reportHandOver.Section1.ReportObjects["txtNumberHandover"];
-                var txtSummary = (TextObject)reportHandOver.Section1.ReportObjects["txtSummary"];
+                var ddlGaDenDi = (TextObject)reportHandOver.Section1.ReportObjects["ddlGaDenDi"];
+                var dtpHandover = (TextObject)reportHandOver.Section1.ReportObjects["dtpHandover"];
+
+                //Khong dung
+                //var txtSummary = (TextObject)reportHandOver.Section1.ReportObjects["txtSummary"];
                 var txtStatusVehicle = (TextObject)reportHandOver.Section1.ReportObjects["txtStatusVehicle"];
                 var txtStatusGoods = (TextObject)reportHandOver.Section1.ReportObjects["txtStatusGoods"];
                 var txtCustoms = (TextObject)reportHandOver.Section1.ReportObjects["txtCustoms"];
-                var txtPath = (TextObject)reportHandOver.Section1.ReportObjects["txtPath"];
-                var txtConfirmOfToStation = (TextObject)reportHandOver.Section1.ReportObjects["txtConfirmOfToStation"];
+                //var txtPath = (TextObject)reportHandOver.Section1.ReportObjects["txtPath"];
+                //var txtConfirmOfToStation = (TextObject)reportHandOver.Section1.ReportObjects["txtConfirmOfToStation"];
                 var txtToStation = (TextObject)reportHandOver.Section1.ReportObjects["txtToStation"];
                 var txtFromStation = (TextObject)reportHandOver.Section1.ReportObjects["txtFromStation"];
 
@@ -459,21 +463,28 @@ namespace ETrains.Train
                     String fromStation = CustomsFacory.FindByCode(handover.CodeStation).CustomsName;
                     String toStation = CustomsFacory.FindByCode(handover.CodeStationFromTo).CustomsName;
 
-                    if (handover.DateHandover != null)
-                    {
-                        String dateString = "Hồi " + handover.DateHandover.Value.Hour + " giờ " + handover.DateHandover.Value.Minute + " phút, ngày " + handover.DateHandover.Value.Day + " tháng " + handover.DateHandover.Value.Month + " năm " + handover.DateHandover.Value.Year;
-                        txtSummary.Text = dateString + " " + fromStation + " bàn giao cho Chi nhánh vận tải hàng hóa đường sắt Đồng Đăng" +
-                        " lô hàng nhập khẩu chuyển cảng vận chuyển từ " + fromStation + " đến " + toStation + ".";
-                    }
+                    //if (handover.DateHandover != null)
+                    //{
+                    //    String dateString = "Hồi " + handover.DateHandover.Value.Hour + " giờ " + handover.DateHandover.Value.Minute + " phút, ngày " + handover.DateHandover.Value.Day + " tháng " + handover.DateHandover.Value.Month + " năm " + handover.DateHandover.Value.Year;
+                    //    txtSummary.Text = dateString + " " + fromStation + " bàn giao cho Chi nhánh vận tải hàng hóa đường sắt Đồng Đăng" +
+                    //    " lô hàng nhập khẩu chuyển cảng vận chuyển từ " + fromStation + " đến " + toStation + ".";
+                    //}
                     
                     //txtNumberHandover.Text = "Số: " + handover.NumberHandover + "/BBBG-HQGA";
                     txtNumberHandover.Text = "Số: " + handover.NumberHandover;
+                    // Ten hai quan den
+                    ddlGaDenDi.Text = "Kính gửi: " +  toStation;
+                    if (handover.DateHandover != null)
+                    {
+                        dtpHandover.Text = "Thời gian chuyển: hồi " + handover.DateHandover.Value.Hour + " giờ ngày " + handover.DateHandover.Value.Day + " tháng " + handover.DateHandover.Value.Month + " năm " + handover.DateHandover.Value.Year;    
+                    }
+                    
                     txtStatusVehicle.Text = handover.StatusVehicle;
                     txtStatusGoods.Text = handover.StatusGoods;
 
                     txtCustoms.Text = fromStation.ToUpper();
-                    txtPath.Text = "Từ " + fromStation + " đến " + toStation;
-                    txtConfirmOfToStation.Text = "5. Xác nhận của " + toStation + ":";
+                    //txtPath.Text = "Từ " + fromStation + " đến " + toStation;
+                    //txtConfirmOfToStation.Text = "5. Xác nhận của " + toStation + ":";
                     txtFromStation.Text = fromStation;
                     txtToStation.Text = toStation;
 
@@ -489,6 +500,7 @@ namespace ETrains.Train
             }
             catch (Exception ex)
             {
+                throw ex;
             }
         }
             
