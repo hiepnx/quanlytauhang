@@ -464,10 +464,10 @@ namespace ETrains.BOL
         }
 
 
-        public static tblToKhaiTau FindToKhaiTauByNumber(long number)
+        public static tblToKhaiTau FindToKhaiTauByNumber(long number, DateTime dateDeclaration, string typeCode)
         {
             var db = Instance();
-            return db.tblToKhaiTaus.Where(g => g.Number == number).FirstOrDefault();
+            return db.tblToKhaiTaus.Where(g => g.Number == number && g.DateDeclaration.Value.Equals(dateDeclaration) && g.TypeCode.Equals(typeCode)).FirstOrDefault();
 
         }
 
