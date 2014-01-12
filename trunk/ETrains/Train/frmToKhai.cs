@@ -156,7 +156,7 @@ namespace ETrains.Train
                 //    return;    
                 //}
                 //kiem tra su trung lap so to khai
-                if (TrainFactory.FindToKhaiTauByNumber(Int64.Parse(txtNumberToKhai.Text.Trim()))!=null)
+                if (TrainFactory.FindToKhaiTauByNumber(Int64.Parse(txtNumberToKhai.Text.Trim()), dtpDeclaration.Value, txtTypeCode.Text) != null)
                 {
                     MessageBox.Show("Số tờ khai này đã tồn tại, xin nhập số khác!");
                     return;   
